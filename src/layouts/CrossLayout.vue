@@ -4,7 +4,7 @@
     <q-header
       elevated
       reveal
-      class="bg-primary text-white"
+      class="cross-bg text-white"
       height-hint="98"
     >
       <q-toolbar>
@@ -16,15 +16,39 @@
           dense
           flat
           round
+          style="background: #5399d8 "
           icon="menu"
           @click="right = !right"
         />
       </q-toolbar>
+      <div class="cross-menu">
+        <q-tabs align="left">
+          <q-route-tab
+            to="/digital-change"
+            label="Digitaler Wandel"
+          />
+          <q-route-tab
+            to="/open-source"
+            label="Open Source"
+          />
+          <q-route-tab
+            to="/about"
+            label="über uns"
+          />
+        </q-tabs>
+      </div>
+    </q-header>
 
+    <q-drawer
+      v-model="right"
+      side="right"
+      overlay
+      bordered
+    >
       <q-tabs align="left">
         <q-route-tab
-          to="/digital-change"
-          label="Digitaler Wandel"
+          to="/jobs"
+          label="Jobs"
         />
         <q-route-tab
           to="/open-source"
@@ -35,14 +59,7 @@
           label="über uns"
         />
       </q-tabs>
-    </q-header>
-
-    <q-drawer
-      v-model="right"
-      side="right"
-      overlay
-      bordered
-    >
+      <timeline />
       <h2>Hier kommt was rein</h2>
       <!-- drawer content -->
     </q-drawer>
@@ -85,6 +102,7 @@
 <script>
 
 import Logo from '../components/Logo.vue'
+import Timeline from '../components/Timeline.vue'
 
 export default {
   data () {
@@ -93,7 +111,18 @@ export default {
     }
   },
   components: {
-    Logo
+    Logo,
+    Timeline
   }
 }
 </script>
+
+<style scoped>
+.cross-bg {
+  background: linear-gradient(145deg, #6d6be9 11%, #014a88 75%) !important;
+}
+.cross-menu {
+  border-top: 1px solid #faa427;
+  background: #014a88;
+}
+</style>

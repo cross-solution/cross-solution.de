@@ -17,20 +17,40 @@
       </div>
 
       <q-card class="col-auto">
-        <img src="../statics/team/carsten_bleek.jpg">
 
+        <q-img src="../statics/team/carsten_bleek.jpg" />
         <q-card-section>
           <div class="text-h6">Carsten Bleek</div>
           <div class="text-subtitle2">Inhaber, Dipl. Ing. Informatik</div>
         </q-card-section>
 
         <q-card-section>
-          dies und das
+          let's work together
         </q-card-section>
+        <q-card-actions align="around">
+          <q-btn push>
+            <img
+              src="statics/icons/github.svg"
+              class="btn-icon"
+            />
+          </q-btn>
+          <q-btn push>
+            <img
+              src="statics/icons/linkedin.svg"
+              class="btn-icon"
+            />
+          </q-btn>
+          <q-btn push>
+            <img
+              src="statics/icons/xing.svg"
+              class="btn-icon"
+            />
+          </q-btn>
+        </q-card-actions>
       </q-card>
 
       <q-card class="col-auto">
-        <img src="../statics/team/mathias.jpg">
+        <q-img src="../statics/team/mathias.jpg" />
 
         <q-card-section>
           <div class="text-h6">Mathias Gelhausen</div>
@@ -53,61 +73,6 @@
           <div class="text-subtitle2">by John Doe</div>
         </q-card-section>
       </q-card>
-
-      <div class="col-md-4 col-xs-12 col-sm-6 ">
-
-        <q-layout
-          view="lHh Lpr lFf"
-          container
-          style="height: 400px"
-          class="shadow-2 rounded-borders"
-        >
-          <q-header elevated>
-            <q-bar>
-              <q-icon name="laptop_chromebook" />
-              <div>Timeline</div>
-
-              <q-space />
-
-              <q-btn
-                dense
-                flat
-                icon="minimize"
-              />
-              <q-btn
-                dense
-                flat
-                icon="crop_square"
-              />
-              <q-btn
-                dense
-                flat
-                icon="close"
-              />
-            </q-bar>
-          </q-header>
-
-          <q-page-container>
-            <q-page padding>
-
-              <timeline />
-              <!-- place QPageScroller at end of page -->
-              <q-page-scroller
-                position="bottom-right"
-                :scroll-offset="150"
-                :offset="[18, 18]"
-              >
-                <q-btn
-                  fab
-                  icon="keyboard_arrow_up"
-                  color="accent"
-                />
-              </q-page-scroller>
-            </q-page>
-          </q-page-container>
-        </q-layout>
-      </div>
-
     </div>
     <div class="col-md-4">
       <timeline />
@@ -138,4 +103,6 @@ export default {
 .profiles
   width: 100%
   max-width: 350px
+.btn-icon
+  width: 30px
 </style>

@@ -27,7 +27,7 @@
             </svg></span><span style="display:inline-block;padding:2px 3px">Robert Anasch</span></a>
         <div class="absolute-bottom custom-caption">
           <div class="text-h2">Lizenz</div>
-          <div class="text-subtitle1">Es ging mal um Lizenzen. Es geht aber um viel mehr ...</div>
+          <div class="text-subtitle1">Es ging mal um Lizenzen...</div>
         </div>
       </q-carousel-slide>
       <q-carousel-slide
@@ -51,7 +51,7 @@
 
         <div class="absolute-bottom custom-caption">
           <div class="text-h2">Code</div>
-          <div class="text-subtitle1">es fängt mit offenem Quellcode an. Aber es kann mehr daraus werden, als ein Programm.</div>
+          <div class="text-subtitle1">es ging mal um Code</div>
         </div>
       </q-carousel-slide>
 
@@ -75,14 +75,17 @@
             </svg></span><span style="display:inline-block;padding:2px 3px">Mark Asthoff</span></a>
 
         <div class="absolute-bottom custom-caption">
-          <div class="text-h2">Horizont</div>
-          <div class="text-subtitle1">Open Source erweitert den Horizont. Es verbessert die Arbeitsweise.</div>
+          <div class="text-h2">Arbeit</div>
+          <div class="text-subtitle1">Es verbessert die Arbeitsweise.</div>
         </div>
       </q-carousel-slide>
     </q-carousel>
     <div class="row q-pa-sm">
       <div class="text-body1">
-        Open Source ist toll
+        Seit 20 Jahren arbeiten wir mit Spaß und Open Source. In der Software-Entwicklung hat sich dort viel getan.
+        Wir haben festgestellt, dass es einfacher ist mit der Entwicklung schritt zu halten, wenn man mit Freelancern
+        verteilt um den Globus zusammenarbeitet.
+
       </div>
       <div class="text-body2">
         Bereits 2001 sah <a href="https://de.wikipedia.org/wiki/Gundolf_S._Freyermuth">Gundolf S. Freyermuth</a> einen
