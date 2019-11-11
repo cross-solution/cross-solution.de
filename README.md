@@ -1,6 +1,6 @@
-# cross-homepage (cross-home)
+# CROSS Solution homepage
 
-A Quasar Framework app
+this is our homepage. 
 
 ## Install the dependencies
 ```bash
