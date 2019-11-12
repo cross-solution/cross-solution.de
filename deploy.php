@@ -29,7 +29,7 @@ after('deploy:symlink', 'npm');
 after('cleanup', 'restart');
 
 task('npm', '
-    yarn;
+    ~/.yarn/bin/yarn;
     node_modules/.bin/quasar build -m ssr;
 ');
 
