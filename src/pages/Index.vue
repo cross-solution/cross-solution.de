@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex">
+  <q-page class="flex items-start">
     <q-carousel
       class="full-width"
       arrows
@@ -12,8 +12,8 @@
         img-src="https://cdn.quasar.dev/img/mountains.jpg"
       >
         <div class="absolute-bottom custom-caption">
-          <div class="text-h2">First stop</div>
-          <div class="text-subtitle1">Mountains</div>
+          <div class="text-h2">Full Stack Development</div>
+          <div class="text-subtitle1">IT Lösungen von CROSS Solution</div>
         </div>
       </q-carousel-slide>
       <q-carousel-slide
@@ -35,39 +35,69 @@
         </div>
       </q-carousel-slide>
     </q-carousel>
-    <q-card
-      class="my-card text-white"
-      style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
-    >
-      <q-card-section>
-        <div class="text-h6">Our Changing Planet</div>
-        <div class="text-subtitle2">by John Doe</div>
-      </q-card-section>
+    <q-page-container class="flex q-gutter-md">
+      <q-card
+        class="my-card text-white "
+        style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
+      >
+        <q-card-section>
+          <div class="text-h6">Software Entwicklung</div>
+          <div class="text-subtitle2">Fontend Backend</div>
+        </q-card-section>
 
-      <q-card-section>
-        Wir bieten maßgeschneiderte Web-Applikationen und komplexe System-Lösungen. Von der Beratung, der Entwicklung und dem anschließenden Support bieten wir umfassende IT Dienstleistungen aus einer Hand.
-        Bei der Konzeption setzen wir, wann immer es geht, auf bewährte Open Source Technologien. Nicht nur die niedrigen Einsatzkosten sind dafür ausschlaggebend, sondern auch die Möglichkeit, notwendige Anpassungen am offen zugänglichen Quellcode durchführen zu können.
-        Dies versetzt uns in die Lage, komplexe Projekte schnell und kostengünstig umzusetzen.
-        Wir sind fair, offen und ehrlich, und wir konzentrieren uns nur auf das Wesentliche.
-      </q-card-section>
-    </q-card>
-    <q-card
-      class="my-card text-white"
-      style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
-    >
-      <q-card-section>
-        <div class="text-h6">Our Changing Planet</div>
-        <div class="text-subtitle2">by John Doe</div>
-      </q-card-section>
+        <q-card-section>
+          Wir bieten maßgeschneiderte Web-Applikationen und komplexe System-Lösungen. Von der Beratung, der Entwicklung und dem anschließenden Support bieten wir umfassende IT Dienstleistungen aus einer Hand.
+          Bei der Konzeption setzen wir, wann immer es geht, auf bewährte Open Source Technologien. Nicht nur die niedrigen Einsatzkosten sind dafür ausschlaggebend, sondern auch die Möglichkeit, notwendige Anpassungen am offen zugänglichen Quellcode durchführen zu können.
+          Dies versetzt uns in die Lage, komplexe Projekte schnell und kostengünstig umzusetzen.
+          Wir sind fair, offen und ehrlich, und wir konzentrieren uns nur auf das Wesentliche.
+        </q-card-section>
+      </q-card>
+      <q-card class="my-card text-white">
+        <q-card-section>
+          <div class="text-h6">VoIP</div>
+          <div class="text-subtitle2">by John Doe</div>
+        </q-card-section>
 
-      <q-card-section>
-        Wir bieten maßgeschneiderte Web-Applikationen und komplexe System-Lösungen. Von der Beratung, der Entwicklung und dem anschließenden Support bieten wir umfassende IT Dienstleistungen aus einer Hand.
-        Bei der Konzeption setzen wir, wann immer es geht, auf bewährte Open Source Technologien. Nicht nur die niedrigen Einsatzkosten sind dafür ausschlaggebend, sondern auch die Möglichkeit, notwendige Anpassungen am offen zugänglichen Quellcode durchführen zu können.
-        Dies versetzt uns in die Lage, komplexe Projekte schnell und kostengünstig umzusetzen.
-        Wir sind fair, offen und ehrlich, und wir konzentrieren uns nur auf das Wesentliche.
-      </q-card-section>
-    </q-card>
-    <q-page-container>
+        <q-card-section>
+          Asterisk, Freeswitch, Kamailio, Snom, Aastaro, Mitel, Patton SmartNode, GOfax.IP
+        </q-card-section>
+
+      </q-card>
+
+      <q-card class="my-card text-white">
+        <q-card-section>
+          <div class="text-h6">DevOps</div>
+          <div class="text-subtitle2">by John Doe</div>
+        </q-card-section>
+
+        <q-card-section>
+          Gitlab,
+        </q-card-section>
+
+      </q-card>
+
+      <q-card class="my-card text-white">
+        <q-card-section>
+          <div class="text-h6">VoIP</div>
+          <div class="text-subtitle2">by John Doe</div>
+        </q-card-section>
+
+        <q-card-section>
+          Asterisk, Freeswitch, Kamailio, Snom, Aastaro, Mitel, Patton SmartNode, GOfax.IP
+        </q-card-section>
+
+      </q-card>
+
+      <q-card class="my-card text-white">
+        <q-card-section>
+          <div class="text-h6">Recruiting</div>
+          <div class="text-subtitle2">by John Doe</div>
+        </q-card-section>
+
+        <q-card-section>
+          Sie möchten klassisch über Stellenbörsen eine Stellenanzeige schalten?
+        </q-card-section>
+      </q-card>
     </q-page-container>
 
   </q-page>
@@ -95,4 +125,6 @@ export default {
 .my-card
   width: 100%
   max-width: 250px
+  background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)
+
 </style>

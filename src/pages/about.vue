@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="row col-md-8 q-px-lg q-pb-md items-start q-gutter-x-md items-start">
+  <div class="row items-start">
+    <div class=" row col-md-8 q-px-lg q-pb-md items-start q-gutter-x-md items-start">
       <div class="col-md-12 ">
         <h1>Über uns</h1>
         <p>
@@ -16,51 +16,13 @@
         </p>
       </div>
 
-      <q-card class="col-auto">
+      <q-separator horizontal />
 
-        <q-img src="../statics/team/carsten_bleek.jpg" />
-        <q-card-section>
-          <div class="text-h6">Carsten Bleek</div>
-          <div class="text-subtitle2">Inhaber, Dipl. Ing. Informatik</div>
-        </q-card-section>
-
-        <q-card-section>
-          let's work together
-        </q-card-section>
-        <q-card-actions align="around">
-          <q-btn push>
-            <img
-              src="statics/icons/github.svg"
-              class="btn-icon"
-            />
-          </q-btn>
-          <q-btn push>
-            <img
-              src="statics/icons/linkedin.svg"
-              class="btn-icon"
-            />
-          </q-btn>
-          <q-btn push>
-            <img
-              src="statics/icons/xing.svg"
-              class="btn-icon"
-            />
-          </q-btn>
-        </q-card-actions>
-      </q-card>
-
-      <q-card class="col-auto">
-        <q-img src="../statics/team/mathias.jpg" />
-
-        <q-card-section>
-          <div class="text-h6">Mathias Gelhausen</div>
-          <div class="text-subtitle2">Softwareentwickler Informatiker</div>
-        </q-card-section>
-
-        <q-card-section>
-          dies und das
-        </q-card-section>
-      </q-card>
+      <member
+        v-for="member in members"
+        v-bind:key="member.name"
+        v-bind="member"
+      />
 
       <q-card class="my-card">
         <q-parallax
@@ -73,6 +35,9 @@
           <div class="text-subtitle2">by John Doe</div>
         </q-card-section>
       </q-card>
+      <div>
+        <h3>Werte</h3>
+      </div>
     </div>
     <div class="col-md-4">
       <timeline />
@@ -83,6 +48,7 @@
 <script>
 
 import Timeline from '../components/Timeline.vue'
+import Member from '../components/Member.vue'
 
 export default {
   computed: {
@@ -90,8 +56,57 @@ export default {
       return this.$q.screen.lt.sm ? 'dense' : (this.$q.screen.lt.md ? 'comfortable' : 'loose')
     }
   },
+  data () {
+    return {
+      members: [
+        {
+          name: 'Carsten Bleek',
+          title: 'Inhaber, Dipl. Ing. Informatik',
+          image: 'statics/team/carsten_bleek.jpg',
+          slogan: "Let's work together",
+          buttons: [{
+            src: 'statics/icons/github.svg',
+            link: '',
+            text: 'Github'
+          },
+          {
+            src: 'statics/icons/linkedin.svg',
+            link: '',
+            text: 'LinkedIn'
+          },
+          {
+            src: 'statics/icons/xing.svg',
+            link: 'test',
+            text: 'Xing'
+          }]
+        },
+        {
+          name: 'Mathias Gelhausen',
+          title: 'Software Developer',
+          image: 'statics/team/mathias.jpg',
+          slogan: "Let's code together",
+          buttons: [{
+            src: 'statics/icons/github.svg',
+            link: '',
+            text: 'Github'
+          },
+          {
+            src: 'statics/icons/linkedin.svg',
+            link: '',
+            text: ''
+          },
+          {
+            src: 'statics/icons/xing.svg',
+            link: '',
+            text: ''
+          }]
+        }
+      ]
+    }
+  },
   components: {
-    Timeline
+    Timeline,
+    Member
   }
 }
 </script>
@@ -104,5 +119,5 @@ export default {
   width: 100%
   max-width: 350px
 .btn-icon
-  width: 30px
+  width: 40px
 </style>
