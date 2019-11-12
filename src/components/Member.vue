@@ -11,11 +11,14 @@
     <q-card-section>
       {{ slogan }}
     </q-card-section>
+
     <q-card-actions align="around">
       <q-btn
         push
         v-for="button in buttons"
         v-bind:key="button.text"
+        v-bind="button.link"
+        @click.native="openUrl(button.link)"
       >
         <img
           v-bind="button"
@@ -34,8 +37,13 @@ export default {
     image: String,
     slogan: String,
     buttons: Array
+  },
+  methods: {
+    openUrl (url) {
+      console.log('open URL:' + url)
+      window.location.href = url
+    }
   }
-
 }
 </script>
 

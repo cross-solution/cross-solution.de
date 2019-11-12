@@ -66,17 +66,17 @@ export default {
           slogan: "Let's work together",
           buttons: [{
             src: 'statics/icons/github.svg',
-            link: '',
+            link: 'https://github.com/cbleek',
             text: 'Github'
           },
           {
             src: 'statics/icons/linkedin.svg',
-            link: '',
+            link: 'https://www.linkedin.com/in/cbleek/',
             text: 'LinkedIn'
           },
           {
             src: 'statics/icons/xing.svg',
-            link: 'test',
+            link: 'https://www.xing.com/profile/Carsten_Bleek',
             text: 'Xing'
           }]
         },
@@ -87,18 +87,19 @@ export default {
           slogan: "Let's code together",
           buttons: [{
             src: 'statics/icons/github.svg',
-            link: '',
+            link: 'https://github.com/tisie',
             text: 'Github'
-          },
-          {
-            src: 'statics/icons/linkedin.svg',
-            link: '',
-            text: ''
-          },
-          {
-            src: 'statics/icons/xing.svg',
-            link: '',
-            text: ''
+          }]
+        },
+        {
+          name: 'Wlad Korolew',
+          title: 'Designer',
+          image: 'statics/team/mathias.jpg',
+          slogan: 'Design muss sein',
+          buttons: [{
+            src: 'statics/icons/github.svg',
+            link: 'https://github.com/Steinbach2019',
+            text: 'Github'
           }]
         }
       ]
