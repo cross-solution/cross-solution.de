@@ -29,9 +29,8 @@ after('deploy:symlink', 'npm');
 after('cleanup', 'restart');
 
 task('npm', '
-    npm i;
-    npm run build;
-    npm run generate;
+    yarn;
+    node_modules/.bin/quasar build -m ssr;
 ');
 
 task('restart', '
