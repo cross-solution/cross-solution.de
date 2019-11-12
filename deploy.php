@@ -12,7 +12,7 @@ set('repository', 'https://github.com/cross-solution/cross-solution.de.git');
 set('default_stage', 'prod');
 
 // deploy to Hosts
-host('quasar.ccross-solution.de')
+host('quasar.cross-solution.de')
     ->user('nuxt')
     ->stage('prod')
     ->multiplexing(false) 
