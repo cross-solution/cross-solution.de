@@ -7,11 +7,10 @@
       v-model="slide"
       height="400px"
     >
-      <q-carousel-slide
-        name="first"
-        img-src="https://cdn.quasar.dev/img/mountains.jpg"
-      >
+      <q-carousel-slide name="first">
         <div class="absolute-bottom custom-caption">
+          <slogan h1="die besten Lösungen kommen von CROSS" />
+
           <div class="text-h2">Full Stack Development</div>
           <div class="text-subtitle1">IT Lösungen von CROSS Solution</div>
         </div>
@@ -105,12 +104,17 @@
 </template>
 
 <script>
+import Slogan from '../components/Slogan.vue'
+
 export default {
   name: 'PageIndex',
   data () {
     return {
       slide: 'first'
     }
+  },
+  components: {
+    Slogan
   }
 }
 </script>

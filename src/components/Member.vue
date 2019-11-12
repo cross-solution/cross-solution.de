@@ -40,7 +40,6 @@ export default {
   },
   methods: {
     openUrl (url) {
-      console.log('open URL:' + url)
       window.location.href = url
     }
   }

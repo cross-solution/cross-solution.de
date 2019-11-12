@@ -157,14 +157,10 @@ export default {
 
       this.loading = true
 
-      console.log('Query:' + q + ' Page: ' + page)
-
       // emulate server
       setTimeout(() => {
         // get all rows if "All" (0) is selected
         let fetchCount = rowsPerPage === 0 ? rowsNumber : rowsPerPage
-
-        console.log('q:' + q)
 
         // fetch data from "server"
         let returnedData = this.fetchFromServer(page, fetchCount, q, sortBy, descending)
@@ -205,18 +201,12 @@ export default {
 
       var queryStr = Object.keys(query).map(k => `${k}=${encodeURIComponent(query[k])}`).join('&')
 
-      console.log(page)
-      console.log(' Filter: ' + q)
-
       if (!q) {
-        console.log('Start Request')
-
         this.$axios.get('https://www.stellenmarkt.com/de/jobs?' + queryStr)
           .then((response) => {
             this.data = response.data.jobs
             this.pagination.rowsNumber = response.data.total
             this.pagination.page = response.data.currentPage
-            console.log(response.data.total)
           })
           .catch(() => {
             this.$q.notify({
@@ -226,10 +216,6 @@ export default {
               icon: 'report_problem'
             })
           })
-
-        console.log(this.data)
-      } else {
-        console.log(q)
       }
       return data
     }
