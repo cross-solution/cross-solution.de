@@ -1,0 +1,10 @@
+{
+    "name": "cbleek/cross-home",
+    "authors": [
+        {
+            "name": "Carsten Bleek",
+            "email": "bleek@cross-solution.de"
+        }
+    ],
+    "require": {}
+}
