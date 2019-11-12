@@ -1,6 +1,6 @@
 # CROSS Solution homepage
 
-this is our homepage. 
+this is our upcoming homepage. 
 
 ## Install the dependencies
 ```bash
