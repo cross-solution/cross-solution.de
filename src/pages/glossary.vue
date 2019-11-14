@@ -72,7 +72,7 @@ export default {
           name: 'fab fa-github',
           title: 'GitHub',
           subtitle: 'kollaborative Versionsverwaltung',
-          text: '',
+          text: 'GitHub ist der Ort, wo Entwickler austauschen. Auch GitLab synchronisiert seine Repositories zu GitHub',
           homepage: 'https://www.github.com',
           wikipedia: 'https://de.wikipedia.org/wiki/GitHub',
           by: 'Microsoft',
@@ -167,7 +167,7 @@ export default {
           name: 'fab fa-angular',
           title: 'Angular',
           subtitle: 'TypeScript-basiertes clientseitiges Webapplication Framework',
-          text: '',
+          text: 'es gab mal AngulatJS jetz gibt es angular. Google kam nicht auf die Idee, dass es zu einer Verwechselungsgefahr kommt',
           by: 'Google',
           homepage: 'https://angular.io/',
           wikipedia: 'http://www.angular.io/',
@@ -177,7 +177,7 @@ export default {
           name: 'fab fa-java',
           title: 'java',
           subtitle: 'objektorientierte Programmiersprache',
-          text: '',
+          text: 'von SUN entwickelt, von Oracle gekauft.',
           by: 'Oracle',
           homepage: 'https://www.java.com',
           year: '1995'
@@ -203,7 +203,7 @@ export default {
           name: 'fab fa-python',
           title: 'Python',
           subtitle: 'Paketmanagement',
-          text: '',
+          text: 'eine "alte" Sprache.',
           homepage: 'https://www.python.org/',
           wikipedia: 'https://de.wikipedia.org/wiki/Python_(Programmiersprache)',
           by: 'Python Software Foundation',
@@ -221,7 +221,7 @@ export default {
           name: 'fab fa-sass',
           title: 'sass',
           subtitle: 'Paketmanagement',
-          text: '',
+          text: 'SASS und SCSS sind beispielhaft, für Entwicklungen im Open Source Bereich. Es geht um Details. Lassen wir ein Semikolon am Ende einer Zeile weg oder nicht. Verzichten wir auf geschweifte klammern oder nicht. Die einen sagen, wir möchten den Bezug zum gelernten CSS. Die anderen verweisen auf eine bessere Lesbarkeit. Wir werden sehen, was sich duchsetzt.',
           homepage: 'http://sass-lang.com/',
           year: '2007',
           wikipedia: 'https://de.wikipedia.org/wiki/Sass_(Stylesheet-Sprache)'
@@ -272,7 +272,7 @@ export default {
           name: 'fab fa-wordpress',
           title: 'Wordpress',
           subtitle: 'CMS',
-          text: '',
+          text: 'Ursprünglich als Blog Systm konzipiert, ist es heute häufig als CMS eingesetzt',
           wikipedia: 'https://de.wikipedia.org/wiki/Bitcoin',
           year: '2003',
           by: 'WordPress Foundation'
@@ -281,7 +281,7 @@ export default {
           name: 'fab fa-typo3',
           title: 'Typo3',
           subtitle: 'CMS',
-          text: '',
+          text: 'In Deutschland ist Typo3 weit verbreitet',
           wikipedia: 'https://de.wikipedia.org/wiki/TYPO3',
           year: '1998',
           by: 'Kasper Skårhøj, TYPO3 Association'
@@ -357,6 +357,21 @@ export default {
         },
         {
           name: '',
+          title: 'MySQL',
+          subtitle: 'relationale Datebank',
+          text: '',
+          homepage: 'https://www.mongodb.com/',
+          by: 'Oracle'
+        },
+        {
+          name: '',
+          title: 'mariaDB',
+          subtitle: 'relationale Datebank',
+          text: 'Wesentliche Linux Distributionen haben von MySQL auf MariaDB gewechselt. Wir folgen der Entwicklung',
+          homepage: 'https://www.mariadb.org/'
+        },
+        {
+          name: '',
           title: 'Solr',
           subtitle: 'Search Engine',
           text: '',
@@ -371,6 +386,14 @@ export default {
           text: '',
           homepage: 'https://www.elastic.co/',
           wikipedia: 'https://de.wikipedia.org/wiki/Elasticsearch',
+          year: '2010'
+        },
+        {
+          name: '',
+          title: 'Sphinx',
+          subtitle: 'Dokumentation',
+          text: '',
+          wikipedia: 'https://de.wikipedia.org/wiki/Sphinx_(Software)',
           year: '2010'
         }
       ]
