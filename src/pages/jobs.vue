@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex">
+  <q-page class="padding">
     <div class="row col-12">
       <h1>Jobs</h1>
     </div>

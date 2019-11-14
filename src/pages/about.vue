@@ -65,17 +65,17 @@ export default {
           image: 'statics/team/carsten_bleek.jpg',
           slogan: "Let's work together",
           buttons: [{
-            src: 'statics/icons/github.svg',
+            name: 'fab fa-github',
             link: 'https://github.com/cbleek',
             text: 'Github'
           },
           {
-            src: 'statics/icons/linkedin.svg',
+            name: 'fab fa-linkedin',
             link: 'https://www.linkedin.com/in/cbleek/',
             text: 'LinkedIn'
           },
           {
-            src: 'statics/icons/xing.svg',
+            name: 'fab fa-xing',
             link: 'https://www.xing.com/profile/Carsten_Bleek',
             text: 'Xing'
           }]
@@ -86,7 +86,7 @@ export default {
           image: 'statics/team/mathias.jpg',
           slogan: "Let's code together",
           buttons: [{
-            src: 'statics/icons/github.svg',
+            name: 'fab fa-github',
             link: 'https://github.com/tisie',
             text: 'Github'
           }]
@@ -97,7 +97,7 @@ export default {
           image: 'statics/team/mathias.jpg',
           slogan: 'Design muss sein',
           buttons: [{
-            src: 'statics/icons/github.svg',
+            name: 'fab fa-github',
             link: 'https://github.com/Steinbach2019',
             text: 'Github'
           }]

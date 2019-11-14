@@ -9,7 +9,7 @@
     >
       <q-carousel-slide name="first">
         <div class="absolute-bottom custom-caption">
-          <slogan h1="die besten Lösungen kommen von CROSS" />
+          <slogan h1="solide Lösungen von CROSS" />
 
           <div class="text-h2">Full Stack Development</div>
           <div class="text-subtitle1">IT Lösungen von CROSS Solution</div>
@@ -35,86 +35,151 @@
       </q-carousel-slide>
     </q-carousel>
     <q-page-container class="flex q-gutter-md">
-      <q-card
-        class="my-card text-white "
-        style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
-      >
-        <q-card-section>
-          <div class="text-h6">Software Entwicklung</div>
-          <div class="text-subtitle2">Fontend Backend</div>
-        </q-card-section>
 
-        <q-card-section>
-          Wir bieten maßgeschneiderte Web-Applikationen und komplexe System-Lösungen. Von der Beratung, der Entwicklung und dem anschließenden Support bieten wir umfassende IT Dienstleistungen aus einer Hand.
-          Bei der Konzeption setzen wir, wann immer es geht, auf bewährte Open Source Technologien. Nicht nur die niedrigen Einsatzkosten sind dafür ausschlaggebend, sondern auch die Möglichkeit, notwendige Anpassungen am offen zugänglichen Quellcode durchführen zu können.
-          Dies versetzt uns in die Lage, komplexe Projekte schnell und kostengünstig umzusetzen.
-          Wir sind fair, offen und ehrlich, und wir konzentrieren uns nur auf das Wesentliche.
-        </q-card-section>
-      </q-card>
-      <q-card class="my-card text-white">
-        <q-card-section>
-          <div class="text-h6">VoIP</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
+      <products
+        v-for="product in products"
+        v-bind:key="product.title"
+        v-bind="product"
+      />
 
-        <q-card-section>
-          Asterisk, Freeswitch, Kamailio, Snom, Aastaro, Mitel, Patton SmartNode, GOfax.IP
-        </q-card-section>
-
-      </q-card>
-
-      <q-card class="my-card text-white">
-        <q-card-section>
-          <div class="text-h6">DevOps</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-
-        <q-card-section>
-          Gitlab,
-        </q-card-section>
-
-      </q-card>
-
-      <q-card class="my-card text-white">
-        <q-card-section>
-          <div class="text-h6">VoIP</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-
-        <q-card-section>
-          Asterisk, Freeswitch, Kamailio, Snom, Aastaro, Mitel, Patton SmartNode, GOfax.IP
-        </q-card-section>
-
-      </q-card>
-
-      <q-card class="my-card text-white">
-        <q-card-section>
-          <div class="text-h6">Recruiting</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-
-        <q-card-section>
-          Sie möchten klassisch über Stellenbörsen eine Stellenanzeige schalten?
-        </q-card-section>
-      </q-card>
     </q-page-container>
-
   </q-page>
-
 </template>
 
 <script>
 import Slogan from '../components/Slogan.vue'
+import Products from '../components/Products.vue'
 
 export default {
   name: 'PageIndex',
   data () {
     return {
-      slide: 'first'
+      slide: 'first',
+      products: [
+        {
+          title: 'Software Entwicklung',
+          subtitle: 'Fontend Backend',
+          icons: [
+            {
+              name: 'fab fa-yarn',
+              tooltip: 'Yarn'
+            },
+            {
+              name: 'fab fa-vuejs',
+              tooltip: 'Vue'
+            },
+            {
+              name: 'fab fa-symfony',
+              tooltip: 'symfony'
+            },
+            {
+              name: 'fab fa-react',
+              tooltip: 'react'
+            },
+            {
+              name: 'fab fa-python',
+              tooltip: 'python'
+            },
+            {
+              name: 'fab fa-node-js',
+              tooltip: 'nodejs'
+            },
+            {
+              name: 'fab fa-php',
+              tooltip: 'PHP'
+            }
+          ]
+        }, {
+          title: 'Voip, Messenger',
+          subtitle: 'Kommunikation',
+          icons: [
+            {
+              name: 'fab fa-gitter',
+              tooltip: 'Gitter'
+            },
+            {
+              name: 'fas fa-asterisk',
+              tooltip: 'Asterisk'
+            },
+            {
+              name: 'fab fa-slack',
+              tooltip: 'slack'
+            }
+          ],
+          text: 'Asterisk, Freeswitch, Kamailio, Snom, Aastaro, Mitel, Patton SmartNode, GOfax.IP'
+        }, {
+          title: 'DevOps',
+          subtitle: 'damit es rund läuft',
+          icons: [
+            {
+              name: 'fab fa-gitlab',
+              tooltip: 'gitlab'
+            },
+            {
+              name: 'fab fa-git-alt',
+              tooltip: 'Git'
+            },
+            {
+              name: 'fab fa-github',
+              tooltip: 'GitHub'
+            },
+            {
+              name: 'fab fa-docker',
+              tooltip: 'Docker'
+            }
+          ],
+          text: 'Proxmox, Kubernets, Openstack, Jest, Travis, Coverall, PHPunit, Cypress, Behat, LXC'
+        }, {
+          title: 'Design',
+          subtitle: 'vom Auge zum Hirn',
+          icons: [
+            {
+              name: 'fab fa-sass',
+              tooltip: 'sass'
+            },
+            {
+              name: 'fab fa-font-awesome-flag',
+              tooltip: 'Font Awesome'
+            },
+            {
+              name: 'fab fa-bootstrap',
+              tooltip: 'Bootstrap'
+            },
+            {
+              name: 'fab fa-less',
+              tooltip: 'less'
+            }
+          ],
+          text: 'Material Design'
+        },
+        {
+          title: 'Recruiting',
+          subtitle: 'wer macht die Arbeit?',
+          icons: [
+
+          ],
+          text: 'Sie möchten klassisch über Stellenbörsen eine Stellenanzeige schalten?'
+        }
+
+      ]
     }
   },
   components: {
-    Slogan
+    Slogan,
+    Products
+  },
+  computed: {
+    style () {
+      return {
+        width: '320px',
+        height: '220px',
+        backgroundImage: 'url(../statics/bgimg.jpg)',
+        padding: '10px',
+        border: '10px solid #fff',
+        textAlign: 'center',
+        boxShadow: '1px 1px 2px #e6e6e6'
+      }
+    }
   }
 }
 </script>
@@ -131,4 +196,6 @@ export default {
   max-width: 250px
   background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)
 
+.icons
+  font-size: 4em
 </style>

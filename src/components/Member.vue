@@ -20,10 +20,7 @@
         v-bind="button.link"
         @click.native="openUrl(button.link)"
       >
-        <img
-          v-bind="button"
-          class="btn-icon"
-        />
+        <q-icon :name="button.name" />
       </q-btn>
     </q-card-actions>
   </q-card>

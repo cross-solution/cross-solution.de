@@ -13,7 +13,8 @@ const routes = [
       { path: 'contact', component: () => import('pages/contact.vue') },
       { path: 'imprint', component: () => import('pages/imprint.vue') },
       { path: 'privacy', component: () => import('pages/privacy.vue') },
-      { path: 'jobs', component: () => import('pages/jobs.vue') }
+      { path: 'jobs', component: () => import('pages/jobs.vue') },
+      { path: 'glossary', component: () => import('pages/glossary.vue') }
     ]
   }
 ]
