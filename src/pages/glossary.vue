@@ -347,6 +347,31 @@ export default {
           subtitle: 'PHP Deployment',
           text: '',
           homepage: 'https://deployer.org/'
+        },
+        {
+          name: '',
+          title: 'mongo',
+          subtitle: 'dokumentbasierte Datebank',
+          text: '',
+          homepage: 'https://www.mongodb.com/'
+        },
+        {
+          name: '',
+          title: 'Solr',
+          subtitle: 'Search Engine',
+          text: '',
+          homepage: 'https://www.mongodb.com/',
+          wikipedia: 'https://de.wikipedia.org/wiki/MongoDB',
+          year: '2009'
+        },
+        {
+          name: '',
+          title: 'Elasticsearch',
+          subtitle: 'Search Engine',
+          text: '',
+          homepage: 'https://www.elastic.co/',
+          wikipedia: 'https://de.wikipedia.org/wiki/Elasticsearch',
+          year: '2010'
         }
       ]
     }
