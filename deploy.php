@@ -34,5 +34,5 @@ task('npm', '
 ');
 
 task('restart', '
-    systemctl restart node-server-cross;
+    systemctl restart nodeserver-quasar;
 ');
