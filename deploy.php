@@ -34,5 +34,5 @@ task('npm', '
 ');
 
 task('restart', '
-    systemctl restart nodeserver-quasar;
+    sudo systemctl restart nodeserver-quasar.service;
 ');
