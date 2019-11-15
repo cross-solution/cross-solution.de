@@ -18,6 +18,8 @@
         :pagination.sync="pagination"
         :loading="loading"
         :filter="q"
+        wrap-cells
+        virtual-scroll
         @request="onRequest"
         no-data-label="I didn't find anything for you"
         binary-state-sort
@@ -121,6 +123,7 @@ export default {
         rowsNumber: 10
       },
       grid: false,
+      wrapCells: true,
       rowsPerPageOptions: [5, 10, 20, 50],
       columns: [
         {
@@ -137,8 +140,20 @@ export default {
           format: val => `${val}`,
           sortable: true
         },
-        { name: 'location', label: 'Einsatzort', field: 'location', align: 'left', sortable: false },
-        { name: 'dateStart', label: 'Datum', field: 'dateStart', sortable: true }
+        {
+          name: 'location',
+          label: 'Einsatzort',
+          field: 'location',
+          align: 'left',
+          sortable: false
+        },
+        {
+          name: 'dateStart',
+          label: 'Datum',
+          classes: 'no-wrap',
+          field: 'dateStart',
+          align: 'right',
+          sortable: true }
       ],
       data: []
     }
@@ -176,7 +191,7 @@ export default {
 
         // ...and turn of loading indicator
         this.loading = false
-      }, 10)
+      }, 2000)
     },
 
     // emulate ajax call

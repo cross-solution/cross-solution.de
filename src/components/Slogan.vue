@@ -1,14 +1,20 @@
 <template>
   <div>
-    <h1>
-      <span
-        class="t"
-        v-for="word in h1.split(' ')"
-        v-bind:key="word.key"
-      >
-        {{ word }}
-      </span>
-    </h1>
+    <transition
+      appear
+      enter-active-class="animated fadeIn"
+      leave-active-class="animated fadeOut"
+    >
+      <h1>
+        <span
+          class="t"
+          v-for="word in h1.split(' ')"
+          v-bind:key="word.key"
+        >
+          {{ word }}
+        </span>
+      </h1>
+    </transition>
     <h2>{{ h2 }}</h2>
   </div>
 </template>

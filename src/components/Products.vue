@@ -30,6 +30,7 @@
 
 export default {
   props: {
+    name: String,
     title: String,
     subtitle: String,
     icons: Array,
@@ -41,4 +42,5 @@ export default {
 <style lang="sass" scoped>
 .btn-icon
   width: 30px
+
 </style>
