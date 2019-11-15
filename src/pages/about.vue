@@ -35,9 +35,20 @@
           <div class="text-subtitle2">by John Doe</div>
         </q-card-section>
       </q-card>
+
+      <q-separator horizontal />
       <div>
         <h3>Werte</h3>
       </div>
+
+      <ul>
+        <li>
+          Transparenz
+        </li>
+        <li>
+          Vertrauen
+        </li>
+      </ul>
     </div>
     <div class="col-md-4">
       <timeline />
@@ -62,7 +73,7 @@ export default {
         {
           name: 'Carsten Bleek',
           title: 'Inhaber, Dipl. Ing. Informatik',
-          image: 'statics/team/carsten_bleek.jpg',
+          image: 'statics/team/cbleek-460x460.jpeg',
           slogan: "Let's work together",
           buttons: [{
             name: 'fab fa-github',
@@ -83,7 +94,7 @@ export default {
         {
           name: 'Mathias Gelhausen',
           title: 'Software Developer',
-          image: 'statics/team/mathias.jpg',
+          image: 'statics/team/TiSiE-460x460.jpeg',
           slogan: "Let's code together",
           buttons: [{
             name: 'fab fa-github',
@@ -92,14 +103,37 @@ export default {
           }]
         },
         {
+          name: 'Anthonius Munthi',
+          title: 'Software Developer',
+          image: 'statics/team/kilip-460x460.jpeg',
+          slogan: 'Working from home',
+          buttons: [
+            {
+              name: 'fab fa-github',
+              link: 'https://github.com/kilip',
+              text: 'Github'
+            },
+            {
+              name: 'fas fa-home',
+              link: 'https://github.com/kilip',
+              text: 'Home'
+            }
+          ]
+        },
+        {
           name: 'Wlad Korolew',
           title: 'Designer',
-          image: 'statics/team/mathias.jpg',
+          image: 'statics/team/korolew-460x460.png',
           slogan: 'Design muss sein',
           buttons: [{
             name: 'fab fa-github',
             link: 'https://github.com/Steinbach2019',
             text: 'Github'
+          },
+          {
+            name: 'fas fa-home',
+            link: 'https://korolew.de',
+            text: 'Home'
           }]
         }
       ]

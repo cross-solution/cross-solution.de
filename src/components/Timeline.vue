@@ -14,9 +14,74 @@
         side="left"
       >
         <div>
-          Stellenmarkte.com
+          Relaunch Homepage auf Basis von <a
+            href="#"
+            @click="dialog = true"
+          >Quasar</a>. Stellenmarkte.com
         </div>
       </q-timeline-entry>
+
+      <q-dialog v-model="dialog">
+        <q-card>
+          <q-img src="https://media-cdn.tripadvisor.com/media/photo-s/0a/47/a8/91/chicken-salad-sandwich.jpg" />
+
+          <q-card-section>
+            <q-btn
+              fab
+              color="primary"
+              icon="place"
+              class="absolute"
+              style="top: 0; right: 12px; transform: translateY(-50%);"
+            />
+
+            <div class="row no-wrap items-center">
+              <div class="col text-h6 ellipsis">Cafe Basilico</div>
+              <div class="col-auto text-grey q-pt-md">
+                <q-icon name="place" /> 250 ft
+              </div>
+            </div>
+
+            <q-rating
+              v-model="stars"
+              :max="5"
+              size="32px"
+            />
+          </q-card-section>
+
+          <q-card-section>
+            <div class="text-subtitle1">$・Italian, Cafe</div>
+            <div class="text-subtitle2 text-grey">Small plates, salads & sandwiches in an intimate setting.</div>
+          </q-card-section>
+
+          <q-separator />
+
+          <q-card-actions>
+            <q-btn
+              flat
+              round
+              icon="event"
+              v-close-popup
+            />
+            <q-btn
+              flat
+              v-close-popup
+            >5:30PM</q-btn>
+            <q-btn
+              flat
+              v-close-popup
+            >7:30PM</q-btn>
+            <q-btn
+              flat
+              v-close-popup
+            >9:00PM</q-btn>
+            <q-btn
+              flat
+              color="primary"
+              v-close-popup
+            >Reserve</q-btn>
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
 
       <q-timeline-entry
         title="Python und Scrapy"
@@ -25,7 +90,7 @@
         icon="delete"
       >
         <div>
-          Konzeption und Aufbau eines Workflow für das Crawlen von Stellenanzeigen. Aufgrund der Zusammenarbeit mit
+          Konzeption und Aufbau eines Crawlers für Stellenanzeigen. Aufgrund der Zusammenarbeit mit
           Remote Workern können wir viel schneller aktuelle Technologien nutzbar machen.
         </div>
       </q-timeline-entry>
@@ -46,7 +111,7 @@
         side="left"
       >
         <div>
-          Mailstack mit Dovecot, Postfix, Roundcube und VimBAdmin
+          Mailstack mit Dovecot, Postfix, Roundcube und VimBAdmin. Gitlab entscheidet sich für <a href="https://about.gitlab.com/blog/2016/10/20/why-we-chose-vue/">vue</a>
         </div>
       </q-timeline-entry>
 
@@ -101,12 +166,11 @@
       >
         <div>
           <ul>
-            <li>OPSI Setup für 250 Arbeitsplätze. Wir können die Lösung der Softwareverteilung nur empfehlen.</li>
             <li>Migration Cyrus auf Dovecot mit 1500 Postfächern.</li>
             <li>Integration Webapplikationen mit Facebook.</li>
             <li>Unterstützung Migration auf NFS4 und Kerberos für eine Forschungseinrichtungen in Deutschland.</li>
             <li>Freeswitch Support für eine Fluggesellschaft. Hier warten wir gespannt auf Gemeinschaft 4.0</li>
-            <li>Yate ist auch sehr gut. Installation für 250 Teilnehmern.</li>
+            <li>Yate Installation für 250 Teilnehmern.</li>
           </ul>
         </div>
       </q-timeline-entry>
@@ -212,6 +276,11 @@
 
 <script>
 export default {
+  data () {
+    return {
+      dialog: false
+    }
+  },
   computed: {
     layout () {
       return this.$q.screen.lt.sm ? 'dense' : (this.$q.screen.lt.md ? 'comfortable' : 'loose')

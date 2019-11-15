@@ -76,7 +76,7 @@
 
         <div class="absolute-bottom custom-caption">
           <div class="text-h2">Arbeit</div>
-          <div class="text-subtitle1">Es verbessert die Arbeitsweise.</div>
+          <div class="text-subtitle1">es geht zunehmend um Arbeit</div>
         </div>
       </q-carousel-slide>
     </q-carousel>
