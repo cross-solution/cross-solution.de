@@ -11,7 +11,7 @@
           :name="icon.name"
           v-for="icon in icons"
           v-bind:key="icon.name"
-          v-bind="icon.name"
+          v-bind="icon"
         >
           <q-tooltip
             transition-show="rotate"

@@ -157,7 +157,10 @@ export default {
           title: 'Recruiting',
           subtitle: 'wer macht die Arbeit?',
           icons: [
-
+            {
+              name: 'fas fa-globe',
+              tooltip: 'remote work'
+            }
           ],
           text: 'Sie möchten klassisch über Stellenbörsen eine Stellenanzeige schalten?'
         }
