@@ -7,9 +7,11 @@
       v-model="slide"
       height="400px"
     >
-      <q-carousel-slide name="first">
-        <div class="absolute-bottom custom-caption">
-          <slogan h1="solide Lösungen von CROSS" />
+      <q-carousel-slide
+        name="first"
+        img-src="statics/frankfurt-im-nebel.jpg"
+      >
+        <div class="absolute-top custom-caption">
 
           <div class="text-h2">Full Stack Development</div>
           <div class="text-subtitle1">IT Lösungen von CROSS Solution</div>
@@ -47,7 +49,6 @@
 </template>
 
 <script>
-import Slogan from '../components/Slogan.vue'
 import Products from '../components/Products.vue'
 
 export default {
@@ -165,7 +166,6 @@ export default {
     }
   },
   components: {
-    Slogan,
     Products
   },
   computed: {

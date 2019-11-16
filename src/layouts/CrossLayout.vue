@@ -4,24 +4,13 @@
     <q-header
       elevated
       reveal
-      class="cross-bg text-white"
+      class="bg-white text-primary"
       height-hint="98"
     >
       <q-toolbar>
         <q-toolbar-title>
           <logo />
         </q-toolbar-title>
-
-        <q-btn
-          dense
-          flat
-          round
-          style="background: #5399d8 "
-          icon="menu"
-          @click="right = !right"
-        />
-      </q-toolbar>
-      <div class="cross-menu">
         <q-tabs align="left">
           <q-route-tab
             to="/digital-change"
@@ -36,7 +25,14 @@
             label="über uns"
           />
         </q-tabs>
-      </div>
+        <q-btn
+          dense
+          flat
+          round
+          icon="menu"
+          @click="right = !right"
+        />
+      </q-toolbar>
     </q-header>
 
     <q-drawer
@@ -118,9 +114,6 @@ export default {
 </script>
 
 <style scoped>
-.cross-bg {
-  background: linear-gradient(145deg, #6d6be9 11%, #014a88 75%) !important;
-}
 .cross-menu {
   border-top: 1px solid #faa427;
   background: #014a88;

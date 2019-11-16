@@ -15,7 +15,7 @@
       >
         <div>
           Relaunch Homepage auf Basis von <a
-            href="#"
+            href="/#about"
             @click="dialog = true"
           >Quasar</a>. Stellenmarkte.com
         </div>
@@ -50,7 +50,7 @@
 
           <q-card-section>
             <div class="text-subtitle1">$・Italian, Cafe</div>
-            <div class="text-subtitle2 text-grey">Small plates, salads & sandwiches in an intimate setting.</div>
+            <div class="text-subtitle2 text-grey">Small plates, salads &amp; sandwiches in an intimate setting.</div>
           </q-card-section>
 
           <q-separator />

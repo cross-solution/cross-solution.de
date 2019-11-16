@@ -6,7 +6,7 @@ just the Logo
     <div class="CROSS CROSS-blue1" />
     <div class="CROSS CROSS-blue2" />
     <div class="CROSS CROSS-blue3" />
-    <div class="CROSS Name"><a href="/">CROSS Solution</a></div>
+    <div class="CROSS Name"><a href="/">CROSS</a></div>
   </div>
 </template>
 
@@ -21,6 +21,7 @@ $width: 60px;
   overflow: hidden;
   height: 70px;
   width: 270px;
+  font-size: 17px;
 }
 
 .CROSS {
@@ -60,7 +61,7 @@ $width: 60px;
 }
 
 .Name {
-  top: 47px;
+  top: 51px;
   left: 70px;
   animation: goleft 0.5s linear forwards 1s;
 }
@@ -70,7 +71,7 @@ $width: 60px;
 
 @keyframes goleft {
   100% {
-    left: 32.5px;
+    left: 2.5px;
   }
 }
 
