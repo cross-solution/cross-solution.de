@@ -34,7 +34,9 @@
         />
       </q-toolbar>
     </q-header>
-
+    <div claas="text-primary">
+      <h6>we redesign our homepage. We invite you to watch <a href="https://github.com/cross-solution/cross-solution.de">how we do it</a></h6>
+    </div>
     <q-drawer
       v-model="right"
       side="right"
@@ -66,7 +68,7 @@
 
     <q-footer
       bordered
-      class="bg-white text-primary"
+      class="text-white"
     >
       <q-tabs
         no-caps
@@ -91,7 +93,6 @@
         />
       </q-tabs>
     </q-footer>
-
   </q-layout>
 </template>
 
