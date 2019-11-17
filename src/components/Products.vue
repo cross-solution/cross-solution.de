@@ -1,9 +1,9 @@
 <template>
-  <q-card class="products col-md-4">
+  <q-card class="products col-md-3">
     <q-card-section>
-      <div class="text-h6 text-center">{{ title }}</div>
-      <div class="text-subtitle2 text-center">{{ subtitle }}</div>
-      <div class="icons text-center">
+      <div class="text-h6">{{ title }}</div>
+      <div class="text-subtitle2">{{ subtitle }}</div>
+      <div class="icons text-center q-gutter-md">
         <q-icon
           :name="icon.name"
           v-for="icon in icons"
@@ -18,7 +18,7 @@
           </q-tooltip>
         </q-icon>
       </div>
-      <div> {{ text }} </div>
+      <div class="text-left"> {{ text }} </div>
     </q-card-section>
   </q-card>
 </template>

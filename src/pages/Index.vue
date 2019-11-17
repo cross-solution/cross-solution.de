@@ -36,7 +36,7 @@
         </div>
       </q-carousel-slide>
     </q-carousel>
-    <q-page-container class="flex q-gutter-md">
+    <q-page-container class="row text-center q-gutter-md">
 
       <products
         v-for="product in products"
