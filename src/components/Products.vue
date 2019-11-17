@@ -1,12 +1,9 @@
 <template>
-  <q-card
-    class="my-card text-white "
-    style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
-  >
+  <q-card class="products col-md-4">
     <q-card-section>
-      <div class="text-h6">{{ title }}</div>
-      <div class="text-subtitle2">{{ subtitle }}</div>
-      <div class="fa-4x">
+      <div class="text-h6 text-center">{{ title }}</div>
+      <div class="text-subtitle2 text-center">{{ subtitle }}</div>
+      <div class="icons text-center">
         <q-icon
           :name="icon.name"
           v-for="icon in icons"
@@ -40,7 +37,28 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+$orange: #faa427
+$fontColor: #555
+
 .btn-icon
   width: 30px
 
+.products
+  background-color: #EEF4FB
+  font-color: $fontColor
+
+.q-icon
+  line-height: 1
+  width: 1em
+  height: 1em
+  letter-spacing: normal
+  text-transform: none
+  white-space: nowrap
+  word-wrap: normal
+  direction: ltr
+  text-align: center
+  position: relative
+  color: $orange
+  font-size: 31px
+  padding-right: 7px
 </style>
