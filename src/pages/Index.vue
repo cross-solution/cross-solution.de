@@ -10,11 +10,11 @@
       <q-carousel-slide
         name="first"
         img-src="statics/frankfurt-im-nebel.jpg"
+        class="text-white"
       >
-        <div class="absolute-top custom-caption">
-
+        <div class="position">
           <div class="text-h2">Full Stack Development</div>
-          <div class="text-subtitle1">IT Lösungen von CROSS Solution</div>
+          <div class="text-subtitle1">solide IT Lösungen von CROSS Solution</div>
         </div>
       </q-carousel-slide>
       <q-carousel-slide
@@ -202,4 +202,8 @@ export default {
 
 .icons
   font-size: 4em
+
+.position
+  position: relative
+  top: 50px
 </style>
