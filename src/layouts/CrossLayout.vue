@@ -5,7 +5,6 @@
       elevated
       reveal
       class="bg-white text-primary"
-      height-hint="98"
     >
       <q-toolbar>
         <q-toolbar-title>
@@ -34,9 +33,6 @@
         />
       </q-toolbar>
     </q-header>
-    <div claas="text-primary">
-      <h6>we redesign our homepage. We invite you to watch <a href="https://github.com/cross-solution/cross-solution.de">how we do it</a></h6>
-    </div>
     <q-drawer
       v-model="right"
       side="right"
@@ -58,8 +54,8 @@
         />
       </q-tabs>
       <timeline />
-      <h2>Hier kommt was rein</h2>
-      <!-- drawer content -->
+      <logo />
+      <logo />
     </q-drawer>
 
     <q-page-container>
@@ -68,13 +64,12 @@
 
     <q-footer
       bordered
-      class="text-white"
+      class="text-white text-center"
     >
       <q-tabs
         no-caps
-        active-color="primary"
+        active-color="secondary"
         indicator-color="transparent"
-        class="text-grey"
       >
         <q-route-tab
           name="imprint"
@@ -92,11 +87,25 @@
           label="Kontakt"
         />
       </q-tabs>
+      <q-separator />
+      <a href="https://github.com/cross-solution">
+        <q-icon name="fab fa-github" /></a>
+
     </q-footer>
   </q-layout>
 </template>
 
 <script>
+
+// outside of a Vue file
+import { Notify } from 'quasar'
+
+Notify.create({
+  message: 'we redesign our homepage. We invite you to watch <a href="https://github.com/cross-solution/cross-solution.de">how we do it</a>',
+  html: true,
+  icon: 'thumb_up',
+  color: 'primary'
+})
 
 import Logo from '../components/Logo.vue'
 import Timeline from '../components/Timeline.vue'
@@ -114,5 +123,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style type="scss" scoped>
 </style>

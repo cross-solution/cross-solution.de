@@ -2,7 +2,6 @@
   <q-page class="flex items-start">
     <q-carousel
       class="full-width"
-      arrows
       animated
       v-model="slide"
       height="400px"
@@ -17,33 +16,37 @@
           <div class="text-subtitle1">solide IT Lösungen von CROSS Solution</div>
         </div>
       </q-carousel-slide>
-      <q-carousel-slide
-        name="second"
-        img-src="https://cdn.quasar.dev/img/parallax1.jpg"
+      <q-carousel-control
+        position="bottom-right"
+        :offset="[18, 18]"
+        class="q-gutter-xs"
       >
-        <div class="absolute-bottom custom-caption">
-          <div class="text-h2">Second stop</div>
-          <div class="text-subtitle1">Famous City</div>
-        </div>
-      </q-carousel-slide>
-      <q-carousel-slide
-        name="third"
-        img-src="https://cdn.quasar.dev/img/parallax2.jpg"
-      >
-        <div class="absolute-bottom custom-caption">
-          <div class="text-h2">Third stop</div>
-          <div class="text-subtitle1">Famous Bridge</div>
-        </div>
-      </q-carousel-slide>
+        <q-btn
+          push
+          round
+          dense
+          color="orange"
+          text-color="black"
+          icon="arrow_left"
+          @click="$refs.carousel.previous()"
+        />
+        <q-btn
+          push
+          round
+          dense
+          color="orange"
+          text-color="black"
+          icon="arrow_right"
+          @click="$refs.carousel.next()"
+        />
+      </q-carousel-control>
     </q-carousel>
     <q-page-container class="row text-center q-gutter-md justify-center">
-
       <products
         v-for="product in products"
         v-bind:key="product.title"
         v-bind="product"
       />
-
     </q-page-container>
   </q-page>
 </template>
@@ -189,17 +192,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.custom-caption
-  text-align: center
-  padding: 12px
-  color: white
-  background-color: rgba(0, 0, 0, .3)
-
-.my-card
-  width: 100%
-  max-width: 250px
-  background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)
-
 .icons
   font-size: 4em
 
