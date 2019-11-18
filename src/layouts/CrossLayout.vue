@@ -115,8 +115,4 @@ export default {
 </script>
 
 <style scoped>
-.cross-menu {
-  border-top: 1px solid #faa427;
-  background: #014a88;
-}
 </style>

@@ -11,8 +11,8 @@ just the Logo
 </template>
 
 <style lang="scss">
-$blue: #5498d7;
-$orange: #faa427;
+$blue: $primary;
+$orange: $secondary;
 $width: 30px;
 $top: 8px;
 $left: 0px;

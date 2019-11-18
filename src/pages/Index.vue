@@ -36,7 +36,7 @@
         </div>
       </q-carousel-slide>
     </q-carousel>
-    <q-page-container class="row text-center q-gutter-md">
+    <q-page-container class="row text-center q-gutter-md justify-center">
 
       <products
         v-for="product in products"
@@ -108,7 +108,8 @@ export default {
             }
           ],
           text: 'Asterisk, Freeswitch, Kamailio, Snom, Aastaro, Mitel, Patton SmartNode, GOfax.IP'
-        }, {
+        },
+        {
           title: 'DevOps',
           subtitle: 'damit es rund läuft',
           icons: [

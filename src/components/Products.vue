@@ -1,5 +1,8 @@
 <template>
-  <q-card class="products col-md-3">
+  <q-card
+    flat
+    class="products col-md-3 col-lg-2 col-sm-4 col-xs-11"
+  >
     <q-card-section>
       <div class="text-h6">{{ title }}</div>
       <div class="text-subtitle2">{{ subtitle }}</div>
@@ -45,7 +48,9 @@ $fontColor: #555
 
 .products
   background-color: #EEF4FB
-  font-color: $fontColor
+  color: $fontColor
+  border-radius: 10px
+  border: none
 
 .q-icon
   line-height: 1
