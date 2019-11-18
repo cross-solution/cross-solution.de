@@ -123,7 +123,7 @@ export default {
         {
           name: 'Wlad Korolew',
           title: 'Designer',
-          image: 'statics/team/korolew-460x460.png',
+          image: 'statics/team/korolew-211x211.jpeg',
           slogan: 'Design muss sein',
           buttons: [{
             name: 'fab fa-github',
