@@ -14,35 +14,7 @@
         class="row"
         style="min-height: 300px;"
       >
-        <q-field
-          label="Ort oder PLZ"
-          class="col-md-4"
-        >
-          <template v-slot:prepend>
-            <q-icon name="place" />
-          </template>
-          <template v-slot:control>
-            <vue-google-autocomplete
-              id="gLocation"
-              classname="input"
-              placeholder="Ort oder PLZ"
-              class="self-center full-width no-outline location"
-              v-on:placechanged="filterLocation"
-              :types="locationType"
-              country="de"
-              lang="de"
-            >
-            </vue-google-autocomplete>
-          </template>
-          <template v-slot:append>
-            <q-icon
-              name="close"
-              class="cursor-pointer"
-            />
-
-          </template>
-
-        </q-field>
+        <search-region class=""/>
         For each ad campaign that you create, you can control how much you're
         willing to spend on clicks and conversions, which networks and
         geographical locations you want your ads to show on, and more.
@@ -133,6 +105,8 @@
 
 <script>
 
+import SearchRegion from '../components/SearchRegion.vue'
+
 export default {
   data () {
     return {
@@ -157,22 +131,7 @@ export default {
     }
   },
   components: {
-    VueGoogleAutocomplete: () => {
-      const API_KEY = process.env.GOOGLE_PLACES_KEY
-
-      return new Promise((resolve) => {
-        let scriptElement = document.createElement('script')
-        scriptElement.onload = () => {
-          resolve(import('vue-google-autocomplete'))
-        }
-        scriptElement.id = 'gAutocompleteScript'
-        scriptElement.async = true
-        scriptElement.setAttribute('src', `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places`)
-        if (!document.getElementById('gAutocompleteScript')) {
-          document.head.appendChild(scriptElement)
-        }
-      })
-    }
+    SearchRegion
   }
 }
 </script>
