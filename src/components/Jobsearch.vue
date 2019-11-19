@@ -12,7 +12,7 @@
 
     </q-form>
     <q-separator />
-    <div class="col-md-12 ">
+    <div class="col-md-12">
       <q-table
         :grid="grid"
         :title="`${pagination.rowsNumber} Stellenangebote`"
@@ -35,7 +35,9 @@
       >
 
         <template v-slot:top>
+          <div class="row text-cente full-width">
           <q-input
+            class="col-md-4"
             debounce="300"
             v-model="q"
             label="Beruf oder Firma"
@@ -46,7 +48,7 @@
               <q-icon name="search" />
             </template>
           </q-input>
-          <search-region />
+          <search-region class="col-md-4" />
           <q-select
             class="col-md-2"
             v-model="distanceModel"
@@ -57,12 +59,13 @@
             default="10 km"
           />
           <q-btn
+            class="col-md-2"
             color="primary"
             size="lg"
             text-color="white"
             label="Jobs finden"
           />
-
+          </div>
         </template>
 
         <template v-slot:body-cell-id="props">
