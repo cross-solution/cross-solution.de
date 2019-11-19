@@ -42,167 +42,43 @@
       overlay
       bordered
     >
-      <q-tabs align="left">
-        <q-route-tab
-          to="/jobs"
-          label="Jobs"
-        />
-        <q-route-tab
-          to="/open-source"
-          label="Open Source"
-        />
-        <q-route-tab
-          to="/about"
-          label="über uns"
-        />
-      </q-tabs>
       <div class="text-green">
         <q-btn
+          flat
           color="primary"
           class="full-width"
           label="Digitaler Wandel"
+          icon="calendar"
+          align="arround"
           to="/digital-change"
         />
+        <q-separator />
         <q-btn
-          color="red-5"
-          fontColor="#555"
+          flat
+          color="primary"
           class="full-width"
-          label="Jobs Suchen"
+          label="Suchen"
+          align="arround"
+          icon="search"
           to="/jobs"
         />
+        <q-separator />
         <q-btn
+          flat
           color="primary"
           class="full-width"
           label="Jobs eingeben"
+          align="arround"
+          icon="edit"
           to="/jobpost"
         />
+        <q-separator />
 
         <div class="q-gutter-md">
 
-          <q-btn
-            color="secondary"
-            class="full-width"
-          >
-            <q-list>
-              <q-item
-                clickable
-                v-close-popup
-              >
-                <q-item-section>
-                  Jobs Suchen
-                </q-item-section>
-              </q-item>
-              <q-item
-                clickable
-                v-close-popup
-              >
-                <q-item-section>New incognito tab</q-item-section>
-              </q-item>
-              <q-separator />
-              <q-item
-                clickable
-                v-close-popup
-              >
-                <q-item-section>Recent tabs</q-item-section>
-              </q-item>
-              <q-item
-                clickable
-                v-close-popup
-              >
-                <q-item-section>History</q-item-section>
-              </q-item>
-              <q-item
-                clickable
-                v-close-popup
-              >
-                <q-item-section>Downloads</q-item-section>
-              </q-item>
-              <q-separator />
-              <q-item
-                clickable
-                v-close-popup
-              >
-                <q-item-section>Settings</q-item-section>
-              </q-item>
-              <q-separator />
-              <q-item
-                clickable
-                v-close-popup
-              >
-                <q-item-section>Help &amp; Feedback</q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn>
-
-          <q-btn
-            color="secondary"
-            label="Auto-Close Menu"
-          >
-            <q-menu auto-close>
-              <q-list style="min-width: 100px">
-                <q-item clickable>
-                  <q-item-section>New tab</q-item-section>
-                </q-item>
-                <q-item clickable>
-                  <q-item-section>New incognito tab</q-item-section>
-                </q-item>
-                <q-separator />
-                <q-item clickable>
-                  <q-item-section>Recent tabs</q-item-section>
-                </q-item>
-                <q-item clickable>
-                  <q-item-section>History</q-item-section>
-                </q-item>
-                <q-item clickable>
-                  <q-item-section>Downloads</q-item-section>
-                </q-item>
-                <q-separator />
-                <q-item clickable>
-                  <q-item-section>Settings</q-item-section>
-                </q-item>
-                <q-separator />
-                <q-item clickable>
-                  <q-item-section>Help &amp; Feedback</q-item-section>
-                </q-item>
-              </q-list>
-            </q-menu>
-          </q-btn>
-
-          <div
-            class="inline bg-amber rounded-borders cursor-pointer"
-            style="max-width: 300px"
-          >
-            <div class="fit flex flex-center text-center non-selectable q-pa-md">
-              I am groot!<br>(Click me! Using touch-position)
-            </div>
-
-            <q-menu touch-position>
-              <q-list style="min-width: 100px">
-                <q-item
-                  clickable
-                  v-close-popup
-                >
-                  <q-item-section>Branches</q-item-section>
-                </q-item>
-                <q-item
-                  clickable
-                  v-close-popup
-                >
-                  <q-item-section>Leaves</q-item-section>
-                </q-item>
-                <q-item
-                  clickable
-                  v-close-popup
-                >
-                  <q-item-section>Roots</q-item-section>
-                </q-item>
-              </q-list>
-            </q-menu>
-          </div>
-
         </div>
       </div>
-      <timeline />
+
     </q-drawer>
 
     <q-page-container>
@@ -255,13 +131,12 @@ import { Notify } from 'quasar'
 Notify.create({
   message: 'we redesign our homepage. We invite you to watch <a href="https://github.com/cross-solution/cross-solution.de">how we do it</a>',
   html: true,
-  position: 'top',
+  position: 'center',
   icon: 'thumb_up',
   color: 'primary'
 })
 
 import Logo from '../components/Logo.vue'
-import Timeline from '../components/Timeline.vue'
 
 export default {
   data () {
@@ -270,8 +145,7 @@ export default {
     }
   },
   components: {
-    Logo,
-    Timeline
+    Logo
   }
 }
 </script>
