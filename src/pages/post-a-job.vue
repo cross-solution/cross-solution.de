@@ -145,9 +145,7 @@ export default {
       default: 'geocode'
     }
   },
-  mounted () {
-    console.log('Dotenv Test', process.env.TEST)
-  },
+  mounted () { },
   methods: {
     filterLocation (addressData) {
       this.location = JSON.stringify({
