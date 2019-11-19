@@ -1,13 +1,18 @@
 <template>
   <div
-    class="row "
+    class="row"
     style="width:100%"
   >
-    <div class="col-md-12 ">
+    <q-form>
+
       <q-toggle
         :label="`Grid ${grid}`"
         v-model="grid"
       />
+
+    </q-form>
+    <q-separator />
+    <div class="col-md-12 ">
       <q-table
         :grid="grid"
         :title="`${pagination.rowsNumber} Stellenangebote`"
@@ -29,17 +34,35 @@
         binary-state-sort
       >
 
-        <template v-slot:top-right>
+        <template v-slot:top>
           <q-input
-            dense
             debounce="300"
             v-model="q"
-            placeholder="Jobs finden"
+            label="Beruf oder Firma"
+            placeholder="Suchwort eingeben"
+            outlined
           >
-            <template v-slot:top-right>
+            <template v-slot:prepend>
               <q-icon name="search" />
             </template>
           </q-input>
+          <search-region />
+          <q-select
+            class="col-md-2"
+            v-model="distanceModel"
+            :options="distance"
+            label="Umkreis"
+            outlined
+            clearable
+            default="10 km"
+          />
+          <q-btn
+            color="primary"
+            size="lg"
+            text-color="white"
+            label="Jobs finden"
+          />
+
         </template>
 
         <template v-slot:body-cell-id="props">
@@ -112,6 +135,8 @@
 </template>
 
 <script>
+import SearchRegion from '../components/SearchRegion.vue'
+
 export default {
 
   data () {
@@ -127,6 +152,9 @@ export default {
       },
       grid: false,
       wrapCells: true,
+      basicModel: 2,
+      distance: ['5 km', '10 km', '20 km', '50 km', '100 km'],
+      distanceModel: null,
       rowsPerPageOptions: [5, 10, 20, 50],
       columns: [
         {
@@ -156,10 +184,14 @@ export default {
           classes: 'no-wrap',
           field: 'dateStart',
           align: 'right',
-          sortable: true }
+          sortable: true
+        }
       ],
       data: []
     }
+  },
+  components: {
+    SearchRegion
   },
   mounted () {
     this.fetchFromServer({
@@ -240,3 +272,6 @@ export default {
   }
 }
 </script>
+
+<style type="scss">
+</style>

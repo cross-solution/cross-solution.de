@@ -109,11 +109,6 @@
           to="/contact"
           label="Kontakt"
         />
-        <q-route-tab
-          name="Post"
-          to="/jobpost"
-          label="Post a Job"
-        />
       </q-tabs>
       <q-separator />
       <a href="https://github.com/cross-solution">
