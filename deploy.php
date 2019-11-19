@@ -6,6 +6,11 @@ require 'recipe/zend_framework.php';
 // Project name
 set('application', 'cross-home');
 
+// Shared files/dirs between deploys 
+add('shared_files', [
+    '.env'
+]);
+
 // Project repository
 set('repository', 'https://github.com/cross-solution/cross-solution.de.git');
 
