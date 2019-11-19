@@ -14,7 +14,8 @@ const routes = [
       { path: 'imprint', component: () => import('pages/imprint.vue') },
       { path: 'privacy', component: () => import('pages/privacy.vue') },
       { path: 'jobs', component: () => import('pages/jobs.vue') },
-      { path: 'glossary', component: () => import('pages/glossary.vue') }
+      { path: 'glossary', component: () => import('pages/glossary.vue') },
+      { path: 'jobpost', component: () => import('pages/post-a-job.vue') }
     ]
   }
 ]

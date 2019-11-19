@@ -16,10 +16,12 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
     "quasar": "^1.0.0",
+    "vue-google-autocomplete": "^1.1.0",
     "vue-i18n": "^8.0.0"
   },
   "devDependencies": {
     "@quasar/app": "^1.0.0",
+    "@quasar/quasar-app-extension-dotenv": "^1.0.0-beta.11",
     "@quasar/quasar-app-extension-testing": "^1.0.0",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^1.0.0-beta.10",
     "@quasar/quasar-app-extension-testing-unit-jest": "^1.0.0",

@@ -16,30 +16,6 @@
           <div class="text-subtitle1">solide IT Lösungen von CROSS Solution</div>
         </div>
       </q-carousel-slide>
-      <q-carousel-control
-        position="bottom-right"
-        :offset="[18, 18]"
-        class="q-gutter-xs"
-      >
-        <q-btn
-          push
-          round
-          dense
-          color="orange"
-          text-color="black"
-          icon="arrow_left"
-          @click="$refs.carousel.previous()"
-        />
-        <q-btn
-          push
-          round
-          dense
-          color="orange"
-          text-color="black"
-          icon="arrow_right"
-          @click="$refs.carousel.next()"
-        />
-      </q-carousel-control>
     </q-carousel>
     <q-page-container class="row text-center q-gutter-md justify-center">
       <products

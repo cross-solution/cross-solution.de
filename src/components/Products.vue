@@ -17,7 +17,7 @@
             transition-show="rotate"
             transition-hide="scale"
           >
-            {{icon.tooltip}}
+            {{ icon.tooltip }}
           </q-tooltip>
         </q-icon>
       </div>

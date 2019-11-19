@@ -1,9 +1,9 @@
 <template>
   <div
-    class="row"
+    class="row "
     style="width:100%"
   >
-    <div class="col-12">
+    <div class="col-md-12 ">
       <q-toggle
         :label="`Grid ${grid}`"
         v-model="grid"
@@ -12,7 +12,11 @@
         :grid="grid"
         :title="`${pagination.rowsNumber} Stellenangebote`"
         :data="data"
+        color="secondary"
         :columns="columns"
+        card-class="bg-white text-grey-9"
+        table-header-style="background-color: bg-light-blue-1"
+        table-bottom-style="background-color: bg-light-blue-1"
         row-key="id"
         :rows-per-page-options="rowsPerPageOptions"
         :pagination.sync="pagination"
@@ -32,7 +36,7 @@
             v-model="q"
             placeholder="Jobs finden"
           >
-            <template v-slot:append>
+            <template v-slot:top-right>
               <q-icon name="search" />
             </template>
           </q-input>
@@ -45,7 +49,6 @@
                 :src="props.row.organizationLogo"
                 contain
                 style="width:100px; max-height: 70px;"
-                class="rounded-borders"
               />
             </div>
           </q-td>

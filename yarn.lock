@@ -1210,6 +1210,14 @@
   resolved "https://registry.yarnpkg.com/@quasar/fastclick/-/fastclick-1.1.4.tgz#21ed3e9a4387dcb43022a08af4ef08a5f1abf159"
   integrity sha512-i9wbyV4iT+v4KhtHJynUFhH5LiEPvAEgSnwMqPN4hf/8uRe82nDl5qP5agrp2el1h0HzyBpbvHaW7NB0BPrtvA==
 
+"@quasar/quasar-app-extension-dotenv@^1.0.0-beta.11":
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-dotenv/-/quasar-app-extension-dotenv-1.0.0-beta.11.tgz#0cab09a1faf1f9fa7526973c499331878b815d25"
+  integrity sha512-ztpqAUFPcVhUprfDE+qTHk76SHdqm7nahp2jH3irse+CgxciPRPjYwXlYzrWxTIc2qTsjhmkIP7Tsd4RZmv5JA==
+  dependencies:
+    dotenv "^8.1.0"
+    fs "^0.0.2"
+
 "@quasar/quasar-app-extension-testing-e2e-cypress@^1.0.0-beta.10":
   version "1.0.0-beta.10"
   resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-testing-e2e-cypress/-/quasar-app-extension-testing-e2e-cypress-1.0.0-beta.10.tgz#47a598210301e03a29820d577a93c6136b008a32"
@@ -3800,6 +3808,11 @@ dot-prop@^4.1.1:
   dependencies:
     is-obj "^1.0.0"
 
+dotenv@^8.1.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+
 duplexer@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -4869,6 +4882,11 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+
+fs@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.2.tgz#e1f244ef3933c1b2a64bd4799136060d0f5914f8"
+  integrity sha1-4fJE7zkzwbKmS9R5kTYGDQ9ZFPg=
 
 fsevents@^1.2.7:
   version "1.2.9"
@@ -10816,6 +10834,11 @@ vue-eslint-parser@^5.0.0:
     espree "^4.1.0"
     esquery "^1.0.1"
     lodash "^4.17.11"
+
+vue-google-autocomplete@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vue-google-autocomplete/-/vue-google-autocomplete-1.1.0.tgz#74b700da8d905e2c3dd0bc219b3d740e99277b2e"
+  integrity sha1-dLcA2o2QXiw90Lwhmz10Dpkney4=
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
