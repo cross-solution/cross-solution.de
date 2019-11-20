@@ -34,7 +34,7 @@
         <template v-slot:top>
           <div class="row text-cente full-width">
             <q-input
-              class="col-md-4"
+              class="col-md-4 col-xs-12"
               debounce="300"
               v-model="q"
               label="Beruf oder Firma"
@@ -45,9 +45,12 @@
                 <q-icon name="search" />
               </template>
             </q-input>
-            <search-region class="col-md-4" v-model="location"/>
+            <search-region
+              class="col-md-4 col-xs-6"
+              v-model="location"
+            />
             <q-select
-              class="col-md-2"
+              class="col-md-2 col-xs-6"
               v-model="distanceModel"
               :options="distance"
               label="Umkreis"
@@ -56,7 +59,7 @@
               default="10 km"
             />
             <q-btn
-              class="col-md-2"
+              class="col-md-2 col-xs-12"
               color="primary"
               size="lg"
               text-color="white"

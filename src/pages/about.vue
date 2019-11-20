@@ -141,7 +141,7 @@ export default {
           ]
         },
         {
-          name: 'Wlad Korolew',
+          name: 'Wladimir Korolew',
           title: 'Designer',
           image: 'statics/team/korolew-211x211.jpeg',
           slogan: 'Design muss sein',
