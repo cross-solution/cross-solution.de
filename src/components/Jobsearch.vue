@@ -19,9 +19,6 @@
         :data="data"
         color="secondary"
         :columns="columns"
-        card-class="bg-white text-grey-9"
-        table-header-style="background-color: bg-light-blue-1"
-        table-bottom-style="background-color: bg-light-blue-1"
         row-key="id"
         :rows-per-page-options="rowsPerPageOptions"
         :pagination.sync="pagination"
@@ -36,35 +33,35 @@
 
         <template v-slot:top>
           <div class="row text-cente full-width">
-          <q-input
-            class="col-md-4"
-            debounce="300"
-            v-model="q"
-            label="Beruf oder Firma"
-            placeholder="Suchwort eingeben"
-            outlined
-          >
-            <template v-slot:prepend>
-              <q-icon name="search" />
-            </template>
-          </q-input>
-          <search-region class="col-md-4" />
-          <q-select
-            class="col-md-2"
-            v-model="distanceModel"
-            :options="distance"
-            label="Umkreis"
-            outlined
-            clearable
-            default="10 km"
-          />
-          <q-btn
-            class="col-md-2"
-            color="primary"
-            size="lg"
-            text-color="white"
-            label="Jobs finden"
-          />
+            <q-input
+              class="col-md-4"
+              debounce="300"
+              v-model="q"
+              label="Beruf oder Firma"
+              placeholder="Suchwort eingeben"
+              outlined
+            >
+              <template v-slot:prepend>
+                <q-icon name="search" />
+              </template>
+            </q-input>
+            <search-region class="col-md-4" />
+            <q-select
+              class="col-md-2"
+              v-model="distanceModel"
+              :options="distance"
+              label="Umkreis"
+              outlined
+              clearable
+              default="10 km"
+            />
+            <q-btn
+              class="col-md-2"
+              color="primary"
+              size="lg"
+              text-color="white"
+              label="Jobs finden"
+            />
           </div>
         </template>
 
@@ -93,22 +90,14 @@
         </template>
 
         <template v-slot:item="props">
-          <div class="q-pa-xs col-xs-12 col-sm-6 col-md-4 col-lg-3 grid-style-transition">
+          <div class="q-pa-md q-gutter-md col-xs-12 col-sm-6 col-md-4 col-lg-3 grid-style-transition">
             <q-card>
-              <q-card-section style="height: 80px; vertical-align: middle; text-align: center">
-                <img
-                  :src="props.row.organizationLogo"
-                  style="max-height: 80px;"
-                  class="rounded-borders"
-                />
-
+              <q-card-section class="logo">
+                <img :src="props.row.organizationLogo" />
               </q-card-section>
               <q-separator />
-              <q-list dense>
-                <q-item
-                  dense
-                  self-stretch
-                >
+              <q-list>
+                <q-item class="jobinfo">
                   <q-item-section>
                     <q-item-label caption>
                       <a :href="props.row.link">{{ props.row.title }}</a>
@@ -141,7 +130,9 @@
 import SearchRegion from '../components/SearchRegion.vue'
 
 export default {
-
+  props: [
+    'filterLocation', 'text'
+  ],
   data () {
     return {
       q: '',
@@ -277,4 +268,27 @@ export default {
 </script>
 
 <style type="scss">
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+}
+
+.q-card {
+  box-shadow: 0 0 3px #666;
+  text-align: center;
+  vertical-align: middle;
+}
+.q-card .jobinfo {
+  background-color: #eef4fb;
+  text-align: left;
+  max-height: 120px;
+}
+.q-card .logo {
+  height: 80px;
+}
+.q-card img {
+  max-height: 80px;
+}
 </style>
