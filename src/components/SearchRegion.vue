@@ -3,17 +3,19 @@
     <q-field
       label="Ort oder PLZ"
       outlined
-      clearable
       v-model="text"
+      @focus="onFocus"
+      @blur="onBlur"
     >
       <template v-slot:prepend>
         <q-icon name="place" />
       </template>
       <template v-slot:control>
         <vue-google-autocomplete
+          v-if="gVisible"
           id="gLocation"
           classname="input"
-          placeholder=""
+          placeholder="Ort eingeben"
           class="full-width no-outline location"
           v-on:placechanged="filterLocation"
           :types="locationType"
@@ -28,7 +30,7 @@
       >
         <q-icon
           name="cancel"
-          @click.stop="text = null"
+          @click.stop="clearLocation"
           class="cursor-pointer"
         />
       </template>
@@ -43,6 +45,12 @@ export default {
     locationType: {
       type: String,
       default: 'geocode'
+    }
+  },
+  data () {
+    return {
+      text: null,
+      gVisible: false
     }
   },
   components: {
@@ -61,6 +69,24 @@ export default {
           document.head.appendChild(scriptElement)
         }
       })
+    }
+  },
+  methods: {
+    filterLocation (address) {
+      this.text = document.getElementById('gLocation').value
+    },
+    clearLocation (value) {
+      this.text = null
+      document.getElementById('gLocation').value = null
+    },
+    onFocus () {
+      this.gVisible = true
+      window.setTimeout(function () { document.getElementById('gLocation').focus() }, 150)
+    },
+    onBlur () {
+      console.debug(this, this.text)
+      let that = this
+      window.setTimeout(function () { that.gVisible = that.text }, 150)
     }
   }
 }

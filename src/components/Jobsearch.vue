@@ -45,7 +45,7 @@
                 <q-icon name="search" />
               </template>
             </q-input>
-            <search-region class="col-md-4" />
+            <search-region class="col-md-4" v-model="location"/>
             <q-select
               class="col-md-2"
               v-model="distanceModel"
@@ -136,6 +136,7 @@ export default {
   data () {
     return {
       q: '',
+      location: null,
       loading: false,
       pagination: {
         sortBy: 'date',
