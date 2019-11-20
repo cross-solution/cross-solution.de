@@ -1,59 +1,79 @@
 <template>
-  <div class="row items-start">
-    <div class=" row col-md-8 q-px-lg q-pb-md items-start q-gutter-x-md items-start">
-      <div class="col-md-12 ">
-        <h1>Über uns</h1>
-        <p>
-          CROSS ist ein Netzwerk aus IT Spezialisten mit Jahrzehnte langer Erfahrung in der Konzeption und Umsetzung
-          komplexer IT Systeme. Wir entwickeln für unsere Kunden Komplett-Lösungen und setzen dabei, wann immer es geht,
-          auf bewährte Open Source Produkte. Warum?
+  <q-page class="padding">
+    <div class="row items-start">
+      <div class=" row col-md-8 q-px-lg q-pb-md items-start q-gutter-md items-start">
+        <div class="col-md-12 ">
+          <h1>Über uns</h1>
+          <p>
+            CROSS ist ein Netzwerk aus IT Spezialisten mit Jahrzehnte langer Erfahrung in der Konzeption und Umsetzung
+            komplexer IT Systeme. Wir entwickeln für unsere Kunden Komplett-Lösungen und setzen dabei, wann immer es geht,
+            auf bewährte Open Source Produkte. Warum?
 
-          Es vereinfacht remote working, führt zu standards und verbessert die Qualität.
+            Es vereinfacht remote working, führt zu standards und verbessert die Qualität.
 
-          Dokumentation und ganz einfach die Zusammenarbeit mit unseren Kunden.
+            Dokumentation und ganz einfach die Zusammenarbeit mit unseren Kunden.
 
-          Unser Leistungsspektrum umfasst die Konzeption und Umsetzung von Projekten, das Hosten von Internet Anwendungen und den anschliessenden Support. Mit uns bekommen Sie umfassende Qualität aus einer Hand.
-        </p>
+            Unser Leistungsspektrum umfasst die Konzeption und Umsetzung von Projekten, das Hosten von Internet Anwendungen und den anschliessenden Support. Mit uns bekommen Sie umfassende Qualität aus einer Hand.
+          </p>
+        </div>
+        <div class="row q-gutter-md text-center">
+          <member
+            v-for="member in members"
+            v-bind:key="member.name"
+            v-bind="member"
+          />
+        </div>
+        <div class="col-md-12">
+          <q-separator
+            insert
+            color="secondary"
+          />
+          <h3>Paralax Example</h3>
+          <q-card class="my-card">
+            <q-parallax
+              src="https://cdn.quasar.dev/img/parallax1.jpg"
+              :height="150"
+            />
+
+            <q-card-section>
+              <div class="text-h6">Our Changing Planet</div>
+              <div class="text-subtitle2">by John Doe</div>
+            </q-card-section>
+          </q-card>
+
+        </div>
+
+        <div class="col-12">
+          <q-separator
+            insert
+            color="secondary"
+          />
+          <h3>Werte</h3>
+        </div>
+
+        <ul>
+          <li>
+            Transparenz
+          </li>
+          <li>
+            Vertrauen
+          </li>
+          <li>
+            Kontinuität
+          </li>
+          <li>
+            Ergebnis
+          </li>
+          <li>
+            Zusammenarbeit
+          </li>
+        </ul>
       </div>
-
-      <q-separator horizontal />
-
-      <member
-        v-for="member in members"
-        v-bind:key="member.name"
-        v-bind="member"
-      />
-
-      <q-card class="my-card">
-        <q-parallax
-          src="https://cdn.quasar.dev/img/parallax1.jpg"
-          :height="150"
-        />
-
-        <q-card-section>
-          <div class="text-h6">Our Changing Planet</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-      </q-card>
-
-      <q-separator horizontal />
-      <div>
-        <h3>Werte</h3>
+      <div class="col-md-4">
+        <timeline />
       </div>
-
-      <ul>
-        <li>
-          Transparenz
-        </li>
-        <li>
-          Vertrauen
-        </li>
-      </ul>
     </div>
-    <div class="col-md-4">
-      <timeline />
-    </div>
-  </div>
+  </q-page>
 </template>
 
 <script>
