@@ -84,7 +84,6 @@ export default {
       window.setTimeout(function () { document.getElementById('gLocation').focus() }, 150)
     },
     onBlur () {
-      console.debug(this, this.text)
       let that = this
       window.setTimeout(function () { that.gVisible = that.text }, 150)
     }
