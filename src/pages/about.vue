@@ -1,7 +1,7 @@
 <template>
   <q-page class="padding">
     <div class="row items-start">
-      <div class=" row col-md-8 q-px-lg q-pb-md items-start q-gutter-md items-start">
+      <div class="row col-md-8 q-px-lg q-pb-md items-start q-gutter-md items-start">
         <div class="col-md-12 ">
           <h1>Über uns</h1>
           <p>
