@@ -17,14 +17,17 @@
           <q-route-tab
             to="/digital-change"
             label="Digitaler Wandel"
+            class="gt-xs"
           />
           <q-route-tab
             to="/open-source"
             label="Open Source"
+            class="gt-xs"
           />
           <q-route-tab
             to="/about"
             label="über uns"
+            class="gt-xs"
           />
         </q-tabs>
         <q-btn
@@ -42,22 +45,42 @@
       overlay
       bordered
     >
-      <div class="text-green">
+      <div class="text-secondary q-pb-md">
         <q-btn
           flat
           color="primary"
-          class="full-width"
+          class="full-width lt-md"
           label="Digitaler Wandel"
           icon="calendar"
           align="arround"
           to="/digital-change"
         />
+
+        <q-btn
+          flat
+          color="primary"
+          class="full-width lt-md"
+          label="Open Source"
+          icon="calendar"
+          align="arround"
+          to="/open-source"
+        />
+        <q-btn
+          flat
+          color="primary"
+          class="full-width lt-md"
+          label="Über uns"
+          icon="calendar"
+          align="arround"
+          to="/about-us"
+        />
         <q-separator />
+        <h4 class="text-center">Yawik Demo</h4>
         <q-btn
           flat
           color="primary"
           class="full-width"
-          label="Suchen"
+          label="Jobs suchen"
           align="arround"
           icon="search"
           to="/jobs"
@@ -76,7 +99,10 @@
 
         <div class="q-gutter-md">
 
-          <p></p>
+          <p class="text-grey-9 q-pa-md">
+            Die Stellenangebote werden zur Verfügung gestellt von <a href="stellenmarkt.com">Stellenmarkt.com</a>.
+            Wie die Integration im Detail geschieht, sehen Sie auf <a href="https://github.com/cross-solution/cross-solution.de">Guthub</a>.
+          </p>
         </div>
       </div>
 

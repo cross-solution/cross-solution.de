@@ -295,4 +295,8 @@ export default {
 .q-card img {
   max-height: 80px;
 }
+
+.pac-container {
+  z-index: 9999; /* fixes google autocomplete in lightbox. Works only without scoped css. */
+}
 </style>
