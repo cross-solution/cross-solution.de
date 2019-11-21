@@ -170,9 +170,4 @@ export default {
 <style lang="sass" scoped>
 .icons
   font-size: 4em
-
-.position
-  position: relative
-  top: 50%
-  left: 50%
 </style>

@@ -1,9 +1,8 @@
 <template>
   <q-layout>
-    <q-header bordered
+    <q-header
       reveal
       class="bg-white text-primary"
-      style="shadow-box: none;"
     >
       <q-toolbar>
 
