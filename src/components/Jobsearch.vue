@@ -14,6 +14,7 @@
     <q-separator />
     <div class="col-md-12">
       <q-table
+        ref="resultTable"
         :grid="grid"
         :title="`${pagination.rowsNumber} Stellenangebote`"
         :data="data"
@@ -22,8 +23,8 @@
         row-key="id"
         :rows-per-page-options="rowsPerPageOptions"
         :pagination.sync="pagination"
+        :filter="tableFilter"
         :loading="loading"
-        :filter="q"
         wrap-cells
         virtual-scroll
         @request="onRequest"
@@ -34,9 +35,10 @@
         <template v-slot:top>
           <div class="row text-cente full-width">
             <q-input
+              ref="filterQuery"
+              v-model="filter.q"
               class="col-md-4 col-xs-12"
               debounce="300"
-              v-model="q"
               label="Beruf oder Firma"
               placeholder="Suchwort eingeben"
               outlined
@@ -46,12 +48,14 @@
               </template>
             </q-input>
             <search-region
+              v-model="filter.l"
+              ref="filterLocation"
               class="col-md-4 col-xs-6"
-              v-model="location"
             />
             <q-select
+              ref="filterDistance"
+              v-model="filter.d"
               class="col-md-2 col-xs-6"
-              v-model="distanceModel"
               :options="distance"
               label="Umkreis"
               outlined
@@ -59,6 +63,7 @@
               default="10 km"
             />
             <q-btn
+              @click="setFilter"
               class="col-md-2 col-xs-12"
               color="primary"
               size="lg"
@@ -138,8 +143,12 @@ export default {
   ],
   data () {
     return {
-      q: '',
-      location: null,
+      filter: {
+        q: '',
+        l: '',
+        d: ''
+      },
+      tableFilter: {},
       loading: false,
       pagination: {
         sortBy: 'date',
@@ -192,16 +201,13 @@ export default {
     SearchRegion
   },
   mounted () {
-    this.fetchFromServer({
-      pagination: this.pagination,
-      q: this.q,
-      rowsNumber: 0
+    this.onRequest({
+      pagination: this.pagination
     })
   },
   methods: {
     onRequest (props) {
       let { page, rowsPerPage, rowsNumber, sortBy, descending } = props.pagination
-      let q = props.q
 
       this.loading = true
 
@@ -211,7 +217,7 @@ export default {
         let fetchCount = rowsPerPage === 0 ? rowsNumber : rowsPerPage
 
         // fetch data from "server"
-        let returnedData = this.fetchFromServer(page, fetchCount, q, sortBy, descending)
+        let returnedData = this.fetchFromServer(page, fetchCount, sortBy, descending, this.filter)
 
         // clear out existing data and add new
         this.data.splice(0, this.data.length, ...returnedData)
@@ -229,43 +235,43 @@ export default {
 
     // emulate ajax call
     // SELECT * FROM ... WHERE...LIMIT...
-    fetchFromServer (page, count, q, sortBy, descending) {
+    fetchFromServer (page, count, sortBy, descending, filter) {
       let data = []
       let query = {
-        json: '1'
+        json: '1',
+        page: page,
+        count: count,
+        q: filter.q,
+        l: filter.l,
+        d: filter.d
       }
-
-      if (page.count) {
-        query.count = page.count
-      } if (count) {
-        query.count = count
-      } else query.count = 10
-
-      if (page.page) {
-        query.page = page.page
-      } else (query.page = page)
-
-      if (q) query.q = q
 
       var queryStr = Object.keys(query).map(k => `${k}=${encodeURIComponent(query[k])}`).join('&')
 
-      if (!q) {
-        this.$axios.get('https://www.stellenmarkt.com/de/jobs?' + queryStr)
-          .then((response) => {
-            this.data = response.data.jobs
-            this.pagination.rowsNumber = response.data.total
-            this.pagination.page = response.data.currentPage
+      this.$axios.get('https://www.stellenmarkt.com/de/jobs?' + queryStr)
+        .then((response) => {
+          this.data = response.data.jobs
+          this.pagination.rowsNumber = response.data.total
+          this.pagination.page = response.data.currentPage
+        })
+        .catch(() => {
+          this.$q.notify({
+            color: 'negative',
+            position: 'top',
+            message: 'Loading failed',
+            icon: 'report_problem'
           })
-          .catch(() => {
-            this.$q.notify({
-              color: 'negative',
-              position: 'top',
-              message: 'Loading failed',
-              icon: 'report_problem'
-            })
-          })
-      }
+        })
+
       return data
+    },
+
+    setFilter () {
+      this.tableFilter = {
+        q: this.filter.q,
+        l: this.filter.l,
+        d: this.filter.d
+      }
     }
   }
 }

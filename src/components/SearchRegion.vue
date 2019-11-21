@@ -45,11 +45,12 @@ export default {
     locationType: {
       type: String,
       default: 'geocode'
-    }
+    },
+    value: String
   },
   data () {
     return {
-      text: null,
+      text: '',
       gVisible: false
     }
   },
@@ -74,14 +75,17 @@ export default {
   methods: {
     filterLocation (address) {
       this.text = document.getElementById('gLocation').value
+      console.debug(this.text)
+      this.$emit('input', this.text)
     },
     clearLocation (value) {
-      this.text = null
+      this.text = ''
+      this.$emit('input', this.text)
       document.getElementById('gLocation').value = null
     },
     onFocus () {
       this.gVisible = true
-      window.setTimeout(function () { document.getElementById('gLocation').focus() }, 150)
+      window.setTimeout(function () { document.getElementById('gLocation').focus() }, 300)
     },
     onBlur () {
       let that = this
