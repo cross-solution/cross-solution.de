@@ -1,9 +1,9 @@
 <template>
-  <q-layout view="lhh Lpr lff">
-    <q-header
-      elevated
+  <q-layout>
+    <q-header bordered
       reveal
       class="bg-white text-primary"
+      style="shadow-box: none;"
     >
       <q-toolbar>
 

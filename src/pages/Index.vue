@@ -11,7 +11,7 @@
         img-src="statics/frankfurt-im-nebel.jpg"
         class="text-white"
       >
-        <div class="position">
+        <div class="absolute-center text-center">
           <div class="text-h2">Full Stack Development</div>
           <div class="text-subtitle1">solide IT Lösungen von CROSS Solution</div>
         </div>
@@ -173,5 +173,6 @@ export default {
 
 .position
   position: relative
-  top: 50px
+  top: 50%
+  left: 50%
 </style>
