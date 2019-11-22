@@ -75,7 +75,6 @@ export default {
   methods: {
     filterLocation (address) {
       this.text = document.getElementById('gLocation').value
-      console.debug(this.text)
       this.$emit('input', this.text)
     },
     clearLocation (value) {
