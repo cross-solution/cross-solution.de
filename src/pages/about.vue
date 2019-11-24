@@ -25,7 +25,6 @@
         </div>
         <div class="col-12">
           <q-separator
-            insert
             color="secondary"
           />
           <h3>Werte</h3>

@@ -19,24 +19,27 @@ module.exports = {
 
   // required to lint *.vue files
   plugins: [
-    'vue'
+    'vue',
+    'quasar'
   ],
 
   globals: {
     'ga': true, // Google Analytics
     'cordova': true,
     '__statics': true,
-    'process': true,
-    'Capacitor': true
+    'Prism': true
   },
 
   // add your custom rules here
-  rules: {
+  'rules': {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow paren-less arrow functions
     'arrow-parens': 'off',
     'one-var': 'off',
+    'prefer-promise-reject-errors': 'off',
+
+    'brace-style': ['error', 'stroustrup'],
 
     'import/first': 'off',
     'import/named': 'error',
@@ -46,7 +49,9 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
-    'prefer-promise-reject-errors': 'off',
+    'import/no-webpack-loader-syntax': 'off',
+
+    'quasar/check-valid-props': 'warn',
 
     // allow console.log during development only
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
