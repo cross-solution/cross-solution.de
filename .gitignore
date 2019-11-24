@@ -22,3 +22,6 @@ yarn-error.log*
 *~
 .env
 .env.production
+
+# Coverage files
+test/jest/coverage
