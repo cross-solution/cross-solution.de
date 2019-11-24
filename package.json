@@ -1,8 +1,8 @@
 {
-  "name": "cross-home",
+  "name": "cross-solution.de",
   "version": "0.0.1",
   "description": "CROSS Solution is a public first open company",
-  "productName": "Open Source und Arbeit",
+  "productName": "Homepage of CROSS Solution",
   "cordovaId": "org.cordova.quasar.app",
   "capacitorId": "",
   "author": "Carsten Bleek <bleek@cross-solution.de>",
@@ -10,7 +10,8 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"No test specified\" && exit 0",
-    "start": "node index.js"
+    "dev:ssr": "quasar dev -m ssr",
+    "dev": "quasar dev"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
@@ -29,8 +30,9 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.10.0",
     "eslint-loader": "^2.1.1",
+    "eslint-plugin-quasar": "^1.0.0-alpha.16",
     "eslint-plugin-vue": "^5.0.0",
-    "standard": "^14.3.1"
+    "markdown-it": "^10.0.0"
   },
   "engines": {
     "node": ">= 8.9.0",
