@@ -70,7 +70,7 @@
           <p class="text-grey-9 q-pa-md">
             Die Stellenangebote werden zur Verfügung gestellt von
             <a
-              href="stellenmarkt.com"
+              href="htps://www.stellenmarkt.com"
             >Stellenmarkt.com</a>.
             Wie die Integration im Detail geschieht, sehen Sie auf
             <a
