@@ -1,26 +1,17 @@
 <template>
-  <article>
-    <div class="orange">
-      <div
-        class="content"
-        style="width: 90%; margin: 0 auto; border: 1px solid #FEF1DF;"
-      >
-        <h1>{{title}}</h1>
-        <product-icons :icons="icons" />
+  <article class="q-page-container col-12 text-center q-gutter-md full-size justify-center">
+    <h1>{{title}}</h1>
+    <product-icons :icons="icons" />
 
-        <div class="content-info">{{description}}</div>
-        <div class="btn-touch">
-          <a
-            class="btn_02 btn_01"
-            href="#"
-          >Get in touch!</a>
-        </div>
-      </div>
+    <div class="content-info">{{description}}</div>
+    <div class="btn-touch">
+      <a class="btn_02 btn_01" href="#">Get in touch!</a>
     </div>
   </article>
 </template>
 <script>
 import ProductIcons from '../components/ProductIcons.vue'
+
 export default {
   props: {
     name: String,
@@ -28,7 +19,8 @@ export default {
     subtitle: String,
     icons: Array,
     text: String,
-    description: String
+    description: String,
+    bg: String
   },
   components: {
     ProductIcons
@@ -47,10 +39,12 @@ h1 {
 a {
   text-decoration: none;
   opacity: 1;
-  color: 0.5498d7;
   background-color: #fff;
 }
-a:hover {
+article {
+  width: 10 0%;
+  margin: 0 auto;
+  border: 1px solid $orange-1;
 }
 .btn-touch {
   position: relative;
@@ -124,10 +118,5 @@ a:hover {
   margin: 30px auto;
   line-height: 1.6rem;
 }
-#icons-bar {
-  margin: 15px auto 0 0;
-  padding-top: 10px;
-  width: 100%;
-  text-align: center;
-}
+
 </style>
