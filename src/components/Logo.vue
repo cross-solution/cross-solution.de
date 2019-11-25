@@ -6,14 +6,14 @@ just the Logo
     <div class="CROSS CROSS-blue1" />
     <div class="CROSS CROSS-blue2" />
     <div class="CROSS CROSS-blue3" />
-    <div class="CROSS Name"><a href="/"><span style="color: white">CR</span>OSS Solution</a></div>
+    <div class="CROSS Name"><a href="/"><span style="color: white">CR</span>OSS</a></div>
   </div>
 </template>
 
 <style lang="scss">
 $blue: $primary;
 $orange: $secondary;
-$width: 30px;
+$width: 60px;
 $top: 8px;
 $left: 0px;
 $margin: 3px;
@@ -22,9 +22,10 @@ $margin: 3px;
   display: inline-block;
   position: relative;
   overflow: hidden;
-  height: 40px;
-  width: 135px;
-  font-size: 12px;
+  height: 70px;
+  width: 180px;
+  margin-left: 120px;
+  margin-top: 5px;
 }
 
 .CROSS {
@@ -60,13 +61,15 @@ $margin: 3px;
   height: $width * 1 / 3;
   width: $width * 1 / 3;
   background-color: $blue;
-  animation: goright 2s linear forwards 1.5s;
+  animation: goright 1s linear forwards 0.5s;
 }
 
 .Name {
-  top: 25px;
+  top: 37px;
   left: $left + $width;
-  animation: goleft 0.5s linear forwards 1s;
+  animation: goleft 1.2s linear forwards 0.2s;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 28px;
 }
 .CROSS a {
   color: $blue;
@@ -75,7 +78,7 @@ $margin: 3px;
 
 @keyframes goleft {
   100% {
-    left: 15px;
+    left: 18px;
   }
 }
 
@@ -103,7 +106,7 @@ $margin: 3px;
   40% {
     top: $top - 3px;
     left: $left + $width * 2 / 3 + $margin;
-    background-color: $blue;
+    background-color: $orange;
     transform: rotate(30deg);
   }
   50% {
