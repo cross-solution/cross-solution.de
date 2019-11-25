@@ -4,7 +4,6 @@ import { Cookies, Notify, openURL } from 'quasar'
 if (Cookies.has('gdpr') !== true) {
   Notify.create({
     message: `Unsere Webseite verwendet Cookies.`,
-    multiline: true,
     classes: 'doc-gdpr',
     timeout: 0,
     position: 'bottom-right',
