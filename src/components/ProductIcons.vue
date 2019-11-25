@@ -1,31 +1,26 @@
 <template>
-  <q-card
-    flat
-    class="products col-md-3 col-lg-2 col-sm-4 col-xs-11"
-  >
-    <q-card-section>
-      <h2>{{ title }}</h2>
-      <h3>{{ subtitle }}</h3>
-      <div>
-        <product-icons :icons="icons" />
-      </div>
-      <div class="text-left"> {{ text }} </div>
-    </q-card-section>
-  </q-card>
+  <div class="icons text-center q-gutter-sm">
+    <q-icon
+      :name="icon.name"
+      v-for="icon in icons"
+      v-bind:key="icon.name"
+      v-bind="icon"
+    >
+      <q-tooltip
+        transition-show="rotate"
+        transition-hide="scale"
+      >
+        {{ icon.tooltip }}
+      </q-tooltip>
+    </q-icon>
+  </div>
 </template>
 
 <script>
-import ProductIcons from '../components/ProductIcons.vue'
+
 export default {
   props: {
-    name: String,
-    title: String,
-    subtitle: String,
-    icons: Array,
-    text: String
-  },
-  components: {
-    ProductIcons
+    icons: Array
   }
 }
 </script>

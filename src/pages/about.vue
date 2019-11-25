@@ -24,9 +24,7 @@
           />
         </div>
         <div class="col-12">
-          <q-separator
-            color="secondary"
-          />
+          <q-separator color="secondary" />
           <h3>Werte</h3>
         </div>
 
