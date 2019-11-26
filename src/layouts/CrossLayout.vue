@@ -83,6 +83,10 @@
       </div>
     </q-drawer>
 
+    <q-page-sticky position="bottom-left" :offset="[18, 18]">
+      <q-btn round color="accent" icon="arrow_forward" class="rotate-135" />
+    </q-page-sticky>
+
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -108,10 +112,10 @@ import { Notify, openURL } from 'quasar'
 Notify.create({
   message:
     'Wir überarbeiten nach 15 Jahren unsere Homepage. Obwohl noch nicht ganz fertig, ist sie bereits online. Wir ermöglichen Ihnen dadurch auf Github zu verfolgen, wie die Seite entsteht.',
-  position: 'center',
-  contentTitle: 'Ifo',
-  icon: 'thumb_up',
-  timeout: 10000,
+  position: 'bottom-left',
+  avatar: 'statics/team/cbleek-460x460.jpeg',
+  closeBtn: true,
+  timeout: 1000000,
   color: 'orange',
   textColor: 'black',
   actions: [
@@ -130,8 +134,8 @@ Notify.create({
       handler () {
         openURL('https://github.com/cross-solution/cross-solution.de')
       }
-    },
-    { icon: 'close', color: 'white' }
+    }
+    //    ,{ icon: 'close', color: 'white' }
   ]
 })
 
@@ -145,6 +149,11 @@ export default {
   },
   components: {
     Logo
+  },
+  methods: {
+    onDismiss () { // v0.15.11+
+    // ...
+    }
   }
 }
 </script>
