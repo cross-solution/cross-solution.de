@@ -1,6 +1,6 @@
 <template>
   <article
-    class="q-page-container col-12 text-center q-gutter-md full-size justify-center"
+    class="q-page-container col-12 text-center q-gutter-xs full-size justify-center"
     v-bind:class="bg"
   >
     <h1 class="text-center">{{ title }}</h1>
@@ -8,7 +8,7 @@
 
     <div class="content-info">
       <span v-if="description">{{ description }}</span>
-      <span v-else v-for="n in 5" :key="n">
+      <span v-else v-for="n in 3" :key="n">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil
         praesentium molestias a adipisci, dolore vitae odit, quidem consequatur
         optio voluptates asperiores pariatur eos numquam rerum delectus commodi

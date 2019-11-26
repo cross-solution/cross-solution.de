@@ -4,6 +4,7 @@
     "subtitle": "Fontend Backend",
     "description": "Die Bedeutung der Software Entwicklung für den Erfolg von Untenehmen nimmt zu. Es zieht sich durch alle Branchen. Und die Werkzeuge, mit denen die IT hantiert wandeln sich zunehmend schneller. Mit uns bleiben Sie am Ball.",
     "bg": "orange",
+    "text": "Wir unterstützen Sie in der Software-Entwicklung",
     "icons": [
       {
         "name": "fab fa-yarn",
@@ -110,24 +111,20 @@
         "tooltip": "CSS3"
       }
     ],
-    "text": "Material Design"
+    "text": "Material Design, Bootstrap, Font Awesome sind Werkzeuge."
   },
   {
     "title": "Recruiting",
     "subtitle": "wer macht die Arbeit?",
     "bg": "orange",
+    "description": "Wer Remote Worker in seine Prozesse integrieren kann, ist im Vorteil. Und die Integration von Remote Workern ist dank diverser Platformen sehr einfach geworden. Aber es gehört mehr dazu, als sich auf einer Plattform anzumelden. Die DevOps Prozesse müssen erst stehen. Und schon sind wir wieder bei der Technik.",
     "icons": [
       {
         "name": "fas fa-globe",
         "tooltip": "remote work"
-      },
-      {
-        "name": "fab fa-angellist",
-        "tooltip": "angel.co"
       }
     ],
-    "text": "Sie möchten klassisch über Stellenbörsen eine Stellenanzeige schalten?",
-    "description": ""
+    "text": "Sie finden auf dem deutschen Markt keine Mitabeiter? Wir helfen Ihnen bei der Integration von Remote Workern"
   },
   {
     "title": "Hosting",
