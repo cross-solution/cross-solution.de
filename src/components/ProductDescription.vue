@@ -1,15 +1,28 @@
 <template>
-  <article class="q-page-container col-12 text-center q-gutter-md full-size justify-center">
-    <h1>{{title}}</h1>
+  <article
+    class="q-page-container col-12 text-center q-gutter-md full-size justify-center"
+    v-bind:class="bg"
+  >
+    <h1 class="text-center">{{ title }}</h1>
     <product-icons :icons="icons" />
 
-    <div class="content-info">{{description}}</div>
+    <div class="content-info">
+      <span v-if="description">{{ description }}</span>
+      <span v-else v-for="n in 5" :key="n">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil
+        praesentium molestias a adipisci, dolore vitae odit, quidem consequatur
+        optio voluptates asperiores pariatur eos numquam rerum delectus commodi
+        perferendis voluptate?
+      </span>
+    </div>
     <div class="btn-touch">
-      <a class="btn_02 btn_01" href="#">Get in touch!</a>
+      <a class="btn_02 btn_01" href="/contact">Get in touch!</a>
     </div>
   </article>
 </template>
-<script>
+
+<script lang="javascript">
+
 import ProductIcons from '../components/ProductIcons.vue'
 
 export default {
@@ -22,15 +35,19 @@ export default {
     description: String,
     bg: String
   },
+  data () {
+    return {
+      result: this.$vnode.key
+    }
+  },
   components: {
     ProductIcons
   }
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 h1 {
-  text-align: center;
   font-family: "Heebo", sans-serif;
   font-weight: 400;
   font-size: 35px;
@@ -38,7 +55,6 @@ h1 {
 }
 a {
   text-decoration: none;
-  opacity: 1;
   background-color: #fff;
 }
 article {
@@ -48,12 +64,11 @@ article {
 }
 .btn-touch {
   position: relative;
-  z-index: 2;
   text-align: center;
   width: 100%;
   margin-bottom: 3.5rem;
 }
-.btn_01 a {
+.btn_01 {
   cursor: pointer;
   color: #555;
   -webkit-user-select: none;
@@ -68,7 +83,6 @@ article {
   padding: 1rem 2rem;
   font-size: 1rem;
   letter-spacing: 2px;
-  opacity: 0;
   -webkit-transition: opacity 0.25s, background-color 0.25s;
   transition: opacity 0.25s, background-color 0.25s;
   font-weight: 400;
@@ -111,12 +125,14 @@ article {
   width: 100%;
   height: 100%;
 }
-#content-info {
+.content-info {
   font-weight: 300;
   font-size: 18px;
   width: 70%;
   margin: 30px auto;
   line-height: 1.6rem;
 }
-
+.blue {
+  background-color: $light-blue-1;
+}
 </style>
