@@ -24,7 +24,7 @@
         v-bind="product"
       />
     </q-page-container>
-    <q-page-container class="row text-center q-gutter-md full-size justify-center">
+    <q-page-container class="row text-center q-gutter-md justify-center">
       <product-description
         v-for="product in products"
         v-bind:key="product.title"
@@ -57,7 +57,8 @@ export default {
         {
           title: 'Software Entwicklung',
           subtitle: 'Fontend Backend',
-          description: 'blabla',
+          description: 'Software Entwicklung ist wichtig. Es zieht sich durch alle Branchen. Und die Werkzeuge, mit denen die IT hantiert wandeln sich zunehmend schneller.',
+          bg: 'orange-1',
           icons: [
             {
               name: 'fab fa-yarn',
@@ -133,6 +134,7 @@ export default {
         }, {
           title: 'Design',
           subtitle: 'vom Auge zum Hirn',
+          description: 'test test',
           icons: [
             {
               name: 'fab fa-sass',
