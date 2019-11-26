@@ -1,11 +1,6 @@
 <template>
   <q-page class="flex items-start">
-    <q-carousel
-      class="full-width"
-      animated
-      v-model="slide"
-      height="400px"
-    >
+    <q-carousel class="full-width" animated v-model="slide" height="400px">
       <q-carousel-slide
         name="first"
         img-src="statics/frankfurt-im-nebel.jpg"
@@ -13,7 +8,9 @@
       >
         <div class="absolute-center text-center">
           <div class="text-h2">Full Stack Development</div>
-          <div class="text-subtitle1">solide IT Lösungen von <span class="bold">CROSS</span> Solution</div>
+          <div class="text-subtitle1">
+            solide IT Lösungen von <span class="bold">CROSS</span> Solution
+          </div>
         </div>
       </q-carousel-slide>
     </q-carousel>
@@ -24,19 +21,21 @@
         v-bind="product"
       />
     </q-page-container>
-    <q-page-container class="row text-center q-gutter-md full-size justify-center">
+
+    <q-page-container class="row text-center q-gutter-md justify-center">
       <product-description
         v-for="product in products"
         v-bind:key="product.title"
         v-bind="product"
-      />
+      />This is in parent component {{ count }}
     </q-page-container>
 
     <div class="cs-cover-layer">
       <div class="cs-cover-border-top"></div>
       <div id="introduction">
         <div id="animation">
-          <span class="bold">CROSS</span> <span class="font-weight: 700;">Solution</span>
+          <span class="bold">CROSS</span>
+          <span class="font-weight: 700;">Solution</span>
         </div>
       </div>
       <div class="cs-cover-border-bottom"></div>
@@ -44,128 +43,18 @@
   </q-page>
 </template>
 
-<script>
+<script lang="javascript">
 import Products from '../components/Products.vue'
 import ProductDescription from '../components/ProductDescription.vue'
+import Data from '../assets/products.json'
 
 export default {
   name: 'PageIndex',
   data () {
     return {
+      count: null,
       slide: 'first',
-      products: [
-        {
-          title: 'Software Entwicklung',
-          subtitle: 'Fontend Backend',
-          description: 'blabla',
-          icons: [
-            {
-              name: 'fab fa-yarn',
-              tooltip: 'Yarn'
-            },
-            {
-              name: 'fab fa-vuejs',
-              tooltip: 'Vue'
-            },
-            {
-              name: 'fab fa-symfony',
-              tooltip: 'symfony'
-            },
-            {
-              name: 'fab fa-react',
-              tooltip: 'react'
-            },
-            {
-              name: 'fab fa-python',
-              tooltip: 'python'
-            },
-            {
-              name: 'fab fa-node-js',
-              tooltip: 'nodejs'
-            },
-            {
-              name: 'fab fa-php',
-              tooltip: 'PHP'
-            }
-          ]
-        }, {
-          title: 'Voip, Messenger',
-          subtitle: 'Kommunikation',
-          icons: [
-            {
-              name: 'fab fa-gitter',
-              tooltip: 'Gitter'
-            },
-            {
-              name: 'fas fa-asterisk',
-              tooltip: 'Asterisk'
-            },
-            {
-              name: 'fab fa-slack',
-              tooltip: 'slack'
-            }
-          ],
-          text: 'Asterisk, Freeswitch, Kamailio, Snom, Aastaro, Mitel, Patton SmartNode, GOfax.IP',
-          description: 'hALLO'
-        },
-        {
-          title: 'DevOps',
-          subtitle: 'damit es rund läuft',
-          icons: [
-            {
-              name: 'fab fa-gitlab',
-              tooltip: 'gitlab'
-            },
-            {
-              name: 'fab fa-git-alt',
-              tooltip: 'Git'
-            },
-            {
-              name: 'fab fa-github',
-              tooltip: 'GitHub'
-            },
-            {
-              name: 'fab fa-docker',
-              tooltip: 'Docker'
-            }
-          ],
-          text: 'Proxmox, Kubernets, Openstack, Jest, Travis, Coverall, PHPunit, Cypress, Behat, LXC'
-        }, {
-          title: 'Design',
-          subtitle: 'vom Auge zum Hirn',
-          icons: [
-            {
-              name: 'fab fa-sass',
-              tooltip: 'sass'
-            },
-            {
-              name: 'fab fa-font-awesome-flag',
-              tooltip: 'Font Awesome'
-            },
-            {
-              name: 'fab fa-bootstrap',
-              tooltip: 'Bootstrap'
-            },
-            {
-              name: 'fab fa-less',
-              tooltip: 'less'
-            }
-          ],
-          text: 'Material Design'
-        },
-        {
-          title: 'Recruiting',
-          subtitle: 'wer macht die Arbeit?',
-          icons: [
-            {
-              name: 'fas fa-globe',
-              tooltip: 'remote work'
-            }
-          ],
-          text: 'Sie möchten klassisch über Stellenbörsen eine Stellenanzeige schalten?'
-        }
-
-      ]
+      products: Data
     }
   },
   components: {
@@ -221,7 +110,7 @@ body {
   right: 0;
   bottom: 0;
   z-index: 1;
-  background-color: #5498d7;
+  background-color: $primary;
   border-top: 10px solid #faa427;
   border-bottom: 10px solid #faa427;
   width: 100%;

@@ -1,21 +1,20 @@
 <template>
-  <q-card
-    flat
-    class="products col-md-3 col-lg-2 col-sm-4 col-xs-11"
-  >
+  <q-card flat class="products col-md-3 col-lg-2 col-sm-4 col-xs-11">
     <q-card-section>
       <h2>{{ title }}</h2>
       <h3>{{ subtitle }}</h3>
       <div>
         <product-icons :icons="icons" />
       </div>
-      <div class="text-left"> {{ text }} </div>
+      <div class="text-left">{{ text }}</div>
     </q-card-section>
   </q-card>
 </template>
 
-<script>
+<script lang="javascript">
+
 import ProductIcons from '../components/ProductIcons.vue'
+
 export default {
   props: {
     name: String,
@@ -76,5 +75,4 @@ $fontColor: #555
   margin-bottom: 20px
   font-size: 17px
   line-height: normal
-
 </style>

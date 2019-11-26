@@ -6,7 +6,13 @@ just the Logo
     <div class="CROSS CROSS-blue1" />
     <div class="CROSS CROSS-blue2" />
     <div class="CROSS CROSS-blue3" />
-    <div class="CROSS Name"><a href="/"><span style="color: white">CR</span>OSS</a></div>
+    <div class="CROSS Name">
+      <a href="/">
+        <q-tooltip transition-show="scale" transition-hide="scale"
+          >Consulting &amp; Research Open Source Solutions</q-tooltip
+        ><span style="color: white">CR</span>OSS</a
+      >
+    </div>
   </div>
 </template>
 
@@ -24,7 +30,6 @@ $margin: 3px;
   overflow: hidden;
   height: 70px;
   width: 180px;
-  margin-left: 120px;
   margin-top: 5px;
 }
 
@@ -60,13 +65,16 @@ $margin: 3px;
   display: inline-block;
   height: $width * 1 / 3;
   width: $width * 1 / 3;
-  background-color: $blue;
+  background-color: $primary;
   animation: goright 1s linear forwards 0.5s;
+  &:hover {
+    animation: goleft 1.2s linear forwards 0.2s;
+  }
 }
 
 .Name {
-  top: 37px;
-  left: $left + $width;
+  top: 38px;
+  left: $left + $width - 3;
   animation: goleft 1.2s linear forwards 0.2s;
   font-family: "Archivo Black", sans-serif;
   font-size: 28px;
@@ -74,11 +82,14 @@ $margin: 3px;
 .CROSS a {
   color: $blue;
   text-decoration: none;
+  &:hover {
+    color: orange;
+  }
 }
 
 @keyframes goleft {
   100% {
-    left: 18px;
+    left: 16px;
   }
 }
 
