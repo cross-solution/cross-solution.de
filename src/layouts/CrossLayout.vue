@@ -134,8 +134,8 @@ Notify.create({
       handler () {
         openURL('https://github.com/cross-solution/cross-solution.de')
       }
-    }
-    //    ,{ icon: 'close', color: 'white' }
+    },
+    { icon: 'close', color: 'white' }
   ]
 })
 
