@@ -120,7 +120,7 @@ Notify.create({
       color: 'white',
       noDismiss: true,
       handler () {
-        openURL('https://cross-solution.de')
+        openURL('https://old.cross-solution.de')
       }
     },
     {
