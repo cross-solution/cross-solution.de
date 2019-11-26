@@ -124,7 +124,7 @@ Notify.create({
       }
     },
     {
-      label: 'zur GitHub Repo',
+      label: 'zum GitHub Repo',
       color: 'white',
       noDismiss: true,
       handler () {
