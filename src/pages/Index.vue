@@ -1,61 +1,50 @@
 <template>
   <q-page class="flex items-start">
-    <<<<<<<
-      Updated
-      upstream
-      <q-carousel
+    <q-carousel
       class="full-width"
       animated
       v-model="slide"
       height="50vh"
     >
-      =======
-      <q-carousel
-        class="full-width"
-        animated
-        v-model="slide"
-        height="50vh"
+      <q-carousel-slide
+        name="first"
+        img-src="statics/frankfurt-im-nebel.jpg"
+        class="text-white"
       >
-        >>>>>>> Stashed changes
-        <q-carousel-slide
-          name="first"
-          img-src="statics/frankfurt-im-nebel.jpg"
-          class="text-white"
-        >
-          <div class="absolute-center text-center">
-            <div class="text-h2">Full Stack Development</div>
-            <div class="text-subtitle1">
-              solide IT Lösungen von <span class="bold">CROSS</span> Solution
-            </div>
-          </div>
-        </q-carousel-slide>
-      </q-carousel>
-      <q-page-container class="row text-center q-gutter-md justify-center">
-        <products
-          v-for="product in products"
-          v-bind:key="product.title"
-          v-bind="product"
-        />
-      </q-page-container>
-
-      <q-page-container class="row text-center q-gutter-xs justify-center">
-        <product-description
-          v-for="product in products"
-          v-bind:key="product.title"
-          v-bind="product"
-        />This is in parent component {{ count }}
-      </q-page-container>
-
-      <div class="cs-cover-layer">
-        <div class="cs-cover-border-top"></div>
-        <div id="introduction">
-          <div id="animation">
-            <span class="bold">CROSS</span>
-            <span class="font-weight: 700;"> Solution</span>
+        <div class="absolute-center text-center">
+          <div class="text-h2">Full Stack Development</div>
+          <div class="text-subtitle1">
+            solide IT Lösungen von <span class="bold">CROSS</span> Solution
           </div>
         </div>
-        <div class="cs-cover-border-bottom"></div>
+      </q-carousel-slide>
+    </q-carousel>
+    <q-page-container class="row text-center q-gutter-md justify-center">
+      <products
+        v-for="product in products"
+        v-bind:key="product.title"
+        v-bind="product"
+      />
+    </q-page-container>
+
+    <q-page-container class="row text-center q-gutter-xs justify-center">
+      <product-description
+        v-for="product in products"
+        v-bind:key="product.title"
+        v-bind="product"
+      />This is in parent component {{ count }}
+    </q-page-container>
+
+    <div class="cs-cover-layer">
+      <div class="cs-cover-border-top"></div>
+      <div id="introduction">
+        <div id="animation">
+          <span class="bold">CROSS</span>
+          <span class="font-weight: 700;"> Solution</span>
+        </div>
       </div>
+      <div class="cs-cover-border-bottom"></div>
+    </div>
   </q-page>
 </template>
 
