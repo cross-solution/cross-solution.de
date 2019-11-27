@@ -53,23 +53,4 @@ $fontColor: #555
   font-size: 31px
   padding-right: 7px
 
-.q-card__section h2
-  font-family: "Heebo", sans-serif
-  font-weight: 400
-  color: #555
-  font-size: 23px
-  padding-top: 0px
-  margin-bottom: 0px
-  line-height: normal
-
-.q-card__section h3
-  font-family: "Heebo", sans-serif
-  font-weight: 400
-  color: #555
-  padding: 0px
-  margin-top: 0px
-  margin-bottom: 20px
-  font-size: 17px
-  line-height: normal
-
 </style>
