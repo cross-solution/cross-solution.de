@@ -74,7 +74,7 @@ $margin: 3px;
 }
 
 .Name {
-  top: 45px;
+  top: 37px;
   left: $left + $width - 3;
   animation: goleft 1.2s linear forwards 0.2s;
   font-family: "Archivo Black", sans-serif;
