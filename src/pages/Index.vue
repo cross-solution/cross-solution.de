@@ -1,45 +1,61 @@
 <template>
   <q-page class="flex items-start">
-    <q-carousel class="full-width" animated v-model="slide" height="400px">
-      <q-carousel-slide
-        name="first"
-        img-src="statics/frankfurt-im-nebel.jpg"
-        class="text-white"
+    <<<<<<<
+      Updated
+      upstream
+      <q-carousel
+      class="full-width"
+      animated
+      v-model="slide"
+      height="50vh"
+    >
+      =======
+      <q-carousel
+        class="full-width"
+        animated
+        v-model="slide"
+        height="50vh"
       >
-        <div class="absolute-center text-center">
-          <div class="text-h2">Full Stack Development</div>
-          <div class="text-subtitle1">
-            solide IT Lösungen von <span class="bold">CROSS</span> Solution
+        >>>>>>> Stashed changes
+        <q-carousel-slide
+          name="first"
+          img-src="statics/frankfurt-im-nebel.jpg"
+          class="text-white"
+        >
+          <div class="absolute-center text-center">
+            <div class="text-h2">Full Stack Development</div>
+            <div class="text-subtitle1">
+              solide IT Lösungen von <span class="bold">CROSS</span> Solution
+            </div>
+          </div>
+        </q-carousel-slide>
+      </q-carousel>
+      <q-page-container class="row text-center q-gutter-md justify-center">
+        <products
+          v-for="product in products"
+          v-bind:key="product.title"
+          v-bind="product"
+        />
+      </q-page-container>
+
+      <q-page-container class="row text-center q-gutter-xs justify-center">
+        <product-description
+          v-for="product in products"
+          v-bind:key="product.title"
+          v-bind="product"
+        />This is in parent component {{ count }}
+      </q-page-container>
+
+      <div class="cs-cover-layer">
+        <div class="cs-cover-border-top"></div>
+        <div id="introduction">
+          <div id="animation">
+            <span class="bold">CROSS</span>
+            <span class="font-weight: 700;"> Solution</span>
           </div>
         </div>
-      </q-carousel-slide>
-    </q-carousel>
-    <q-page-container class="row text-center q-gutter-md justify-center">
-      <products
-        v-for="product in products"
-        v-bind:key="product.title"
-        v-bind="product"
-      />
-    </q-page-container>
-
-    <q-page-container class="row text-center q-gutter-xs justify-center">
-      <product-description
-        v-for="product in products"
-        v-bind:key="product.title"
-        v-bind="product"
-      />This is in parent component {{ count }}
-    </q-page-container>
-
-    <div class="cs-cover-layer">
-      <div class="cs-cover-border-top"></div>
-      <div id="introduction">
-        <div id="animation">
-          <span class="bold">CROSS</span>
-          <span class="font-weight: 700;"> Solution</span>
-        </div>
+        <div class="cs-cover-border-bottom"></div>
       </div>
-      <div class="cs-cover-border-bottom"></div>
-    </div>
   </q-page>
 </template>
 
@@ -81,7 +97,7 @@ export default {
 .icons {
   font-size: 4em;
 }
-
+/* needed for overlay */
 html,
 body {
   height: 100%;
@@ -123,9 +139,6 @@ body {
   color: #fff;
   position: absolute;
   font-size: 500%;
-}
-
-#introduction {
   animation-name: FadeScaleOut;
   animation-delay: 0s;
   animation-duration: 1s;
@@ -165,36 +178,20 @@ body {
     top: -100vh;
   }
 }
-#content_row {
-}
-#content_row h1 {
-  text-align: center;
-  font-family: "Heebo", sans-serif;
-  font-weight: 400;
-  font-size: 35px;
-  margin-top: 2rem;
-}
-#content_row a {
-  text-decoration: none;
-  opacity: 1;
-  color: #5498d7;
-  background-color: #fff;
-}
 
-@-webkit-keyframes simpleFadeIn {
-  0% {
-    opacity: 0;
+@media (max-width: #{$breakpoint-xs-max}) {
+  .text-h2 {
+    font-size: 2.75rem;
+    font-weight: 400;
+    line-height: 2.75rem;
+    letter-spacing: 0;
   }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes simpleFadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+  .text-subtitle1 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 0.9rem;
+    letter-spacing: 0m;
+    margin-top: 8px;
   }
 }
 </style>

@@ -1,23 +1,49 @@
 <template>
   <q-layout>
-    <q-header height-hint="150" reveal class="bg-white text-primary">
+    <q-header
+      height-hint="150"
+      reveal
+      class="bg-white text-primary"
+    >
       <q-toolbar>
         <q-toolbar-title>
           <logo />
         </q-toolbar-title>
-        <q-tabs align="left" class="desktop-only">
+        <q-tabs
+          align="left"
+          class="desktop-only"
+        >
           <q-route-tab
             to="/digital-change"
             label="Digitaler Wandel"
             class="gt-xs"
           />
-          <q-route-tab to="/open-source" label="Open Source" class="gt-xs" />
-          <q-route-tab to="/about" label="über uns" class="gt-xs" />
+          <q-route-tab
+            to="/open-source"
+            label="Open Source"
+            class="gt-xs"
+          />
+          <q-route-tab
+            to="/about"
+            label="über uns"
+            class="gt-xs"
+          />
         </q-tabs>
-        <q-btn dense flat round icon="menu" @click="right = !right" />
+        <q-btn
+          dense
+          flat
+          round
+          icon="menu"
+          @click="right = !right"
+        />
       </q-toolbar>
     </q-header>
-    <q-drawer v-model="right" side="right" overlay bordered>
+    <q-drawer
+      v-model="right"
+      side="right"
+      overlay
+      bordered
+    >
       <div class="text-secondary q-pb-md">
         <q-btn
           flat
@@ -75,27 +101,52 @@
             Die Stellenangebote werden zur Verfügung gestellt von
             <a href="htps://www.stellenmarkt.com">Stellenmarkt.com</a>. Wie die
             Integration im Detail geschieht, sehen Sie auf
-            <a href="https://github.com/cross-solution/cross-solution.de"
-              >Guthub</a
-            >.
+            <a href="https://github.com/cross-solution/cross-solution.de">Guthub</a>.
           </p>
         </div>
       </div>
     </q-drawer>
 
-    <q-page-sticky position="bottom-left" :offset="[18, 18]">
-      <q-btn round color="accent" icon="arrow_forward" class="rotate-135" />
+    <q-page-sticky
+      position="bottom-left"
+      :offset="[18, 18]"
+    >
+      <q-btn
+        round
+        color="accent"
+        icon="arrow_forward"
+        class="rotate-135"
+      />
     </q-page-sticky>
 
     <q-page-container>
       <router-view />
     </q-page-container>
 
-    <q-footer bordered class="text-white text-center">
-      <q-tabs no-caps active-color="secondary" indicator-color="transparent">
-        <q-route-tab name="imprint" to="/imprint" label="Impressum" />
-        <q-route-tab name="privacy" to="/privacy" label="Datenschutz" />
-        <q-route-tab name="contact" to="/contact" label="Kontakt" />
+    <q-footer
+      bordered
+      class="text-white text-center"
+    >
+      <q-tabs
+        no-caps
+        active-color="secondary"
+        indicator-color="transparent"
+      >
+        <q-route-tab
+          name="imprint"
+          to="/imprint"
+          label="Impressum"
+        />
+        <q-route-tab
+          name="privacy"
+          to="/privacy"
+          label="Datenschutz"
+        />
+        <q-route-tab
+          name="contact"
+          to="/contact"
+          label="Kontakt"
+        />
       </q-tabs>
       <q-separator />
       <a href="https://github.com/cross-solution">
@@ -117,6 +168,7 @@ Notify.create({
   closeBtn: true,
   timeout: 1000000,
   color: 'orange',
+  classes: 'notify_img',
   textColor: 'black',
   actions: [
     {
@@ -152,7 +204,7 @@ export default {
   },
   methods: {
     onDismiss () { // v0.15.11+
-    // ...
+      // ...
     }
   }
 }
@@ -162,7 +214,7 @@ export default {
 .q-toolbar {
   min-height: 70px;
 }
-q-footer a {
+.q-footer a {
   color: white;
 }
 </style>

@@ -8,10 +8,11 @@ just the Logo
     <div class="CROSS CROSS-blue3" />
     <div class="CROSS Name">
       <a href="/">
-        <q-tooltip transition-show="scale" transition-hide="scale"
-          >Consulting &amp; Research Open Source Solutions</q-tooltip
-        ><span style="color: white">CR</span>OSS</a
-      >
+        <q-tooltip
+          transition-show="scale"
+          transition-hide="scale"
+        >Consulting &amp; Research Open Source Solutions</q-tooltip><span style="color: white">CR</span>OSS
+      </a>
     </div>
   </div>
 </template>
@@ -73,7 +74,7 @@ $margin: 3px;
 }
 
 .Name {
-  top: 38px;
+  top: 45px;
   left: $left + $width - 3;
   animation: goleft 1.2s linear forwards 0.2s;
   font-family: "Archivo Black", sans-serif;
