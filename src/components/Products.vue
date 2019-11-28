@@ -9,7 +9,7 @@
       <div class="text-left">{{ text }}</div>
     </q-card-section>
     <q-card-actions align="center">
-      <q-btn class="mybutton" outline round color="primary"
+      <q-btn class="button" outline round color="primary"
         ><i class="fas fa-chevron-down"></i>
       </q-btn>
     </q-card-actions>
@@ -35,50 +35,29 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-$orange: #faa427
-$fontColor: #555
 
-.btn-icon
-  width: 30px
 .products
-  background-color: #EEF4FB
-  color: $fontColor
+  background-color: $light-blue-1
+  color: $text-grey-9
   border-radius: 10px
   border: none
-.q-icon
-  line-height: 1
-  width: 1em
-  height: 1em
-  letter-spacing: normal
-  text-transform: none
-  white-space: nowrap
-  word-wrap: normal
-  direction: ltr
-  text-align: center
-  position: relative
-  color: $orange
-  font-size: 31px
-  padding-right: 7px
 
-.q-card__section h2
-  font-family: "Heebo", sans-serif
+h2
   font-weight: 400
-  color: #555
   font-size: 23px
-  padding-top: 0px
-  margin-bottom: 0px
+  padding-top: 0
+  margin-bottom: 0
   line-height: normal
 
-.q-card__section h3
-  font-family: "Heebo", sans-serif
+h3
   font-weight: 400
-  color: #555
-  padding: 0px
-  margin-top: 0px
+  padding: 0
+  margin-top: 0
   margin-bottom: 20px
   font-size: 17px
   line-height: normal
-.mybutton
+
+.button
   border: 2px solid $primary
   opacity: 0.8
 </style>

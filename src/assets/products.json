@@ -122,6 +122,10 @@
       {
         "name": "fas fa-globe",
         "tooltip": "remote work"
+      },
+      {
+        "name": "img:/statics/icons/upwork-icon.svg",
+        "tooltip": "Upwork"
       }
     ],
     "text": "Sie finden auf dem deutschen Markt keine Mitabeiter? Wir helfen Ihnen bei der Integration von Remote Workern"

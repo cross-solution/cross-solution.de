@@ -93,9 +93,8 @@
         <q-route-tab name="privacy" to="/privacy" label="Datenschutz" />
         <q-route-tab name="contact" to="/contact" label="Kontakt" />
       </q-tabs>
-      <q-separator />
       <a href="https://github.com/cross-solution">
-        <q-icon name="fab fa-github" />
+        <q-icon name="fab fa-github" size="lg" />
       </a>
     </q-footer>
   </q-layout>
@@ -110,7 +109,7 @@ Notify.create({
     'Wir überarbeiten nach 15 Jahren unsere Homepage. Obwohl noch nicht ganz fertig, ist sie bereits online. Wir ermöglichen Ihnen dadurch auf Github zu verfolgen, wie die Seite entsteht.',
   position: 'bottom-left',
   avatar: 'statics/team/cbleek-460x460.jpeg',
-  timeout: 1000000,
+  timeout: 10000,
   color: 'orange',
   classes: 'notify_img',
   textColor: 'black',

@@ -6,10 +6,7 @@
       v-bind:key="icon.name"
       v-bind="icon"
     >
-      <q-tooltip
-        transition-show="rotate"
-        transition-hide="scale"
-      >
+      <q-tooltip transition-show="rotate" transition-hide="scale">
         {{ icon.tooltip }}
       </q-tooltip>
     </q-icon>
@@ -17,7 +14,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     icons: Array
@@ -26,17 +22,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-$orange: #faa427
-$fontColor: #555
-
-.btn-icon
-  width: 30px
-
-.products
-  background-color: #EEF4FB
-  color: $fontColor
-  border-radius: 10px
-  border: none
 
 .q-icon
   line-height: 1
@@ -49,8 +34,7 @@ $fontColor: #555
   direction: ltr
   text-align: center
   position: relative
-  color: $orange
+  color: $secondary
   font-size: 31px
   padding-right: 7px
-
 </style>
