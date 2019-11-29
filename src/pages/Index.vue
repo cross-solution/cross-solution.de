@@ -1,5 +1,15 @@
 <template>
   <q-page class="flex items-start">
+   <div class="cs-cover-layer">
+      <div class="cs-cover-border-top"></div>
+      <div id="introduction">
+        <div id="animation">
+          <span class="bold">CROSS</span>
+          <span class="font-weight: 700;"> Solution</span>
+        </div>
+      </div>
+      <div class="cs-cover-border-bottom"></div>
+    </div>
     <q-carousel
       class="full-width"
       animated
@@ -34,19 +44,8 @@
         v-bind:key="product.title"
         v-bind="product"
         @goto="scrollToTop"
-      />This is in parent component {{ count }}
+      />
     </q-page-container>
-
-    <div class="cs-cover-layer">
-      <div class="cs-cover-border-top"></div>
-      <div id="introduction">
-        <div id="animation">
-          <span class="bold">CROSS</span>
-          <span class="font-weight: 700;"> Solution</span>
-        </div>
-      </div>
-      <div class="cs-cover-border-bottom"></div>
-    </div>
   </q-page>
 </template>
 
@@ -122,14 +121,14 @@ body {
 .cs-cover-layer {
   animation-name: gotop;
   animation-delay: 1.5s;
-  animation-duration: 0.7s;
+  animation-duration: 3.7s;
   animation-fill-mode: both;
   position: fixed;
-  top: 0;
+  top: -80;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 3000;
   background-color: $primary;
   border-top: 10px solid #faa427;
   border-bottom: 10px solid #faa427;

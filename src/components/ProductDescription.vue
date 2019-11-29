@@ -19,7 +19,7 @@
     <div class="btn-touch">
       <a class="btn_02 btn_01" href="/contact">Get in touch!</a>
     </div>
-    <q-btn class="button" outline round color="primary" @click="onUpButtonClick"
+    <q-btn class="button" flat round text-color="primary" @click="onUpButtonClick"
         ><i class="fas fa-chevron-up"></i>
     </q-btn>
   </article>
