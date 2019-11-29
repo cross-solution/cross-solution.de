@@ -19,11 +19,12 @@
         </div>
       </q-carousel-slide>
     </q-carousel>
-    <q-page-container class="row text-center q-gutter-md justify-center">
+    <q-page-container class="row text-center q-gutter-md justify-center" id="top">
       <products
         v-for="product in products"
         v-bind:key="product.title"
         v-bind="product"
+        @goto="scrollToElement"
       />
     </q-page-container>
 
@@ -32,6 +33,7 @@
         v-for="product in products"
         v-bind:key="product.title"
         v-bind="product"
+        @goto="scrollToTop"
       />This is in parent component {{ count }}
     </q-page-container>
 
@@ -52,6 +54,7 @@
 import Products from '../components/Products.vue'
 import ProductDescription from '../components/ProductDescription.vue'
 import Data from '../assets/products.json'
+import { scroll } from 'quasar'
 
 export default {
   name: 'PageIndex',
@@ -77,6 +80,18 @@ export default {
         textAlign: 'center',
         boxShadow: '1px 1px 2px #e6e6e6'
       }
+    }
+  },
+  methods: {
+    scrollToElement (id) {
+      const el = document.getElementById(id)
+      const target = scroll.getScrollTarget(el)
+      const offset = el.offsetTop
+      const duration = 1000
+      scroll.setScrollPosition(target, offset, duration)
+    },
+    scrollToTop () {
+      this.scrollToElement('top')
     }
   }
 }

@@ -1,5 +1,6 @@
 [
   {
+    "id": "dev",
     "title": "Software Entwicklung",
     "subtitle": "Fontend Backend",
     "description": "Die Bedeutung der Software Entwicklung für den Erfolg von Untenehmen nimmt zu. Es zieht sich durch alle Branchen. Und die Werkzeuge, mit denen die IT hantiert wandeln sich zunehmend schneller. Mit uns bleiben Sie am Ball.",
@@ -37,6 +38,7 @@
     ]
   },
   {
+    "id": "com",
     "title": "Voip, Messenger, Chat",
     "subtitle": "Kommunikation",
     "icons": [
@@ -61,6 +63,7 @@
     "description": "Wer gut kommuniziert ist im Vorteil. Und die Möglichkeiten, wie man man heute kommunizieren kann sind gigantisch. Trotzdem beschränken sich manche Unternehmen auf Telefon, Email und Flurfunk. Wir orientieren uns an der Art und Weise, wie Collaborators in Open Sorce Projekten kommunizieren. Wir finden es effizienter."
   },
   {
+    "id": "ops",
     "title": "DevOps",
     "subtitle": "damit es rund läuft",
     "bg": "blue",
@@ -114,6 +117,7 @@
     "text": "Material Design, Bootstrap, Font Awesome sind Werkzeuge."
   },
   {
+    "id": "rec",
     "title": "Recruiting",
     "subtitle": "wer macht die Arbeit?",
     "bg": "orange",
@@ -131,6 +135,7 @@
     "text": "Sie finden auf dem deutschen Markt keine Mitabeiter? Wir helfen Ihnen bei der Integration von Remote Workern"
   },
   {
+    "id": "hst",
     "title": "Hosting",
     "subtitle": "irgendwo muss es laufen",
     "description": "Wir hosten auch ihre Webseite. Ob PHP, Nodes oder Coldfusion. Das System ist egal. Im einfachsten Fall bekommen Sie eine VM mit den benötigten Resourcen. Wenn ihr System höhere Anforderungen hat, konzipieren wir für Sie die benötigten Komponenten für ein Cluster. Natürlich DSGVO konform",
