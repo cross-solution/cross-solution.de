@@ -83,7 +83,7 @@
         <div class="q-gutter-md">
           <p class="text-grey-9 q-pa-md">
             Die Stellenangebote werden zur Verfügung gestellt von
-            <a href="htps://www.stellenmarkt.com">Stellenmarkt.com</a>. Wie die
+            <a href="https://www.stellenmarkt.com">Stellenmarkt.com</a>. Wie die
             Integration im Detail geschieht, sehen Sie auf
             <a href="https://github.com/cross-solution/cross-solution.de"
               >Guthub</a
