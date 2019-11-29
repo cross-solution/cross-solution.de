@@ -12,7 +12,8 @@
             class="gt-xs"
           />
           <q-route-tab to="/open-source" label="Open Source" class="gt-xs" />
-          <q-route-tab to="/about" label="über uns" class="gt-xs" />
+          <q-route-tab to="/about" label="Über uns" class="gt-xs" />
+          <q-route-tab to="/timeline" label="Timeline" class="gt-xs" />
         </q-tabs>
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
@@ -46,6 +47,15 @@
           icon="calendar"
           align="arround"
           to="/about-us"
+        />
+        <q-btn
+          flat
+          color="primary"
+          class="full-width lt-md"
+          label="Timeline"
+          icon="calendar"
+          align="arround"
+          to="/timeline"
         />
         <q-separator />
         <h4 class="text-center">Yawik Demo</h4>

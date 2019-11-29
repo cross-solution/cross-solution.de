@@ -15,7 +15,8 @@ const routes = [
       { path: 'privacy', component: () => import('pages/privacy.vue') },
       { path: 'jobs', component: () => import('pages/jobs.vue') },
       { path: 'glossary', component: () => import('pages/glossary.vue') },
-      { path: 'jobpost', component: () => import('pages/post-a-job.vue') }
+      { path: 'jobpost', component: () => import('pages/post-a-job.vue') },
+      { path: 'timeline', component: () => import('pages/timeline.vue') }
     ]
   }
 ]
