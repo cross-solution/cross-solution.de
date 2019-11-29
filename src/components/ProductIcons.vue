@@ -25,7 +25,7 @@ export default {
 
 .q-icon
   line-height: 1
-  width: 1em
+  width: .9em
   height: 1em
   letter-spacing: normal
   text-transform: none

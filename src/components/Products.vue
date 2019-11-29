@@ -8,11 +8,13 @@
       </div>
       <div class="text-left">{{ text }}</div>
     </q-card-section>
+    <div class="btn-products">
     <q-card-actions align="center">
-      <q-btn class="button" outline round color="primary"
-        ><i class="fas fa-chevron-down"></i>
+      <q-btn class="button" outline round color="blue">
+       <i class="fas fa-chevron-down"></i>
       </q-btn>
     </q-card-actions>
+    </div>
   </q-card>
 </template>
 
@@ -56,8 +58,23 @@ h3
   margin-bottom: 20px
   font-size: 17px
   line-height: normal
-
+.text-left
+  font-size: 14px
+  margin-top: 10px
+  margin-bottom: 20%
+.q-card
+  position:relative
+.fas
+    font-family: 'Font Awesome 5 Free'
+    font-weight: 601
+    font-size: 16px
+.btn-products
+  width: 20%
+  position: absolute
+  margin-left: 38%
+  bottom: 0
 .button
-  border: 2px solid $primary
-  opacity: 0.8
+  border: 2px solid $blue
+  opacity: 0.7
+
 </style>
