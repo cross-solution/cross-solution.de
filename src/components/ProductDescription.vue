@@ -2,6 +2,7 @@
   <article
     class="q-page-container col-12 text-center q-gutter-xs full-size justify-center"
     v-bind:class="bg"
+    :id="id"
   >
     <h1 class="text-center">{{ title }}</h1>
     <product-icons :icons="icons" />
@@ -18,6 +19,9 @@
     <div class="btn-touch">
       <a class="btn_02 btn_01" href="/contact">Get in touch!</a>
     </div>
+    <q-btn class="button" outline round color="primary" @click="onUpButtonClick"
+        ><i class="fas fa-chevron-up"></i>
+    </q-btn>
   </article>
 </template>
 
@@ -33,7 +37,8 @@ export default {
     icons: Array,
     text: String,
     description: String,
-    bg: String
+    bg: String,
+    id: String
   },
   data () {
     return {
@@ -42,6 +47,11 @@ export default {
   },
   components: {
     ProductIcons
+  },
+  methods: {
+    onUpButtonClick () {
+      this.$emit('goto')
+    }
   }
 }
 </script>

@@ -9,7 +9,7 @@
       <div class="text-left">{{ text }}</div>
     </q-card-section>
     <q-card-actions align="center">
-      <q-btn class="button" outline round color="primary"
+      <q-btn class="button" outline round color="primary" @click="onGotoButtonClick"
         ><i class="fas fa-chevron-down"></i>
       </q-btn>
     </q-card-actions>
@@ -26,10 +26,16 @@ export default {
     title: String,
     subtitle: String,
     icons: Array,
-    text: String
+    text: String,
+    id: String
   },
   components: {
     ProductIcons
+  },
+  methods: {
+    onGotoButtonClick () {
+      this.$emit('goto', this.id)
+    }
   }
 }
 </script>
