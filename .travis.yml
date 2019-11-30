@@ -22,7 +22,6 @@ before_install:
 - eval "$(ssh-agent -s)"
 - chmod 600 ~/.ssh/id_ed25519
 - ssh-add ~/.ssh/id_ed25519
-- curl -LO https://deployer.org/deployer.phar
 - chmod +x deployer.phar
 install:
 - yarn
