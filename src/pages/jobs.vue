@@ -9,7 +9,7 @@
   </q-page>
 </template>
 
-<script>
+<script lang="javascript">
 import Jobsearch from '../components/Jobsearch.vue'
 
 export default {

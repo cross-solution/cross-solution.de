@@ -17,7 +17,8 @@ const routes = [
       { path: 'glossary', component: () => import('pages/glossary.vue') },
       { path: 'jobpost', component: () => import('pages/post-a-job.vue') },
       { path: 'timeline', component: () => import('pages/timeline.vue') },
-      { path: 'apply', component: () => import('pages/apply.vue') }
+      { path: 'apply', component: () => import('pages/apply.vue') },
+      { path: 'values', component: () => import('pages/values.vue') }
     ]
   }
 ]

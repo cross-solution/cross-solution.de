@@ -1,19 +1,22 @@
 <template>
   <q-page class="padding">
     <div class="row items-start">
-      <div class="row col-md-8 q-px-lg q-pb-md items-start q-gutter-md items-start">
+      <div
+        class="row col-md-8 q-px-lg q-pb-md items-start q-gutter-md items-start"
+      >
         <div class="col-md-12 ">
           <h1>Über uns</h1>
           <p>
-            CROSS ist ein Netzwerk aus IT Spezialisten mit Jahrzehnte langer Erfahrung in der Konzeption und Umsetzung
-            komplexer IT Systeme. Wir entwickeln für unsere Kunden Komplett-Lösungen und setzen dabei, wann immer es geht,
-            auf bewährte Open Source Produkte. Warum?
-
-            Es vereinfacht remote working, führt zu standards und verbessert die Qualität.
-
-            Dokumentation und ganz einfach die Zusammenarbeit mit unseren Kunden.
-
-            Unser Leistungsspektrum umfasst die Konzeption und Umsetzung von Projekten, das Hosten von Internet Anwendungen und den anschliessenden Support. Mit uns bekommen Sie umfassende Qualität aus einer Hand.
+            CROSS ist ein Netzwerk aus IT Spezialisten mit Jahrzehnte langer
+            Erfahrung in der Konzeption und Umsetzung komplexer IT Systeme. Wir
+            entwickeln für unsere Kunden Komplett-Lösungen und setzen dabei,
+            wann immer es geht, auf bewährte Open Source Produkte. Warum? Es
+            vereinfacht remote working, führt zu standards und verbessert die
+            Qualität. Dokumentation und ganz einfach die Zusammenarbeit mit
+            unseren Kunden. Unser Leistungsspektrum umfasst die Konzeption und
+            Umsetzung von Projekten, das Hosten von Internet Anwendungen und den
+            anschliessenden Support. Mit uns bekommen Sie umfassende Qualität
+            aus einer Hand.
           </p>
         </div>
         <div class="row q-gutter-md text-center">
@@ -23,45 +26,23 @@
             v-bind="member"
           />
         </div>
-        <div class="col-12">
-          <q-separator color="secondary" />
-          <h3>Werte</h3>
-        </div>
-
-        <ul>
-          <li>
-            Transparenz
-          </li>
-          <li>
-            Vertrauen
-          </li>
-          <li>
-            Kontinuität
-          </li>
-          <li>
-            Ergebnis
-          </li>
-          <li>
-            Zusammenarbeit
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <timeline />
       </div>
     </div>
   </q-page>
 </template>
 
-<script>
+<script lang="javascript">
 
-import Timeline from '../components/Timeline.vue'
 import Member from '../components/Member.vue'
 
 export default {
   computed: {
     layout () {
-      return this.$q.screen.lt.sm ? 'dense' : (this.$q.screen.lt.md ? 'comfortable' : 'loose')
+      return this.$q.screen.lt.sm
+        ? 'dense'
+        : this.$q.screen.lt.md
+          ? 'comfortable'
+          : 'loose'
     }
   },
   data () {
@@ -72,32 +53,36 @@ export default {
           title: 'Inhaber, Dipl. Ing. Informatik',
           image: 'statics/team/cbleek-460x460.jpeg',
           slogan: "Let's work together",
-          buttons: [{
-            name: 'fab fa-github',
-            link: 'https://github.com/cbleek',
-            text: 'Github'
-          },
-          {
-            name: 'fab fa-linkedin',
-            link: 'https://www.linkedin.com/in/cbleek/',
-            text: 'LinkedIn'
-          },
-          {
-            name: 'fab fa-xing',
-            link: 'https://www.xing.com/profile/Carsten_Bleek',
-            text: 'Xing'
-          }]
+          buttons: [
+            {
+              name: 'fab fa-github',
+              link: 'https://github.com/cbleek',
+              text: 'Github'
+            },
+            {
+              name: 'fab fa-linkedin',
+              link: 'https://www.linkedin.com/in/cbleek/',
+              text: 'LinkedIn'
+            },
+            {
+              name: 'fab fa-xing',
+              link: 'https://www.xing.com/profile/Carsten_Bleek',
+              text: 'Xing'
+            }
+          ]
         },
         {
           name: 'Mathias Gelhausen',
           title: 'Software Developer',
           image: 'statics/team/TiSiE-460x460.jpeg',
           slogan: "Let's code together",
-          buttons: [{
-            name: 'fab fa-github',
-            link: 'https://github.com/tisie',
-            text: 'Github'
-          }]
+          buttons: [
+            {
+              name: 'fab fa-github',
+              link: 'https://github.com/tisie',
+              text: 'Github'
+            }
+          ]
         },
         {
           name: 'Anthonius Munthi',
@@ -122,22 +107,23 @@ export default {
           title: 'Designer',
           image: 'statics/team/korolew-211x211.jpeg',
           slogan: 'Design muss sein',
-          buttons: [{
-            name: 'fab fa-github',
-            link: 'https://github.com/Steinbach2019',
-            text: 'Github'
-          },
-          {
-            name: 'fas fa-home',
-            link: 'https://korolew.de',
-            text: 'Home'
-          }]
+          buttons: [
+            {
+              name: 'fab fa-github',
+              link: 'https://github.com/Steinbach2019',
+              text: 'Github'
+            },
+            {
+              name: 'fas fa-home',
+              link: 'https://korolew.de',
+              text: 'Home'
+            }
+          ]
         }
       ]
     }
   },
   components: {
-    Timeline,
     Member
   }
 }

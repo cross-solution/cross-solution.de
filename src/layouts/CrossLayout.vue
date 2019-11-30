@@ -12,8 +12,27 @@
             class="gt-xs"
           />
           <q-route-tab to="/open-source" label="Open Source" class="gt-xs" />
-          <q-route-tab to="/about" label="Über uns" class="gt-xs" />
-          <q-route-tab to="/timeline" label="Timeline" class="gt-xs" />
+          <q-btn-dropdown flat color="primary" label="Über uns">
+            <q-list>
+              <q-item clickable v-close-popup to="/about">
+                <q-item-section>
+                  <q-item-label>Team</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-item clickable v-close-popup to="/values">
+                <q-item-section>
+                  <q-item-label>Werte</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-item clickable v-close-popup to="/timeline">
+                <q-item-section>
+                  <q-item-label>Timeline</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
         </q-tabs>
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
