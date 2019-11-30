@@ -1,6 +1,12 @@
 <template>
   <div>
-    <q-field label="Ort oder PLZ" outlined v-model="text" @focus="onFocus" @blur="onBlur">
+    <q-field
+      :label="label"
+      outlined
+      v-model="text"
+      @focus="onFocus"
+      @blur="onBlur"
+    >
       <template v-slot:prepend>
         <q-icon name="place" />
       </template>
@@ -17,20 +23,25 @@
         ></vue-google-autocomplete>
       </template>
       <template v-if="text" v-slot:append>
-        <q-icon name="cancel" @click.stop="clearLocation" class="cursor-pointer" />
+        <q-icon
+          name="cancel"
+          @click.stop="clearLocation"
+          class="cursor-pointer"
+        />
       </template>
     </q-field>
   </div>
 </template>
 
-<script>
+<script lang="javascript">
 export default {
   props: {
     locationType: {
       type: String,
       default: 'geocode'
     },
-    value: String
+    value: String,
+    label: String
   },
   data () {
     return {

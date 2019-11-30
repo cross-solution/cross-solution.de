@@ -24,7 +24,7 @@ just the Logo
         <q-input filled v-model="postalcode" label="Plz." />
       </div>
       <div class="col-10">
-        <q-input filled v-model="postalcode" label="Ort" />
+        <q-input filled v-model="city" label="Ort" />
       </div>
       <div class="col-6 col-xs-12">
         <q-input filled v-model="email" label="Email" />

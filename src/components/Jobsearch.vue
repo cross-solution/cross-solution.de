@@ -1,15 +1,7 @@
 <template>
-  <div
-    class="row"
-    style="width:100%"
-  >
+  <div class="row" style="width:100%">
     <q-form>
-
-      <q-toggle
-        :label="`Grid ${grid}`"
-        v-model="grid"
-      />
-
+      <q-toggle :label="`Grid ${grid}`" v-model="grid" />
     </q-form>
     <q-separator />
     <div class="col-md-12">
@@ -31,7 +23,6 @@
         no-data-label="I didn't find anything for you"
         binary-state-sort
       >
-
         <template v-slot:top>
           <div class="row text-cente full-width">
             <q-input
@@ -51,6 +42,7 @@
               v-model="filter.l"
               ref="filterLocation"
               class="col-md-4 col-xs-6"
+              label="Ort oder Plz."
             />
             <q-select
               ref="filterDistance"
@@ -91,14 +83,16 @@
               <a :href="props.row.link">
                 {{ props.row.title }}
               </a>
-              <br>
+              <br />
               {{ props.row.organization }}
             </div>
           </q-td>
         </template>
 
         <template v-slot:item="props">
-          <div class="q-pa-md q-gutter-md col-xs-12 col-sm-6 col-md-4 col-lg-3 grid-style-transition">
+          <div
+            class="q-pa-md q-gutter-md col-xs-12 col-sm-6 col-md-4 col-lg-3 grid-style-transition"
+          >
             <q-card>
               <q-card-section class="logo">
                 <img :src="props.row.organizationLogo" />
@@ -113,10 +107,7 @@
                     <q-item-label caption>
                       {{ props.row.organization }}
                     </q-item-label>
-                    <q-item-label
-                      caption
-                      wrap
-                    >
+                    <q-item-label caption wrap>
                       {{ props.row.location }}
                     </q-item-label>
 
@@ -134,13 +125,11 @@
   </div>
 </template>
 
-<script>
+<script lang="javascript">
 import SearchRegion from '../components/SearchRegion.vue'
 
 export default {
-  props: [
-    'filterLocation', 'text'
-  ],
+  props: ['filterLocation', 'text'],
   data () {
     return {
       filter: {
@@ -207,7 +196,13 @@ export default {
   },
   methods: {
     onRequest (props) {
-      let { page, rowsPerPage, rowsNumber, sortBy, descending } = props.pagination
+      let {
+        page,
+        rowsPerPage,
+        rowsNumber,
+        sortBy,
+        descending
+      } = props.pagination
 
       this.loading = true
 
@@ -217,7 +212,13 @@ export default {
         let fetchCount = rowsPerPage === 0 ? rowsNumber : rowsPerPage
 
         // fetch data from "server"
-        let returnedData = this.fetchFromServer(page, fetchCount, sortBy, descending, this.filter)
+        let returnedData = this.fetchFromServer(
+          page,
+          fetchCount,
+          sortBy,
+          descending,
+          this.filter
+        )
 
         // clear out existing data and add new
         this.data.splice(0, this.data.length, ...returnedData)
@@ -246,10 +247,13 @@ export default {
         d: filter.d
       }
 
-      var queryStr = Object.keys(query).map(k => `${k}=${encodeURIComponent(query[k])}`).join('&')
+      var queryStr = Object.keys(query)
+        .map(k => `${k}=${encodeURIComponent(query[k])}`)
+        .join('&')
 
-      this.$axios.get('https://www.stellenmarkt.com/de/jobs?' + queryStr)
-        .then((response) => {
+      this.$axios
+        .get('https://www.stellenmarkt.com/de/jobs?' + queryStr)
+        .then(response => {
           this.data = response.data.jobs
           this.pagination.rowsNumber = response.data.total
           this.pagination.page = response.data.currentPage
