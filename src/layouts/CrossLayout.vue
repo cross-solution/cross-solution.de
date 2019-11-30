@@ -79,7 +79,16 @@
           to="/jobpost"
         />
         <q-separator />
-
+        <q-btn
+          flat
+          color="primary"
+          class="full-width"
+          label="Bewerben"
+          align="arround"
+          icon="mail"
+          to="/apply"
+        />
+        <q-separator />
         <div class="q-gutter-md">
           <p class="text-grey-9 q-pa-md">
             Die Stellenangebote werden zur Verfügung gestellt von
