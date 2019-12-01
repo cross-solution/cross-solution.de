@@ -7,33 +7,86 @@
         caption="Titel, Dienstitz, Bewerbung"
         icon="settings"
         :done="step > 1"
-        class="row"
         style="min-height: 300px;"
-      >
-        <q-input outlined v-model="title" label="Titel der Anzeige" />
+        ><div class="row">
+          <div class="col-md-6">
+            <q-input outlined v-model="title" label="Titel der Anzeige" />
 
-        <q-input
-          outlined
-          v-model="organization"
-          label="Name des Unternehmens"
-        />
+            <q-input
+              outlined
+              v-model="organization"
+              label="Name des Unternehmens"
+            />
 
-        <search-region label="Einsatzort" :value="location" />
+            <search-region label="Einsatzort" :value="location" />
 
-        <q-select
-          label="Art der Anstellung"
-          outlined
-          v-model="jobtype"
-          multiple
-          :options="options"
-          counter
-          max-values="2"
-          hint="Max 2 selections"
-          style="width: 250px"
-        />
-        Pensum:
-        <q-badge color="secondary">{{ pensum }}0%</q-badge>
-        <q-slider v-model="pensum" markers label :min="1" :max="10" />
+            <q-select
+              label="Art der Anstellung"
+              outlined
+              v-model="jobtype"
+              multiple
+              :options="options"
+              counter
+              max-values="2"
+              hint="Max 2 selections"
+              style="width: 250px"
+            />
+
+            Pensum:
+            <q-badge color="secondary">{{ pensum }}0%</q-badge>
+            <q-slider v-model="pensum" markers label :min="1" :max="10" />
+          </div>
+          <div class="col-md-6">
+            <div>
+              <q-expansion-item
+                v-model="applyForm"
+                icon="perm_identity"
+                label="Formular"
+                caption="Link zu eigenen Formular"
+              >
+                <q-card>
+                  <q-card-section>
+                    <q-input
+                      outlined
+                      v-model="applyUrl"
+                      label="Link zum Formular"
+                    />
+                  </q-card-section>
+                </q-card>
+              </q-expansion-item>
+
+              <q-expansion-item
+                v-model="expandedEmail"
+                icon="perm_identity"
+                label="Email"
+                caption="Email für Bewerbungen"
+              >
+                <q-card>
+                  <q-card-section>
+                    <q-input
+                      outlined
+                      v-model="applyEmail"
+                      label="Link zum Formular"
+                    />
+                  </q-card-section>
+                </q-card>
+              </q-expansion-item>
+
+              <q-item tag="label" v-ripple>
+                <q-item-section avatar top>
+                  <q-checkbox v-model="apply" val="notOnline" color="primary" />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>keine Onlinebewerbung</q-item-label>
+                  <q-item-label caption>
+                    postalische Bewerbungen
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+            </div>
+            <q-input outlined v-model="reference" label="Referenz" />
+          </div>
+        </div>
       </q-step>
 
       <q-step
@@ -48,27 +101,7 @@
           <template v-slot:before>
             <div class="q-pa-md">
               <div class="text-h4 q-mb-md">Before</div>
-              <div class="q-my-md">
-                <q-editor v-model="description" min-height="5rem" />
-                <q-input borderless v-model="searching" />
-                <h1>{{ title }}</h1>
-                <div class="col-md-6">
-                  <q-input borderless v-model="titleTasks" />
-                  <q-editor v-model="tasks" min-height="5rem" />
-                </div>
-                <div class="col-md-6">
-                  <q-input borderless v-model="titleQualifications" />
-                  <q-editor v-model="qualifications" min-height="5rem" />
-                </div>
-                <div class="col-md-6">
-                  <q-input borderless v-model="titleBenefits" />
-                  <q-editor v-model="benefits" min-height="5rem" />
-                </div>
-                <div class="col-md-6">
-                  <q-input borderless v-model="titleContact" />
-                  <q-editor v-model="contact" min-height="5rem" />
-                </div>
-              </div>
+              <y-job :title="title" />
             </div>
           </template>
 
@@ -98,6 +131,7 @@
         title="Kontakt"
         caption="Rechnungsanschrift"
         icon="assignment"
+        :done="step > 3"
         style="min-height: 200px;"
       >
         <y-address />
@@ -153,7 +187,7 @@
         <q-banner
           v-else-if="step === 2"
           class="text-grey-9 bg-light-blue-1 q-px-lg"
-          >The ad group helps you to...</q-banner
+          >Hier können Sie die Anzeige eingeben.</q-banner
         >
         <q-banner
           v-else-if="step === 3"
@@ -171,6 +205,7 @@
 <script lang="javascript">
 import SearchRegion from '../components/SearchRegion.vue'
 import YAddress from '../components/Form/Address.vue'
+import YJob from '../components/Form/Job.vue'
 
 export default {
   data () {
@@ -181,17 +216,10 @@ export default {
       gLocation: '',
       pensum: 10,
       jobtype: [],
-      searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
       options: ['Festanstellung', 'Freie Mitarbeit', 'Praktikum'],
-      tasks: '',
-      titleTasks: 'Aufgaben:',
-      description: 'mit X Mitarbeitern ist Y führender Anbieter von Y ....',
-      qualifications: '',
-      titleQualifications: 'Qualifikationen:',
-      benefits: '',
-      titleBenefits: 'Benefits:',
-      titleContact: 'Kontakt',
-      contact: 'Herr Max Mustermann<br>Musterstraß 10<br>12345 Musterstadt',
+      applyUrl: 'https://',
+      applyEmail: '',
+      apply: '',
       splitterModel: 50 // start at 50%
     }
   },
@@ -214,7 +242,8 @@ export default {
   },
   components: {
     SearchRegion,
-    YAddress
+    YAddress,
+    YJob
   }
 }
 </script>

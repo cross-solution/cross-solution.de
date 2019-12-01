@@ -1,6 +1,3 @@
-<!--
-just the Logo
--->
 <template>
   <div class="address">
     <div class="row">
