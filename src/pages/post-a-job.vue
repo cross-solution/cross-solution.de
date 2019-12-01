@@ -1,7 +1,6 @@
 <template>
   <div class="q-pa-md">
-    <h1>Stellenanzeige eingeben</h1>
-    <q-stepper v-model="step" ref="stepper" color="primary" animated>
+    <q-stepper v-model="step" ref="stepper" header-nav color="primary" animated>
       <q-step
         :name="1"
         title="Grunddaten"
@@ -35,9 +34,9 @@
           style="width: 250px"
         />
 
-        <q-badge color="secondary">
-          Pensum: {{ basicModel }} (100% to 10%)
-        </q-badge>
+        <q-badge color="secondary"
+          >Pensum: {{ basicModel }} (100% to 10%)</q-badge
+        >
         <q-slider v-model="pensum" markers label :min="1" :max="10" />
       </q-step>
 
@@ -91,7 +90,7 @@
         <q-separator />
         <div>{{ description }}</div>
         <div>{{ searching }}</div>
-        <div class="">
+        <div class>
           <h1>{{ title }}</h1>
           <h3>{{ titleTask }}</h3>
           <div>{{ task }}</div>
@@ -123,25 +122,23 @@
       </template>
 
       <template v-slot:message>
-        <q-banner v-if="step === 1" class="bg-secondary text-grey-9 q-px-lg">
+        <q-banner v-if="step === 1" class="bg-light-blue-1 text-grey-9 q-px-lg">
           Der Titel der Anzeige, der Name des Unternehmens und der Dienstitz
           wird in Ergebnislisten bei Jobbörsen angezeigt
         </q-banner>
         <q-banner
           v-else-if="step === 2"
-          class="bg-secondary text-grey-9 q-px-lg"
+          class="text-grey-9 bg-light-blue-1 q-px-lg"
+          >The ad group helps you to...</q-banner
         >
-          The ad group helps you to...
-        </q-banner>
         <q-banner
           v-else-if="step === 3"
-          class="bg-secondary text-white q-px-lg"
+          class="bg-light-blue-1 text-grey-9 q-px-lg"
+          >The Ad template is disabled - this won't be displayed</q-banner
         >
-          The Ad template is disabled - this won't be displayed
-        </q-banner>
-        <q-banner v-else class="bg-blue-8 text-white q-px-lg">
-          Endkontrolle
-        </q-banner>
+        <q-banner v-else class="bg-light-blue-1 text-grey-9 q-px-lg"
+          >Endkontrolle</q-banner
+        >
       </template>
     </q-stepper>
   </div>
@@ -156,6 +153,7 @@ export default {
     return {
       step: 1,
       title: 'Jobtitle',
+      organization: '',
       pensum: 100,
       jobtype: [],
       searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
