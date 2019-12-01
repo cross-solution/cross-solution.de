@@ -132,14 +132,14 @@
           <q-btn
             @click="$refs.stepper.next()"
             color="primary"
-            :label="step === 4 ? 'Finish' : 'Continue'"
+            :label="step === 4 ? 'Absenden' : 'Weiter'"
           />
           <q-btn
             v-if="step > 1"
             flat
             color="primary"
             @click="$refs.stepper.previous()"
-            label="Back"
+            label="Zurück"
             class="q-ml-sm"
           />
         </q-stepper-navigation>
