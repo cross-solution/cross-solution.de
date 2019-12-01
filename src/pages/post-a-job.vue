@@ -10,8 +10,6 @@
         class="row"
         style="min-height: 300px;"
       >
-        <div></div>
-
         <q-input outlined v-model="title" label="Titel der Anzeige" />
 
         <q-input
@@ -20,7 +18,7 @@
           label="Name des Unternehmens"
         />
 
-        <search-region label="Einsatzort" />
+        <search-region label="Einsatzort" :value="location" />
 
         <q-select
           label="Art der Anstellung"
@@ -33,15 +31,12 @@
           hint="Max 2 selections"
           style="width: 250px"
         />
-
-        <q-badge color="secondary"
-          >Pensum: {{ basicModel }} (100% to 10%)</q-badge
-        >
+        Pensum:
+        <q-badge color="secondary">{{ pensum }}0%</q-badge>
         <q-slider v-model="pensum" markers label :min="1" :max="10" />
       </q-step>
 
       <q-step
-        class="row"
         :name="2"
         title="Anzeige erstellen"
         caption="Aufgaben, Qualifikationen, Benefits"
@@ -49,25 +44,53 @@
         :done="step > 2"
         style="min-height: 200px;"
       >
-        <q-editor v-model="description" min-height="5rem" />
-        <q-input borderless v-model="searching" />
-        <h1>{{ title }}</h1>
-        <div class="col-md-6">
-          <q-input borderless v-model="titleTasks" />
-          <q-editor v-model="tasks" min-height="5rem" />
-        </div>
-        <div class="col-md-6">
-          <q-input borderless v-model="titleQualifications" />
-          <q-editor v-model="qualifications" min-height="5rem" />
-        </div>
-        <div class="col-md-6">
-          <q-input borderless v-model="titleBenefits" />
-          <q-editor v-model="benefits" min-height="5rem" />
-        </div>
-        <div class="col-md-6">
-          <q-input borderless v-model="titleContact" />
-          <q-editor v-model="contact" min-height="5rem" />
-        </div>
+        <q-splitter v-model="splitterModel" style="height: 400px;">
+          <template v-slot:before>
+            <div class="q-pa-md">
+              <div class="text-h4 q-mb-md">Before</div>
+              <div class="q-my-md">
+                <q-editor v-model="description" min-height="5rem" />
+                <q-input borderless v-model="searching" />
+                <h1>{{ title }}</h1>
+                <div class="col-md-6">
+                  <q-input borderless v-model="titleTasks" />
+                  <q-editor v-model="tasks" min-height="5rem" />
+                </div>
+                <div class="col-md-6">
+                  <q-input borderless v-model="titleQualifications" />
+                  <q-editor v-model="qualifications" min-height="5rem" />
+                </div>
+                <div class="col-md-6">
+                  <q-input borderless v-model="titleBenefits" />
+                  <q-editor v-model="benefits" min-height="5rem" />
+                </div>
+                <div class="col-md-6">
+                  <q-input borderless v-model="titleContact" />
+                  <q-editor v-model="contact" min-height="5rem" />
+                </div>
+              </div>
+            </div>
+          </template>
+
+          <template v-slot:after>
+            <div class="q-pa-md">
+              <div class="text-h4 q-mb-md">Voransicht</div>
+              <div>{{ description }}</div>
+              <div>{{ searching }}</div>
+              <div class>
+                <h1>{{ title }}</h1>
+                <h3>{{ titleTask }}</h3>
+                <div>{{ task }}</div>
+
+                <h3>{{ titleQualifications }}</h3>
+                <div>{{ qualifications }}</div>
+
+                <h3>{{ titleBenefits }}</h3>
+                <div>{{ benefits }}</div>
+              </div>
+            </div>
+          </template>
+        </q-splitter>
       </q-step>
 
       <q-step
@@ -88,6 +111,7 @@
         style="min-height: 200px;"
       >
         <q-separator />
+
         <div>{{ description }}</div>
         <div>{{ searching }}</div>
         <div class>
@@ -154,7 +178,8 @@ export default {
       step: 1,
       title: 'Jobtitle',
       organization: '',
-      pensum: 100,
+      gLocation: '',
+      pensum: 10,
       jobtype: [],
       searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
       options: ['Festanstellung', 'Freie Mitarbeit', 'Praktikum'],
@@ -166,7 +191,8 @@ export default {
       benefits: '',
       titleBenefits: 'Benefits:',
       titleContact: 'Kontakt',
-      contact: 'Herr Max Mustermann<br>Musterstraß 10<br>12345 Musterstadt'
+      contact: 'Herr Max Mustermann<br>Musterstraß 10<br>12345 Musterstadt',
+      splitterModel: 50 // start at 50%
     }
   },
   props: {
