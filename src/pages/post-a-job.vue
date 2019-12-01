@@ -19,22 +19,6 @@
             />
 
             <search-region label="Einsatzort" :value="location" />
-
-            <q-select
-              label="Art der Anstellung"
-              outlined
-              v-model="jobtype"
-              multiple
-              :options="options"
-              counter
-              max-values="2"
-              hint="Max 2 selections"
-              style="width: 250px"
-            />
-
-            Pensum:
-            <q-badge color="secondary">{{ pensum }}0%</q-badge>
-            <q-slider v-model="pensum" markers label :min="1" :max="10" />
           </div>
           <div class="col-md-6">
             <div>
@@ -84,7 +68,12 @@
                 </q-item-section>
               </q-item>
             </div>
-            <q-input outlined v-model="reference" label="Referenz" />
+            <q-input
+              outlined
+              v-model="reference"
+              label="Referenz"
+              hint="Referenznummer erscheint auf der Rechnung"
+            />
           </div>
         </div>
       </q-step>
@@ -139,26 +128,161 @@
 
       <q-step
         :name="4"
+        title="Kategorien"
+        caption="Optional"
+        icon="send"
+        style="min-height: 200px;"
+      >
+        <div class="row q-gutter-sm">
+          <q-card class="col-md-3">
+            <q-card-section>
+              <div class="text-h6">Art der Anstellung</div>
+            </q-card-section>
+
+            <q-card-section>
+              <q-item tag="label" v-ripple>
+                <q-item-section avatar top>
+                  <q-checkbox
+                    v-model="jobtype"
+                    val="fulltime"
+                    color="primary"
+                  />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Festanstellung</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item tag="label" v-ripple>
+                <q-item-section avatar top>
+                  <q-checkbox
+                    v-model="jobtype"
+                    val="contract"
+                    color="primary"
+                  />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Freie Mitarbeit</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item tag="label" v-ripple>
+                <q-item-section avatar top>
+                  <q-checkbox
+                    v-model="jobtype"
+                    val="internship"
+                    color="primary"
+                  />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Praktikum</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item tag="label" v-ripple>
+                <q-item-section avatar top>
+                  <q-checkbox
+                    v-model="jobtype"
+                    val="apprenticeship"
+                    color="primary"
+                  />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Ausbildungsplatz</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-card-section>
+          </q-card>
+          <q-card class="col-md-3">
+            <q-card-section>
+              <div class="text-h6">Pensum</div>
+            </q-card-section>
+
+            <q-card-section>
+              <q-item tag="label" v-ripple>
+                <q-item-section avatar top>
+                  <q-checkbox v-model="workload" val="100" color="primary" />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Vollzeit</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item tag="label" v-ripple>
+                <q-item-section avatar top>
+                  <q-checkbox
+                    v-model="workload"
+                    val="contract"
+                    color="primary"
+                  />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Teilzeit</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item tag="label" v-ripple>
+                <q-item-section avatar top>
+                  <q-checkbox v-model="minijob" color="primary" />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Minijob</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-card-section>
+          </q-card>
+          <q-card class="col-md-3">
+            <q-card-section>
+              <div class="text-h6">Eintrittstermin</div>
+            </q-card-section>
+
+            <q-card-section>
+              <q-item tag="label" v-ripple>
+                <q-item-section avatar top>
+                  <q-checkbox v-model="start" val="100" color="primary" />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>sofort</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item tag="label" v-ripple>
+                <q-item-section avatar top>
+                  <q-input filled v-model="date" mask="date" :rules="['date']">
+                    <template v-slot:append>
+                      <q-icon name="event" class="cursor-pointer">
+                        <q-popup-proxy
+                          ref="qDateProxy"
+                          transition-show="scale"
+                          transition-hide="scale"
+                        >
+                          <q-date
+                            v-model="date"
+                            @input="() => $refs.qDateProxy.hide()"
+                          />
+                        </q-popup-proxy>
+                      </q-icon>
+                    </template>
+                  </q-input>
+                </q-item-section>
+              </q-item>
+            </q-card-section>
+          </q-card>
+        </div>
+      </q-step>
+
+      <q-step
+        :name="5"
         title="Abschicken"
         caption="Preview"
         icon="send"
         style="min-height: 200px;"
       >
-        <q-separator />
-
-        <div>{{ description }}</div>
-        <div>{{ searching }}</div>
-        <div class>
-          <h1>{{ title }}</h1>
-          <h3>{{ titleTask }}</h3>
-          <div>{{ task }}</div>
-
-          <h3>{{ titleQualifications }}</h3>
-          <div>{{ qualifications }}</div>
-
-          <h3>{{ titleBenefits }}</h3>
-          <div>{{ benefits }}</div>
-        </div>
+        <q-item tag="label" v-ripple>
+          <q-item-section avatar top>
+            <q-checkbox v-model="conditions" val="primary" color="primary" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>AGB</q-item-label>
+            <q-item-label caption>
+              ich habe die AGBs gelesen und akzeptiere Sie
+            </q-item-label>
+          </q-item-section>
+        </q-item>
       </q-step>
 
       <template v-slot:navigation>
@@ -166,7 +290,7 @@
           <q-btn
             @click="$refs.stepper.next()"
             color="primary"
-            :label="step === 4 ? 'Absenden' : 'Weiter'"
+            :label="step === 5 ? 'Absenden' : 'Weiter'"
           />
           <q-btn
             v-if="step > 1"
@@ -192,8 +316,14 @@
         <q-banner
           v-else-if="step === 3"
           class="bg-light-blue-1 text-grey-9 q-px-lg"
-          >The Ad template is disabled - this won't be displayed</q-banner
+          >Rechnungsanschrift</q-banner
         >
+        <q-banner
+          v-else-if="step === 4"
+          class="bg-light-blue-1 text-grey-9 q-px-lg"
+          >Ihre Anzeige wird besser gefunden, wenn Sie Angaben</q-banner
+        >
+
         <q-banner v-else class="bg-light-blue-1 text-grey-9 q-px-lg"
           >Endkontrolle</q-banner
         >
@@ -215,12 +345,16 @@ export default {
       organization: '',
       gLocation: '',
       pensum: 10,
-      jobtype: [],
-      options: ['Festanstellung', 'Freie Mitarbeit', 'Praktikum'],
+      jobtype: ['fulltime'],
       applyUrl: 'https://',
       applyEmail: '',
       apply: '',
-      splitterModel: 50 // start at 50%
+      splitterModel: 50, // start at 50%
+      conditions: '',
+      workload: ['100'],
+      minijob: '',
+      start: '',
+      date: ''
     }
   },
   props: {
