@@ -8,8 +8,8 @@
         icon="settings"
         :done="step > 1"
         style="min-height: 300px;"
-        ><div class="row">
-          <div class="col-md-6">
+        ><div class="row q-gutter-md">
+          <div class="col-md-6 q-gutter-y-md">
             <q-input outlined v-model="title" label="Titel der Anzeige" />
 
             <q-input
@@ -18,9 +18,9 @@
               label="Name des Unternehmens"
             />
 
-            <search-region label="Einsatzort" :value="location" />
+            <y-search-region label="Einsatzort" :value="location" />
           </div>
-          <div class="col-md-6">
+          <div class="col-auto q-gutter-y-md">
             <div>
               <q-expansion-item
                 v-model="applyForm"
@@ -89,8 +89,11 @@
         <q-splitter v-model="splitterModel" style="height: 400px;">
           <template v-slot:before>
             <div class="q-pa-md">
-              <div class="text-h4 q-mb-md">Before</div>
-              <y-job :title="title" />
+              <q-card class="col-md-3">
+                <q-card-section>
+                  <y-job :title="title" :tasks="tasks" />
+                </q-card-section>
+              </q-card>
             </div>
           </template>
 
@@ -129,8 +132,8 @@
       <q-step
         :name="4"
         title="Kategorien"
-        caption="Optional"
-        icon="send"
+        caption="Vertragsart, Gehalt, Eintrittstermin"
+        icon="assignment"
         style="min-height: 200px;"
       >
         <div class="row q-gutter-sm">
@@ -321,7 +324,7 @@
         <q-banner
           v-else-if="step === 4"
           class="bg-light-blue-1 text-grey-9 q-px-lg"
-          >Ihre Anzeige wird besser gefunden, wenn Sie Angaben</q-banner
+          >Ihre Anzeige wird besser gefunden, wenn Sie Angaben ....</q-banner
         >
 
         <q-banner v-else class="bg-light-blue-1 text-grey-9 q-px-lg"
@@ -333,7 +336,7 @@
 </template>
 
 <script lang="javascript">
-import SearchRegion from '../components/SearchRegion.vue'
+import YSearchRegion from '../components/SearchRegion.vue'
 import YAddress from '../components/Form/Address.vue'
 import YJob from '../components/Form/Job.vue'
 
@@ -361,7 +364,17 @@ export default {
     locationType: {
       type: String,
       default: 'geocode'
-    }
+    },
+    description: String,
+    searching: String,
+    tasks: String,
+    titleTasks: String,
+    qualifications: String,
+    titleQualifications: String,
+    benefits: String,
+    titleBenefits: String,
+    titleContact: String,
+    contact: String
   },
   mounted () {},
   methods: {
@@ -375,7 +388,7 @@ export default {
     }
   },
   components: {
-    SearchRegion,
+    YSearchRegion,
     YAddress,
     YJob
   }

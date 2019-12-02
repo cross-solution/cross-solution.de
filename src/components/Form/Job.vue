@@ -28,11 +28,10 @@
 
 export default {
   name: 'Job',
-  props: ['title'],
+  props: ['title', 'tasks'],
   data () {
     return {
       searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
-      tasks: '',
       titleTasks: 'Aufgaben:',
       description: 'mit X Mitarbeitern ist Y führender Anbieter von Y ....',
       qualifications: '',
