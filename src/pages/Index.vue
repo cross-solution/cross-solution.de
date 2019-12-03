@@ -86,7 +86,7 @@ export default {
       const el = document.getElementById(id)
       const target = scroll.getScrollTarget(el)
       const offset = el.offsetTop
-      const duration = 1000
+      const duration = 100
       scroll.setScrollPosition(target, offset, duration)
     },
     scrollToTop () {
