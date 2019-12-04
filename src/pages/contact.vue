@@ -36,7 +36,9 @@ export default {
   name: 'Contact',
   data () {
     return {
-      editor: ''
+      editor: '',
+      email: '',
+      name: ''
     }
   }
 }
