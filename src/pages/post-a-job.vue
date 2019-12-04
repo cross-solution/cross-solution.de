@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md">
-    <q-stepper v-model="step" ref="stepper" header-nav color="primary" animated>
+    <q-stepper v-model="step" ref="stepper" header-nav color="primary" animated swipeable>
       <q-step
         :name="1"
         title="Grunddaten"

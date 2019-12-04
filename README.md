@@ -24,3 +24,7 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+
+### Setting up VSCode editor to lint/auto format vue/js/html files
+See [this gist](https://gist.github.com/TiSiE/be6c4bce0a939fb4c906d5fb4e729760)
+
