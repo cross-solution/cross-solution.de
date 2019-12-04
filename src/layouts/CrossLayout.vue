@@ -131,6 +131,7 @@
         <q-route-tab name="privacy" to="/privacy" label="Datenschutz" />
         <q-route-tab name="contact" to="/contact" label="Kontakt" />
       </q-tabs>
+      <login-info></login-info>
       <a href="https://github.com/cross-solution">
         <q-icon name="fab fa-github" size="lg" />
       </a>
@@ -141,6 +142,7 @@
 <script lang="javascript">
 // outside of a Vue file
 import { Notify, openURL } from 'quasar'
+import LoginInfo from '../components/LoginInfo.vue'
 
 Notify.create({
   message:
@@ -181,7 +183,8 @@ export default {
     }
   },
   components: {
-    Logo
+    Logo,
+    LoginInfo
   }
 }
 </script>
