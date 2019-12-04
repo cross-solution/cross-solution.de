@@ -2,7 +2,7 @@
   {
     "id": "dev",
     "title": "Software Entwicklung",
-    "subtitle": "Fontend Backend",
+    "subtitle": "Frontend Backend",
     "description": "Die Bedeutung der Software Entwicklung für den Erfolg von Untenehmen nimmt zu. Es zieht sich durch alle Branchen. Und die Werkzeuge, mit denen die IT hantiert wandeln sich zunehmend schneller. Mit uns bleiben Sie am Ball.",
     "bg": "orange",
     "text": "Wir unterstützen Sie in der Software-Entwicklung",
@@ -88,7 +88,8 @@
     "text": "Proxmox, Kubernets, Openstack, Jest, Travis, Coverall, PHPunit, Cypress, Behat, LXC",
     "description": "Wer wiederkehrende Prozesse automatisiert, ist im Vorteil. Und dank der Cloud sind automatiserte Tests oder autotisiertes Handeln heute einfacher denn je. Ein Software-Entwickler interessiert es nicht, wie sein Programm in ein System eingespielt wird. Einem Texter ist es egal, wie seine Werke online gehen. Der Designer arbeitet mit seinen Werkzeugen. Wie am Ende alles zusammenspielt, ist ihm egal."
   },
-  { "id": "dgn",
+  {
+    "id": "dgn",
     "title": "UI/UX Design",
     "subtitle": "vom Auge zum Hirn",
     "description": "Design setzt die präzise Auseinandersetzung mit der Sache und dem Problem voraus. Das Ergebnis erreicht uns im Netz hauptsächlich optisch. Wir legen Wert auf eine Messbarkeit von UI/UX. Wer Produkte mit intuitivem UI/UX Design hat ist im Vorteil.",
