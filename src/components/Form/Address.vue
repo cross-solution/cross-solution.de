@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent.stop="onSubmit" @reset.prevent.stop="onReset">
     <div class="address">
-      <div class="row q-gxutter-x-md col-md-#12 myclass">
-        <div class="col-md-2">
+      <div class="row q-col-gutter-sm myclass">
+        <div class="col-3">
           <q-select
             outlined
             v-model="gender"
@@ -31,7 +31,7 @@
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-8">
+        <div class="col-10">
           <q-input
             outlined
             v-model="street"
@@ -40,11 +40,11 @@
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-3">
+        <div class="col-2">
           <q-input
             outlined
             v-model="housenumber"
-            label="Hausnummer *"
+            label="Hausnr. *"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
@@ -58,7 +58,7 @@
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-10" style="margin-left: 5px;">
+        <div class="col-10">
           <q-input
             outlined
             v-model="city"
@@ -87,6 +87,7 @@
 <style lang="scss">
 .myclass {
   max-width: 45%;
+  box-sizing: border-box;
 }
 </style>
 
