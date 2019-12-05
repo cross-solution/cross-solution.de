@@ -146,7 +146,7 @@ export default {
         rowsPerPage: 10,
         rowsNumber: 10
       },
-      grid: false,
+      grid: this.$q.platform.is.mobile,
       wrapCells: true,
       basicModel: 2,
       distance: ['5 km', '10 km', '20 km', '50 km', '100 km'],
