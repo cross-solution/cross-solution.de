@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex items-start">
-   <div class="cs-cover-layer">
+   <div class="cs-cover-layer" v-if="coverpage()">
       <div class="cs-cover-border-top"></div>
       <div id="introduction">
         <div id="animation">
@@ -53,7 +53,7 @@
 import Products from '../components/Products.vue'
 import ProductDescription from '../components/ProductDescription.vue'
 import Data from '../assets/products.json'
-import { scroll } from 'quasar'
+import { Cookies, scroll } from 'quasar'
 
 export default {
   name: 'PageIndex',
@@ -91,6 +91,15 @@ export default {
     },
     scrollToTop () {
       this.scrollToElement('top')
+    },
+    coverpage: function () {
+      if (Cookies.has('cover-page') !== true) {
+        Cookies.set('cover-page', 'true', { expires: 5 * 365 })
+        return true
+      }
+      else {
+        return false
+      }
     }
   }
 }
