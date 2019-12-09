@@ -53,7 +53,7 @@
 import Products from '../components/Products.vue'
 import ProductDescription from '../components/ProductDescription.vue'
 import Data from '../assets/products.json'
-import { Cookies, scroll } from 'quasar'
+import { scroll } from 'quasar'
 
 export default {
   name: 'PageIndex',

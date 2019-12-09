@@ -143,37 +143,6 @@
 // outside of a Vue file
 import { Notify, openURL } from 'quasar'
 import LoginInfo from '../components/LoginInfo.vue'
-
-Notify.create({
-  message:
-    'Wir überarbeiten nach 15 Jahren unsere Homepage. Obwohl noch nicht ganz fertig, ist sie bereits online. Wir ermöglichen Ihnen dadurch auf Github zu verfolgen, wie die Seite entsteht.',
-    position: 'bottom-left',
-    avatar: 'statics/team/cbleek-460x460.jpeg',
-    timeout: 10000,
-    color: 'orange',
-    classes: 'notify_img',
-    textColor: 'black',
-    actions: [
-      {
-        label: 'zur alten Version',
-        color: 'white',
-        noDismiss: false,
-        handler () {
-          openURL('https://old.cross-solution.de')
-        }
-      },
-      {
-        label: 'zum GitHub Repo',
-        color: 'white',
-        noDismiss: false,
-        handler () {
-          openURL('https://github.com/cross-solution/cross-solution.de')
-        }
-      },
-      { icon: 'close', color: 'white', label: '' }
-    ]
-  })
-
 import Logo from '../components/Logo.vue'
 
 export default {
