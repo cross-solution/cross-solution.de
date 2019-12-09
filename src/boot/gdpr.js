@@ -11,7 +11,7 @@ if (LocalStorage.has(GDPR) !== true || LocalStorage.getItem(GDPR).expires < toda
 }
 
 function gdpr () {
-  var expire = today + 600000 // milliseconds = 1 minute
+  var expire = today + 1000 * 60 * 60 * 24 * 365 // milliseconds = 1 year
 
   Notify.create({
     message: `Unsere Webseite verwendet Cookies.`,
