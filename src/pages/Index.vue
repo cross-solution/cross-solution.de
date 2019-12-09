@@ -93,8 +93,8 @@ export default {
       this.scrollToElement('top')
     },
     coverpage: function () {
-      if (Cookies.has('cover-page') !== true) {
-        Cookies.set('cover-page', 'true', { expires: 5 * 365 })
+      if (this.$q.cookies.has('cover-page') !== true) {
+        this.$q.cookies.set('cover-page', 'true', { expires: 5 * 365 })
         return true
       }
       else {
