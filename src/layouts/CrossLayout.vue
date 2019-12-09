@@ -131,6 +131,7 @@
         <q-route-tab name="privacy" to="/privacy" label="Datenschutz" />
         <q-route-tab name="contact" to="/contact" label="Kontakt" />
       </q-tabs>
+      <login-info :uri="loginUri" />
       <a href="https://github.com/cross-solution">
         <q-icon name="fab fa-github" size="lg" />
       </a>
@@ -140,11 +141,11 @@
 
 <script lang="javascript">
 // outside of a Vue file
-import { Cookies, Notify, openURL } from 'quasar'
-if (Cookies.has('yellow-box') !== true) {
-  Cookies.set('yellow-box', 'true', { expires: 5 * 365 })
-  Notify.create({
-    message:
+import { Notify, openURL } from 'quasar'
+import LoginInfo from '../components/LoginInfo.vue'
+
+Notify.create({
+  message:
     'Wir überarbeiten nach 15 Jahren unsere Homepage. Obwohl noch nicht ganz fertig, ist sie bereits online. Wir ermöglichen Ihnen dadurch auf Github zu verfolgen, wie die Seite entsteht.',
     position: 'bottom-left',
     avatar: 'statics/team/cbleek-460x460.jpeg',
@@ -172,18 +173,19 @@ if (Cookies.has('yellow-box') !== true) {
       { icon: 'close', color: 'white', label: '' }
     ]
   })
-}
 
 import Logo from '../components/Logo.vue'
 
 export default {
   data () {
     return {
-      right: false
+      right: false,
+      loginUri: process.env.STRAPI_HOST + '/auth/local'
     }
   },
   components: {
-    Logo
+    Logo,
+    LoginInfo
   }
 }
 </script>
