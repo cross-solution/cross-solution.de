@@ -22,7 +22,6 @@
               v-model="title"
               label="Titel der Anzeige"
             />
-
             <q-input
               outlined
               v-model="organization"
