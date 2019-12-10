@@ -1,44 +1,36 @@
 <template>
   <div>
     <div v-if="!loggedIn">
-      <q-btn
-        color="primary"
-        glossy
-        label="Login"
-        @click="doLogin=true"
-      />
-      <q-dialog
-        ref="loginDialog"
-        v-model="doLogin"
-        persistent
-      >
+      <q-btn color="primary" flat label="Login" @click="doLogin = true" />
+      <q-dialog ref="loginDialog" v-model="doLogin" persistent>
         <q-card class="relative-position">
           <q-tabs v-model="loginStatus.mode" dense active-color="primary">
             <q-tab name="login" label="Login" />
-            <q-tab name="register" label="Register"/>
+            <q-tab name="register" label="Register" />
           </q-tabs>
 
           <q-card-section>
-            <q-card v-if="loginStatus.isError" class="q-pa-sm text-white bg-negative">
+            <q-card
+              v-if="loginStatus.isError"
+              class="q-pa-sm text-white bg-negative"
+            >
               {{ loginStatus.message }}
             </q-card>
           </q-card-section>
 
-          <q-form
-            ref="loginForm"
-            @submit="onSubmit"
-            @reset="onCancel"
-          >
+          <q-form ref="loginForm" @submit="onSubmit" @reset="onCancel">
             <q-card-section class="relative-position">
-
               <q-input
                 v-model="credentials.name"
                 dense
                 autofocus
                 placeholder="Name"
               />
-              <q-input v-if="loginStatus.mode == 'register'"
-                v-model="credentials.email" dense placeholder="E-Mail"
+              <q-input
+                v-if="loginStatus.mode == 'register'"
+                v-model="credentials.email"
+                dense
+                placeholder="E-Mail"
               />
               <q-input
                 v-model="credentials.pass"
@@ -56,30 +48,23 @@
                 </template>
               </q-input>
               <q-inner-loading :showing="loginStatus.isDoing">
-                <q-spinner
-                  size="4em"
-                  :thickness="2"
-                  color="primary"
-                />
+                <q-spinner size="4em" :thickness="2" color="primary" />
               </q-inner-loading>
             </q-card-section>
-            <q-card-actions
-              align="right"
-              class="text-primary"
-            >
-              <q-btn
-                type="reset"
-                v-close-popup
-                flat
-                label="Cancel"
-              />
+            <q-card-actions align="right" class="text-primary">
+              <q-btn type="reset" v-close-popup flat label="Cancel" />
               <q-btn
                 v-if="loginStatus.mode == 'login'"
                 type="submit"
                 flat
                 label="Login"
               />
-              <q-btn v-if="loginStatus.mode == 'register'" type="submit" flat label="Register" />
+              <q-btn
+                v-if="loginStatus.mode == 'register'"
+                type="submit"
+                flat
+                label="Register"
+              />
             </q-card-actions>
           </q-form>
         </q-card>
@@ -87,13 +72,40 @@
     </div>
 
     <div v-if="loggedIn">
-      Hallo {{ crossUser.get('username') }}
-      <q-btn
-        color="white"
+
+        <q-btn-dropdown
         flat
-        label="Logout"
-        @click="onLogout"
-      />
+          :icon="`img:` + host + crossUser.get('photo', { url: null }).url"
+          auto-close
+          color="primary"
+        >
+          <!-- dropdown content goes here -->
+          <q-list class="bg-orange-1" padding style="width: 250px">
+            <q-item clickable @click="onLogout">
+              <q-item-section>
+                <q-item-label>Einstellungen</q-item-label>
+              </q-item-section>
+              <q-item-section side>
+                <q-icon
+                  name="settings"
+                  color="primary"
+                />
+              </q-item-section>
+            </q-item>
+            <q-item clickable @click="onLogout" dense>
+              <q-item-section>
+                <q-item-label>Logout</q-item-label>
+              </q-item-section>
+              <q-item-section side>
+                <q-icon
+                  name="fas fa-sign-out-alt"
+                  color="primary"
+                />
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
+
     </div>
   </div>
 </template>
@@ -168,25 +180,32 @@ export default {
     },
     map: {
       type: [String, Object],
-      default: () => ({ identifier: 'identifier', password: 'password', email: 'email', username: 'username' })
+      default: () => ({
+        identifier: 'identifier',
+        password: 'password',
+        email: 'email',
+        username: 'username'
+      })
     }
   },
   data () {
     return {
-      'loggedIn': this.crossUser.isLoggedIn(),
-      'showPw': false,
-      'doLogin': false,
-      'loginStatus': new LoginState(),
-      'credentials': {
-        'name': '',
-        'email': '',
-        'pass': ''
+      loggedIn: this.crossUser.isLoggedIn(),
+      showPw: false,
+      doLogin: false,
+      loginStatus: new LoginState(),
+      credentials: {
+        name: '',
+        email: '',
+        pass: ''
       }
     }
   },
   computed: {
     paramMap () {
-      return typeof this.map === 'object' ? this.map : { identifier: this.map, password: 'password' }
+      return typeof this.map === 'object'
+        ? this.map
+        : { identifier: this.map, password: 'password' }
     }
   },
   mounted () {
@@ -202,7 +221,7 @@ export default {
       this.loggedIn = true
     },
     onCancel (preserve) {
-      this.credentials = { 'name': '', 'pass': '' }
+      this.credentials = { name: '', pass: '' }
       this.doLogin = false
       this.showPw = false
       this.loginStatus.mode = 'login'
@@ -240,12 +259,11 @@ export default {
         return
       }
 
-      const url = this.host +
-                  (
-                    this.loginStatus.mode === 'login'
-                      ? this.loginPath
-                      : this.registerPath
-                  )
+      const url =
+        this.host +
+        (this.loginStatus.mode === 'login'
+          ? this.loginPath
+          : this.registerPath)
 
       this.$axios
         .post(url, params)
