@@ -6,7 +6,7 @@ just the Logo
     <div class="CROSS CROSS-blue1" />
     <div class="CROSS CROSS-blue2" />
     <div class="CROSS CROSS-blue3" />
-    <div class="CROSS Name">
+    <div class="CROSS Name archivo">
       <a href="/">
         <q-tooltip
           transition-show="scale"
@@ -77,7 +77,6 @@ $margin: 3px;
   top: 37px;
   left: $left + $width - 3;
   animation: goleft 1.2s linear forwards 0.2s;
-  font-family: "Archivo Black", sans-serif;
   font-size: 28px;
 }
 .CROSS a {
