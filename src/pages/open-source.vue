@@ -112,6 +112,9 @@
 
 <script>
 export default {
+  meta: {
+    'title': 'Open Source'
+  },
   name: 'OpenSource',
   data () {
     return {

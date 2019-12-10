@@ -19,6 +19,9 @@
 
 <script>
 export default {
+  meta: {
+    'title': 'Impressum'
+  },
   name: 'Imprint'
 }
 </script>

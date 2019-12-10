@@ -90,6 +90,9 @@
 import YAddress from '../components/Form/Address.vue'
 
 export default {
+  meta: {
+    'title': 'Bewerben'
+  },
   name: 'Apply',
   data () {
     return {

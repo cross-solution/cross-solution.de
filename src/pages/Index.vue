@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex items-start">
-   <div class="cs-cover-layer">
+   <div class="cs-cover-layer" v-if="coverpage()">
       <div class="cs-cover-border-top"></div>
       <div id="introduction">
         <div id="animation">
@@ -56,6 +56,9 @@ import Data from '../assets/products.json'
 import { scroll } from 'quasar'
 
 export default {
+  meta: {
+    'title': 'Open Source @ CROSS Solution'
+  },
   name: 'PageIndex',
   data () {
     return {
@@ -91,6 +94,15 @@ export default {
     },
     scrollToTop () {
       this.scrollToElement('top')
+    },
+    coverpage: function () {
+      if (this.$q.cookies.has('cover-page') !== true) {
+        this.$q.cookies.set('cover-page', 'true', { expires: 5 * 365 })
+        return true
+      }
+      else {
+        return false
+      }
     }
   }
 }
