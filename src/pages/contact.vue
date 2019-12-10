@@ -33,6 +33,9 @@
 
 <script lang="javascript">
 export default {
+  meta: {
+    'title': 'get in touch'
+  },
   name: 'Contact',
   data () {
     return {

@@ -290,6 +290,9 @@ import YJob from '../components/Form/Job.vue'
 import YCategoryBox from '../components/Form/CategoryBox.vue'
 
 export default {
+  meta: {
+    'title': 'Stellenanzeige schalten'
+  },
   data () {
     return {
       step: 1,

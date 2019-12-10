@@ -36,6 +36,9 @@
 import Member from '../components/Member.vue'
 
 export default {
+  meta: {
+    'title': 'Über uns'
+  },
   computed: {
     layout () {
       return this.$q.screen.lt.sm

@@ -98,6 +98,9 @@
 import Jobsearch from '../components/Jobsearch.vue'
 
 export default {
+  meta: {
+    'title': 'Der digitale Wandel'
+  },
   name: 'DigitalChange',
   data () {
     return {

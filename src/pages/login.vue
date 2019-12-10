@@ -34,6 +34,9 @@
 
 <script>
 export default {
+  meta: {
+    'title': 'Login'
+  },
   data () {
     return {
       name: '',

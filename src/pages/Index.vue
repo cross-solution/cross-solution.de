@@ -56,6 +56,9 @@ import Data from '../assets/products.json'
 import { scroll } from 'quasar'
 
 export default {
+  meta: {
+    'title': 'Open Source @ CROSS Solution'
+  },
   name: 'PageIndex',
   data () {
     return {

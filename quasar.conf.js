@@ -46,7 +46,7 @@ module.exports = function (ctx) {
       directives: [],
 
       // Quasar plugins
-      plugins: ['Cookies', 'Notify', 'LocalStorage', 'SessionStorage'],
+      plugins: ['Cookies', 'Notify', 'LocalStorage', 'SessionStorage', 'Meta'],
       config: {
         // optional (v0.17+)
         notify: {
