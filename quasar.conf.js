@@ -9,7 +9,8 @@ module.exports = function (ctx) {
     boot: [
       'i18n',
       'axios',
-      { path: 'gdpr', server: false }
+      { path: 'gdpr', server: false },
+      'login-info'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
