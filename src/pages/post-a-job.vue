@@ -97,7 +97,11 @@
             <div class="q-pa-md">
               <q-card class="col-md-3">
                 <q-card-section>
-                  <y-job :title="title" :tasks="tasks" />
+                  <y-job
+                    :title="title"
+                    :tasks="tasks"
+                    v-on:childToParent="onChildClick"
+                    />
                 </q-card-section>
               </q-card>
             </div>
@@ -106,9 +110,14 @@
           <template v-slot:after>
             <div class="q-pa-md">
               <div class="text-h4 q-mb-md">Voransicht</div>
-              <div>{{ description }}</div>
+              <div>{{ description  }}</div>
+XX
+
+              <q-card flat bordered>
+                <q-card-section v-html="fromChild" />
+              </q-card>
               <div>{{ searching }}</div>
-              <div class>
+              <div>
                 <h1>{{ title }}</h1>
                 <h3>{{ titleTask }}</h3>
                 <div>{{ task }}</div>
@@ -309,7 +318,9 @@ export default {
       workload: ['100'],
       minijob: '',
       start: '',
-      date: ''
+      date: '',
+      fromChild: '',
+      description: ''
     }
   },
   props: {
@@ -317,7 +328,6 @@ export default {
       type: String,
       default: 'geocode'
     },
-    description: String,
     searching: String,
     tasks: String,
     titleTasks: String,
@@ -337,6 +347,10 @@ export default {
           coordinates: [addressData.longitude, addressData.latitude]
         }
       })
+    },
+    // Triggered when `childToParent` event is emitted by the child.
+    onChildClick (value) {
+      this.description = value
     }
   },
   components: {

@@ -1,7 +1,9 @@
 <template>
   <div class="job">
     <q-editor
-      v-model="qeditor"
+      v-model="childMessage"
+      v-on:keyup="emitToParent"
+      name="msg"
       toolbar-text-color="white"
       toolbar-bg="primary"
       :dense="$q.screen.lt.md"
@@ -114,7 +116,15 @@ export default {
       benefits: '',
       titleBenefits: 'Benefits:',
       titleContact: 'Kontakt',
-      contact: 'Herr Max Mustermann<br>Musterstraß 10<br>12345 Musterstadt'
+      contact: 'Herr Max Mustermann<br>Musterstraß 10<br>12345 Musterstadt',
+      childMessage: 'xxx'
+    }
+  },
+  methods: {
+    // Define the method that emits data to the parent as the first parameter to `$emit()`.
+    // This is referenced in the <template> call in the parent. The second parameter is the payload.
+    emitToParent (event) {
+      this.$emit('childToParent', this.childMessage)
     }
   }
 }
