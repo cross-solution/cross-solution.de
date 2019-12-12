@@ -9,7 +9,7 @@ module.exports = function (ctx) {
     boot: [
       'i18n',
       'axios',
-      { path: 'gdpr', server: false },
+      { path: 'notifications', server: false },
       'login-info'
     ],
 
