@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@quasar/app": "^1.4.0",
-    "@quasar/quasar-app-extension-dotenv": "^1.0.0-beta.11",
+    "@quasar/quasar-app-extension-dotenv": "^1.0.0",
     "@quasar/quasar-app-extension-testing": "^1.0.0",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^1.0.0-beta.10",
     "@quasar/quasar-app-extension-testing-unit-jest": "^1.0.0",
@@ -34,11 +34,6 @@
     "eslint-plugin-quasar": "^1.0.0-alpha.16",
     "eslint-plugin-vue": "^5.0.0",
     "gray-matter": "^4.0.2",
-    "markdown-it": "^10.0.0",
-    "markdown-it-container": "^2.0.0",
-    "pug": "^2.0.3",
-    "pug-plain-loader": "^1.0.0",
-    "raw-loader": "^1.0.0",
     "standard": "^14.3.1",
     "toml": "^2.3.5"
   },
