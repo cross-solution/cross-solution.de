@@ -1,6 +1,6 @@
 <template>
   <q-layout>
-    <q-header height-hint="150" reveal class="bg-white text-primary">
+    <q-header reveal class="bg-white text-primary">
       <q-toolbar>
         <q-toolbar-title>
           <logo />
