@@ -66,7 +66,7 @@
           label="Über uns"
           icon="calendar"
           align="arround"
-          to="/about-us"
+          to="/about"
         />
         <q-btn
           flat
