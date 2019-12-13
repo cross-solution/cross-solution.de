@@ -92,36 +92,7 @@
         :done="step > 2"
         style="min-height: 200px;"
       >
-        <q-splitter v-model="splitterModel" style="height: 400px;">
-          <template v-slot:before>
-            <div class="q-pa-md">
-              <q-card class="col-md-3">
-                <q-card-section>
-                  <y-job :title="title" :tasks="tasks" />
-                </q-card-section>
-              </q-card>
-            </div>
-          </template>
-
-          <template v-slot:after>
-            <div class="q-pa-md">
-              <div class="text-h4 q-mb-md">Voransicht</div>
-              <div>{{ description }}</div>
-              <div>{{ searching }}</div>
-              <div class>
-                <h1>{{ title }}</h1>
-                <h3>{{ titleTask }}</h3>
-                <div>{{ task }}</div>
-
-                <h3>{{ titleQualifications }}</h3>
-                <div>{{ qualifications }}</div>
-
-                <h3>{{ titleBenefits }}</h3>
-                <div>{{ benefits }}</div>
-              </div>
-            </div>
-          </template>
-        </q-splitter>
+      <YJob @changeMsg="setMessage"></YJob>
       </q-step>
 
       <q-step
@@ -288,7 +259,6 @@ import YSearchRegion from '../components/SearchRegion.vue'
 import YAddress from '../components/Form/Address.vue'
 import YJob from '../components/Form/Job.vue'
 import YCategoryBox from '../components/Form/CategoryBox.vue'
-
 export default {
   meta: {
     'title': 'Stellenanzeige schalten'
@@ -304,7 +274,6 @@ export default {
       applyUrl: 'https://',
       applyEmail: '',
       apply: '',
-      splitterModel: 50, // start at 50%
       conditions: '',
       workload: ['100'],
       minijob: '',
@@ -328,7 +297,8 @@ export default {
     titleContact: String,
     contact: String
   },
-  mounted () {},
+  mounted () {
+  },
   methods: {
     filterLocation (addressData) {
       this.location = JSON.stringify({
@@ -337,6 +307,10 @@ export default {
           coordinates: [addressData.longitude, addressData.latitude]
         }
       })
+    },
+    setMessage (msg) {
+      this.text_value = msg
+      console.log(msg)
     }
   },
   components: {
@@ -351,16 +325,12 @@ export default {
 <style lang="sass" scoped>
 .location
   border: none
-
 body.desktop .q-focus-helper:before
   background: #faa427 !important
-
 body.desktop .q-focus-helper:after
   color: #faa427 !important
-
 body.desktop .q-focus-helper:after
   background: #faa427 !important
-
 .hover
   color: #faa427
 </style>
