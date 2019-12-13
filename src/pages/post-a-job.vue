@@ -278,7 +278,8 @@ export default {
       workload: ['100'],
       minijob: '',
       start: '',
-      date: ''
+      date: '',
+      location: ''
     }
   },
   props: {

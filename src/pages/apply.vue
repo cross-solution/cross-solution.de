@@ -1,100 +1,91 @@
 <template>
   <q-page padding>
-    <q-stepper v-model="step" vertical color="primary" animated>
+    <q-stepper v-model="step" vertical header-nav flat color="primary" animated>
       <q-step
         :name="1"
-        header-nav
-        title="Select campaign settings"
+        title="Persönliche Daten"
         icon="settings"
         :done="step > 1"
       >
         <y-address />
 
         <q-stepper-navigation>
-          <q-btn @click="step = 2" color="primary" label="Continue" />
+          <q-btn @click="step = 2" color="primary" label="Weiter" />
         </q-stepper-navigation>
       </q-step>
 
       <q-step
         :name="2"
-        title="Create an ad group"
+        title="Anschreiben"
         caption="Optional"
         icon="create_new_folder"
         :done="step > 2"
       >
-        An ad group contains one or more ads which target a shared set of
-        keywords.
+
+<div class="q-pa-md">
+    <div class="q-gutter-y-md" style="max-width: 600px">
+      <q-card>
+        <q-tabs
+          v-model="tab"
+          dense
+          class="text-grey"
+          active-color="primary"
+          indicator-color="primary"
+          align="justify"
+          narrow-indicator
+        >
+          <q-tab name="mails" label="Mails" />
+          <q-tab name="alarms" label="Alarms" />
+          <q-tab name="movies" label="Movies" />
+        </q-tabs>
+
+        <q-separator />
+
+        <q-tab-panels v-model="tab" animated>
+          <q-tab-panel name="mails">
+            <div class="text-h6">Anscchreiben</div>
+                    <q-editor
+            v-model="editor"
+            min-height="5rem"
+            placeholder="Anschreiben"
+          />
+          </q-tab-panel>
+
+          <q-tab-panel name="alarms">
+            <div class="text-h6">Alarms</div>
+             <q-uploader
+      url="http://localhost:4444/upload"
+      label="Anlagen zur Bewerbung"
+      multiple
+      style="max-width: 300px"
+    />
+          </q-tab-panel>
+
+          <q-tab-panel name="movies">
+            <div class="text-h6">Movies</div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </q-tab-panel>
+        </q-tab-panels>
+      </q-card>
+
+    </div>
+  </div>
 
         <q-stepper-navigation>
-          <q-btn @click="step = 4" color="primary" label="Continue" />
+
           <q-btn
             flat
             @click="step = 1"
             color="primary"
-            label="Back"
+            label="Zurück"
             class="q-ml-sm"
           />
+          <q-btn @click="step = 4" color="primary" label="Weiter" />
         </q-stepper-navigation>
       </q-step>
 
-      <q-step :name="3" title="Ad template" icon="assignment" disable>
-        This step won't show up because it is disabled.
-      </q-step>
+      <q-step :name="3" title="Dokumente hochladen" caption="Photo, Lebenslauf und Zeugnisse" icon="assignment">
 
-      <q-step :name="4" title="Create an ad" icon="add_comment">
-        Try out different ad text to see what brings in the most customers, and
-        learn how to enhance your ads using features like ad extensions. If you
-        run into any problems with your ads, find out how to tell if they're
-        running and how to resolve approval issues.
-
-        <q-item tag="label" v-ripple>
-          <q-item-section avatar top>
-            <q-checkbox v-model="cc" val="primary" color="primary" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Blindkopie</q-item-label>
-            <q-item-label caption>
-              Bitte senden Sie mir meine übermittelten Daten per CC.
-            </q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item tag="label" v-ripple>
-          <q-item-section avatar top>
-            <q-checkbox v-model="privacy" val="primary" color="primary" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Datenschuz</q-item-label>
-            <q-item-label caption>
-              ich habe die Datenschutzbestimmungen gelesen und akzeptiere Sie
-            </q-item-label>
-          </q-item-section>
-        </q-item>
-
-        <q-stepper-navigation>
-          <q-btn color="primary" label="Finish" />
-          <q-btn
-            flat
-            @click="step = 2"
-            color="primary"
-            label="Back"
-            class="q-ml-sm"
-          />
-        </q-stepper-navigation>
-      </q-step>
-    </q-stepper>
-    <h1>Bewerben</h1>
-    <div>
-      So könnte ein Bewerbungsformular ausshen. Es besteht aus verschiedenen
-      Komponenten.
-    </div>
-
-    <div class="row q-col-gutter-xs">
-      <h2 class="col-md-12">Persönliche Daten</h2>
-
-      <div class="col-md-8 col-sm-12" style="border: 1px solid blue">
-        <y-address />
-
-        <div class="col-md-12">
           <q-uploader
             style="margin-top: 22px; border: 3px dashed red"
             url="http://localhost:4444/upload"
@@ -177,24 +168,10 @@
             </template>
           </q-uploader>
 
-          <h2>Anschreiben</h2>
-          <q-editor
-            v-model="editor"
-            min-height="5rem"
-            placeholder="Anschreiben"
-          />
-        </div>
-      </div>
-    </div>
-    <h2>Dokumente</h2>
-    <q-uploader
-      url="http://localhost:4444/upload"
-      label="Anlagen zur Bewerbung"
-      multiple
-      style="max-width: 300px"
-    />
-    <h2>Sonstige Angaben</h2>
-    <div class="q-pa-md" style="max-width: 300px">
+      </q-step>
+
+      <q-step :name="4" title="Bewerbung absenden" icon="add_comment">
+        <div class="q-pa-md" style="max-width: 300px">
       <q-input
         label="frühester Eintrittstermin"
         filled
@@ -216,34 +193,45 @@
         </template>
       </q-input>
     </div>
-    <q-separator />
 
-    <q-item tag="label" v-ripple>
-      <q-item-section avatar top>
-        <q-checkbox v-model="cc" val="primary" color="primary" />
-      </q-item-section>
-      <q-item-section>
-        <q-item-label>Blindkopie</q-item-label>
-        <q-item-label caption>
-          Bitte senden Sie mir meine übermittelten Daten per CC.
-        </q-item-label>
-      </q-item-section>
-    </q-item>
-    <q-item tag="label" v-ripple>
-      <q-item-section avatar top>
-        <q-checkbox v-model="privacy" val="primary" color="primary" />
-      </q-item-section>
-      <q-item-section>
-        <q-item-label>Datenschuz</q-item-label>
-        <q-item-label caption>
-          ich habe die Datenschutzbestimmungen gelesen und akzeptiere Sie
-        </q-item-label>
-      </q-item-section>
-    </q-item>
-    <q-separator />
-    <q-btn color="info" icon-right="cancel" label="Voransicht" />
-    <q-btn color="warning" icon-right="cancel" label="Abbrechen" />
-    <q-btn color="primary" icon-right="send" label="Berwerbung absenden" />
+        <q-item tag="label" v-ripple>
+          <q-item-section avatar top>
+            <q-checkbox v-model="cc" val="primary" color="primary" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Blindkopie</q-item-label>
+            <q-item-label caption>
+              Bitte senden Sie mir meine übermittelten Daten per CC.
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item tag="label" v-ripple>
+          <q-item-section avatar top>
+            <q-checkbox v-model="privacy" val="primary" color="primary" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Datenschuz</q-item-label>
+            <q-item-label caption>
+              ich habe die Datenschutzbestimmungen gelesen und akzeptiere Sie
+            </q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-stepper-navigation>
+
+          <q-btn
+            flat
+            @click="step = 2"
+            color="primary"
+            label="Zurück"
+            class="q-ml-sm"
+          />
+           <q-btn color="primary" icon-right="send" label="Berwerbung absenden" />
+
+        </q-stepper-navigation>
+      </q-step>
+    </q-stepper>
+
   </q-page>
 </template>
 
@@ -267,7 +255,9 @@ export default {
       cc: false,
       date: '',
       maxTotalSize: 2048000,
-      step: 1
+      step: 1,
+      tab: 'mails'
+
     }
   },
   components: {
