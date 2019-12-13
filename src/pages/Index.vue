@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex items-start">
-   <div class="cs-cover-layer" v-if="coverpage()">
+    <div class="cs-cover-layer" v-if="coverpage()">
       <div class="cs-cover-border-top"></div>
       <div id="introduction">
         <div id="animation">
@@ -10,26 +10,24 @@
       </div>
       <div class="cs-cover-border-bottom"></div>
     </div>
-    <q-carousel
-      class="full-width"
-      animated
-      v-model="slide"
-      height="50vh"
-    >
+    <q-carousel class="full-width" animated v-model="slide" height="50vh">
       <q-carousel-slide
         name="first"
         img-src="statics/frankfurt-im-nebel.jpg"
         class="text-white"
       >
         <div class="absolute-center text-center">
-          <div class="text-h2">Full Stack Development</div>
-          <div class="text-subtitle1">
+          <div class="claim">Full Stack Development</div>
+          <div class="claim-subtitle">
             solide IT Lösungen von <span class="bold">CROSS</span> Solution
           </div>
         </div>
       </q-carousel-slide>
     </q-carousel>
-    <q-page-container class="row text-center q-gutter-md justify-center" id="top">
+    <q-page-container
+      class="row text-center q-gutter-md justify-center"
+      id="top"
+    >
       <products
         v-for="product in products"
         v-bind:key="product.title"
@@ -169,6 +167,14 @@ body {
 }
 .orange {
   background-color: $orange-1;
+}
+.claim {
+  font-size: 4.5rem;
+  line-height: 5.5rem;
+}
+.claim-subtitle {
+  font-size: 1.3rem;
+  line-height: 1.3678rem;
 }
 @keyframes FadeScaleOut {
   0% {
