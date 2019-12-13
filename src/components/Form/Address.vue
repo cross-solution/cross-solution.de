@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent.stop="onSubmit" @reset.prevent.stop="onReset">
     <div class="address">
-      <div class="row q-col-gutter-sm myclass">
+      <div class="row q-col-gutter-x-md">
         <div class="col-3">
           <q-select
             outlined
@@ -17,7 +17,7 @@
           <q-input
             outlined
             v-model="firstname"
-            label="Name *"
+            label="Name"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
@@ -26,7 +26,7 @@
           <q-input
             outlined
             v-model="lastname"
-            label="Vorname *"
+            label="Vorname"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
@@ -35,7 +35,7 @@
           <q-input
             outlined
             v-model="street"
-            label="Strasse *"
+            label="Strasse"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
@@ -44,7 +44,7 @@
           <q-input
             outlined
             v-model="housenumber"
-            label="Hausnr. *"
+            label="Hausnr."
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
@@ -53,7 +53,7 @@
           <q-input
             outlined
             v-model="postalcode"
-            label="Plz.*"
+            label="Plz."
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
@@ -62,7 +62,7 @@
           <q-input
             outlined
             v-model="city"
-            label="Ort*"
+            label="Ort"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
@@ -73,23 +73,17 @@
             label="Email*"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
+            v-model="email"
           />
         </div>
         <div class="col-12">
           <q-input outlined label="Phone" />
         </div>
-        <div class="col-12">* Pflichtfelder</div>
+        <!--<div class="col-12">* Pflichtfelder</div>-->
       </div>
     </div>
   </form>
 </template>
-
-<style lang="scss">
-.myclass {
-  max-width: 45%;
-  box-sizing: border-box;
-}
-</style>
 
 <script lang="javascript">
 
