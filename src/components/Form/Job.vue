@@ -6,78 +6,15 @@
                 <q-card-section>
                   <div class="job">
     <q-editor
-      v-model="qeditor" @keydown="textvalue"
-      toolbar-text-color="white"
-      toolbar-bg="primary"
+      v-model="description"
       :dense="$q.screen.lt.md"
       :toolbar="[
-        [
-          {
-            label: $q.lang.editor.align,
-            icon: $q.iconSet.editor.align,
-            fixedLabel: true,
-            list: 'only-icons',
-            options: ['left', 'center', 'right', 'justify']
-          }
-        ],
-        ['bold', 'italic', 'strike', 'underline', 'subscript', 'superscript'],
-        [
-          {
-            label: $q.lang.editor.formatting,
-            icon: $q.iconSet.editor.formatting,
-            list: 'no-icons',
-            options: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'code']
-          },
-          {
-            label: $q.lang.editor.fontSize,
-            icon: $q.iconSet.editor.fontSize,
-            fixedLabel: true,
-            fixedIcon: true,
-            list: 'no-icons',
-            options: [
-              'size-1',
-              'size-2',
-              'size-3',
-              'size-4',
-              'size-5',
-              'size-6',
-              'size-7'
-            ]
-          },
-          {
-            label: $q.lang.editor.defaultFont,
-            icon: $q.iconSet.editor.font,
-            fixedIcon: true,
-            list: 'no-icons',
-            options: [
-              'default_font',
-              'arial',
-              'arial_black',
-              'comic_sans',
-              'courier_new',
-              'impact',
-              'lucida_grande',
-              'times_new_roman',
-              'verdana'
-            ]
-          }
-        ],
-        ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-        ['token', 'hr', 'link', 'custom_btn'],
+        ['left', 'center', 'right', 'justify'],
+        ['bold', 'italic'],
+        ['quote', 'unordered', 'ordered'],
         ['undo', 'redo'],
-        ['print', 'fullscreen'],
-        ['viewsource']
       ]"
-      :fonts="{
-        arial: 'Arial',
-        arial_black: 'Arial Black',
-        comic_sans: 'Comic Sans MS',
-        courier_new: 'Courier New',
-        impact: 'Impact',
-        lucida_grande: 'Lucida Grande',
-        times_new_roman: 'Times New Roman',
-        verdana: 'Verdana'
-      }"
+
     />
 
     <q-input borderless v-model="searching" />
@@ -97,7 +34,7 @@
     -->
     <div class="col-md-6">
       <q-input borderless v-model="titleContact" />
-      <q-editor v-model="contact" min-height="5rem" @keydown="contact_value_function"/>
+      <q-editor v-model="contact" min-height="5rem" />
     </div>
   </div>
                 </q-card-section>
@@ -107,20 +44,14 @@
 
           <template v-slot:after>
             <div class="q-pa-md">
-              <div class="text-h4 q-mb-md">Voransicht</div>
-              <!-- <div>{{ description }}</div> -->
-              <!-- <div>{{ searching }}</div> -->
-              <div ><p v-html="text_value"></p></div>
+              <div ><p v-html="description"></p></div>
+              <div>{{ searching }}</div>
               <div class>
                 <h1>{{ title }}</h1>
                 <h3>{{ titleTask }}</h3>
                 <div>{{ task }}</div>
-                <div v-html="contact_value"></div>
-                <!-- <h3>{{ titleQualifications }}</h3>
-                <div>{{ qualifications }}</div>
-
-                <h3>{{ titleBenefits }}</h3>
-                <div>{{ benefits }}</div> -->
+                 <div>{{ titleContact }}</div>
+                <div v-html="contact"></div>
               </div>
             </div>
           </template>
@@ -139,28 +70,10 @@ export default {
     return {
       title: 'Jobtitle',
       searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
-      titleTasks: 'Aufgaben:',
-      description: 'mit X Mitarbeitern ist Y führender Anbieter von Y ....',
-      qualifications: '',
-      titleQualifications: 'Qualifikationen:',
-      benefits: '',
-      titleBenefits: 'Benefits:',
       titleContact: 'Kontakt',
       contact: 'Herr Max Mustermann<br>Musterstraß 10<br>12345 Musterstadt',
-      text_value: this.qeditor,
+      description: this.description,
       splitterModel: 50 // start at 50%
-    }
-  },
-  mounted () {
-  },
-  methods: {
-    textvalue () {
-      this.$emit('changeMsg', this.qeditor)
-      this.text_value = this.qeditor
-    },
-    contact_value_function () {
-      // this.$emit('changeMsg', this.qeditor)
-      this.contact_value = this.contact
     }
   }
 }
