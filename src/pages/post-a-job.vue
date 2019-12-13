@@ -22,6 +22,7 @@
               v-model="title"
               label="Titel der Anzeige"
             />
+
             <q-input
               outlined
               v-model="organization"
@@ -91,119 +92,7 @@
         :done="step > 2"
         style="min-height: 200px;"
       >
-        <q-splitter @keyup="myfun" value="datat" v-model="splitterModel" style="height: 400px;">
-          <template v-slot:before>
-            <div class="q-pa-md">
-              <q-card class="col-md-3">
-                <q-card-section>
-                    <div class="job">
-                        <q-editor
-                          v-model="qeditor"
-                          toolbar-text-color="white"
-                          toolbar-bg="primary"
-                          :dense="$q.screen.lt.md"
-                          :toolbar="[
-                            [
-                              {
-                                label: $q.lang.editor.align,
-                                icon: $q.iconSet.editor.align,
-                                fixedLabel: true,
-                                list: 'only-icons',
-                                options: ['left', 'center', 'right', 'justify']
-                              }
-                            ],
-                            ['bold', 'italic', 'strike', 'underline', 'subscript', 'superscript'],
-                            [
-                              {
-                                label: $q.lang.editor.formatting,
-                                icon: $q.iconSet.editor.formatting,
-                                list: 'no-icons',
-                                options: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'code']
-                              },
-                              {
-                                label: $q.lang.editor.fontSize,
-                                icon: $q.iconSet.editor.fontSize,
-                                fixedLabel: true,
-                                fixedIcon: true,
-                                list: 'no-icons',
-                                options: [
-                                  'size-1',
-                                  'size-2',
-                                  'size-3',
-                                  'size-4',
-                                  'size-5',
-                                  'size-6',
-                                  'size-7'
-                                ]
-                              },
-                              {
-                                label: $q.lang.editor.defaultFont,
-                                icon: $q.iconSet.editor.font,
-                                fixedIcon: true,
-                                list: 'no-icons',
-                                options: [
-                                  'default_font',
-                                  'arial',
-                                  'arial_black',
-                                  'comic_sans',
-                                  'courier_new',
-                                  'impact',
-                                  'lucida_grande',
-                                  'times_new_roman',
-                                  'verdana'
-                                ]
-                              }
-                            ],
-                            ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-                            ['token', 'hr', 'link', 'custom_btn'],
-                            ['undo', 'redo'],
-                            ['print', 'fullscreen'],
-                            ['viewsource']
-                          ]"
-                          :fonts="{
-                            arial: 'Arial',
-                            arial_black: 'Arial Black',
-                            comic_sans: 'Comic Sans MS',
-                            courier_new: 'Courier New',
-                            impact: 'Impact',
-                            lucida_grande: 'Lucida Grande',
-                            times_new_roman: 'Times New Roman',
-                            verdana: 'Verdana'
-                          }"
-                        />
-
-                        <q-input borderless v-model="searching" />
-                        <h1>{{ title }}</h1>
-                        <div class="col-md-6">
-                          <q-input borderless v-model="titleContact" />
-                          <q-editor v-model="contact" min-height="5rem" />
-                        </div>
-                      </div>
-                </q-card-section>
-              </q-card>
-            </div>
-          </template>
-
-          <template v-slot:after>
-            <div class="q-pa-md">
-              <div class="text-h4 q-mb-md">Voransicht</div>
-              <div><p v-html="qeditor"></p></div>
-              <div>{{ searching }}</div>
-              <div class>
-                <h1>{{ title }}</h1>
-                <h3>{{ titleTask }}</h3>
-                <div><p v-html="contact"></p></div>
-                <div>{{ task }}</div>
-
-                <h3>{{ titleQualifications }}</h3>
-                <div>{{ qualifications }}</div>
-
-                <h3>{{ titleBenefits }}</h3>
-                <div>{{ benefits }}</div>
-              </div>
-            </div>
-          </template>
-        </q-splitter>
+      <YJob @changeMsg="setMessage"></YJob>
       </q-step>
 
       <q-step
@@ -368,9 +257,12 @@
 <script lang="javascript">
 import YSearchRegion from '../components/SearchRegion.vue'
 import YAddress from '../components/Form/Address.vue'
+import YJob from '../components/Form/Job.vue'
 import YCategoryBox from '../components/Form/CategoryBox.vue'
-
 export default {
+  meta: {
+    'title': 'Stellenanzeige schalten'
+  },
   data () {
     return {
       step: 1,
@@ -382,28 +274,32 @@ export default {
       applyUrl: 'https://',
       applyEmail: '',
       apply: '',
-      splitterModel: 50, // start at 50%
       conditions: '',
       workload: ['100'],
       minijob: '',
       start: '',
-      date: '',
-      qeditor: '',
-      searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
-      description: 'mit X Mitarbeitern ist Y führender Anbieter von Y ....',
-      titleContact: 'Kontakt',
-      contact: 'Herr Max Mustermann<br>Musterstraß 10<br>12345 Musterstadt'
+      date: ''
     }
   },
   props: {
     locationType: {
       type: String,
       default: 'geocode'
-    }
+    },
+    description: String,
+    searching: String,
+    tasks: String,
+    titleTasks: String,
+    qualifications: String,
+    titleQualifications: String,
+    benefits: String,
+    titleBenefits: String,
+    titleContact: String,
+    contact: String
   },
-  mounted () {},
+  mounted () {
+  },
   methods: {
-    myfun () {},
     filterLocation (addressData) {
       this.location = JSON.stringify({
         coordinates: {
@@ -411,11 +307,16 @@ export default {
           coordinates: [addressData.longitude, addressData.latitude]
         }
       })
+    },
+    setMessage (msg) {
+      this.text_value = msg
+      console.log(msg)
     }
   },
   components: {
     YSearchRegion,
     YAddress,
+    YJob,
     YCategoryBox
   }
 }
@@ -424,16 +325,12 @@ export default {
 <style lang="sass" scoped>
 .location
   border: none
-
 body.desktop .q-focus-helper:before
   background: #faa427 !important
-
 body.desktop .q-focus-helper:after
   color: #faa427 !important
-
 body.desktop .q-focus-helper:after
   background: #faa427 !important
-
 .hover
   color: #faa427
 </style>

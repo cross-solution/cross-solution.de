@@ -11,8 +11,10 @@
 
 <script lang="javascript">
 import Jobsearch from '../components/Jobsearch.vue'
-
 export default {
+  meta: {
+    'title': 'Stellenangebote'
+  },
   data () {
     return {
       grid: false

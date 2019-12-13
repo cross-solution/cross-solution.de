@@ -1,7 +1,12 @@
 <template>
-  <div class="job">
+<q-splitter v-model="splitterModel" style="height: 400px;">
+          <template v-slot:before>
+            <div class="q-pa-md">
+              <q-card class="col-md-3">
+                <q-card-section>
+                  <div class="job">
     <q-editor
-      v-model="qeditor"
+      v-model="qeditor" @keydown="textvalue"
       toolbar-text-color="white"
       toolbar-bg="primary"
       :dense="$q.screen.lt.md"
@@ -92,9 +97,35 @@
     -->
     <div class="col-md-6">
       <q-input borderless v-model="titleContact" />
-      <q-editor v-model="contact" min-height="5rem" />
+      <q-editor v-model="contact" min-height="5rem" @keydown="contact_value_function"/>
     </div>
   </div>
+                </q-card-section>
+              </q-card>
+            </div>
+          </template>
+
+          <template v-slot:after>
+            <div class="q-pa-md">
+              <div class="text-h4 q-mb-md">Voransicht</div>
+              <!-- <div>{{ description }}</div> -->
+              <!-- <div>{{ searching }}</div> -->
+              <div ><p v-html="text_value"></p></div>
+              <div class>
+                <h1>{{ title }}</h1>
+                <h3>{{ titleTask }}</h3>
+                <div>{{ task }}</div>
+                <div v-html="contact_value"></div>
+                <!-- <h3>{{ titleQualifications }}</h3>
+                <div>{{ qualifications }}</div>
+
+                <h3>{{ titleBenefits }}</h3>
+                <div>{{ benefits }}</div> -->
+              </div>
+            </div>
+          </template>
+        </q-splitter>
+
 </template>
 
 <style lang="scss"></style>
@@ -103,9 +134,10 @@
 
 export default {
   name: 'Job',
-  props: ['title', 'tasks'],
+  props: ['tasks'],
   data () {
     return {
+      title: 'Jobtitle',
       searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
       titleTasks: 'Aufgaben:',
       description: 'mit X Mitarbeitern ist Y führender Anbieter von Y ....',
@@ -114,7 +146,21 @@ export default {
       benefits: '',
       titleBenefits: 'Benefits:',
       titleContact: 'Kontakt',
-      contact: 'Herr Max Mustermann<br>Musterstraß 10<br>12345 Musterstadt'
+      contact: 'Herr Max Mustermann<br>Musterstraß 10<br>12345 Musterstadt',
+      text_value: this.qeditor,
+      splitterModel: 50 // start at 50%
+    }
+  },
+  mounted () {
+  },
+  methods: {
+    textvalue () {
+      this.$emit('changeMsg', this.qeditor)
+      this.text_value = this.qeditor
+    },
+    contact_value_function () {
+      // this.$emit('changeMsg', this.qeditor)
+      this.contact_value = this.contact
     }
   }
 }
