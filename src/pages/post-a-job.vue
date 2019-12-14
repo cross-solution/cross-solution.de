@@ -14,8 +14,8 @@
         icon="settings"
         :done="step > 1"
         style="min-height: 300px;"
-        ><div class="row q-gutter-md">
-          <div class="col-md-6 q-gutter-y-md">
+        ><div class="row q-col-gutter-md">
+          <div class="col-md-6 q-col-gutter-y-md">
             <q-input
               color="$blue"
               outlined
@@ -30,7 +30,7 @@
             />
             <y-search-region label="Einsatzort" :value="location" />
           </div>
-          <div style="width: 44%; margin-left: 5%;">
+          <div class="col-md-6 q-col-gutter-y-md">
             <q-expansion-item
               style="background: $orange-1"
               v-model="applyForm"
