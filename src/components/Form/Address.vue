@@ -13,20 +13,20 @@
           />
         </div>
         <div class="col-md-10 col-sm-6" />
-        <div class="col-12">
+        <div class="col-6">
           <q-input
             outlined
             v-model="firstname"
-            label="Name"
+            label="Vorname"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-12">
+        <div class="col-6">
           <q-input
             outlined
             v-model="lastname"
-            label="Vorname"
+            label="Nachname"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
@@ -70,6 +70,7 @@
         <div class="col-12">
           <q-input
             outlined
+            type="email"
             label="Email*"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
