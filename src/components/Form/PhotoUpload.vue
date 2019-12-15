@@ -1,6 +1,6 @@
 <template>
   <q-uploader
-    style="margin-top: 22px; border: 3px dashed grey;"
+    style="padding: 0px; border: 3px dashed grey; width: 100%"
     class="text-center"
     url="http://localhost:4444/upload"
     flat
@@ -32,44 +32,21 @@
           </q-btn>
           <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
           <div class="col">
-            <div class="q-uploader__title">
-              Bitte laden Sie Ihr Foto hoch.
-            </div>
+            <div class="q-uploader__title">Bitte laden Sie Ihr Foto hoch.</div>
             <div class="q-uploader__subtitle">
               {{ scope.uploadSizeLabel }} /
               {{ scope.uploadProgressLabel }}
             </div>
           </div>
-          <q-btn
-            v-if="scope.canAddFiles"
-            type="a"
-            icon="add_box"
-            round
-            dense
-            flat
-          >
+          <q-btn v-if="scope.canAddFiles" type="a" icon="add_box" round dense flat>
             <q-uploader-add-trigger />
             <q-tooltip>Pick ccFiles</q-tooltip>
           </q-btn>
-          <q-btn
-            v-if="scope.canUpload"
-            icon="cloud_upload"
-            @click="scope.upload"
-            round
-            dense
-            flat
-          >
+          <q-btn v-if="scope.canUpload" icon="cloud_upload" @click="scope.upload" round dense flat>
             <q-tooltip>Upload Files</q-tooltip>
           </q-btn>
 
-          <q-btn
-            v-if="scope.isUploading"
-            icon="clear"
-            @click="scope.abort"
-            round
-            dense
-            flat
-          >
+          <q-btn v-if="scope.isUploading" icon="clear" @click="scope.abort" round dense flat>
             <q-tooltip>Abort Upload</q-tooltip>
           </q-btn>
         </q-card-section>
@@ -77,3 +54,14 @@
     </template>
   </q-uploader>
 </template>
+
+<script lang="javascript">
+export default {
+  name: 'PhotoUpload',
+  data () {
+    return {
+      maxTotalSize: 2048000
+    }
+  }
+}
+</script>
