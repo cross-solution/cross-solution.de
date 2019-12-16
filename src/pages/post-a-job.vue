@@ -14,75 +14,8 @@
         icon="settings"
         :done="step > 1"
         style="min-height: 300px;"
-        ><div class="row q-col-gutter-md">
-          <div class="col-md-6 q-col-gutter-y-md">
-            <q-input
-              color="$blue"
-              outlined
-              v-model="job.title"
-              label="Titel der Anzeige"
-            />
-
-            <q-input
-              outlined
-              v-model="job.organization"
-              label="Name des Unternehmens"
-            />
-            <y-search-region label="Einsatzort" :value="job.location" />
-          </div>
-          <div class="col-md-6 q-col-gutter-y-md">
-            <q-expansion-item
-              style="background: $orange-1"
-              v-model="job.apply.expanded.url"
-              label="Bewerbungsformular"
-              caption="Link zum eigenen Bewerbungsformular"
-              class="hover"
-            >
-              <q-card>
-                <q-card-section>
-                  <q-input
-                    outlined
-                    v-model="job.apply.url"
-                    label="Link zum eigenen Bewerbungsformular"
-                    color="#faa427"
-                  />
-                </q-card-section>
-              </q-card>
-            </q-expansion-item>
-
-            <q-expansion-item
-              style="margin-top:5px; bottom: 15px; background: $orange-1"
-              v-model="job.apply.expanded.email"
-              label="Email"
-              caption="Email für Bewerbungen"
-              class="hover"
-            >
-              <q-card>
-                <q-card-section>
-                  <q-input outlined v-model="job.apply.email" />
-                </q-card-section>
-              </q-card>
-            </q-expansion-item>
-
-            <q-card flat>
-              <div class="q-pa-md">
-                <div class="q-gutter-sm">
-                  <q-checkbox
-                    v-model="job.apply.disabled"
-                    label="keine Onlinebewerbung/postalische Bewerbungen"
-                  />
-                </div>
-              </div>
-            </q-card>
-            <q-input
-              style="margin-top: 10px;"
-              outlined
-              v-model="job.reference"
-              label="Referenz"
-              hint="Referenznummer erscheint auf der Rechnung"
-            />
-          </div>
-        </div>
+        >
+        <y-job-general :job="job" @JobGeneral="setJobGeneral"/>
       </q-step>
 
       <q-step
@@ -255,8 +188,8 @@
 </template>
 
 <script lang="javascript">
-import YSearchRegion from '../components/SearchRegion.vue'
 import YAddress from '../components/Form/Address.vue'
+import YJobGeneral from '../components/Form/JobGeneral.vue'
 import YJob from '../components/Form/Job.vue'
 import YCategoryBox from '../components/Form/CategoryBox.vue'
 
@@ -269,14 +202,15 @@ export default {
       step: 1,
       gLocation: '',
       jobtype: ['fulltime'],
-      applyUrl: 'https://',
       conditions: '',
-      workload: ['100'],
       minijob: '',
       start: '',
       date: '',
+      workload: '',
       job: {
         title: '',
+        organization: '',
+        location: '',
         apply: {
           url: '',
           email: '',
@@ -286,7 +220,6 @@ export default {
           },
           disabled: false,
           contact: {}
-
         }
       }
     }
@@ -307,27 +240,18 @@ export default {
     titleContact: String,
     contact: String
   },
-  mounted () {
-  },
   methods: {
-    filterLocation (addressData) {
-      this.location = JSON.stringify({
-        coordinates: {
-          type: 'Point',
-          coordinates: [addressData.longitude, addressData.latitude]
-        }
-      })
+    setAddress (contact) {
+      this.job.contact = contact
     },
-    setMessage (msg) {
-      this.text_value = msg
-      console.log(msg)
-    },
-    setAddress (address) {
-      this.job.contact = address
+    setJobGeneral (data) {
+      this.job.title = data.title
+      this.job.location = data.location
+      this.job.organization = data.organization
     }
   },
   components: {
-    YSearchRegion,
+    YJobGeneral,
     YAddress,
     YJob,
     YCategoryBox
