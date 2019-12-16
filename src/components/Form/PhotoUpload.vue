@@ -86,10 +86,11 @@
 <script lang="javascript">
 export default {
   name: 'PhotoUpload',
-  props: ['color', 'style'],
+  props: ['color'],
   data () {
     return {
-      maxTotalSize: 2048000
+      maxTotalSize: 2048000,
+      style: ''
     }
   }
 }
