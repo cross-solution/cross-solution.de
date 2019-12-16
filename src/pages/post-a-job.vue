@@ -19,21 +19,21 @@
             <q-input
               color="$blue"
               outlined
-              v-model="title"
+              v-model="job.title"
               label="Titel der Anzeige"
             />
 
             <q-input
               outlined
-              v-model="organization"
+              v-model="job.organization"
               label="Name des Unternehmens"
             />
-            <y-search-region label="Einsatzort" :value="location" />
+            <y-search-region label="Einsatzort" :value="job.location" />
           </div>
           <div class="col-md-6 q-col-gutter-y-md">
             <q-expansion-item
               style="background: $orange-1"
-              v-model="applyForm"
+              v-model="job.apply.expanded.url"
               label="Bewerbungsformular"
               caption="Link zum eigenen Bewerbungsformular"
               class="hover"
@@ -42,7 +42,7 @@
                 <q-card-section>
                   <q-input
                     outlined
-                    v-model="applyUrl"
+                    v-model="job.apply.url"
                     label="Link zum eigenen Bewerbungsformular"
                     color="#faa427"
                   />
@@ -52,14 +52,14 @@
 
             <q-expansion-item
               style="margin-top:5px; bottom: 15px; background: $orange-1"
-              v-model="expandedEmail"
+              v-model="job.apply.expanded.email"
               label="Email"
               caption="Email für Bewerbungen"
               class="hover"
             >
               <q-card>
                 <q-card-section>
-                  <q-input outlined v-model="applyEmail" />
+                  <q-input outlined v-model="job.apply.email" />
                 </q-card-section>
               </q-card>
             </q-expansion-item>
@@ -68,7 +68,7 @@
               <div class="q-pa-md">
                 <div class="q-gutter-sm">
                   <q-checkbox
-                    v-model="applyEmail"
+                    v-model="job.apply.disabled"
                     label="keine Onlinebewerbung/postalische Bewerbungen"
                   />
                 </div>
@@ -77,7 +77,7 @@
             <q-input
               style="margin-top: 10px;"
               outlined
-              v-model="reference"
+              v-model="job.reference"
               label="Referenz"
               hint="Referenznummer erscheint auf der Rechnung"
             />
@@ -102,7 +102,7 @@
         :done="step > 3"
         style="min-height: 200px;"
       >
-        <y-address />
+        <y-address :c="job.contact" v-on:Address="setAddress"/>
       </q-step>
 
       <q-step
@@ -259,6 +259,7 @@ import YSearchRegion from '../components/SearchRegion.vue'
 import YAddress from '../components/Form/Address.vue'
 import YJob from '../components/Form/Job.vue'
 import YCategoryBox from '../components/Form/CategoryBox.vue'
+
 export default {
   meta: {
     'title': 'Stellenanzeige schalten'
@@ -266,20 +267,28 @@ export default {
   data () {
     return {
       step: 1,
-      title: 'Jobtitle',
-      organization: '',
       gLocation: '',
-      pensum: 10,
       jobtype: ['fulltime'],
       applyUrl: 'https://',
-      applyEmail: '',
-      apply: '',
       conditions: '',
       workload: ['100'],
       minijob: '',
       start: '',
       date: '',
-      location: ''
+      job: {
+        title: '',
+        apply: {
+          url: '',
+          email: '',
+          expanded: {
+            email: false,
+            url: false
+          },
+          disabled: false,
+          contact: {}
+
+        }
+      }
     }
   },
   props: {
@@ -312,6 +321,9 @@ export default {
     setMessage (msg) {
       this.text_value = msg
       console.log(msg)
+    },
+    setAddress (address) {
+      this.job.contact = address
     }
   },
   components: {
@@ -319,6 +331,17 @@ export default {
     YAddress,
     YJob,
     YCategoryBox
+  },
+  computed: {
+    drawerState: {
+      get () {
+        return this.$store.state.jobs.drawerState
+      },
+      set (val) {
+        console.log('debug', val)
+        this.$store.commit('jobs/updateDrawerState', val)
+      }
+    }
   }
 }
 </script>
