@@ -34,7 +34,7 @@
             </q-list>
           </q-btn-dropdown>
         </q-tabs>
-         <login-info :host="strapiHost" />
+        <login-info :host="strapiHost" />
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
     </q-header>
@@ -107,6 +107,16 @@
           align="arround"
           icon="mail"
           to="/apply"
+        />
+        <q-separator />
+        <q-btn
+          flat
+          color="primary"
+          class="full-width"
+          label="Cv"
+          align="arround"
+          icon="mail"
+          to="/cv"
         />
         <q-separator />
         <div class="q-gutter-md">
