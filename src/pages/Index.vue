@@ -201,13 +201,13 @@ body {
 }
 
 @media (max-width: #{$breakpoint-xs-max}) {
-  .text-h2 {
+  .claim {
     font-size: 2.75rem;
     font-weight: 400;
     line-height: 2.75rem;
     letter-spacing: 0;
   }
-  .text-subtitle1 {
+  .claim-subtitle {
     font-size: 0.9rem;
     font-weight: 400;
     line-height: 0.9rem;
