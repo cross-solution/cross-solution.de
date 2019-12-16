@@ -24,7 +24,7 @@
 
               <q-input
                 borderless
-                v-model="searching"
+                v-model="t.searching"
               />
               <h1>{{ t.title }}</h1>
 
