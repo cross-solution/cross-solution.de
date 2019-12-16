@@ -8,7 +8,10 @@
         <q-card class="col-md-3">
           <q-card-section>
             <div class="job">
-              <y-photo-upload />
+              <y-photo-upload
+                background="defaultbild"
+                text="Upload Photo"
+              />
               <q-editor
                 v-model="t.description"
                 :dense="$q.screen.lt.md"

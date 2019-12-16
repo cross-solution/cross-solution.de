@@ -2,13 +2,17 @@
   <q-uploader
     class="text-center uploaderBox"
     url="http://localhost:4444/upload"
-    color="transparent"
+    :color="color"
+    :style="style"
     flat
     text-color="grey"
     :max-total-size="maxTotalSize"
   >
     <template v-slot:header="scope">
-      <q-card v-if="scope.queuedFiles.length == 0" flat>
+      <q-card
+        v-if="scope.queuedFiles.length == 0"
+        flat
+      >
         <q-card-section>
           <q-btn
             v-if="scope.queuedFiles.length > 1"
@@ -30,7 +34,10 @@
           >
             <q-tooltip>Remove Uploaded Files</q-tooltip>
           </q-btn>
-          <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
+          <q-spinner
+            v-if="scope.isUploading"
+            class="q-uploader__spinner"
+          />
           <div class="col">
             <div class="q-uploader__title">Bitte laden Sie Ihr Foto hoch.</div>
             <div class="q-uploader__subtitle">
@@ -79,6 +86,7 @@
 <script lang="javascript">
 export default {
   name: 'PhotoUpload',
+  props: ['color', 'style'],
   data () {
     return {
       maxTotalSize: 2048000
@@ -92,10 +100,7 @@ export default {
   background: transparent !important;
 }
 .uploaderBox {
-  padding: 0px;
-  border: 3px dashed grey;
   width: 100%;
-  background: url(/statics/PhotoUpload.png) center no-repeat;
 }
 .q-uploader__list {
   background: transparent;
