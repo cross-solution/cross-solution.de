@@ -2,7 +2,7 @@
   <form @submit.prevent.stop="onSubmit" @reset.prevent.stop="onReset">
     <div class="address">
       <div class="row q-col-gutter-x-md">
-        <div class="col-3">
+        <div class="col-md-2 col-sm-6 col-xs-12">
           <q-select
             outlined
             v-model="gender"
@@ -12,8 +12,8 @@
             :rules="[true]"
           />
         </div>
-        <div class="col-md-10 col-sm-6" />
-        <div class="col-6">
+        <div class="col-md-10 col-sm-6 col-xs-6" />
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <q-input
             outlined
             v-model="firstname"
@@ -22,7 +22,7 @@
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <q-input
             outlined
             v-model="lastname"
@@ -31,7 +31,7 @@
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-10">
+        <div class="col-lg-10 col-sm-6 col-xs-12">
           <q-input
             outlined
             v-model="street"
@@ -40,7 +40,7 @@
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-2">
+        <div class="col-lg-2 col-sm-6 col-xs-12">
           <q-input
             outlined
             v-model="housenumber"
@@ -49,7 +49,7 @@
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-2">
+        <div class="col-lg-2 col-sm-6 col-xs-12">
           <q-input
             outlined
             v-model="postalcode"
@@ -58,7 +58,7 @@
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-10">
+        <div class="col-lg-10 col-sm-6 col-xs-12">
           <q-input
             outlined
             v-model="city"
@@ -67,18 +67,18 @@
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-12">
+        <div class="col-lg-12 col-sm-6 col-xs-12">
           <q-input
             outlined
             type="email"
-            label="Email*"
+            label="E-Mail*"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
             v-model="email"
           />
         </div>
-        <div class="col-12">
-          <q-input outlined label="Phone" />
+        <div class="col-lg-12 col-sm-6 col-xs-12">
+          <q-input outlined label="Telefon" />
         </div>
         <!--<div class="col-12">* Pflichtfelder</div>-->
       </div>
