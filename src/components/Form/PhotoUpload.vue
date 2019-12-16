@@ -1,8 +1,8 @@
 <template>
   <q-uploader
-    style="padding: 0px; border: 3px dashed grey; width: 100%"
-    class="text-center"
+    class="text-center uploaderBox"
     url="http://localhost:4444/upload"
+    color="transparent"
     flat
     text-color="grey"
     :max-total-size="maxTotalSize"
@@ -38,15 +38,36 @@
               {{ scope.uploadProgressLabel }}
             </div>
           </div>
-          <q-btn v-if="scope.canAddFiles" type="a" icon="add_box" round dense flat>
+          <q-btn
+            v-if="scope.canAddFiles"
+            type="a"
+            icon="add_box"
+            round
+            dense
+            flat
+          >
             <q-uploader-add-trigger />
             <q-tooltip>Pick ccFiles</q-tooltip>
           </q-btn>
-          <q-btn v-if="scope.canUpload" icon="cloud_upload" @click="scope.upload" round dense flat>
+          <q-btn
+            v-if="scope.canUpload"
+            icon="cloud_upload"
+            @click="scope.upload"
+            round
+            dense
+            flat
+          >
             <q-tooltip>Upload Files</q-tooltip>
           </q-btn>
 
-          <q-btn v-if="scope.isUploading" icon="clear" @click="scope.abort" round dense flat>
+          <q-btn
+            v-if="scope.isUploading"
+            icon="clear"
+            @click="scope.abort"
+            round
+            dense
+            flat
+          >
             <q-tooltip>Abort Upload</q-tooltip>
           </q-btn>
         </q-card-section>
@@ -65,3 +86,18 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.q-card {
+  background: transparent !important;
+}
+.uploaderBox {
+  padding: 0px;
+  border: 3px dashed grey;
+  width: 100%;
+  background: url(/statics/PhotoUpload.png) center no-repeat;
+}
+.q-uploader__list {
+  background: transparent;
+}
+</style>
