@@ -114,7 +114,6 @@ export default {
   },
   methods: {
     emitAddress (event) {
-      console.log(this.c)
       this.$emit('Address', this.c)
     }
   }
