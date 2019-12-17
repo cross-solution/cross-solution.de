@@ -1,7 +1,7 @@
 <template>
   <form @change="emitJobGeneral">
     <div class="row q-col-gutter-md">
-      <div class="col-md-6 q-col-gutter-y-md">
+      <div class="col-md-6 col-sm-12 col-xs-12 q-col-gutter-y-md">
         <q-input
           color="$blue"
           outlined
@@ -13,9 +13,12 @@
           v-model="job.organization"
           label="Name des Unternehmens"
         />
-        <y-search-region label="Einsatzort" :value="job.location" />
+        <y-search-region
+          label="Einsatzort"
+          v-model="job.location"
+        />
       </div>
-      <div class="col-md-6 q-col-gutter-y-md">
+      <div class="col-md-6 col-sm-12 col-xs-12 q-col-gutter-y-md">
         <q-expansion-item
           style="background: $orange-1"
           v-model="job.apply.expanded.url"
@@ -44,7 +47,10 @@
         >
           <q-card>
             <q-card-section>
-              <q-input outlined v-model="job.apply.email" />
+              <q-input
+                outlined
+                v-model="job.apply.email"
+              />
             </q-card-section>
           </q-card>
         </q-expansion-item>
@@ -55,7 +61,7 @@
               <q-checkbox
                 v-model="job.apply.disabled"
                 label="keine Onlinebewerbung/postalische Bewerbungen"
-              />
+              /><br>est
             </div>
           </div>
         </q-card>
@@ -107,9 +113,11 @@ export default {
       })
     },
     emitJobGeneral (event) {
+      console.log('Location', this.job)
       this.$emit('JobGeneral', this.job)
     },
-    emitLocationl (event) {
+    emitLocation (event) {
+      console.log('Location', event)
       this.$emit('input', this.job.location)
     }
   },

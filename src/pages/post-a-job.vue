@@ -14,8 +14,11 @@
         icon="settings"
         :done="step > 1"
         style="min-height: 300px;"
-        >
-        <y-job-general :job="job" @JobGeneral="setJobGeneral"/>
+      >
+        <y-job-general
+          :job="job"
+          @JobGeneral="setJobGeneral"
+        />
       </q-step>
 
       <q-step
@@ -25,7 +28,10 @@
         :done="step > 2"
         style="min-height: 200px;"
       >
-      <YJob @changeMsg="setMessage"></YJob>
+        <YJob
+          :job="job"
+          @changeMsg="setMessage"
+        ></YJob>
       </q-step>
 
       <q-step
@@ -35,7 +41,10 @@
         :done="step > 3"
         style="min-height: 200px;"
       >
-        <y-address :c="job.contact" v-on:Address="setAddress"/>
+        <y-address
+          :c="job.contact"
+          v-on:Address="setAddress"
+        />
       </q-step>
 
       <q-step
@@ -52,16 +61,32 @@
             </q-card-section>
 
             <q-card-section>
-              <q-item tag="label" v-ripple>
-                <q-item-section avatar top>
-                  <q-checkbox v-model="workload" val="100" color="primary" />
+              <q-item
+                tag="label"
+                v-ripple
+              >
+                <q-item-section
+                  avatar
+                  top
+                >
+                  <q-checkbox
+                    v-model="workload"
+                    val="100"
+                    color="primary"
+                  />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label>Vollzeit</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-item tag="label" v-ripple>
-                <q-item-section avatar top>
+              <q-item
+                tag="label"
+                v-ripple
+              >
+                <q-item-section
+                  avatar
+                  top
+                >
                   <q-checkbox
                     v-model="workload"
                     val="contract"
@@ -72,9 +97,18 @@
                   <q-item-label>Teilzeit</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-item tag="label" v-ripple>
-                <q-item-section avatar top>
-                  <q-checkbox v-model="minijob" color="primary" />
+              <q-item
+                tag="label"
+                v-ripple
+              >
+                <q-item-section
+                  avatar
+                  top
+                >
+                  <q-checkbox
+                    v-model="minijob"
+                    color="primary"
+                  />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label>Minijob</q-item-label>
@@ -88,19 +122,43 @@
             </q-card-section>
 
             <q-card-section>
-              <q-item tag="label" v-ripple>
-                <q-item-section avatar top>
-                  <q-checkbox v-model="start" val="100" color="primary" />
+              <q-item
+                tag="label"
+                v-ripple
+              >
+                <q-item-section
+                  avatar
+                  top
+                >
+                  <q-checkbox
+                    v-model="start"
+                    val="100"
+                    color="primary"
+                  />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label>sofort</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-item tag="label" v-ripple>
-                <q-item-section avatar top>
-                  <q-input filled v-model="date" mask="date" :rules="['date']">
+              <q-item
+                tag="label"
+                v-ripple
+              >
+                <q-item-section
+                  avatar
+                  top
+                >
+                  <q-input
+                    filled
+                    v-model="date"
+                    mask="date"
+                    :rules="['date']"
+                  >
                     <template v-slot:append>
-                      <q-icon name="event" class="cursor-pointer">
+                      <q-icon
+                        name="event"
+                        class="cursor-pointer"
+                      >
                         <q-popup-proxy
                           ref="qDateProxy"
                           transition-show="scale"
@@ -127,17 +185,68 @@
         icon="send"
         style="min-height: 200px;"
       >
-        <q-item tag="label" v-ripple>
-          <q-item-section avatar top>
-            <q-checkbox v-model="conditions" val="primary" color="primary" />
+        <q-item
+          tag="label"
+          v-ripple
+        >
+          <q-item-section
+            avatar
+            top
+          >
+            <q-checkbox
+              v-model="conditions"
+              val="primary"
+              color="primary"
+            />
           </q-item-section>
           <q-item-section>
             <q-item-label>AGB</q-item-label>
             <q-item-label caption>
-              ich habe die AGBs gelesen und akzeptiere Sie
+              ich habe die
+              <q-btn
+                label="AGBs"
+                color="primary"
+                @click="fixed = true"
+              /> gelesen und akzeptiere Sie
             </q-item-label>
           </q-item-section>
         </q-item>
+        <q-dialog v-model="fixed">
+          <q-card>
+            <q-card-section>
+              <div class="text-h6">Terms of Agreement</div>
+            </q-card-section>
+
+            <q-separator />
+
+            <q-card-section
+              style="max-height: 50vh"
+              class="scroll"
+            >
+              <p
+                v-for="n in 15"
+                :key="n"
+              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.</p>
+            </q-card-section>
+
+            <q-separator />
+
+            <q-card-actions align="right">
+              <q-btn
+                flat
+                label="Decline"
+                color="primary"
+                v-close-popup
+              />
+              <q-btn
+                flat
+                label="Accept"
+                color="primary"
+                v-close-popup
+              />
+            </q-card-actions>
+          </q-card>
+        </q-dialog>
       </q-step>
 
       <template v-slot:navigation>
@@ -159,29 +268,30 @@
       </template>
 
       <template v-slot:message>
-        <q-banner v-if="step === 1" class="bg-light-blue-1 text-grey-9 q-px-lg">
+        <q-banner
+          v-if="step === 1"
+          class="bg-light-blue-1 text-grey-9 q-px-lg"
+        >
           Der Titel der Anzeige, der Name des Unternehmens und der Dienstitz
           wird in Ergebnislisten bei Jobbörsen angezeigt
         </q-banner>
         <q-banner
           v-else-if="step === 2"
           class="text-grey-9 bg-light-blue-1 q-px-lg"
-          >Hier können Sie die Anzeige eingeben.</q-banner
-        >
+        >Hier können Sie die Anzeige eingeben.</q-banner>
         <q-banner
           v-else-if="step === 3"
           class="bg-light-blue-1 text-grey-9 q-px-lg"
-          >Rechnungsanschrift</q-banner
-        >
+        >Rechnungsanschrift</q-banner>
         <q-banner
           v-else-if="step === 4"
           class="bg-light-blue-1 text-grey-9 q-px-lg"
-          >Ihre Anzeige wird besser gefunden, wenn Sie Angaben ....</q-banner
-        >
+        >Ihre Anzeige wird besser gefunden, wenn Sie Angaben ....</q-banner>
 
-        <q-banner v-else class="bg-light-blue-1 text-grey-9 q-px-lg"
-          >Endkontrolle</q-banner
-        >
+        <q-banner
+          v-else
+          class="bg-light-blue-1 text-grey-9 q-px-lg"
+        >Endkontrolle</q-banner>
       </template>
     </q-stepper>
   </div>
@@ -245,9 +355,14 @@ export default {
       this.job.contact = contact
     },
     setJobGeneral (data) {
+      console.log('setJobGeneral', data)
       this.job.title = data.title
       this.job.location = data.location
       this.job.organization = data.organization
+    },
+    setMessage (msg) {
+      this.text_value = msg
+      console.log(msg)
     }
   },
   components: {

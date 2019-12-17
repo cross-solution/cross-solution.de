@@ -4,56 +4,55 @@
     style="height: 400px;"
   >
     <template v-slot:before>
-      <div class="q-pa-md">
-        <q-card class="col-md-3">
-          <q-card-section>
-            <div class="job">
-              <y-photo-upload
-                background="defaultbild"
-                text="Upload Photo"
-              />
-              <q-editor
-                v-model="t.description"
-                :dense="$q.screen.lt.md"
-                :toolbar="[
+      <form @change="emitJobDescription">
+        <div class="q-pa-md">
+          <q-card class="col-md-3">
+            <q-card-section>
+              <div class="job">
+                <y-photo-upload />
+                <q-editor
+                  v-model="job.description"
+                  :dense="$q.screen.lt.md"
+                  :toolbar="[
                   ['left', 'center', 'right', 'justify'],
                   ['bold', 'italic'],
                   ['quote', 'unordered', 'ordered'],
                   ['undo', 'redo']]"
-              />
+                />
 
-              <q-input
-                borderless
-                v-model="t.searching"
-              />
-              <h1>{{ t.title }}</h1>
-
-              <div class="col-md-6">
                 <q-input
                   borderless
-                  v-model="t.titleContact"
+                  v-model="job.searching"
                 />
-                <q-editor
-                  v-model="t.contact"
-                  min-height="5rem"
-                />
+                <h1>{{ job.title }}</h1>
+
+                <div class="col-md-6">
+                  <q-input
+                    borderless
+                    v-model="job.titleContact"
+                  />
+                  <q-editor
+                    v-model="job.contactApply"
+                    min-height="5rem"
+                  />
+                </div>
               </div>
-            </div>
-          </q-card-section>
-        </q-card>
-      </div>
+            </q-card-section>
+          </q-card>
+        </div>
+      </form>
     </template>
 
     <template v-slot:after>
       <div class="q-pa-md">
         <div>
-          <p v-html="t.description"></p>
+          <p v-html="job.description"></p>
         </div>
-        <div>{{ t.searching }}</div>
+        <div>{{ job.searching }}</div>
         <div class>
-          <h1>{{ t.title }}</h1>
-          <div>{{ t.titleContact }}</div>
-          <div v-html="t.contact"></div>
+          <h1>{{ job.title }}</h1>
+          <div>{{ job.titleContact }}</div>
+          <div v-html="job.contactApply"></div>
         </div>
       </div>
     </template>
@@ -67,17 +66,27 @@ import YPhotoUpload from './PhotoUpload.vue'
 
 export default {
   name: 'Job',
-  props: ['tasks'],
-  data () {
-    return {
-      t: {
-        title: 'Jobtitle',
+  props: {
+    job: {
+      default: () => ({
+        title: '',
+        description: '',
+        location: '',
         searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
         titleContact: 'Kontakt',
-        contact: 'Herr Max Mustermann<br>Musterstraß 10<br>12345 Musterstadt',
-        description: ''
-      },
+        contactApply: ''
+      })
+    }
+  },
+  data () {
+    return {
       splitterModel: 50 // start at 50%
+    }
+  },
+  methods: {
+    emitJobDescription (event) {
+      console.log('JobDescription', event)
+      this.$emit('JobDescription', this.job)
     }
   },
   components: {
