@@ -12,102 +12,95 @@
         <div class="col-md-2 col-xs-12">
           <y-photo-upload />
         </div>
-        <div class="col-md-10 col-xs-12">
-          <h2>Gewünschte Tätigkeit {{ selection }}</h2>
-          <strong>Gewünschte Art der Anstellung</strong>
-          <div style="background: #EEF4FB; padding: 8px;">
-            <q-toggle
-              color="primary"
-              label="Zeitarbeit"
-              v-model="selection"
-              val="Zeitarbeit"
-              value="Zeitarbeit"
-            />
-            <q-toggle
-              color="primary"
-              label="Festanstellung"
-              v-model="selection"
-              val="Festanstellung"
-              value="Festanstellung"
-            />
-            <q-toggle
-              color="primary"
-              label="Projektarbeit"
-              v-model="selection"
-              val="Projektarbeit"
-              value="Projektarbeit"
-            />
-            <q-toggle
-              color="primary"
-              label="Freie Mitarbeit"
-              v-model="selection"
-              val="Freie Mitarbeit"
-              value="Freie Mitarbeit"
-            />
-            <q-toggle
-              color="primary"
-              label="Praktikum"
-              v-model="selection"
-              val="Praktikum"
-              value="Praktikum"
-            />
-          </div>
-          <div class="q-gutter-lg" style="margin-top: 21px;">
-            <div class="col-lg-12 col-sm-6 col-xs-12">
-              <q-input
-                outlined
-                type="DesiredPosition"
-                label="Angestrebte Tätigkeit"
-                lazy-rules
-              />
-            </div>
+      </div>
+      <div class="row q-col-gutter-x-md">
+        <h2>Gewünschte Tätigkeit {{ selection }}</h2>
+        <strong>Gewünschte Art der Anstellung</strong>
+        <div style="background: #EEF4FB; padding: 8px;">
+          <q-toggle
+            color="primary"
+            label="Zeitarbeit"
+            v-model="selection"
+            val="Zeitarbeit"
+            value="Zeitarbeit"
+          />
+          <q-toggle
+            color="primary"
+            label="Festanstellung"
+            v-model="selection"
+            val="Festanstellung"
+            value="Festanstellung"
+          />
+          <q-toggle
+            color="primary"
+            label="Projektarbeit"
+            v-model="selection"
+            val="Projektarbeit"
+            value="Projektarbeit"
+          />
+          <q-toggle
+            color="primary"
+            label="Freie Mitarbeit"
+            v-model="selection"
+            val="Freie Mitarbeit"
+            value="Freie Mitarbeit"
+          />
+          <q-toggle
+            color="primary"
+            label="Praktikum"
+            v-model="selection"
+            val="Praktikum"
+            value="Praktikum"
+          />
+        </div>
+        <div c class="col-lg-12 col-sm-6 col-xs-12">
+          <q-input
+            outlined
+            type="DesiredPosition"
+            label="Angestrebte Tätigkeit"
+            hint="wie möchtest Du dich entwickeln?"
+            lazy-rules
+          />
+        </div>
 
-            <div class="col-lg-12 col-sm-6 col-xs-12">
-              <q-input
-                outlined
-                type="DesiredLocation"
-                label="Gewünschter Arbeitsort/Bundesland"
-                lazy-rules
-              />
-            </div>
-            <div class="col-lg-12 col-sm-6 col-xs-12">
-              <q-input
-                outlined
-                type="Traveling"
-                label="Reisebereitschaft"
-                lazy-rules
-              />
-            </div>
-            <div class="col-lg-12 col-sm-6 col-xs-12">
-              <q-input
-                outlined
-                type="Salary"
-                label="Gehaltsvorstellung"
-                lazy-rules
-              />
-            </div>
-            <div class="row justify-end">
-              <q-btn
-                type="submit"
-                :loading="submitting"
-                label="Speichern"
-                flat
-                class="q-mt-md"
-                color="primary"
-              >
-              </q-btn>
-              <q-btn
-                type="submit"
-                :loading="submitting"
-                label="Löschen"
-                flat
-                class="q-mt-md"
-                color="primary"
-                style="margin-left: 20px;"
-              >
-              </q-btn>
-            </div>
-          </div>
+        <div class="col-lg-12 col-sm-6 col-xs-12">
+          <q-input
+            outlined
+            type="DesiredLocation"
+            label="Gewünschter Arbeitsort/Bundesland"
+            hint="wo möchtest Du arbeiten?"
+            lazy-rules
+          />
+        </div>
+        <div class="col-lg-12 col-sm-6 col-xs-12">
+          <q-input
+            outlined
+            type="Traveling"
+            label="Reisebereitschaft"
+            hint=""
+            lazy-rules
+          />
+        </div>
+        <y-salary-input />
+        <div class="row justify-end">
+          <q-btn
+            type="submit"
+            label="Speichern"
+            flat
+            class="q-mt-md"
+            color="primary"
+          >
+          </q-btn>
+          <q-btn
+            type="submit"
+            :loading="submitting"
+            label="Löschen"
+            flat
+            class="q-mt-md"
+            color="primary"
+            style="margin-left: 20px;"
+          >
+          </q-btn>
         </div>
       </div>
     </form>
@@ -117,20 +110,28 @@
 <script lang="javascript">
 import YAddress from '../components/Form/Address.vue'
 import YPhotoUpload from '../components/Form/PhotoUpload.vue'
+import YSalaryInput from '../components/Form/SalaryInput.vue'
 
 export default {
   // name: 'PageName',
+  props: ['loading'],
   components: {
     YAddress,
-    YPhotoUpload
+    YPhotoUpload,
+    YSalaryInput
   },
+
   data () {
     return {
       selection: ['Festeinstellung'],
-      options: [
-        'Herr', 'Frau', 'Diverse'
-      ]
+      locale: undefined,
+      salary: '',
+      time: '',
+      fixed: ''
     }
+  },
+  methods: {
+    submitting () {}
   }
 }
 </script>
