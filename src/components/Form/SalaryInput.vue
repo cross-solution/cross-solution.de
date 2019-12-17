@@ -3,7 +3,7 @@
     class="address"
     @submit.prevent.stop="onSubmit"
     @reset.prevent.stop="onReset"
-    @change="emitAddress"
+    @change="emitSalary"
   >
     <div class="row">
       <q-input
@@ -51,25 +51,21 @@ export default {
   },
   data () {
     return {
-      selection: ['Festeinstellung'],
       periodOptions: [
         'jährlich', 'monatlich', 'stündlich'
       ],
       currencyOptions: [
         'EUR', 'USD', 'CHF'
       ],
-
-      locale: undefined,
-      time: '',
-      fixed: ''
+      locale: undefined
     }
   },
   directives: {
     currency: CurrencyDirective
   },
   methods: {
-    emitAddress (event) {
-      this.$emit('Salary', this.c)
+    emitSalary (event) {
+      this.$emit('Salary', this.salary)
     }
   }
 }
