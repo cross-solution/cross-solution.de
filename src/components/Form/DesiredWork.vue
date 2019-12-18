@@ -4,73 +4,61 @@
     @submit.prevent.stop="onSubmit"
     @reset.prevent.stop="onReset"
     @change="emitDesiredWork"
-  >
-    <div class="row">
-      <h2>Gewünschte Tätigkeit</h2>
-      <strong>Gewünschte Art der Anstellung</strong>
-      <div style="background: #EEF4FB; padding: 8px;">
-        <q-toggle
-          color="primary"
-          label="Zeitarbeit"
-          v-model="selection"
-          val="Zeitarbeit"
-          value="Zeitarbeit"
-        />
-        <q-toggle
-          color="primary"
-          label="Festanstellung"
-          v-model="selection"
-          val="Festanstellung"
-          value="Festanstellung"
-        />
-        <q-toggle
-          color="primary"
-          label="Projektarbeit"
-          v-model="selection"
-          val="Projektarbeit"
-          value="Projektarbeit"
-        />
-        <q-toggle
-          color="primary"
-          label="Freie Mitarbeit"
-          v-model="selection"
-          val="Freie Mitarbeit"
-          value="Freie Mitarbeit"
-        />
-        <q-toggle
-          color="primary"
-          label="Praktikum"
-          v-model="selection"
-          val="Praktikum"
-          value="Praktikum"
-        />
-      </div>
-      <div c class="col-lg-12 col-sm-6 col-xs-12">
+  ><h2>Gewünschte Tätigkeit</h2>
+    <div class="row q-col-gutter-md">
+            <div c class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <q-input
           outlined
           type="DesiredPosition"
+          v-model="desiredWork.jobTitle"
           label="Angestrebte Tätigkeit"
-          hint="wie möchtest Du dich entwickeln?"
           lazy-rules
         />
       </div>
 
-      <div class="col-lg-12 col-sm-6 col-xs-12">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <y-search-region
           label="Gewünschter Arbeitsort/Bundesland"
-          v-model="location"
+          v-model="desiredWork.location"
         />
       </div>
-      <div class="col-lg-12 col-sm-6 col-xs-12">
+      <div c class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <q-select
+        label="Art der Anstellung"
+        transition-show="flip-up"
+        transition-hide="flip-down"
+        outlined
+        multiple
+        v-model="desiredWork.jobType"
+        :options="jobTypeOptions"
+        style="width: 100%"
+      />
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <q-select
+        label="Pensum"
+        outlined
+        transition-show="flip-up"
+        transition-hide="flip-down"
+        multiple
+        v-model="desiredWork.pensum"
+        :options="pensumOptions"
+        style="width: 100%"
+      />
+</div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <q-input
           outlined
           type="Traveling"
           label="Reisebereitschaft"
-          hint=""
+          v-model="desiredWork.willingnessToTravel"
           lazy-rules
         />
       </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <y-salary-input />
+      </div>
     </div>
   </form>
 </template>
@@ -84,21 +72,24 @@ import YSalaryInput from './SalaryInput.vue'
 export default {
   name: 'DesiredWork',
   props: {
-    salary: {
+    desiredWork: {
       default: () => ({
-        period: 'monatlich',
-        value: 1234.5,
-        currency: 'EUR'
+        jobTitle: '',
+        pensum: null,
+        location: '',
+        jobType: null,
+        willingnessToTravel: ''
       })
     }
   },
   data () {
     return {
-      selection: ['Festeinstellung'],
       locale: undefined,
       time: '',
       fixed: '',
-      location: ''
+      location: '',
+      jobTypeOptions: ['Festanstellung', 'Freie Mitarbeit', 'Praktikum', 'Ausbildung'],
+      pensumOptions: ['Vollzeit', 'Teilzeit', 'Schichtbetrieb']
     }
   },
   directives: {

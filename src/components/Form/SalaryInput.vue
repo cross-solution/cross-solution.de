@@ -15,7 +15,7 @@
         v-currency
       />
       <q-select
-        style="min-width:120px"
+        style="min-width:100px"
         v-model="salary.currency"
         outlined
         :value="salary.currenty"
@@ -23,7 +23,7 @@
         label="Währung"
       />
       <q-select
-        style="min-width:120px"
+        style="min-width:100px"
         v-model="salary.period"
         outlined
         :value="salary.period"
