@@ -21,7 +21,7 @@
           <div class="col-md-2 col-xs-12">
             <y-photo-upload
               color="transparent"
-              style="background: url(/statics/PhotoUpload.png) center no-repeat;  padding: 0px; border: 3px dashed gray;"
+              uploader-style="background: url(/statics/PhotoUpload.png) center no-repeat;  padding: 0px; border: 3px dashed gray;"
             />
           </div>
         </div>

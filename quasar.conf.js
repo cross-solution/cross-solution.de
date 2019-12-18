@@ -10,7 +10,8 @@ module.exports = function (ctx) {
       'i18n',
       'axios',
       { path: 'notifications', server: false },
-      'login-info'
+      'login-info',
+      'cropperjs'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css

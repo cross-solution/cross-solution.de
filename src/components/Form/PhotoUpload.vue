@@ -1,98 +1,197 @@
 <template>
-  <q-uploader
-    class="text-center uploaderBox"
-    url="http://localhost:4444/upload"
-    :color="color"
-    :style="style"
-    flat
-    text-color="grey"
-    :max-total-size="maxTotalSize"
-  >
-    <template v-slot:header="scope">
-      <q-card
-        v-if="scope.queuedFiles.length == 0"
-        flat
-      >
-        <q-card-section>
-          <q-btn
-            v-if="scope.queuedFiles.length > 1"
-            icon="clear_all"
-            @click="scope.removeQueuedFiles"
-            round
-            dense
-            flat
-          >
-            <q-tooltip>Clear All</q-tooltip>
-          </q-btn>
+  <div>
+    <q-uploader
+      :style="uploaderStyle"
+      class="text-center uploaderBox"
+      url="http://localhost:4444/upload"
+      :color="color"
+      flat
+      ref="input"
+      field-name="image"
+      text-color="grey"
+      :max-total-size="maxTotalSize"
+      @added="setImage"
+    >
+      <template v-slot:header="scope">
+        <q-card v-if="scope.queuedFiles.length == 0" flat>
+          <q-card-section>
+            <q-btn
+              v-if="scope.queuedFiles.length > 1"
+              icon="clear_all"
+              @click="scope.removeQueuedFiles"
+              round
+              dense
+              flat
+            >
+              <q-tooltip>Clear All</q-tooltip>
+            </q-btn>
 
-          <q-btn
-            v-if="scope.uploadedFiles.length > 0"
-            icon="done_all"
-            @click="scope.removeUploadedFiles"
-            dense
-            flat
-          >
-            <q-tooltip>Remove Uploaded Files</q-tooltip>
-          </q-btn>
-          <q-spinner
-            v-if="scope.isUploading"
-            class="q-uploader__spinner"
-          />
-          <div class="col">
-            <div class="q-uploader__title">Bitte laden Sie Ihr Foto hoch.</div>
-            <div class="q-uploader__subtitle">
-              {{ scope.uploadSizeLabel }} /
-              {{ scope.uploadProgressLabel }}
+            <q-btn
+              v-if="scope.uploadedFiles.length > 0"
+              icon="done_all"
+              @click="scope.removeUploadedFiles"
+              dense
+              flat
+            >
+              <q-tooltip>Remove Uploaded Files</q-tooltip>
+            </q-btn>
+            <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
+            <div class="col">
+              <div class="q-uploader__title">
+                Bitte laden Sie Ihr Foto hoch.
+              </div>
+              <div class="q-uploader__subtitle">
+                {{ scope.uploadSizeLabel }} /
+                {{ scope.uploadProgressLabel }}
+              </div>
             </div>
-          </div>
-          <q-btn
-            v-if="scope.canAddFiles"
-            type="a"
-            icon="add_box"
-            round
-            dense
-            flat
-          >
-            <q-uploader-add-trigger />
-            <q-tooltip>Pick ccFiles</q-tooltip>
-          </q-btn>
-          <q-btn
-            v-if="scope.canUpload"
-            icon="cloud_upload"
-            @click="scope.upload"
-            round
-            dense
-            flat
-          >
-            <q-tooltip>Upload Files</q-tooltip>
-          </q-btn>
+            <q-btn
+              v-if="scope.canAddFiles"
+              type="a"
+              icon="add_box"
+              round
+              dense
+              flat
+            >
+              <q-uploader-add-trigger />
+              <q-tooltip>Foto auswählen</q-tooltip>
+            </q-btn>
+            <q-btn
+              v-if="scope.canUpload"
+              icon="cloud_upload"
+              @click="scope.upload"
+              round
+              dense
+              flat
+            >
+              <q-tooltip>Upload Files</q-tooltip>
+            </q-btn>
 
-          <q-btn
-            v-if="scope.isUploading"
-            icon="clear"
-            @click="scope.abort"
-            round
-            dense
-            flat
+            <q-btn
+              v-if="scope.isUploading"
+              icon="clear"
+              @click="scope.abort"
+              round
+              dense
+              flat
+            >
+              <q-tooltip>Abort Upload</q-tooltip>
+            </q-btn>
+          </q-card-section>
+        </q-card>
+      </template>
+    </q-uploader>
+
+    <q-dialog seamless v-model="card">
+      <q-card>
+        <q-card-section>
+          <vue-cropper
+            ref="cropper"
+            :src="imgSrc"
+            alt="Source Image"
+            :cropmove="cropImage"
           >
-            <q-tooltip>Abort Upload</q-tooltip>
-          </q-btn>
+          </vue-cropper>
         </q-card-section>
+
+        <q-separator />
+
+        <q-card-actions>
+          <q-btn icon="redo" flat color="primary" @click="rotate(-90)"></q-btn>
+          <q-btn icon="undo" flat color="primary" @click="rotate(90)"></q-btn>
+          <q-btn flat color="primary" v-close-popup>OK</q-btn>
+        </q-card-actions>
       </q-card>
-    </template>
-  </q-uploader>
+    </q-dialog>
+
+    <q-btn icon="edit" color="primary" @click="card = true" />
+    <q-btn icon="cloud" color="primary" @click="card = true" />
+  </div>
 </template>
 
 <script lang="javascript">
+
+import VueCropper from 'vue-cropperjs'
+
 export default {
   name: 'PhotoUpload',
-  props: ['color'],
+  props: ['color', 'uploader-style'],
+  mixins: [VueCropper],
   data () {
     return {
       maxTotalSize: 2048000,
-      style: ''
+      card: false,
+      imgSrc: '/statics/PhotoUpload.png',
+      cropImg: '',
+      data: null
+    }
+  },
+  components: {
+    VueCropper
+  },
+  methods: {
+    flipX () {
+      const dom = this.$refs.flipX
+      let scale = dom.getAttribute('data-scale')
+      scale = scale ? -scale : -1
+      this.$refs.cropper.scaleX(scale)
+      dom.setAttribute('data-scale', scale)
+    },
+    flipY () {
+      const dom = this.$refs.flipY
+      let scale = dom.getAttribute('data-scale')
+      scale = scale ? -scale : -1
+      this.$refs.cropper.scaleY(scale)
+      dom.setAttribute('data-scale', scale)
+    },
+    getCropBoxData () {
+      this.data = JSON.stringify(this.$refs.cropper.getCropBoxData(), null, 4)
+    },
+    getData () {
+      this.data = JSON.stringify(this.$refs.cropper.getData(), null, 4)
+    },
+    move (offsetX, offsetY) {
+      this.$refs.cropper.move(offsetX, offsetY)
+    },
+    reset () {
+      this.$refs.cropper.reset()
+    },
+    rotate (deg) {
+      this.$refs.cropper.rotate(deg)
+    },
+    setCropBoxData () {
+      if (!this.data) return
+      this.$refs.cropper.setCropBoxData(JSON.parse(this.data))
+    },
+    setData () {
+      if (!this.data) return
+      this.$refs.cropper.setData(JSON.parse(this.data))
+    },
+    cropImage () {
+      // get image data for post processing, e.g. upload or setting image src
+      this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL()
+    },
+    setImage (files) {
+      const file = files[0]
+      if (file.type.indexOf('image/') === -1) {
+        alert('Please select an image file')
+        return
+      }
+      if (typeof FileReader === 'function') {
+        const reader = new FileReader()
+        reader.onload = (event) => {
+          this.imgSrc = event.target.result
+          // rebuild cropperjs with the updated source
+          this.$refs.cropper.replace(event.target.result)
+        }
+        reader.readAsDataURL(file)
+      }
+      else {
+        alert('Sorry, FileReader API not supported')
+      }
     }
   }
+
 }
 </script>
 

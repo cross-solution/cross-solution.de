@@ -61,7 +61,7 @@
               <q-checkbox
                 v-model="job.apply.disabled"
                 label="keine Onlinebewerbung/postalische Bewerbungen"
-              /><br>est
+              /><br>
             </div>
           </div>
         </q-card>

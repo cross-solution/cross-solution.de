@@ -115,7 +115,7 @@
           class="full-width"
           label="Cv"
           align="arround"
-          icon="mail"
+          icon="fas fa-university"
           to="/cv"
         />
         <q-separator />
