@@ -200,7 +200,7 @@ body {
   }
 }
 
-@media (max-width: #{$breakpoint-xs-max}) {
+@media (max-width: 480px) {
   .claim {
     font-size: 2.75rem;
     font-weight: 400;

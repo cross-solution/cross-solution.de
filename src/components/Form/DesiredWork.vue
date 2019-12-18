@@ -4,9 +4,10 @@
     @submit.prevent.stop="onSubmit"
     @reset.prevent.stop="onReset"
     @change="emitDesiredWork"
-  ><h2>Gewünschte Tätigkeit</h2>
+  >
+    <h2>Gewünschte Tätigkeit</h2>
     <div class="row q-col-gutter-md">
-            <div c class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div c class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <q-input
           outlined
           type="DesiredPosition"
@@ -22,30 +23,31 @@
           v-model="desiredWork.location"
         />
       </div>
+
       <div c class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <q-select
-        label="Art der Anstellung"
-        transition-show="flip-up"
-        transition-hide="flip-down"
-        outlined
-        multiple
-        v-model="desiredWork.jobType"
-        :options="jobTypeOptions"
-        style="width: 100%"
-      />
-</div>
-<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <q-select
-        label="Pensum"
-        outlined
-        transition-show="flip-up"
-        transition-hide="flip-down"
-        multiple
-        v-model="desiredWork.pensum"
-        :options="pensumOptions"
-        style="width: 100%"
-      />
-</div>
+        <q-select
+          label="Art der Anstellung"
+          transition-show="flip-up"
+          transition-hide="flip-down"
+          outlined
+          multiple
+          v-model="desiredWork.jobType"
+          :options="jobTypeOptions"
+          style="width: 100%"
+        />
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <q-select
+          label="Pensum"
+          outlined
+          transition-show="flip-up"
+          transition-hide="flip-down"
+          multiple
+          v-model="desiredWork.pensum"
+          :options="pensumOptions"
+          style="width: 100%"
+        />
+      </div>
 
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <q-input
@@ -56,8 +58,9 @@
           lazy-rules
         />
       </div>
+
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <y-salary-input />
+        <y-salary-input />
       </div>
     </div>
   </form>

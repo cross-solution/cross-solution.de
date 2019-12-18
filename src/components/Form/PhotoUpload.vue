@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="q-gutter-sm">
     <q-uploader
-      :style="uploaderStyle"
+      style="background: url(/statics/PhotoUpload.png) center no-repeat;  padding: 0px; border: 3px dashed gray"
       class="text-center uploaderBox"
       url="http://localhost:4444/upload"
-      :color="color"
+      color="transparent"
       flat
       ref="input"
       field-name="image"
@@ -97,7 +97,12 @@
         <q-separator />
 
         <q-card-actions>
-          <q-btn icon="fas fa-crop-alt" flat color="primary" @click="cropImage"></q-btn>
+          <q-btn
+            icon="fas fa-crop-alt"
+            flat
+            color="primary"
+            @click="cropImage"
+          ></q-btn>
           <q-btn icon="redo" flat color="primary" @click="rotate(-90)"></q-btn>
           <q-btn icon="undo" flat color="primary" @click="rotate(90)"></q-btn>
           <q-btn flat color="primary" v-close-popup>OK</q-btn>

@@ -1,40 +1,32 @@
 <template>
-  <q-splitter
-    v-model="splitterModel"
-    style="height: 400px;"
-  >
+  <q-splitter v-model="splitterModel" style="height: 400px;">
     <template v-slot:before>
       <form @change="emitJobDescription">
         <div class="q-pa-md">
           <q-card class="col-md-3">
             <q-card-section>
               <div class="job">
-                <y-photo-upload />
+                <y-photo-upload
+                  color="transparent"
+                  uploader-style="background: url(/statics/HeaderUpload.png) center no-repeat;  padding: 0px; border: 3px dashed gray;"
+                />
                 <q-editor
                   v-model="job.description"
                   :dense="$q.screen.lt.md"
                   :toolbar="[
-                  ['left', 'center', 'right', 'justify'],
-                  ['bold', 'italic'],
-                  ['quote', 'unordered', 'ordered'],
-                  ['undo', 'redo']]"
+                    ['left', 'center', 'right', 'justify'],
+                    ['bold', 'italic'],
+                    ['quote', 'unordered', 'ordered'],
+                    ['undo', 'redo']
+                  ]"
                 />
 
-                <q-input
-                  borderless
-                  v-model="job.searching"
-                />
+                <q-input borderless v-model="job.searching" />
                 <h1>{{ job.title }}</h1>
 
                 <div class="col-md-6">
-                  <q-input
-                    borderless
-                    v-model="job.titleContact"
-                  />
-                  <q-editor
-                    v-model="job.contactApply"
-                    min-height="5rem"
-                  />
+                  <q-input borderless v-model="job.titleContact" />
+                  <q-editor v-model="job.contactApply" min-height="5rem" />
                 </div>
               </div>
             </q-card-section>

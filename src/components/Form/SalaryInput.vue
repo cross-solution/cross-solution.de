@@ -5,7 +5,7 @@
     @reset.prevent.stop="onReset"
     @change="emitSalary"
   >
-    <div class="row">
+    <div class="row q-gutter-xs">
       <q-input
         outlined
         type="Salary"
