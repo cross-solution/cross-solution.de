@@ -1,7 +1,7 @@
 <template>
   <div class="q-gutter-sm">
     <q-uploader
-      style="background: url(/statics/PhotoUpload.png) center no-repeat;  padding: 0px; border: 3px dashed gray"
+      :style="uploaderStyle"
       class="text-center uploaderBox"
       url="http://localhost:4444/upload"
       color="transparent"

@@ -10,10 +10,15 @@
           </div>
         </div>
         <div class="col-md-2 col-xs-12">
-          <y-photo-upload />
+          <y-photo-upload
+            color="transparent"
+            uploader-style="background: url(/statics/PhotoUpload.png) center no-repeat;  padding: 0px; border: 3px dashed gray;"
+          />
         </div>
       </div>
       <y-desired-work />
+      <y-work-experience />
+      <y-education />
       <div class="row q-col-gutter-x-md">
         <div class="row justify-end">
           <q-btn
@@ -44,6 +49,8 @@
 import YAddress from '../components/Form/Address.vue'
 import YPhotoUpload from '../components/Form/PhotoUpload.vue'
 import YDesiredWork from '../components/Form/DesiredWork.vue'
+import YWorkExperience from '../components/Form/WorkExperience.vue'
+import YEducation from '../components/Form/Education.vue'
 
 export default {
   // name: 'PageName',
@@ -51,7 +58,9 @@ export default {
   components: {
     YAddress,
     YPhotoUpload,
-    YDesiredWork
+    YDesiredWork,
+    YWorkExperience,
+    YEducation
   },
 
   data () {
