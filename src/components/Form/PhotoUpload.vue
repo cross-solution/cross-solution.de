@@ -97,6 +97,7 @@
         <q-separator />
 
         <q-card-actions>
+          <q-btn icon="fas fa-crop-alt" flat color="primary" @click="cropImage"></q-btn>
           <q-btn icon="redo" flat color="primary" @click="rotate(-90)"></q-btn>
           <q-btn icon="undo" flat color="primary" @click="rotate(90)"></q-btn>
           <q-btn flat color="primary" v-close-popup>OK</q-btn>
