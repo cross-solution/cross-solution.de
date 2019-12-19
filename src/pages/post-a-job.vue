@@ -321,6 +321,7 @@ export default {
       this.job.title = data.title
       this.job.location = data.location
       this.job.organization = data.organization
+      localStorage.setItem('job', JSON.stringify(this.job))
     },
     setMessage (msg) {
       this.text_value = msg

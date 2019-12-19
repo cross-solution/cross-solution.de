@@ -1,5 +1,7 @@
 <template>
-  <div class="q-gutter-sm">
+  <div>
+    <q-btn dense flat icon="edit" text-color="grey-6" @click="cropperDialog = true" />
+
     <q-uploader
       :style="uploaderStyle"
       class="text-center uploaderBox"
@@ -80,9 +82,10 @@
           </q-card-section>
         </q-card>
       </template>
+
     </q-uploader>
 
-    <q-dialog seamless v-model="card">
+    <q-dialog seamless v-model="cropperDialog">
       <q-card>
         <q-card-section>
           <vue-cropper
@@ -110,9 +113,7 @@
       </q-card>
     </q-dialog>
 
-    <q-btn icon="edit" color="primary" @click="card = true" />
-    <q-btn icon="cloud" color="primary" @click="card = true" />
-  </div>
+      </div>
 </template>
 
 <script lang="javascript">
@@ -126,10 +127,10 @@ export default {
   data () {
     return {
       maxTotalSize: 2048000,
-      card: false,
+      cropperDialog: false,
       imgSrc: '/statics/PhotoUpload.png',
       cropImg: '',
-      image: ''
+      image: null
     }
   },
   components: {
