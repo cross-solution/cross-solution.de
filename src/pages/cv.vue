@@ -31,7 +31,6 @@
           </q-btn>
           <q-btn
             type="submit"
-            :loading="submitting"
             label="Löschen"
             flat
             class="q-mt-md"
