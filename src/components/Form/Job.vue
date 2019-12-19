@@ -12,7 +12,7 @@
                 />
                 <q-editor
                   v-model="job.description"
-                  :dense="$q.screen.lt.md"
+                  :dense="$q.screen.gt.md"
                   :toolbar="[
                     ['left', 'center', 'right', 'justify'],
                     ['bold', 'italic'],
@@ -25,8 +25,8 @@
                 <h1>{{ job.title }}</h1>
 
                 <div class="col-md-6">
-                  <q-input borderless v-model="job.titleContact" />
-                  <q-editor v-model="job.contactApply" min-height="5rem" />
+                  <q-input borderless v-model="job.contactTitle" />
+                  <q-editor v-model="job.contactText" min-height="5rem" />
                 </div>
               </div>
             </q-card-section>
@@ -43,8 +43,8 @@
         <div>{{ job.searching }}</div>
         <div class>
           <h1>{{ job.title }}</h1>
-          <div>{{ job.titleContact }}</div>
-          <div v-html="job.contactApply"></div>
+          <div>{{ job.contactTitle }}</div>
+          <div v-html="job.contactText"></div>
         </div>
       </div>
     </template>
@@ -65,8 +65,8 @@ export default {
         description: '',
         location: '',
         searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
-        titleContact: 'Kontakt',
-        contactApply: ''
+        contactTitle: 'Kontakt',
+        contactText: ''
       })
     }
   },

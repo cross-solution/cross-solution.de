@@ -6,7 +6,6 @@
       header-nav
       color="primary"
       animated
-      swipeable
     >
       <q-step
         :name="1"
@@ -277,9 +276,14 @@ export default {
       date: '',
       workload: '',
       job: {
+        headerImage: '/statics/HeaderUpload.png',
         title: '',
         organization: '',
+        description: 'Also führender Anbieter ...',
         location: '',
+        searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
+        contactTitle: 'Haben wir ihr Interesse geweckt?',
+        contactText: '',
         apply: {
           url: '',
           email: '',
@@ -287,8 +291,7 @@ export default {
             email: false,
             url: false
           },
-          disabled: false,
-          contact: {}
+          disabled: false
         }
       }
     }
