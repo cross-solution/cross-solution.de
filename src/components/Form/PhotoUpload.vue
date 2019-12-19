@@ -129,7 +129,7 @@ export default {
       card: false,
       imgSrc: '/statics/PhotoUpload.png',
       cropImg: '',
-      data: null
+      image: ''
     }
   },
   components: {
@@ -151,10 +151,10 @@ export default {
       dom.setAttribute('data-scale', scale)
     },
     getCropBoxData () {
-      this.data = JSON.stringify(this.$refs.cropper.getCropBoxData(), null, 4)
+      this.image = JSON.stringify(this.$refs.cropper.getCropBoxData(), null, 4)
     },
     getData () {
-      this.data = JSON.stringify(this.$refs.cropper.getData(), null, 4)
+      this.image = JSON.stringify(this.$refs.cropper.getData(), null, 4)
     },
     move (offsetX, offsetY) {
       this.$refs.cropper.move(offsetX, offsetY)
@@ -166,12 +166,12 @@ export default {
       this.$refs.cropper.rotate(deg)
     },
     setCropBoxData () {
-      if (!this.data) return
-      this.$refs.cropper.setCropBoxData(JSON.parse(this.data))
+      if (!this.image) return
+      this.$refs.cropper.setCropBoxData(JSON.parse(this.image))
     },
     setData () {
-      if (!this.data) return
-      this.$refs.cropper.setData(JSON.parse(this.data))
+      if (!this.image) return
+      this.$refs.cropper.setData(JSON.parse(this.image))
     },
     cropImage () {
       // get image data for post processing, e.g. upload or setting image src
