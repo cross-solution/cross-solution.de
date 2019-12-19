@@ -11,8 +11,29 @@
             label="Digitaler Wandel"
             class="gt-xs"
           />
-          <q-route-tab to="/open-source" label="Open Source" class="gt-xs" />
-          <q-btn-dropdown flat color="primary" label="Über uns">
+          <q-route-tab to="/open-source" label="Open Source" class="gt-xs"/>
+          <q-btn-dropdown v-if="this.flag == -1" flat color="primary" label="Über uns">
+            <q-list>
+              <q-item clickable v-close-popup to="/about">
+                <q-item-section>
+                  <q-item-label>Team</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-item clickable v-close-popup to="/values">
+                <q-item-section>
+                  <q-item-label>Werte</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-item clickable v-close-popup to="/timeline">
+                <q-item-section>
+                  <q-item-label>Timeline</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+          <q-btn-dropdown v-if="this.flag == 0" flat color="primary" label="About Us">
             <q-list>
               <q-item clickable v-close-popup to="/about">
                 <q-item-section>
@@ -66,6 +87,7 @@
           icon="calendar"
           align="arround"
           to="/about-us"
+          options="langs"
         />
         <q-btn
           flat
@@ -149,7 +171,8 @@ export default {
   data () {
     return {
       right: false,
-      loginUri: process.env.STRAPI_HOST + '/auth/local'
+      loginUri: process.env.STRAPI_HOST + '/auth/local',
+      flag: '-1'
     }
   },
   components: {
@@ -158,6 +181,8 @@ export default {
   },
   beforeMount () {
     this.coverpage()
+    // console.log(navigator.language)
+    // console.log(this.$q.lang.getLocale())
   },
   methods: {
     coverpage: function () {
@@ -193,6 +218,14 @@ export default {
           ]
         })
       }
+    }
+  },
+  mounted () {
+    if (this.$q.lang.getLocale().indexOf('en') === 0) {
+      this.flag = 0
+    }
+    else {
+      this.flag = -1
     }
   }
 }
