@@ -222,7 +222,7 @@ export default {
   },
   mounted () {
     if (this.$q.lang.getLocale().indexOf('en') === 0) {
-      this.flag = 0
+      this.flag = 0// If brownser lan is english
     }
     else {
       this.flag = -1
