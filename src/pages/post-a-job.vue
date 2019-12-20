@@ -282,6 +282,12 @@ export default {
         description: 'Also führender Anbieter ...',
         location: '',
         searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
+        tasksTitle: 'Ihre Aufgaben:',
+        tasksText: '',
+        qualificationsTitle: 'Wir erwarten:',
+        qualificationsText: '',
+        benefitsTitle: 'Das bieten wir Ihnen:',
+        benefitsText: '',
         contactTitle: 'Haben wir ihr Interesse geweckt?',
         contactText: '',
         apply: {

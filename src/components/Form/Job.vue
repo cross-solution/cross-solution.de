@@ -24,6 +24,7 @@
               <q-editor
                 v-model="job.description"
                 :dense="$q.screen.gt.md"
+                min-height="4rem"
                 :toolbar="[
                   ['left', 'center', 'right', 'justify'],
                   ['bold', 'italic'],
@@ -34,9 +35,20 @@
 
               <q-input borderless v-model="job.searching" />
               <h1>{{ job.title }}</h1>
-
               <div class="col-md-6">
-                <q-input borderless v-model="job.contactTitle" />
+                <q-input class="text-h6" borderless v-model="job.tasksTitle" />
+                <q-editor v-model="job.tasksText" min-height="5rem" />
+              </div>
+              <div class="col-md-6">
+                <q-input class="text-h6" borderless v-model="job.qualificationsTitle" />
+                <q-editor v-model="job.qualificationsText" min-height="5rem" />
+              </div>
+              <div class="col-md-6">
+                <q-input class="text-h6" borderless v-model="job.benefitsTitle" />
+                <q-editor v-model="job.benefitsText" min-height="5rem" />
+              </div>
+              <div class="col-md-6">
+                <q-input class="text-h6" borderless v-model="job.contactTitle" />
                 <q-editor v-model="job.contactText" min-height="5rem" />
               </div>
             </div>
