@@ -1,6 +1,12 @@
 <template>
   <div>
-    <q-btn dense flat icon="edit" text-color="grey-6" @click="cropperDialog = true" />
+    <q-btn
+      dense
+      flat
+      icon="edit"
+      text-color="grey-6"
+      @click="cropperDialog = true"
+    />
 
     <q-uploader
       :style="uploaderStyle"
@@ -10,7 +16,7 @@
       flat
       ref="input"
       field-name="image"
-      text-color="grey"
+      text-color="white"
       :max-total-size="maxTotalSize"
       @added="setImage"
     >
@@ -82,7 +88,6 @@
           </q-card-section>
         </q-card>
       </template>
-
     </q-uploader>
 
     <q-dialog seamless v-model="cropperDialog">
@@ -112,8 +117,7 @@
         </q-card-actions>
       </q-card>
     </q-dialog>
-
-      </div>
+  </div>
 </template>
 
 <script lang="javascript">
