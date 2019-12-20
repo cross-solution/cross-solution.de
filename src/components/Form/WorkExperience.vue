@@ -13,61 +13,31 @@
         v-model="workExperience.jobTitle"
         label="Position"
       />
-
       <q-input
-        class="col-6"
+        class="col-12"
         outlined
-        v-model="workExperience.start"
-        mask="date"
-        :rules="['date']"
-        label="Beginn"
-      >
-        <template v-slot:append>
-          <q-icon name="event" class="cursor-pointer">
-            <q-popup-proxy
-              ref="qDateProxy"
-              transition-show="scale"
-              transition-hide="scale"
-            >
-              <q-date
-                v-model="date"
-                @input="() => $refs.qDateProxy.hide()"
-                default-view="Years"
+        v-model="workExperience.organizationName"
+        label="Firma/Organization"
+      />
+      <y-date-range/>
+      <q-editor class="col-6"
+                v-model="workExperience.description"
+                :dense="$q.screen.gt.md"
+                min-height="4rem"
+                :toolbar="[
+                  ['left', 'center', 'right', 'justify'],
+                  ['bold', 'italic'],
+                  ['quote', 'unordered', 'ordered'],
+                  ['undo', 'redo']
+                ]"
               />
-            </q-popup-proxy>
-          </q-icon>
-        </template>
-      </q-input>
-
-      <q-input
-        class="col-6"
-        outlined
-        v-model="workExperience.end"
-        mask="date"
-        :rules="['date']"
-        label="Ende"
-      >
-        <template v-slot:append>
-          <q-icon name="event" class="cursor-pointer">
-            <q-popup-proxy
-              ref="qDateProxy"
-              transition-show="scale"
-              transition-hide="scale"
-            >
-              <q-date
-                v-model="date"
-                @input="() => $refs.qDateProxy.hide()"
-                default-view="Years"
-              />
-            </q-popup-proxy>
-          </q-icon>
-        </template>
-      </q-input>
     </div>
   </form>
 </template>
 
 <script lang="javascript">
+
+import YDateRange from './DateRange.vue'
 
 export default {
   name: 'workExperience',
@@ -75,8 +45,13 @@ export default {
     workExperience: {
       default: () => ({
         jobTitle: '',
-        start: null,
-        end: null
+        organizationName: '',
+        description: '',
+        dateRange: {
+          start: null,
+          end: null,
+          ongoing: false
+        }
       })
     }
   },
@@ -88,6 +63,7 @@ export default {
     }
   },
   components: {
+    YDateRange
   },
   methods: {
     emitWorkExperience (event) {
