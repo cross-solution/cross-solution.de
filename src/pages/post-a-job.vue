@@ -6,7 +6,6 @@
       header-nav
       color="primary"
       animated
-      swipeable
     >
       <q-step
         :name="1"
@@ -14,75 +13,11 @@
         icon="settings"
         :done="step > 1"
         style="min-height: 300px;"
-        ><div class="row q-gutter-md">
-          <div class="col-md-6 q-gutter-y-md">
-            <q-input
-              color="$blue"
-              outlined
-              v-model="title"
-              label="Titel der Anzeige"
-            />
-
-            <q-input
-              outlined
-              v-model="organization"
-              label="Name des Unternehmens"
-            />
-            <y-search-region label="Einsatzort" :value="location" />
-          </div>
-          <div style="width: 44%; margin-left: 5%;">
-            <q-expansion-item
-              style="background: $orange-1"
-              v-model="applyForm"
-              label="Bewerbungsformular"
-              caption="Link zum eigenen Bewerbungsformular"
-              class="hover"
-            >
-              <q-card>
-                <q-card-section>
-                  <q-input
-                    outlined
-                    v-model="applyUrl"
-                    label="Link zum eigenen Bewerbungsformular"
-                    color="#faa427"
-                  />
-                </q-card-section>
-              </q-card>
-            </q-expansion-item>
-
-            <q-expansion-item
-              style="margin-top:5px; bottom: 15px; background: $orange-1"
-              v-model="expandedEmail"
-              label="Email"
-              caption="Email für Bewerbungen"
-              class="hover"
-            >
-              <q-card>
-                <q-card-section>
-                  <q-input outlined v-model="applyEmail" />
-                </q-card-section>
-              </q-card>
-            </q-expansion-item>
-
-            <q-card flat>
-              <div class="q-pa-md">
-                <div class="q-gutter-sm">
-                  <q-checkbox
-                    v-model="applyEmail"
-                    label="keine Onlinebewerbung/postalische Bewerbungen"
-                  />
-                </div>
-              </div>
-            </q-card>
-            <q-input
-              style="margin-top: 10px;"
-              outlined
-              v-model="reference"
-              label="Referenz"
-              hint="Referenznummer erscheint auf der Rechnung"
-            />
-          </div>
-        </div>
+      >
+        <y-job-general
+          :job="job"
+          @JobGeneral="setJobGeneral"
+        />
       </q-step>
 
       <q-step
@@ -92,7 +27,10 @@
         :done="step > 2"
         style="min-height: 200px;"
       >
-      <YJob @changeMsg="setMessage"></YJob>
+        <YJob
+          :job="job"
+          @changeMsg="setMessage"
+        ></YJob>
       </q-step>
 
       <q-step
@@ -102,7 +40,10 @@
         :done="step > 3"
         style="min-height: 200px;"
       >
-        <y-address />
+        <y-address
+          :c="job.contact"
+          v-on:Address="setAddress"
+        />
       </q-step>
 
       <q-step
@@ -119,16 +60,32 @@
             </q-card-section>
 
             <q-card-section>
-              <q-item tag="label" v-ripple>
-                <q-item-section avatar top>
-                  <q-checkbox v-model="workload" val="100" color="primary" />
+              <q-item
+                tag="label"
+                v-ripple
+              >
+                <q-item-section
+                  avatar
+                  top
+                >
+                  <q-checkbox
+                    v-model="workload"
+                    val="100"
+                    color="primary"
+                  />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label>Vollzeit</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-item tag="label" v-ripple>
-                <q-item-section avatar top>
+              <q-item
+                tag="label"
+                v-ripple
+              >
+                <q-item-section
+                  avatar
+                  top
+                >
                   <q-checkbox
                     v-model="workload"
                     val="contract"
@@ -139,9 +96,18 @@
                   <q-item-label>Teilzeit</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-item tag="label" v-ripple>
-                <q-item-section avatar top>
-                  <q-checkbox v-model="minijob" color="primary" />
+              <q-item
+                tag="label"
+                v-ripple
+              >
+                <q-item-section
+                  avatar
+                  top
+                >
+                  <q-checkbox
+                    v-model="minijob"
+                    color="primary"
+                  />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label>Minijob</q-item-label>
@@ -155,19 +121,43 @@
             </q-card-section>
 
             <q-card-section>
-              <q-item tag="label" v-ripple>
-                <q-item-section avatar top>
-                  <q-checkbox v-model="start" val="100" color="primary" />
+              <q-item
+                tag="label"
+                v-ripple
+              >
+                <q-item-section
+                  avatar
+                  top
+                >
+                  <q-checkbox
+                    v-model="start"
+                    val="100"
+                    color="primary"
+                  />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label>sofort</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-item tag="label" v-ripple>
-                <q-item-section avatar top>
-                  <q-input filled v-model="date" mask="date" :rules="['date']">
+              <q-item
+                tag="label"
+                v-ripple
+              >
+                <q-item-section
+                  avatar
+                  top
+                >
+                  <q-input
+                    filled
+                    v-model="date"
+                    mask="date"
+                    :rules="['date']"
+                  >
                     <template v-slot:append>
-                      <q-icon name="event" class="cursor-pointer">
+                      <q-icon
+                        name="event"
+                        class="cursor-pointer"
+                      >
                         <q-popup-proxy
                           ref="qDateProxy"
                           transition-show="scale"
@@ -194,9 +184,19 @@
         icon="send"
         style="min-height: 200px;"
       >
-        <q-item tag="label" v-ripple>
-          <q-item-section avatar top>
-            <q-checkbox v-model="conditions" val="primary" color="primary" />
+        <q-item
+          tag="label"
+          v-ripple
+        >
+          <q-item-section
+            avatar
+            top
+          >
+            <q-checkbox
+              v-model="conditions"
+              val="primary"
+              color="primary"
+            />
           </q-item-section>
           <q-item-section>
             <q-item-label>AGB</q-item-label>
@@ -226,39 +226,41 @@
       </template>
 
       <template v-slot:message>
-        <q-banner v-if="step === 1" class="bg-light-blue-1 text-grey-9 q-px-lg">
+        <q-banner
+          v-if="step === 1"
+          class="bg-light-blue-1 text-grey-9 q-px-lg"
+        >
           Der Titel der Anzeige, der Name des Unternehmens und der Dienstitz
           wird in Ergebnislisten bei Jobbörsen angezeigt
         </q-banner>
         <q-banner
           v-else-if="step === 2"
           class="text-grey-9 bg-light-blue-1 q-px-lg"
-          >Hier können Sie die Anzeige eingeben.</q-banner
-        >
+        >Hier können Sie die Anzeige eingeben.</q-banner>
         <q-banner
           v-else-if="step === 3"
           class="bg-light-blue-1 text-grey-9 q-px-lg"
-          >Rechnungsanschrift</q-banner
-        >
+        >Rechnungsanschrift</q-banner>
         <q-banner
           v-else-if="step === 4"
           class="bg-light-blue-1 text-grey-9 q-px-lg"
-          >Ihre Anzeige wird besser gefunden, wenn Sie Angaben ....</q-banner
-        >
+        >Ihre Anzeige wird besser gefunden, wenn Sie Angaben ....</q-banner>
 
-        <q-banner v-else class="bg-light-blue-1 text-grey-9 q-px-lg"
-          >Endkontrolle</q-banner
-        >
+        <q-banner
+          v-else
+          class="bg-light-blue-1 text-grey-9 q-px-lg"
+        >Endkontrolle</q-banner>
       </template>
     </q-stepper>
   </div>
 </template>
 
 <script lang="javascript">
-import YSearchRegion from '../components/SearchRegion.vue'
 import YAddress from '../components/Form/Address.vue'
+import YJobGeneral from '../components/Form/JobGeneral.vue'
 import YJob from '../components/Form/Job.vue'
 import YCategoryBox from '../components/Form/CategoryBox.vue'
+
 export default {
   meta: {
     'title': 'Stellenanzeige schalten'
@@ -266,19 +268,38 @@ export default {
   data () {
     return {
       step: 1,
-      title: 'Jobtitle',
-      organization: '',
       gLocation: '',
-      pensum: 10,
       jobtype: ['fulltime'],
-      applyUrl: 'https://',
-      applyEmail: '',
-      apply: '',
       conditions: '',
-      workload: ['100'],
       minijob: '',
       start: '',
-      date: ''
+      date: '',
+      workload: '',
+      job: {
+        headerImage: '/statics/HeaderUpload.png',
+        title: '',
+        organization: '',
+        description: 'Also führender Anbieter ...',
+        location: '',
+        searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
+        tasksTitle: 'Ihre Aufgaben:',
+        tasksText: '',
+        qualificationsTitle: 'Wir erwarten:',
+        qualificationsText: '',
+        benefitsTitle: 'Das bieten wir Ihnen:',
+        benefitsText: '',
+        contactTitle: 'Haben wir ihr Interesse geweckt?',
+        contactText: '',
+        apply: {
+          url: '',
+          email: '',
+          expanded: {
+            email: false,
+            url: false
+          },
+          disabled: false
+        }
+      }
     }
   },
   props: {
@@ -297,16 +318,16 @@ export default {
     titleContact: String,
     contact: String
   },
-  mounted () {
-  },
   methods: {
-    filterLocation (addressData) {
-      this.location = JSON.stringify({
-        coordinates: {
-          type: 'Point',
-          coordinates: [addressData.longitude, addressData.latitude]
-        }
-      })
+    setAddress (contact) {
+      this.job.contact = contact
+    },
+    setJobGeneral (data) {
+      console.log('setJobGeneral', data)
+      this.job.title = data.title
+      this.job.location = data.location
+      this.job.organization = data.organization
+      localStorage.setItem('job', JSON.stringify(this.job))
     },
     setMessage (msg) {
       this.text_value = msg
@@ -314,10 +335,21 @@ export default {
     }
   },
   components: {
-    YSearchRegion,
+    YJobGeneral,
     YAddress,
     YJob,
     YCategoryBox
+  },
+  computed: {
+    drawerState: {
+      get () {
+        return this.$store.state.jobs.drawerState
+      },
+      set (val) {
+        console.log('debug', val)
+        this.$store.commit('jobs/updateDrawerState', val)
+      }
+    }
   }
 }
 </script>

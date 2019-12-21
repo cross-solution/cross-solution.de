@@ -1,114 +1,120 @@
 <template>
-  <form @submit.prevent.stop="onSubmit" @reset.prevent.stop="onReset">
+  <form @submit.prevent.stop="onSubmit" @reset.prevent.stop="onReset" @change="emitAddress">
     <div class="address">
-      <div class="row q-col-gutter-sm myclass">
-        <div class="col-3">
+      <div class="row q-col-gutter-x-md">
+        <div class="col-md-2 col-sm-6 col-xs-12">
           <q-select
             outlined
-            v-model="gender"
+            v-model="c.gender"
             color="$blue"
-            :options="options"
+            :options="c.options"
             label="Anrede"
             :rules="[true]"
+            @change="emitAddress"
           />
         </div>
-        <div class="col-md-10 col-sm-6" />
-        <div class="col-12">
+        <div class="col-md-10 col-sm-6 col-xs-6" />
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <q-input
             outlined
-            v-model="firstname"
-            label="Name *"
+            label="Vorname"
+            v-model="c.firstname"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-12">
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <q-input
             outlined
-            v-model="lastname"
-            label="Vorname *"
+            label="Nachname"
+            v-model="c.lastname"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-10">
+        <div class="col-lg-10 col-sm-6 col-xs-12">
           <q-input
             outlined
-            v-model="street"
-            label="Strasse *"
+            v-model="c.street"
+            label="Strasse"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-2">
+        <div class="col-lg-2 col-sm-6 col-xs-12">
           <q-input
             outlined
-            v-model="housenumber"
-            label="Hausnr. *"
+            v-model="c.housenumber"
+            label="Hausnr."
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-2">
+        <div class="col-lg-2 col-sm-6 col-xs-12">
           <q-input
             outlined
-            v-model="postalcode"
-            label="Plz.*"
+            v-model="c.postalcode"
+            label="Plz."
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-10">
+        <div class="col-lg-10 col-sm-6 col-xs-12">
           <q-input
             outlined
-            v-model="city"
-            label="Ort*"
+            v-model="c.city"
+            label="Ort"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
           />
         </div>
-        <div class="col-12">
+        <div class="col-lg-12 col-sm-6 col-xs-12">
           <q-input
             outlined
-            label="Email*"
+            type="email"
+            label="E-Mail*"
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
+            v-model="c.email"
           />
         </div>
-        <div class="col-12">
-          <q-input outlined label="Phone" />
+        <div class="col-lg-12 col-sm-6 col-xs-12">
+          <q-input
+            outlined
+            label="Telefon"
+            v-model="c.phone"
+           />
         </div>
-        <div class="col-12">* Pflichtfelder</div>
       </div>
     </div>
   </form>
 </template>
 
-<style lang="scss">
-.myclass {
-  max-width: 45%;
-  box-sizing: border-box;
-}
-</style>
-
 <script lang="javascript">
 
 export default {
   name: 'Address',
-  data () {
-    return {
-      gender: '',
-      options: [
-        'Herr', 'Frau', 'Diverse'
-      ],
-      phone: '',
-      email: '',
-      postalcode: '',
-      city: '',
-      housenumber: '',
-      firstname: '',
-      lastname: '',
-      street: ''
+  props: {
+    c: {
+      default: () => ({
+        gender: '',
+        options: [
+          'Herr', 'Frau', 'Diverse'
+        ],
+        phone: '',
+        email: '',
+        postalcode: '',
+        city: '',
+        housenumber: '',
+        firstname: '',
+        lastname: '',
+        street: ''
+      })
+    }
+  },
+  methods: {
+    emitAddress (event) {
+      this.$emit('Address', this.c)
     }
   }
 }

@@ -9,7 +9,9 @@ module.exports = function (ctx) {
     boot: [
       'i18n',
       'axios',
-      { path: 'gdpr', server: false }
+      { path: 'notifications', server: false },
+      'login-info',
+      'cropperjs'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -46,7 +48,7 @@ module.exports = function (ctx) {
       directives: [],
 
       // Quasar plugins
-      plugins: ['Notify', 'Cookies'],
+      plugins: ['Cookies', 'Notify', 'LocalStorage', 'SessionStorage', 'Meta'],
       config: {
         // optional (v0.17+)
         notify: {
@@ -98,7 +100,7 @@ module.exports = function (ctx) {
 
     // https://quasar.dev/quasar-cli/developing-ssr/configuring-ssr
     ssr: {
-      pwa: false
+      pwa: true
     },
 
     // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
@@ -106,9 +108,9 @@ module.exports = function (ctx) {
       // workboxPluginMode: 'InjectManifest',
       // workboxOptions: {}, // only for NON InjectManifest
       manifest: {
-        // name: 'cross-homepage',
-        // short_name: 'cross-homepage',
-        // description: 'A Quasar Framework app',
+        name: 'CROSS Solution Homepage',
+        short_name: 'CROSS',
+        description: 'Open Source @ CROSS Solution',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
