@@ -2,7 +2,7 @@
   <div>
     <div v-if="!loggedIn">
       <q-btn color="primary" flat label="Login" @click="doLogin = true" />
-      <q-dialog ref="loginDialog" v-model="doLogin" persistent>
+      <q-dialog ref="loginDialog" v-model="doLogin">
         <q-card class="relative-position">
           <q-tabs v-model="loginStatus.mode" dense active-color="primary">
             <q-tab name="login" label="Login" />
@@ -72,45 +72,37 @@
     </div>
 
     <div v-if="loggedIn">
-
-        <q-btn-dropdown
+      <q-btn-dropdown
         flat
-          :icon="`img:` + host + crossUser.get('photo', { url: null }).url"
-          auto-close
-          color="primary"
-        >
-          <!-- dropdown content goes here -->
-          <q-list class="bg-orange-1" padding style="width: 250px">
-            <q-item clickable @click="onLogout">
-              <q-item-section>
-                <q-item-label>Einstellungen</q-item-label>
-              </q-item-section>
-              <q-item-section side>
-                <q-icon
-                  name="settings"
-                  color="primary"
-                />
-              </q-item-section>
-            </q-item>
-            <q-item clickable @click="onLogout" dense>
-              <q-item-section>
-                <q-item-label>Logout</q-item-label>
-              </q-item-section>
-              <q-item-section side>
-                <q-icon
-                  name="fas fa-sign-out-alt"
-                  color="primary"
-                />
-              </q-item-section>
-            </q-item>
-          </q-list>
-        </q-btn-dropdown>
-
+        :icon="`img:` + host + crossUser.get('photo', { url: null }).url"
+        auto-close
+        color="primary"
+      >
+        <!-- dropdown content goes here -->
+        <q-list class="bg-orange-1" padding style="width: 250px">
+          <q-item clickable @click="onLogout">
+            <q-item-section>
+              <q-item-label>Einstellungen</q-item-label>
+            </q-item-section>
+            <q-item-section side>
+              <q-icon name="settings" color="primary" />
+            </q-item-section>
+          </q-item>
+          <q-item clickable @click="onLogout" dense>
+            <q-item-section>
+              <q-item-label>Logout</q-item-label>
+            </q-item-section>
+            <q-item-section side>
+              <q-icon name="fas fa-sign-out-alt" color="primary" />
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-btn-dropdown>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="javascript">
 import { userEvents } from 'src/boot/login-info'
 
 class LoginState {
