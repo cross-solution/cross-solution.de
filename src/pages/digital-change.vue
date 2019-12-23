@@ -16,14 +16,12 @@
         <q-layout view="Lhh lpR fff" container class="bg-white">
           <q-header class="bg-primary">
             <q-toolbar>
-              <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
               <q-toolbar-title>YAWIK Demo</q-toolbar-title>
-              <q-btn flat @click="drawerR = !drawerR" round dense icon="menu" />
               <q-btn flat v-close-popup round dense icon="close" />
             </q-toolbar>
           </q-header>
 
-          <q-footer class="bg-black text-white">
+          <q-footer class="bg-orange text-white">
             <q-toolbar inset>
               <q-toolbar-title>Footer</q-toolbar-title>
             </q-toolbar>
