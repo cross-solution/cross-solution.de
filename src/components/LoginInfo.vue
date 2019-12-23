@@ -82,7 +82,7 @@
         <q-list class="bg-orange-1" padding style="width: 250px">
           <q-item clickable @click="onLogout">
             <q-item-section>
-              <q-item-label>Einstellungen</q-item-label>
+              <q-btn flat label="Einstellungen" to="/settings" />
             </q-item-section>
             <q-item-section side>
               <q-icon name="settings" color="primary" />
