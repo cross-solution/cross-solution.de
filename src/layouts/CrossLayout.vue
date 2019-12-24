@@ -201,7 +201,10 @@ export default {
   },
   mounted () {
     if (this.$q.lang.getLocale().indexOf('en') === 0) {
-      this.label = 'About Us'
+      import(`quasar/lang/${this.$q.lang.getLocale()}`).then(language => {
+        this.$q.lang.getLocale()(language.default)
+      })
+      this.label = this.$t('aboutus')
     }
   }
 }

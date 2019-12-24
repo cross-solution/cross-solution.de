@@ -19,6 +19,7 @@ const routes = [
       { path: 'timeline', component: () => import('pages/timeline.vue') },
       { path: 'apply', component: () => import('pages/apply.vue') },
       { path: 'values', component: () => import('pages/values.vue') },
+      { path: 'cv', component: () => import('pages/cv.vue') },
       { path: 'login', component: () => import('pages/login.vue') }
     ]
   }
