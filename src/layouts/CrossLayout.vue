@@ -12,7 +12,7 @@
             class="gt-xs"
           />
           <q-route-tab to="/open-source" label="Open Source" class="gt-xs"/>
-          <q-btn-dropdown flat color="primary" :label="label">
+          <q-btn-dropdown flat color="primary" :label="$t('aboutus')">
             <q-list>
               <q-item clickable v-close-popup to="/about">
                 <q-item-section>
@@ -150,8 +150,7 @@ export default {
   data () {
     return {
       right: false,
-      loginUri: process.env.STRAPI_HOST + '/auth/local',
-      label: 'Über uns'
+      loginUri: process.env.STRAPI_HOST + '/auth/local'
     }
   },
   components: {
@@ -201,10 +200,10 @@ export default {
   },
   mounted () {
     if (this.$q.lang.getLocale().indexOf('en') === 0) {
-      import(`quasar/lang/${this.$q.lang.getLocale()}`).then(language => {
-        this.$q.lang.getLocale()(language.default)
+      this.$i18n.locale = 'en-us'
+      import(`quasar/lang/en-us`).then(language => {
+        this.$q.lang.set(language.default)
       })
-      this.label = this.$t('aboutus')
     }
   }
 }
