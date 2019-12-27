@@ -3,8 +3,13 @@ export default {
   success: 'Aktion erfolgreich',
   'About Us': 'Über uns',
   'Cancel': 'Abbrechen',
+  'Contact': 'Kontakt',
+  'Digital Change': 'Digitaler Wandel',
+  'Imprint': 'Impressum',
   'Login': 'Anmelden',
   'Username': 'Benutzername',
   'Password': 'Kennwort',
-  'Register': 'Registrieren'
+  'Privacy': 'Datenschutz',
+  'Register': 'Registrieren',
+  'Search Jobs': 'Jobs suchen'
 }

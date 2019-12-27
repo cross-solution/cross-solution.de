@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <h1>Impressum</h1>
+    <h1>{{$t('Imprint')}}</h1>
     <div>
       <p>verantworlich für den Inhalt dieser Seiten ist:</p>
       <p>Carsten Bleek<br>

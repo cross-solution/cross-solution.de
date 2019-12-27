@@ -1,6 +1,6 @@
 <template>
   <q-layout>
-    <q-header height-hint="150" reveal class="bg-white text-primary">
+    <q-header reveal class="bg-white text-primary">
       <q-toolbar>
         <q-toolbar-title>
           <logo />
@@ -8,7 +8,7 @@
         <q-tabs align="left" class="desktop-only">
           <q-route-tab
             to="/digital-change"
-            label="Digitaler Wandel"
+            :label="$t('Digital Change')"
             class="gt-xs"
           />
           <q-route-tab to="/open-source" label="Open Source" class="gt-xs"/>
@@ -44,7 +44,7 @@
           flat
           color="primary"
           class="full-width lt-md"
-          label="Digitaler Wandel"
+          :label="$t('Digital Change')"
           icon="calendar"
           align="arround"
           to="/digital-change"
@@ -83,7 +83,7 @@
           flat
           color="primary"
           class="full-width"
-          label="Jobs suchen"
+          :label="$t('Search Jobs')"
           align="arround"
           icon="search"
           to="/jobs"
@@ -119,6 +119,16 @@
             >.
           </p>
         </div>
+        <q-toolbar>
+          <q-btn-toggle
+            flat
+            color="primary"
+            toggle-color="yellow"
+            v-model='locale'
+            @input="setLocale"
+            :options="[{ label: 'De', value: 'de'},
+                      { label: 'En', value: 'en-us'}]" />
+        </q-toolbar>
       </div>
     </q-drawer>
 
@@ -128,9 +138,9 @@
 
     <q-footer bordered class="text-white text-center">
       <q-tabs no-caps active-color="secondary" indicator-color="transparent">
-        <q-route-tab name="imprint" to="/imprint" label="Impressum" />
-        <q-route-tab name="privacy" to="/privacy" label="Datenschutz" />
-        <q-route-tab name="contact" to="/contact" label="Kontakt" />
+        <q-route-tab name="imprint" to="/imprint" :label="$t('Imprint')" />
+        <q-route-tab name="privacy" to="/privacy" :label="$t('Privacy')" />
+        <q-route-tab name="contact" to="/contact" :label="$t('Contact')" />
       </q-tabs>
       <a href="https://github.com/cross-solution">
         <q-icon name="fab fa-github" size="lg" />
@@ -149,7 +159,8 @@ export default {
   data () {
     return {
       right: false,
-      loginUri: process.env.STRAPI_HOST + '/auth/local'
+      loginUri: process.env.STRAPI_HOST + '/auth/local',
+      locale: this.$q.lang.isoName
     }
   },
   components: {
@@ -195,15 +206,18 @@ export default {
           ]
         })
       }
+    },
+    setLocale (locale) {
+      // set the Vue-i18n locale
+      this.$i18n.locale = locale
+        // load the Quasar language pack dynamically
+        import(`quasar/lang/${locale}`).then(({ default: messages }) => {
+          this.$q.lang.set(messages)
+        })
     }
   },
   mounted () {
-    if (this.$q.lang.getLocale().indexOf('en') === 0) {
-      this.$i18n.locale = 'en-us'
-      import(`quasar/lang/en-us`).then(language => {
-        this.$q.lang.set(language.default)
-      })
-    }
+    this.$q.lang.set(this.$q.lang.getLocale())
   }
 }
 </script>
