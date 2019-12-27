@@ -1,12 +1,12 @@
 <template>
   <div>
     <div v-if="!loggedIn">
-      <q-btn color="primary" flat label="Login" @click="doLogin = true" />
+      <q-btn color="primary" flat :label="$t('Login')" @click="doLogin = true" />
       <q-dialog ref="loginDialog" v-model="doLogin">
         <q-card class="relative-position">
           <q-tabs v-model="loginStatus.mode" dense active-color="primary">
-            <q-tab name="login" label="Login" />
-            <q-tab name="register" label="Register" />
+            <q-tab name="login" :label="$t('Login')" />
+            <q-tab name="register" :label="$t('Register')" />
           </q-tabs>
 
           <q-card-section>
@@ -24,7 +24,7 @@
                 v-model="credentials.name"
                 dense
                 autofocus
-                placeholder="Name"
+                :placeholder="$t('Username')"
               />
               <q-input
                 v-if="loginStatus.mode == 'register'"
@@ -36,7 +36,7 @@
                 v-model="credentials.pass"
                 dense
                 :type="showPw ? 'text' : 'password'"
-                placeholder="Password"
+                :placeholder="$t('Password')"
                 @keyup.enter="$refs.loginForm.submit()"
               >
                 <template v-slot:append>
@@ -52,7 +52,7 @@
               </q-inner-loading>
             </q-card-section>
             <q-card-actions align="right" class="text-primary">
-              <q-btn type="reset" v-close-popup flat label="Cancel" />
+              <q-btn type="reset" v-close-popup flat :label="$t('Cancel')" />
               <q-btn
                 v-if="loginStatus.mode == 'login'"
                 type="submit"
