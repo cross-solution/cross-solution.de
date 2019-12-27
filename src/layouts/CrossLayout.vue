@@ -131,7 +131,7 @@
         <q-route-tab name="privacy" to="/privacy" label="Datenschutz" />
         <q-route-tab name="contact" to="/contact" label="Kontakt" />
       </q-tabs>
-      <login-info :uri="loginUri" />
+      <login-info :host="loginUri" />
       <a href="https://github.com/cross-solution">
         <q-icon name="fab fa-github" size="lg" />
       </a>
