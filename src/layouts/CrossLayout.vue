@@ -12,7 +12,7 @@
             class="gt-xs"
           />
           <q-route-tab to="/open-source" label="Open Source" class="gt-xs"/>
-          <q-btn-dropdown flat color="primary" :label="$t('aboutus')">
+          <q-btn-dropdown flat color="primary" :label="$t('About Us')">
             <q-list>
               <q-item clickable v-close-popup to="/about">
                 <q-item-section>
@@ -62,7 +62,7 @@
           flat
           color="primary"
           class="full-width lt-md"
-          label="Über uns"
+          :label="$t('About Us')"
           icon="calendar"
           align="arround"
           to="/about-us"
