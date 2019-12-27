@@ -66,7 +66,6 @@
           icon="calendar"
           align="arround"
           to="/about-us"
-          options="langs"
         />
         <q-btn
           flat
