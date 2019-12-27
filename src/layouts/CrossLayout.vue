@@ -34,6 +34,7 @@
             </q-list>
           </q-btn-dropdown>
         </q-tabs>
+        <login-info :host="loginUri" />
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
     </q-header>
@@ -131,7 +132,6 @@
         <q-route-tab name="privacy" to="/privacy" label="Datenschutz" />
         <q-route-tab name="contact" to="/contact" label="Kontakt" />
       </q-tabs>
-      <login-info :host="loginUri" />
       <a href="https://github.com/cross-solution">
         <q-icon name="fab fa-github" size="lg" />
       </a>
