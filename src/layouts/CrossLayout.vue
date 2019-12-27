@@ -1,6 +1,6 @@
 <template>
   <q-layout>
-    <q-header reveal class="bg-white text-primary">
+    <q-header height-hint="150" reveal class="bg-white text-primary">
       <q-toolbar>
         <q-toolbar-title>
           <logo />
@@ -11,8 +11,8 @@
             label="Digitaler Wandel"
             class="gt-xs"
           />
-          <q-route-tab to="/open-source" label="Open Source" class="gt-xs" />
-          <q-btn-dropdown flat color="primary" label="Über uns">
+          <q-route-tab to="/open-source" label="Open Source" class="gt-xs"/>
+          <q-btn-dropdown flat color="primary" :label="$t('aboutus')">
             <q-list>
               <q-item clickable v-close-popup to="/about">
                 <q-item-section>
@@ -34,7 +34,6 @@
             </q-list>
           </q-btn-dropdown>
         </q-tabs>
-        <login-info :host="strapiHost" />
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
     </q-header>
@@ -66,7 +65,8 @@
           label="Über uns"
           icon="calendar"
           align="arround"
-          to="/about"
+          to="/about-us"
+          options="langs"
         />
         <q-btn
           flat
@@ -109,16 +109,6 @@
           to="/apply"
         />
         <q-separator />
-        <q-btn
-          flat
-          color="primary"
-          class="full-width"
-          label="Cv"
-          align="arround"
-          icon="fas fa-university"
-          to="/cv"
-        />
-        <q-separator />
         <div class="q-gutter-md">
           <p class="text-grey-9 q-pa-md">
             Die Stellenangebote werden zur Verfügung gestellt von
@@ -142,7 +132,7 @@
         <q-route-tab name="privacy" to="/privacy" label="Datenschutz" />
         <q-route-tab name="contact" to="/contact" label="Kontakt" />
       </q-tabs>
-
+      <login-info :uri="loginUri" />
       <a href="https://github.com/cross-solution">
         <q-icon name="fab fa-github" size="lg" />
       </a>
@@ -152,6 +142,7 @@
 
 <script lang="javascript">
 // outside of a Vue file
+import { Notify, openURL } from 'quasar'
 import LoginInfo from '../components/LoginInfo.vue'
 import Logo from '../components/Logo.vue'
 
@@ -159,12 +150,61 @@ export default {
   data () {
     return {
       right: false,
-      strapiHost: process.env.STRAPI_HOST
+      loginUri: process.env.STRAPI_HOST + '/auth/local'
     }
   },
   components: {
     Logo,
     LoginInfo
+  },
+  beforeMount () {
+    this.coverpage()
+    // console.log(navigator.language)
+    // console.log(this.$q.lang.getLocale())
+  },
+  methods: {
+    coverpage: function () {
+      if (this.$q.cookies.has('yellow-box') !== true) {
+        this.$q.cookies.set('yellow-box', 'true', { expires: 5 * 365 })
+        Notify.create({
+          message:
+            'Wir überarbeiten nach 15 Jahren unsere Homepage. Obwohl noch nicht ganz fertig, ist sie bereits online. Wir ermöglichen Ihnen dadurch auf Github zu verfolgen, wie die Seite entsteht.',
+          position: 'bottom-left',
+          avatar: 'statics/team/cbleek-460x460.jpeg',
+          timeout: 10000,
+          color: 'orange',
+          classes: 'notify_img',
+          textColor: 'black',
+          actions: [
+            {
+              label: 'zur alten Version',
+              color: 'white',
+              noDismiss: false,
+              handler () {
+                openURL('https://old.cross-solution.de')
+              }
+            },
+            {
+              label: 'zum GitHub Repo',
+              color: 'white',
+              noDismiss: false,
+              handler () {
+                openURL('https://github.com/cross-solution/cross-solution.de')
+              }
+            },
+            { icon: 'close', color: 'white', label: '' }
+          ]
+        })
+      }
+    }
+  },
+  mounted () {
+    if (this.$q.lang.getLocale().indexOf('en') === 0) {
+      this.$i18n.locale = 'en-us'
+      import(`quasar/lang/en-us`).then(language => {
+        this.$q.lang.set(language.default)
+      })
+    }
   }
 }
 </script>
