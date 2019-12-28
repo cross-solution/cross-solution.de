@@ -159,7 +159,7 @@ export default {
   data () {
     return {
       right: false,
-      loginUri: process.env.STRAPI_HOST + '/auth/local',
+      loginUri: process.env.STRAPI_HOST,
       locale: this.$q.lang.isoName
     }
   },
