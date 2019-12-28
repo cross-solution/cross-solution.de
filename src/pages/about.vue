@@ -5,7 +5,7 @@
         class="row col-md-8 q-px-lg q-pb-md items-start q-gutter-md items-start"
       >
         <div class="col-md-12 ">
-          <h1>{{$t('About Us')}}</h1>
+          <h1 v-t="'About Us'"></h1>
           <p>
             CROSS ist ein Netzwerk aus IT Spezialisten mit Jahrzehnte langer
             Erfahrung in der Konzeption und Umsetzung komplexer IT Systeme. Wir

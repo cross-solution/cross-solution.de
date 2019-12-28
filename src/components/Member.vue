@@ -28,7 +28,6 @@
           push
           v-for="button in buttons"
           v-bind:key="button.text"
-          v-bind="button.link"
           @click.native="openUrl(button.link)"
         >
           <q-icon :name="button.name" />
