@@ -20,6 +20,7 @@ const routes = [
       { path: 'apply', component: () => import('pages/apply.vue') },
       { path: 'values', component: () => import('pages/values.vue') },
       { path: 'cv', component: () => import('pages/cv.vue') },
+      { path: 'settings', component: () => import('pages/settings.vue') },
       { path: 'login', component: () => import('pages/login.vue') }
     ]
   }

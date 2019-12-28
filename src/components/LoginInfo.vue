@@ -80,7 +80,7 @@
       >
         <!-- dropdown content goes here -->
         <q-list class="bg-orange-1" padding style="width: 250px">
-          <q-item clickable @click="onLogout">
+          <q-item clickable to="/settings">
             <q-item-section>
               <q-item-label>Einstellungen</q-item-label>
             </q-item-section>

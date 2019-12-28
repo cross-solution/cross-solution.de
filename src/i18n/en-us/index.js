@@ -16,5 +16,6 @@ export default {
   'Post a Job': 'Post a Job',
   'Privacy': 'Privacy',
   'Register': 'Register',
-  'Search Jobs': 'Search Jobs'
+  'Search Jobs': 'Search Jobs',
+  'Settings': 'Settings'
 }
