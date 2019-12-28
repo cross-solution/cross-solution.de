@@ -5,6 +5,7 @@ export default {
   failed: 'Action failed',
   success: 'Action was successful',
   'About Us': 'About Us',
+  'Apply': 'Apply',
   'Cancel': 'Cancel',
   'Contact': 'Contact',
   'Digital Change': 'Digital Change',
@@ -12,6 +13,7 @@ export default {
   'Login': 'Login',
   'Username': 'Username',
   'Password': 'Password',
+  'Post a Job': 'Post a Job',
   'Privacy': 'Privacy',
   'Register': 'Register',
   'Search Jobs': 'Search Jobs'

@@ -35,6 +35,30 @@
           </q-btn-dropdown>
         </q-tabs>
         <login-info :host="loginUri" />
+        <q-select
+            color="primary"
+            dense
+            borderless
+            map-options
+            options-dense
+            stack-label
+            v-model='locale'
+            :options="[{ label: 'De', value: 'de', icon: 'flag-icon flag-icon-de'},
+                      { label: 'En', value: 'en-us', icon: 'flag-icon flag-icon-us'},
+                      { label: 'Fr', value: 'fr', icon: 'flag-icon flag-icon-fr'}]"
+
+            @input="setLocale">
+        <template v-slot:selected>
+                             <q-icon
+
+            class="flag-icon flag-icon-de"
+          />
+          <div v-if="locale">
+            {{locale.value}}
+          </div>
+          <q-badge v-else>*none*</q-badge>
+        </template>
+      </q-select>
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
     </q-header>
@@ -66,7 +90,7 @@
           :label="$t('About Us')"
           icon="calendar"
           align="arround"
-          to="/about-us"
+          to="/about"
         />
         <q-btn
           flat
@@ -93,7 +117,7 @@
           flat
           color="primary"
           class="full-width"
-          label="Jobs eingeben"
+          :label="$t('Post a Job')"
           align="arround"
           icon="edit"
           to="/jobpost"
@@ -103,7 +127,7 @@
           flat
           color="primary"
           class="full-width"
-          label="Bewerben"
+          :label="$t('Apply')"
           align="arround"
           icon="mail"
           to="/apply"
@@ -119,16 +143,6 @@
             >.
           </p>
         </div>
-        <q-toolbar>
-          <q-btn-toggle
-            flat
-            color="primary"
-            toggle-color="yellow"
-            v-model='locale'
-            @input="setLocale"
-            :options="[{ label: 'De', value: 'de'},
-                      { label: 'En', value: 'en-us'}]" />
-        </q-toolbar>
       </div>
     </q-drawer>
 
@@ -208,16 +222,17 @@ export default {
       }
     },
     setLocale (locale) {
-      // set the Vue-i18n locale
-      this.$i18n.locale = locale
-        // load the Quasar language pack dynamically
-        import(`quasar/lang/${locale}`).then(({ default: messages }) => {
-          this.$q.lang.set(messages)
-        })
+      this.$i18n.locale = locale.value
     }
   },
   mounted () {
-    this.$q.lang.set(this.$q.lang.getLocale())
+    try {
+      this.$q.lang.set(this.$q.lang.getLocale())
+    }
+    catch (err) {
+    // Requested Quasar Language Pack does not exist,
+    // let's not break the app, so catching error
+    }
   }
 }
 </script>
