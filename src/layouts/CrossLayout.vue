@@ -41,12 +41,11 @@
             borderless
             map-options
             options-dense
-            stack-label
+            :value="locale.value"
             v-model='locale'
             :options="[{ label: 'De', value: 'de', icon: 'flag-icon flag-icon-de'},
                       { label: 'En', value: 'en-us', icon: 'flag-icon flag-icon-us'},
                       { label: 'Fr', value: 'fr', icon: 'flag-icon flag-icon-fr'}]"
-
             @input="setLocale">
         <template v-slot:selected>
                              <q-icon
@@ -54,7 +53,7 @@
             class="flag-icon flag-icon-de"
           />
           <div v-if="locale">
-            {{locale.value}}
+            {{locale.label}}
           </div>
           <q-badge v-else>*none*</q-badge>
         </template>
@@ -73,7 +72,6 @@
           align="arround"
           to="/digital-change"
         />
-
         <q-btn
           flat
           color="primary"
@@ -165,7 +163,6 @@
 
 <script lang="javascript">
 // outside of a Vue file
-import { Notify, openURL } from 'quasar'
 import LoginInfo from '../components/LoginInfo.vue'
 import Logo from '../components/Logo.vue'
 
@@ -182,56 +179,18 @@ export default {
     LoginInfo
   },
   beforeMount () {
-    this.coverpage()
-    // console.log(navigator.language)
-    // console.log(this.$q.lang.getLocale())
-  },
-  methods: {
-    coverpage: function () {
-      if (this.$q.cookies.has('yellow-box') !== true) {
-        this.$q.cookies.set('yellow-box', 'true', { expires: 5 * 365 })
-        Notify.create({
-          message:
-            'Wir überarbeiten nach 15 Jahren unsere Homepage. Obwohl noch nicht ganz fertig, ist sie bereits online. Wir ermöglichen Ihnen dadurch auf Github zu verfolgen, wie die Seite entsteht.',
-          position: 'bottom-left',
-          avatar: 'statics/team/cbleek-460x460.jpeg',
-          timeout: 10000,
-          color: 'orange',
-          classes: 'notify_img',
-          textColor: 'black',
-          actions: [
-            {
-              label: 'zur alten Version',
-              color: 'white',
-              noDismiss: false,
-              handler () {
-                openURL('https://old.cross-solution.de')
-              }
-            },
-            {
-              label: 'zum GitHub Repo',
-              color: 'white',
-              noDismiss: false,
-              handler () {
-                openURL('https://github.com/cross-solution/cross-solution.de')
-              }
-            },
-            { icon: 'close', color: 'white', label: '' }
-          ]
-        })
-      }
-    },
-    setLocale (locale) {
-      this.$i18n.locale = locale.value
-    }
-  },
-  mounted () {
     try {
       this.$q.lang.set(this.$q.lang.getLocale())
+      console.log('locale:' + this.$q.lang.getLocale())
     }
     catch (err) {
-    // Requested Quasar Language Pack does not exist,
-    // let's not break the app, so catching error
+      console.log('try to figure out, how to set the default language defined by the browser')
+    }
+  },
+  methods: {
+    setLocale (locale) {
+      this.$i18n.locale = locale.value
+      console.log('Sets locale to ' + JSON.stringify(this.locale))
     }
   }
 }
