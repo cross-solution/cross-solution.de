@@ -39,23 +39,17 @@
             color="primary"
             dense
             borderless
-            map-options
             options-dense
-            :value="locale.value"
-            v-model='locale'
-            :options="[{ label: 'De', value: 'de-de', icon: 'flag-icon flag-icon-de'},
-                      { label: 'En', value: 'en-us', icon: 'flag-icon flag-icon-us'},
-                      { label: 'Fr', value: 'fr-fr', icon: 'flag-icon flag-icon-fr'}]"
+            v-model='localeValue'
+            :options="languages"
             @input="setLocale">
         <template v-slot:selected>
-                             <q-icon
-
+          <q-icon
             class="flag-icon flag-icon-de"
           />
-          <div v-if="locale">
-            {{locale.label}}
+          <div v-if="localeValue">
+            <q-icon :name="localeValue.icon" />
           </div>
-          <q-badge v-else>*none*</q-badge>
         </template>
       </q-select>
         <q-btn dense flat round icon="menu" @click="right = !right" />
@@ -171,26 +165,38 @@ export default {
     return {
       right: false,
       loginUri: process.env.STRAPI_HOST,
-      locale: this.$q.lang.isoName
+      locale: this.$q.lang.isoName,
+      localeValue: {},
+      languages: [
+        { label: 'De', value: 'de-de', icon: 'img:/statics/icons/de.svg' },
+        { label: 'En', value: 'en-us', icon: 'img:/statics/icons/us.svg' },
+        { label: 'Fr', value: 'fr-fr', icon: 'img:/statics/icons/fr.svg' }
+      ]
     }
   },
   components: {
     Logo,
     LoginInfo
   },
-  beforeMount () {
+  created () {
     try {
-      this.$q.lang.set(this.$q.lang.getLocale())
-      console.log('locale:' + this.$q.lang.getLocale())
+      this.$i18n.locale = this.$q.lang.getLocale()
+      this.localeValue.value = this.$q.lang.getLocale()
+      for (var i = 0, len = this.languages.length; i < len; i++) {
+        if (this.languages[i].value === this.$q.lang.getLocale()) {
+          this.localeValue.label = this.languages[i].label
+          this.localeValue.icon = this.languages[i].icon
+        }
+      }
     }
     catch (err) {
-      console.log('try to figure out, how to set the default language defined by the browser')
+      console.log('try to figure out, how to set the default language defined by the browser. Current Browser Locale:  ' + this.$q.lang.getLocale())
     }
   },
   methods: {
-    setLocale (locale) {
-      this.$i18n.locale = locale.value
-      console.log('Sets locale to ' + JSON.stringify(this.locale))
+    setLocale (localeValue) {
+      this.$i18n.locale = localeValue.value
+      console.log('Sets locale to ' + JSON.stringify(this.localeValue.value))
     }
   }
 }
