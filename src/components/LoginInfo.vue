@@ -57,13 +57,13 @@
                 v-if="loginStatus.mode == 'login'"
                 type="submit"
                 flat
-                label="Login"
+                :label="$t('Login')"
               />
               <q-btn
                 v-if="loginStatus.mode == 'register'"
                 type="submit"
                 flat
-                label="Register"
+                :label="$t('Register')"
               />
             </q-card-actions>
           </q-form>
@@ -82,7 +82,7 @@
         <q-list class="bg-orange-1" padding style="width: 250px">
           <q-item clickable to="/settings">
             <q-item-section>
-              <q-item-label>Einstellungen</q-item-label>
+              <q-item-label>{{$t('Settings')}}</q-item-label>
             </q-item-section>
             <q-item-section side>
               <q-icon name="settings" color="primary" />
@@ -90,7 +90,7 @@
           </q-item>
           <q-item clickable @click="onLogout" dense>
             <q-item-section>
-              <q-item-label>Logout</q-item-label>
+              <q-item-label>{{$t('Logout')}}</q-item-label>
             </q-item-section>
             <q-item-section side>
               <q-icon name="fas fa-sign-out-alt" color="primary" />
@@ -284,3 +284,27 @@ export default {
   }
 }
 </script>
+
+<i18n lang="yaml">
+de-de:
+  'Cancel': 'Abbrechen'
+  'Login': 'Anmelden'
+  'Logout': 'Abmelden'
+  'Username': 'Benutzername'
+  'Password': 'Kennwort'
+  'Register': 'Registrieren'
+en-us:
+  'Cancel': 'Cancel'
+  'Login': 'Login'
+  'Logout': 'Logout'
+  'Username': 'Username'
+  'Password': 'Password'
+  'Register': 'Register'
+fr-fr:
+  'Cancel': 'Annuler'
+  'Login': 'Connexion'
+  'Logout': 'Déconnexion'
+  'Username': "Nom d'utilisateur"
+  'Password': 'Mot de passe'
+  'Register': "S'inscrire"
+</i18n>

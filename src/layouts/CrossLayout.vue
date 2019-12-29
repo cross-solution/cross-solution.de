@@ -43,9 +43,9 @@
             options-dense
             :value="locale.value"
             v-model='locale'
-            :options="[{ label: 'De', value: 'de', icon: 'flag-icon flag-icon-de'},
+            :options="[{ label: 'De', value: 'de-de', icon: 'flag-icon flag-icon-de'},
                       { label: 'En', value: 'en-us', icon: 'flag-icon flag-icon-us'},
-                      { label: 'Fr', value: 'fr', icon: 'flag-icon flag-icon-fr'}]"
+                      { label: 'Fr', value: 'fr-fr', icon: 'flag-icon flag-icon-fr'}]"
             @input="setLocale">
         <template v-slot:selected>
                              <q-icon

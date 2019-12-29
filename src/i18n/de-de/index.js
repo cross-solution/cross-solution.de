@@ -12,7 +12,6 @@ export default {
   'Password': 'Kennwort',
   'Post a Job': 'Job eingeben',
   'Privacy': 'Datenschutz',
-  'Register': 'Registrieren',
   'Search Jobs': 'Jobs suchen',
   'Settings': 'Einstellungen'
 }
