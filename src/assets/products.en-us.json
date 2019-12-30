@@ -1,0 +1,168 @@
+[
+  {
+    "id": "dev",
+    "title": "Software Entwicklung",
+    "subtitle": "Frontend Backend",
+    "description": "Die Bedeutung der Software Entwicklung für den Erfolg von Untenehmen nimmt zu. Es zieht sich durch alle Branchen. Und die Werkzeuge, mit denen die IT hantiert wandeln sich zunehmend schneller. Mit uns bleiben Sie am Ball.",
+    "bg": "orange",
+    "text": "Wir unterstützen Sie in der Software-Entwicklung",
+    "icons": [
+      {
+        "name": "fab fa-yarn",
+        "tooltip": "Yarn"
+      },
+      {
+        "name": "fab fa-vuejs",
+        "tooltip": "Vue"
+      },
+      {
+        "name": "fab fa-symfony",
+        "tooltip": "symfony"
+      },
+      {
+        "name": "fab fa-react",
+        "tooltip": "react"
+      },
+      {
+        "name": "fab fa-python",
+        "tooltip": "python"
+      },
+      {
+        "name": "fab fa-node-js",
+        "tooltip": "nodejs"
+      },
+      {
+        "name": "fab fa-php",
+        "tooltip": "PHP"
+      }
+    ]
+  },
+  {
+    "id": "com",
+    "title": "Voip, Messenger, Chat",
+    "subtitle": "Kommunikation",
+    "icons": [
+      {
+        "name": "fab fa-gitter",
+        "tooltip": "Gitter"
+      },
+      {
+        "name": "fas fa-asterisk",
+        "tooltip": "Asterisk"
+      },
+      {
+        "name": "fab fa-slack",
+        "tooltip": "slack"
+      },
+      {
+        "name": "fab fa-telegram-plane",
+        "tooltip": "Telegram"
+      }
+    ],
+    "text": "Asterisk, Freeswitch, Kamailio, Snom, Aastaro, Mitel, Patton SmartNode, GOfax.IP",
+    "description": "Wer gut kommuniziert ist im Vorteil. Und die Möglichkeiten, wie man man heute kommunizieren kann sind gigantisch. Trotzdem beschränken sich manche Unternehmen auf Telefon, Email und Flurfunk. Wir orientieren uns an der Art und Weise, wie Collaborators in Open Sorce Projekten kommunizieren. Wir finden es effizienter."
+  },
+  {
+    "id": "ops",
+    "title": "DevOps",
+    "subtitle": "damit es rund läuft",
+    "bg": "blue",
+    "icons": [
+      {
+        "name": "fab fa-gitlab",
+        "tooltip": "gitlab"
+      },
+      {
+        "name": "fab fa-git-alt",
+        "tooltip": "Git"
+      },
+      {
+        "name": "fab fa-github",
+        "tooltip": "GitHub"
+      },
+      {
+        "name": "fab fa-docker",
+        "tooltip": "Docker"
+      }
+    ],
+    "text": "Proxmox, Kubernets, Openstack, Jest, Travis, Coverall, PHPunit, Cypress, Behat, LXC",
+    "description": "Wer wiederkehrende Prozesse automatisiert, ist im Vorteil. Und dank der Cloud sind automatiserte Tests oder autotisiertes Handeln heute einfacher denn je. Ein Software-Entwickler interessiert es nicht, wie sein Programm in ein System eingespielt wird. Einem Texter ist es egal, wie seine Werke online gehen. Der Designer arbeitet mit seinen Werkzeugen. Wie am Ende alles zusammenspielt, ist ihm egal."
+  },
+  {
+    "id": "dgn",
+    "title": "UI/UX Design",
+    "subtitle": "vom Auge zum Hirn",
+    "description": "Design setzt die präzise Auseinandersetzung mit der Sache und dem Problem voraus. Das Ergebnis erreicht uns im Netz hauptsächlich optisch. Wir legen Wert auf eine Messbarkeit von UI/UX. Wer Produkte mit intuitivem UI/UX Design hat ist im Vorteil.",
+    "icons": [
+      {
+        "name": "fab fa-sass",
+        "tooltip": "sass"
+      },
+      {
+        "name": "fab fa-font-awesome-flag",
+        "tooltip": "Font Awesome"
+      },
+      {
+        "name": "fab fa-bootstrap",
+        "tooltip": "Bootstrap"
+      },
+      {
+        "name": "fab fa-less",
+        "tooltip": "less"
+      },
+      {
+        "name": "fab fa-css3",
+        "tooltip": "CSS3"
+      }
+    ],
+    "text": "Material Design, Bootstrap, Font Awesome sind Werkzeuge."
+  },
+  {
+    "id": "rec",
+    "title": "Recruiting",
+    "subtitle": "wer macht die Arbeit?",
+    "bg": "orange",
+    "description": "Wer Remote Worker in seine Prozesse integrieren kann, ist im Vorteil. Und die Integration von Remote Workern ist dank diverser Platformen sehr einfach geworden. Aber es gehört mehr dazu, als sich auf einer Plattform anzumelden. Die DevOps Prozesse müssen erst stehen. Und schon sind wir wieder bei der Technik.",
+    "icons": [
+      {
+        "name": "fas fa-globe",
+        "tooltip": "remote work"
+      },
+      {
+        "name": "img:/statics/icons/upwork-icon.svg",
+        "tooltip": "Upwork"
+      }
+    ],
+    "text": "Sie finden auf dem deutschen Markt keine Mitabeiter? Wir helfen Ihnen bei der Integration von Remote Workern"
+  },
+  {
+    "id": "hst",
+    "title": "Hosting",
+    "subtitle": "irgendwo muss es laufen",
+    "description": "Wir hosten auch ihre Webseite. Ob PHP, Nodes oder Coldfusion. Das System ist egal. Im einfachsten Fall bekommen Sie eine VM mit den benötigten Resourcen. Wenn ihr System höhere Anforderungen hat, konzipieren wir für Sie die benötigten Komponenten für ein Cluster. Natürlich DSGVO konform",
+    "bg": "white",
+    "icons": [
+      {
+        "name": "fab fa-wordpress",
+        "tooltip": "Wordpress"
+      },
+      {
+        "name": "fab fa-drupal",
+        "tooltip": "Drupal"
+      },
+      {
+        "name": "fab fa-magento",
+        "tooltip": "Magento"
+      },
+      {
+        "name": "fab fa-shopware",
+        "tooltip": "Shopware"
+      },
+      {
+        "name": "fab fa-joomla",
+        "tooltip": "Joomla"
+      }
+    ],
+    "text": "Wir hosten auch ihre Webseite"
+  }
+]

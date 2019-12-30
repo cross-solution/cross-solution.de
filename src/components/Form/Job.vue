@@ -33,13 +33,7 @@
                 v-model="job.description"
                 :dense="$q.screen.gt.md"
                 min-height="4rem"
-                :toolbar="[
-                  ['left', 'center', 'right', 'justify'],
-                  ['bold', 'italic', 'strike', 'underline'],
-                  ['token', 'hr', 'link', 'custom_btn'],
-                  ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-                  ['undo', 'redo']
-                ]"
+                :toolbar="toolbar"
               />
 
               <q-input borderless v-model="job.searching" />
@@ -48,13 +42,7 @@
                 <q-input class="text-h6" borderless v-model="job.tasksTitle" />
                 <q-editor
                   v-model="job.tasksText"
-                  :toolbar="[
-                    ['left', 'center', 'right', 'justify'],
-                    ['bold', 'italic', 'strike', 'underline'],
-                    ['token', 'hr', 'link', 'custom_btn'],
-                    ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-                    ['undo', 'redo']
-                  ]"
+                  :toolbar="toolbar"
                   min-height="5rem"
                 />
               </div>
@@ -62,13 +50,7 @@
                 <q-input class="text-h6" v-model="job.qualificationsTitle" />
                 <q-editor
                   v-model="job.qualificationsText"
-                  :toolbar="[
-                    ['left', 'center', 'right', 'justify'],
-                    ['bold', 'italic', 'strike', 'underline'],
-                    ['token', 'hr', 'link', 'custom_btn'],
-                    ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-                    ['undo', 'redo']
-                  ]"
+                  :toolbar="toolbar"
                   min-height="5rem"
                 />
               </div>
@@ -80,13 +62,7 @@
                 />
                 <q-editor
                   v-model="job.benefitsText"
-                  :toolbar="[
-                    ['left', 'center', 'right', 'justify'],
-                    ['bold', 'italic', 'strike', 'underline'],
-                    ['token', 'hr', 'link', 'custom_btn'],
-                    ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-                    ['undo', 'redo']
-                  ]"
+                  :toolbar="toolbar"
                   min-height="5rem"
                 />
               </div>
@@ -98,13 +74,7 @@
                 />
                 <q-editor
                   v-model="job.contactText"
-                  :toolbar="[
-                    ['left', 'center', 'right', 'justify'],
-                    ['bold', 'italic', 'strike', 'underline'],
-                    ['token', 'hr', 'link', 'custom_btn'],
-                    ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-                    ['undo', 'redo']
-                  ]"
+                  :toolbar="toolbar"
                   min-height="5rem"
                 />
               </div>
@@ -125,11 +95,14 @@
           <div class="col-9">
             <h3 class="preview">{{ job.organization }}</h3>
             <h1 class="previewJobTitle">{{ job.title }}</h1>
-            <div class="previewData">
+
+            <br clear="all" />
+          </div>
+          <div class="text-center col-12 previewData">
               <ul>
                 <li>
                   <i aria-hidden="true" class="material-icons q-icon">place</i
-                  >{{ job.location }} job.location
+                  >{{ job.location }}
                 </li>
                 <li>
                   <i aria-hidden="true" class="material-icons q-icon">work</i
@@ -143,12 +116,10 @@
                 <li>
                   <i aria-hidden="true" class="material-icons q-icon"
                     >calendar_today</i
-                  >Erschienen: vor 1 Tag
+                  >Unveröffentlicht
                 </li>
               </ul>
             </div>
-            <br clear="all" />
-          </div>
           <div class="HeaderImage col-12">
             <img :src="job.headerImage" />
           </div>
@@ -254,6 +225,13 @@ export default {
   },
   data () {
     return {
+      toolbar: [
+        ['left', 'justify'],
+        ['bold', 'italic'],
+        ['token', 'hr', 'link'],
+        ['quote', 'unordered', 'ordered'],
+        ['undo', 'redo']
+      ],
       splitterModel: 50 // start at 50%
     }
   },
