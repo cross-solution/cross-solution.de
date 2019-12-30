@@ -33,7 +33,6 @@ export default {
   },
   created () {
     try {
-      this.$i18n.locale = this.$q.lang.getLocale()
       this.localeValue.value = this.$q.lang.getLocale()
       for (var i = 0, len = this.languages.length; i < len; i++) {
         if (this.languages[i].value === this.$q.lang.getLocale()) {
@@ -41,7 +40,7 @@ export default {
           this.localeValue.icon = this.languages[i].icon
         }
       }
-      console.log(this.$q.lang.getLocale())
+      this.setLocale(this.localeValue)
     }
     catch (err) {
       console.log('try to figure out, how to set the default language defined by the browser. Current Browser Locale:  ' + this.$q.lang.getLocale())
@@ -50,7 +49,6 @@ export default {
   methods: {
     setLocale (localeValue) {
       this.$i18n.locale = localeValue.value
-      console.log('Sets locale to ' + JSON.stringify(this.localeValue.value))
     }
   }
 }
