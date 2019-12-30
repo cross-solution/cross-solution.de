@@ -108,6 +108,16 @@
           icon="mail"
           to="/apply"
         />
+                <q-separator />
+        <q-btn
+          flat
+          color="primary"
+          class="full-width"
+          :label="$t('CV')"
+          align="arround"
+          icon="school"
+          to="/cv"
+        />
         <q-separator />
         <div class="q-gutter-md">
           <p class="text-grey-9 q-pa-md">
