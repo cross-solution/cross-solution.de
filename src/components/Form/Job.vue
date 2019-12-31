@@ -11,7 +11,7 @@
                   color="transparent"
                   minCanvasWidth="5rem"
                   text-color="white"
-                  uploader-style="background: url(/statics/PhotoUpload.png) center no-repeat; color: #fff !important; padding: 0px; border: 2px dashed #ccc;"
+                  default-image="/statics/PhotoUpload.png"
                   v-model="job.organizationLogo"
                 />
                 <div class="col-9">
@@ -25,7 +25,8 @@
               </div>
               <y-photo-upload
                 color="transparent"
-                uploader-style="background: url(/statics/HeaderUpload.jpg) center no-repeat;  padding: 5%; border: 2px dashed #ccc;"
+                default-image="/statics/HeaderUpload.jpg"
+                uploader-style="background: url(/statics/HeaderUpload.jpg) center no-repeat;  padding: 5%; "
                 v-model="job.headerImage"
               />
               <q-editor
