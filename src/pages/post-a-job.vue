@@ -53,10 +53,10 @@
         style="min-height: 200px;"
       >
         <div class="row q-gutter-sm">
-          <y-category-box />
+          <y-category-box :job="job"/>
           <q-card class="col-md-3 col-sm-6 col-xs-12">
             <q-card-section>
-              <div class="text-h6">Pensum</div>
+              <div class="text-h6">{{$t('Workload')}}</div>
             </q-card-section>
 
             <q-card-section>
@@ -69,13 +69,13 @@
                   top
                 >
                   <q-checkbox
-                    v-model="workload"
-                    val="100"
+                    v-model="job.workload"
+                    val="fulltime"
                     color="primary"
                   />
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label>Vollzeit</q-item-label>
+                  <q-item-label>{{$t('Fulltime')}}</q-item-label>
                 </q-item-section>
               </q-item>
               <q-item
@@ -87,13 +87,13 @@
                   top
                 >
                   <q-checkbox
-                    v-model="workload"
-                    val="contract"
+                    v-model="job.workload"
+                    val="parttime"
                     color="primary"
                   />
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label>Teilzeit</q-item-label>
+                  <q-item-label>{{$t('Parttime')}}</q-item-label>
                 </q-item-section>
               </q-item>
               <q-item
@@ -276,7 +276,8 @@ export default {
       date: '',
       workload: '',
       job: {
-        headerImage: '/statics/HeaderUpload.png',
+        headerImage: '/statics/HeaderUpload.jpg',
+        organizationLogo: '/statics/PhotoUpload.png',
         title: '',
         organization: '',
         description: 'Also führender Anbieter ...',
@@ -298,7 +299,9 @@ export default {
             url: false
           },
           disabled: false
-        }
+        },
+        workload: ['fulltime'],
+        jobtype: ['permanent']
       }
     }
   },
@@ -366,3 +369,19 @@ body.desktop .q-focus-helper:after
 .hover
   color: #faa427
 </style>
+
+<i18n>
+de-de:
+  'Fulltime': 'Vollzeit'
+  'Parttime': 'Teilzeit'
+  'Workload': 'Pensum'
+  'Permanent': 'Festanstellung'
+en-us:
+  'Fulltime': 'Fulltime'
+  'Parttime': 'Parttime'
+  'Workload': 'Workload'
+  'Permanent': 'Permanent'
+
+fr-fr:
+
+</i18n>

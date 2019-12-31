@@ -2,20 +2,19 @@
   <div>
     <q-uploader
       style="border: 2px dashed #ccc; height: 10rem"
-      class="text-center uploaderBox"
+      class="text-center uploaderBox bg-light-blue-1"
       url="http://localhost:4444/upload"
-      color="transparent"
       flat
+      color="light-blue-1"
+      text-color="grey-9"
       ref="input"
       field-name="image"
-      text-color="white"
       :max-total-size="maxTotalSize"
       @added="setImage"
     >
       <template v-slot:header="scope">
-        <q-card v-if="scope.queuedFiles.length == 0" flat>
-          <q-img :src="defaultImage">
-              <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
+        <q-card flat>
+          <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
               <div class="text-subtitle2 absolute-bottom text-center">
                 <div class="q-uploader__title">
                   {{$t('Drop a Photo')}}
@@ -36,15 +35,17 @@
                 <q-uploader-add-trigger />
                 <q-tooltip>{{$t('Choose Photo')}}</q-tooltip>
               </q-btn>
-              <style>.scroll{ display: none;}</style>
-          </q-img>
+              <q-btn v-if="scope.canUpload" icon="cloud_upload" @click="scope.upload" round dense flat >
+                 <q-tooltip>Upload Files</q-tooltip>
+              </q-btn>
         </q-card>
       </template>
 
       <template v-slot:list="scope">
-        <q-card flat v-if="scope.queuedFiles.length > 0">
+        <q-card flat>
+          <style>.scroll {padding: 0;}</style>
           <div v-for="file in scope.files" :key="file.name">
-          <q-img sizes="100%" :src="file.__img.src" style="width: 100%; min-height: 5rem">
+          <q-img :src="file.__img.src" style="width: 100%; min-height: 5rem">
               <q-btn
                 icon="delete"
                 @click="scope.removeQueuedFiles"
@@ -221,11 +222,7 @@ export default {
 .uploaderBox {
   width: 100%;
 }
-.q-uploader__list {
-  background: transparent;
+.q-uploader__list.scroll {
   padding: 0;
-}
-.my-card {
-  width: 100%;
 }
 </style>

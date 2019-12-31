@@ -7,15 +7,18 @@
           outlined
           v-model="job.title"
           label="Titel der Anzeige"
+          tabindex="1"
         />
         <q-input
           outlined
           v-model="job.organization"
           label="Name des Unternehmens"
+          tabindex="2"
         />
         <y-search-region
           label="Einsatzort"
           v-model="job.location"
+          tabindex="3"
         />
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12 q-col-gutter-y-md">
