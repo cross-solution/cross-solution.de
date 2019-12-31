@@ -4,6 +4,7 @@ export default {
   'About Us': 'Über uns',
   'Apply': 'Bewerben',
   'Cancel': 'Abbrechen',
+  'CV': 'Lebenslauf',
   'Contact': 'Kontakt',
   'Digital Change': 'Digitaler Wandel',
   'Imprint': 'Impressum',

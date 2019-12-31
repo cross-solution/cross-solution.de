@@ -8,6 +8,7 @@ export default {
   'Apply': 'Apply',
   'Cancel': 'Cancel',
   'Contact': 'Contact',
+  'CV': 'Resumee',
   'Digital Change': 'Digital Change',
   'Imprint': 'Imprint',
   'Post a Job': 'Post a Job',

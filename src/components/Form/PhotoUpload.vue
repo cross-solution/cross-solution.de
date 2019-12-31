@@ -15,113 +15,85 @@
       <template v-slot:header="scope">
         <q-card flat>
           <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
-              <div class="text-subtitle2 absolute-bottom text-center">
-                <div class="q-uploader__title">
-                  {{$t('Drop a Photo')}}
-                </div>
-                <div class="q-uploader__subtitle">
-                  {{ scope.uploadSizeLabel }} /
-                  {{ scope.uploadProgressLabel }}
-                </div>
-              </div>
-              <q-btn
-                v-if="scope.canAddFiles"
-                type="a"
-                icon="add_box"
-                round
-                dense
-                flat
-              >
-                <q-uploader-add-trigger />
-                <q-tooltip>{{$t('Choose Photo')}}</q-tooltip>
-              </q-btn>
-              <q-btn v-if="scope.canUpload" icon="cloud_upload" @click="scope.upload" round dense flat >
-                 <q-tooltip>Upload Files</q-tooltip>
-              </q-btn>
+          <div class="text-subtitle2 absolute-bottom text-center">
+            <div class="q-uploader__title">{{$t('Drop a Photo')}}</div>
+            <div class="q-uploader__subtitle">
+              {{ scope.uploadSizeLabel }} /
+              {{ scope.uploadProgressLabel }}
+            </div>
+          </div>
+          <q-btn v-if="scope.canAddFiles" type="a" icon="add_box" round dense flat>
+            <q-uploader-add-trigger />
+            <q-tooltip>{{$t('Choose Photo')}}</q-tooltip>
+          </q-btn>
+          <q-btn v-if="scope.canUpload" icon="cloud_upload" @click="scope.upload" round dense flat>
+            <q-tooltip>Upload Files</q-tooltip>
+          </q-btn>
         </q-card>
       </template>
 
       <template v-slot:list="scope">
         <q-card flat>
-          <style>.scroll {padding: 0;}</style>
-          <div v-for="file in scope.files" :key="file.name">
-          <q-img :src="file.__img.src" style="width: 100%; min-height: 5rem">
-              <q-btn
-                icon="delete"
-                @click="scope.removeQueuedFiles"
-                round
-                dense
-                flat
-              >
-                <q-tooltip>{{$t('Clear')}}</q-tooltip>
-              </q-btn>
+          <style>
+  .scroll {
+    padding: 0;
+  }
+          </style>
 
-              <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
-              <div class="text-subtitle2 absolute-bottom text-center">
-                <div class="q-uploader__subtitle">
-                  {{ scope.uploadSizeLabel }} /
-                  {{ scope.uploadProgressLabel }}
+          <div v-if="scope.queuedFiles.length == 0">
+            <q-img
+              style="width: 100%; min-height: 5rem"
+              :src="defaultImage"
+            />
+          </div>
+          <div v-else>
+            <div v-for="file in scope.files" :key="file.name">
+              <q-img :src="file.__img.src" style="width: 100%; min-height: 5rem">
+                <q-btn icon="delete" @click="scope.removeQueuedFiles" round dense flat>
+                  <q-tooltip>{{$t('Clear')}}</q-tooltip>
+                </q-btn>
+
+                <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
+                <div class="text-subtitle2 absolute-bottom text-center">
+                  <div class="q-uploader__subtitle">
+                    {{ scope.uploadSizeLabel }} /
+                    {{ scope.uploadProgressLabel }}
+                  </div>
                 </div>
-              </div>
-              <q-btn
-                v-if="scope.canUpload"
-                icon="cloud_upload"
-                @click="scope.upload"
-                round
-                dense
-                flat
-              >
-                <q-tooltip>Upload</q-tooltip>
-              </q-btn>
+                <q-btn
+                  v-if="scope.canUpload"
+                  icon="cloud_upload"
+                  @click="scope.upload"
+                  round
+                  dense
+                  flat
+                >
+                  <q-tooltip>Upload</q-tooltip>
+                </q-btn>
 
-              <q-btn
-                v-if="scope.isUploading"
-                icon="clear"
-                @click="scope.abort"
-                round
-                dense
-                flat
-              >
-                <q-tooltip>Abort Upload</q-tooltip>
-              </q-btn>
-              <q-btn
-                round
-                icon="edit"
-                dense
-                flat
-                @click="cropperDialog = true"
-              >
-                <q-tooltip>Edit</q-tooltip>
-              </q-btn>
-
-          </q-img>
+                <q-btn v-if="scope.isUploading" icon="clear" @click="scope.abort" round dense flat>
+                  <q-tooltip>Abort Upload</q-tooltip>
+                </q-btn>
+                <q-btn round icon="edit" dense flat @click="cropperDialog = true">
+                  <q-tooltip>Edit</q-tooltip>
+                </q-btn>
+              </q-img>
+            </div>
           </div>
         </q-card>
       </template>
-
     </q-uploader>
 
     <q-dialog seamless v-model="cropperDialog">
       <q-card>
         <q-card-section>
-          <vue-cropper
-            ref="cropper"
-            :src="imgSrc"
-            alt="Source Image"
-            :cropmove="cropImage"
-          >
-          </vue-cropper>
+          <vue-cropper ref="cropper" :src="imgSrc" alt="Source Image" :cropmove="cropImage"></vue-cropper>
         </q-card-section>
 
         <q-separator />
 
         <q-card-actions>
-          <q-btn
-            icon="fas fa-crop-alt"
-            flat
-            color="primary"
-            @click="cropImage"
-          ></q-btn>
+          <q-btn icon="fas fa-crop-alt" flat color="primary" @click="cropImage"></q-btn>
           <q-btn icon="redo" flat color="primary" @click="rotate(-90)"></q-btn>
           <q-btn icon="undo" flat color="primary" @click="rotate(90)"></q-btn>
           <q-btn flat color="primary" v-close-popup>OK</q-btn>
@@ -132,7 +104,6 @@
 </template>
 
 <script lang="javascript">
-
 import VueCropper from 'vue-cropperjs'
 
 export default {
@@ -201,7 +172,7 @@ export default {
       }
       if (typeof FileReader === 'function') {
         const reader = new FileReader()
-        reader.onload = (event) => {
+        reader.onload = event => {
           this.imgSrc = event.target.result
           // rebuild cropperjs with the updated source
           this.$refs.cropper.replace(event.target.result)
@@ -213,12 +184,10 @@ export default {
       }
     }
   }
-
 }
 </script>
 
 <style scoped>
-
 .uploaderBox {
   width: 100%;
 }
