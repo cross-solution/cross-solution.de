@@ -9,9 +9,8 @@
                 <y-photo-upload
                   class="col-3"
                   color="transparent"
-                  minCanvasWidth="5rem"
                   text-color="white"
-                  uploader-style="background: url(/statics/PhotoUpload.png) center no-repeat; color: #fff !important; padding: 0px; border: 2px dashed #ccc;"
+                  default-image="/statics/PhotoUpload.png"
                   v-model="job.organizationLogo"
                 />
                 <div class="col-9">
@@ -25,7 +24,7 @@
               </div>
               <y-photo-upload
                 color="transparent"
-                uploader-style="background: url(/statics/HeaderUpload.jpg) center no-repeat;  padding: 5%; border: 2px dashed #ccc;"
+                default-image="/statics/HeaderUpload.jpg"
                 v-model="job.headerImage"
               />
               <q-editor
@@ -88,8 +87,8 @@
       <q-card>
         <div class="row q-col-gutter-sm">
           <div class="col-3">
-            <div class="LogoImage">
-              <img :src="job.headerImage" />
+            <div>
+              <q-img :src="job.organizationLogo" />
             </div>
           </div>
           <div class="col-9">
@@ -106,12 +105,12 @@
                 </li>
                 <li>
                   <i aria-hidden="true" class="material-icons q-icon">work</i
-                  >Feste Anstellung
+                  >{{ job.jobtype }}
                 </li>
                 <li>
                   <i aria-hidden="true" class="material-icons q-icon"
                     >schedule</i
-                  >Vollzeit
+                  >{{ job.jobtype }}
                 </li>
                 <li>
                   <i aria-hidden="true" class="material-icons q-icon"
@@ -120,8 +119,8 @@
                 </li>
               </ul>
             </div>
-          <div class="HeaderImage col-12">
-            <img :src="job.headerImage" />
+          <div class="col-12">
+            <q-img :src="job.headerImage" />
           </div>
 
           <q-card-section>
@@ -192,15 +191,6 @@ h6 {
   opacity: 0.7;
   padding-right: 5px;
 }
-.HeaderImage {
-  background: url(/statics/HeaderUpload.jpg) center no-repeat;
-  padding: 5%;
-}
-.LogoImage {
-  background: url(/statics/PhotoUpload.png) center no-repeat;
-  color: #fff !important;
-  padding: 30px;
-}
 .content {
   padding: 20px;
 }
@@ -219,7 +209,9 @@ export default {
         location: '',
         searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
         contactTitle: 'Kontakt',
-        contactText: ''
+        contactText: '',
+        headerImage: '/statics/HeaderUpload.jpg',
+        organizationLogo: '/statics/PhotoUpload.jpg'
       })
     }
   },

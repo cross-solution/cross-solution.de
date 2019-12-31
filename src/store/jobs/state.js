@@ -1,8 +1,9 @@
 export default function () {
   return {
     title: 'Software-Developer (m/w)',
-    headerImage: '/statics/HeaderUpload.png',
+    headerImage: '/statics/HeaderUpload.jpg',
     organization: '',
+    organizationLogo: '/statics/PhotoUpload.jpg',
     description: 'Also führender Anbieter ...',
     location: '',
     searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',

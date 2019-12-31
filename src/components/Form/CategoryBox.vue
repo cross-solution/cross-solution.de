@@ -7,7 +7,7 @@
     <q-card-section>
       <q-item tag="label" v-ripple>
         <q-item-section avatar top>
-          <q-checkbox v-model="jobtype" val="fulltime" color="primary" />
+          <q-checkbox v-model="job.jobtype" val="permanent" color="primary" />
         </q-item-section>
         <q-item-section>
           <q-item-label>Festanstellung</q-item-label>
@@ -15,7 +15,7 @@
       </q-item>
       <q-item tag="label" v-ripple>
         <q-item-section avatar top>
-          <q-checkbox v-model="jobtype" val="contract" color="primary" />
+          <q-checkbox v-model="job.jobtype" val="contract" color="primary" />
         </q-item-section>
         <q-item-section>
           <q-item-label>Freie Mitarbeit</q-item-label>
@@ -23,7 +23,7 @@
       </q-item>
       <q-item tag="label" v-ripple>
         <q-item-section avatar top>
-          <q-checkbox v-model="jobtype" val="internship" color="primary" />
+          <q-checkbox v-model="job.jobtype" val="internship" color="primary" />
         </q-item-section>
         <q-item-section>
           <q-item-label>Praktikum</q-item-label>
@@ -31,7 +31,7 @@
       </q-item>
       <q-item tag="label" v-ripple>
         <q-item-section avatar top>
-          <q-checkbox v-model="jobtype" val="apprenticeship" color="primary" />
+          <q-checkbox v-model="job.jobtype" val="apprenticeship" color="primary" />
         </q-item-section>
         <q-item-section>
           <q-item-label>Ausbildungsplatz</q-item-label>
@@ -45,9 +45,8 @@
 
 export default {
   data () {
-    return {
-      jobtype: ['fulltime']
-    }
-  }
+    return {}
+  },
+  props: ['job']
 }
 </script>
