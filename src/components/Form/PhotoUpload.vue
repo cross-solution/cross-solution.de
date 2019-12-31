@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-uploader
-      style="border: 2px dashed #ccc; height: 10rem"
+      style="border: 2px dashed #ccc; height: 10rem;"
       class="text-center uploaderBox bg-light-blue-1"
       url="http://localhost:4444/upload"
       flat
@@ -33,22 +33,16 @@
       </template>
 
       <template v-slot:list="scope">
-        <q-card flat>
-          <style>
-  .scroll {
-    padding: 0;
-  }
-          </style>
-
+        <q-card flat style="padding:0">
           <div v-if="scope.queuedFiles.length == 0">
             <q-img
-              style="width: 100%; min-height: 5rem"
+              style="width: 100%; min-height: 7rem"
               :src="defaultImage"
             />
           </div>
           <div v-else>
             <div v-for="file in scope.files" :key="file.name">
-              <q-img :src="file.__img.src" style="width: 100%; min-height: 5rem">
+              <q-img :src="file.__img.src" style="width: 100%; min-height: 7rem">
                 <q-btn icon="delete" @click="scope.removeQueuedFiles" round dense flat>
                   <q-tooltip>{{$t('Clear')}}</q-tooltip>
                 </q-btn>
@@ -123,20 +117,6 @@ export default {
     VueCropper
   },
   methods: {
-    flipX () {
-      const dom = this.$refs.flipX
-      let scale = dom.getAttribute('data-scale')
-      scale = scale ? -scale : -1
-      this.$refs.cropper.scaleX(scale)
-      dom.setAttribute('data-scale', scale)
-    },
-    flipY () {
-      const dom = this.$refs.flipY
-      let scale = dom.getAttribute('data-scale')
-      scale = scale ? -scale : -1
-      this.$refs.cropper.scaleY(scale)
-      dom.setAttribute('data-scale', scale)
-    },
     getCropBoxData () {
       this.image = JSON.stringify(this.$refs.cropper.getCropBoxData(), null, 4)
     },
@@ -187,11 +167,10 @@ export default {
 }
 </script>
 
-<style scoped>
-.uploaderBox {
-  width: 100%;
-}
-.q-uploader__list.scroll {
-  padding: 0;
-}
+<style lang="sass" scoped>
+.uploaderBox
+  width: 100%
+.q-uploader__list.scroll
+  padding: 0 !important
+
 </style>

@@ -6,10 +6,12 @@
       header-nav
       color="primary"
       animated
+      swipeable="$q.platform.is.mobile"
+      :contracted="$q.platform.is.mobile"
     >
       <q-step
         :name="1"
-        title="Grunddaten"
+        :title="$t('General Data')"
         icon="settings"
         :done="step > 1"
         style="min-height: 300px;"
@@ -22,20 +24,20 @@
 
       <q-step
         :name="2"
-        title="Anzeige erstellen"
+        :title="$t('Create Job')"
         icon="create_new_folder"
         :done="step > 2"
         style="min-height: 200px;"
       >
-        <YJob
+        <y-job
           :job="job"
           @changeMsg="setMessage"
-        ></YJob>
+        ></y-job>
       </q-step>
 
       <q-step
         :name="3"
-        title="Kontakt"
+        :title="$t('Contact')"
         icon="assignment"
         :done="step > 3"
         style="min-height: 200px;"
@@ -48,7 +50,7 @@
 
       <q-step
         :name="4"
-        title="Kategorien"
+        :title="$t('Categories')"
         icon="assignment"
         style="min-height: 200px;"
       >
@@ -210,18 +212,19 @@
       <template v-slot:navigation>
         <q-stepper-navigation>
           <q-btn
-            @click="$refs.stepper.next()"
-            color="primary"
-            :label="step === 5 ? 'Absenden' : 'Weiter'"
-          />
-          <q-btn
             v-if="step > 1"
             flat
             color="primary"
             @click="$refs.stepper.previous()"
-            label="Zurück"
+            :label="$t('Back')"
             class="q-ml-sm"
           />
+          <q-btn
+            @click="$refs.stepper.next()"
+            color="primary"
+            :label="step === 5 ? $t('Submit') : $t('Next')"
+          />
+
         </q-stepper-navigation>
       </template>
 
@@ -376,12 +379,23 @@ de-de:
   'Parttime': 'Teilzeit'
   'Workload': 'Pensum'
   'Permanent': 'Festanstellung'
+  'Create Job': 'Anzeige erstellen'
+  'General Data': 'Grunddaten'
+  'Back': 'Zurück'
+  'Next': 'Weiter'
+  'Submit': 'Absenden'
+  'Categories': 'Kategorien'
 en-us:
   'Fulltime': 'Fulltime'
   'Parttime': 'Parttime'
   'Workload': 'Workload'
   'Permanent': 'Permanent'
-
+  'Create Job': 'Create Job'
+  'General Data': 'General Data'
+  'Back': 'Back'
+  'Next': 'Next'
+  'Submit': 'Submit'
+  Categories: Categories
 fr-fr:
 
 </i18n>
