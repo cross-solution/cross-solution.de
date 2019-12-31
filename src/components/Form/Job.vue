@@ -22,6 +22,7 @@
                   </h1>
                 </div>
               </div>
+              <y-job-show-categories :job="job"/>
               <y-photo-upload
                 color="transparent"
                 default-image="/statics/HeaderUpload.jpg"
@@ -97,28 +98,7 @@
 
             <br clear="all" />
           </div>
-          <div class="text-center col-12 previewData">
-              <ul>
-                <li>
-                  <i aria-hidden="true" class="material-icons q-icon">place</i
-                  >{{ job.location }}
-                </li>
-                <li>
-                  <i aria-hidden="true" class="material-icons q-icon">work</i
-                  >{{ job.jobtype }}
-                </li>
-                <li>
-                  <i aria-hidden="true" class="material-icons q-icon"
-                    >schedule</i
-                  >{{ job.jobtype }}
-                </li>
-                <li>
-                  <i aria-hidden="true" class="material-icons q-icon"
-                    >calendar_today</i
-                  >Unveröffentlicht
-                </li>
-              </ul>
-            </div>
+          <y-job-show-categories :job="job"/>
           <div class="col-12">
             <q-img :src="job.headerImage" />
           </div>
@@ -172,25 +152,6 @@ h6 {
   margin-top: 30px;
   margin-bottom: 0;
 }
-.previewData {
-  text-align: left;
-  font-size: 16px;
-}
-.previewData ul {
-  padding: 20px 0;
-  margin: 0;
-  list-style: none;
-}
-.previewData ul li {
-  display: inline;
-  padding-left: 0px;
-  padding-right: 15px;
-}
-.previewData .material-icons {
-  font-size: 20px;
-  opacity: 0.7;
-  padding-right: 5px;
-}
 .content {
   padding: 20px;
 }
@@ -198,6 +159,7 @@ h6 {
 
 <script lang="javascript">
 import YPhotoUpload from './PhotoUpload.vue'
+import YJobShowCategories from './JobShowCategories.vue'
 
 export default {
   name: 'Job',
@@ -234,7 +196,8 @@ export default {
     }
   },
   components: {
-    YPhotoUpload
+    YPhotoUpload,
+    YJobShowCategories
   }
 }
 </script>

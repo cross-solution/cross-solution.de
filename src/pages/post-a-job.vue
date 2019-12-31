@@ -45,6 +45,7 @@
         <y-address
           :c="job.contact"
           v-on:Address="setAddress"
+          @JobContact="setJobContact"
         />
       </q-step>
 
@@ -278,7 +279,60 @@ export default {
       start: '',
       date: '',
       workload: '',
-      job: {
+      job: null
+    }
+  },
+  props: {
+    locationType: {
+      type: String,
+      default: 'geocode'
+    },
+    description: String,
+    searching: String,
+    tasks: String,
+    titleTasks: String,
+    qualifications: String,
+    titleQualifications: String,
+    benefits: String,
+    titleBenefits: String,
+    titleContact: String,
+    contact: String
+  },
+  created () {
+    try {
+      this.job = JSON.parse(localStorage.getItem('job'))
+      console.log('got job from localStorage' + this.job)
+      if (!this.job) {
+        this.initJob()
+        this.saveJob(this.job)
+      }
+    }
+    catch (err) {
+      console.log('could not load job from localStorage')
+    }
+  },
+  methods: {
+    setAddress (contact) {
+      this.job.contact = contact
+    },
+    setJobGeneral (data) {
+      console.log('setJobGeneral', data)
+      this.job.title = data.title
+      this.job.location = data.location
+      this.job.organization = data.organization
+      this.saveJob(this.job)
+    },
+    setMessage (msg) {
+      this.text_value = msg
+      console.log(msg)
+    },
+    setContact (data) {
+      console.log('setJobContact', data)
+      this.job.contact.firstname = data.fistname
+      this.saveJob(this.job)
+    },
+    initJob () {
+      this.job = {
         headerImage: '/statics/HeaderUpload.jpg',
         organizationLogo: '/statics/PhotoUpload.png',
         title: '',
@@ -304,40 +358,14 @@ export default {
           disabled: false
         },
         workload: ['fulltime'],
-        jobtype: ['permanent']
+        jobtype: ['permanent'],
+        contact: {
+          fistname: ''
+        }
       }
-    }
-  },
-  props: {
-    locationType: {
-      type: String,
-      default: 'geocode'
     },
-    description: String,
-    searching: String,
-    tasks: String,
-    titleTasks: String,
-    qualifications: String,
-    titleQualifications: String,
-    benefits: String,
-    titleBenefits: String,
-    titleContact: String,
-    contact: String
-  },
-  methods: {
-    setAddress (contact) {
-      this.job.contact = contact
-    },
-    setJobGeneral (data) {
-      console.log('setJobGeneral', data)
-      this.job.title = data.title
-      this.job.location = data.location
-      this.job.organization = data.organization
-      localStorage.setItem('job', JSON.stringify(this.job))
-    },
-    setMessage (msg) {
-      this.text_value = msg
-      console.log(msg)
+    saveJob (job) {
+      localStorage.setItem('job', JSON.stringify(job))
     }
   },
   components: {

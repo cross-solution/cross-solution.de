@@ -34,28 +34,37 @@ export default {
   created () {
     try {
       this.localeValue = JSON.parse(localStorage.getItem('locale'))
+      if (!this.localeValue) {
+        (
+          this.__getClientLocaleSetting()
+        )
+      }
       this.setLocale(this.localeValue)
     }
     catch (err) {
-      try {
-        this.localeValue.value = this.$q.lang.getLocale()
-        for (var i = 0, len = this.languages.length; i < len; i++) {
-          if (this.languages[i].value === this.$q.lang.getLocale()) {
-            this.localeValue.label = this.languages[i].label
-            this.localeValue.icon = this.languages[i].icon
-          }
-        }
-        this.setLocale(this.localeValue)
-      }
-      catch (err) {
-        console.log('try to figure out, how to set the default language defined by the browser. Current Browser Locale:  ' + this.$q.lang.getLocale())
-      }
+      console.log('try to figure out, how to set the default language defined by the browser. Current Browser Locale:  ' + this.$q.lang.getLocale())
     }
   },
   methods: {
     setLocale (localeValue) {
       this.$i18n.locale = localeValue.value
       localStorage.setItem('locale', JSON.stringify(localeValue))
+    },
+    __getClientLocaleSetting () {
+      var locale = {}
+      try {
+        locale.value = this.$q.lang.getLocale()
+        console.log('found: ' + locale)
+        for (var i = 0, len = this.languages.length; i < len; i++) {
+          if (this.languages[i].value === this.$q.lang.getLocale()) {
+            locale.label = this.languages[i].label
+            locale.icon = this.languages[i].icon
+          }
+        }
+        this.setLocale(locale)
+      }
+      catch (err) {
+      }
     }
   }
 }
