@@ -15,5 +15,18 @@ export default {
   'Privacy': 'Privacy',
   'Register': 'Register',
   'Search Jobs': 'Search Jobs',
-  'Settings': 'Settings'
+  'Settings': 'Settings',
+  'fulltime': 'Fulltime',
+  'parttime': 'Parttime',
+  'Workload': 'Workload',
+  'permanent': 'Permanent',
+  'Create Job': 'Create Job',
+  'General Data': 'General Data',
+  'Back': 'Back',
+  'Next': 'Next',
+  'Submit': 'Submit',
+  'Categories': 'Categories',
+  'contract': 'FContract',
+  'internship': 'Internship',
+  'apprenticeship': 'Apprenticeship'
 }

@@ -6,7 +6,7 @@
       header-nav
       color="primary"
       animated
-      swipeable="$q.platform.is.mobile"
+      :swipeable="$q.platform.is.mobile"
       :contracted="$q.platform.is.mobile"
     >
       <q-step
@@ -43,8 +43,8 @@
         style="min-height: 200px;"
       >
         <y-address
+          v-if="job"
           :c="job.contact"
-          v-on:Address="setAddress"
           @JobContact="setJobContact"
         />
       </q-step>
@@ -56,7 +56,7 @@
         style="min-height: 200px;"
       >
         <div class="row q-gutter-sm">
-          <y-category-box :job="job"/>
+          <y-category-box  v-if="job" :job="job"/>
           <q-card class="col-md-3 col-sm-6 col-xs-12">
             <q-card-section>
               <div class="text-h6">{{$t('Workload')}}</div>
@@ -72,13 +72,14 @@
                   top
                 >
                   <q-checkbox
+                    v-if="job"
                     v-model="job.workload"
                     val="fulltime"
                     color="primary"
                   />
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label>{{$t('Fulltime')}}</q-item-label>
+                  <q-item-label>{{$t('fulltime')}}</q-item-label>
                 </q-item-section>
               </q-item>
               <q-item
@@ -90,13 +91,14 @@
                   top
                 >
                   <q-checkbox
+                    v-if="job"
                     v-model="job.workload"
                     val="parttime"
                     color="primary"
                   />
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label>{{$t('Parttime')}}</q-item-label>
+                  <q-item-label>{{$t('parttime')}}</q-item-label>
                 </q-item-section>
               </q-item>
               <q-item
@@ -108,8 +110,10 @@
                   top
                 >
                   <q-checkbox
-                    v-model="minijob"
+                    v-if="job"
+                    v-model="job.workload"
                     color="primary"
+                    val="minijob"
                   />
                 </q-item-section>
                 <q-item-section>
@@ -273,50 +277,34 @@ export default {
     return {
       step: 1,
       gLocation: '',
-      jobtype: ['fulltime'],
       conditions: '',
-      minijob: '',
       start: '',
       date: '',
-      workload: '',
       job: null
     }
   },
-  props: {
-    locationType: {
-      type: String,
-      default: 'geocode'
-    },
-    description: String,
-    searching: String,
-    tasks: String,
-    titleTasks: String,
-    qualifications: String,
-    titleQualifications: String,
-    benefits: String,
-    titleBenefits: String,
-    titleContact: String,
-    contact: String
-  },
   created () {
     try {
-      this.job = JSON.parse(localStorage.getItem('job'))
-      console.log('got job from localStorage' + this.job)
       if (!this.job) {
-        this.initJob()
-        this.saveJob(this.job)
+        this.job = JSON.parse(localStorage.getItem('job'))
+        console.log('got job from localStorage' + this.job)
+        if (!this.job) {
+          this.initJob()
+          this.saveJob(this.job)
+        }
+      }
+      else {
+        console.log('this job already exists ' + this.job)
       }
     }
     catch (err) {
       console.log('could not load job from localStorage')
+      this.initJob()
     }
   },
   methods: {
-    setAddress (contact) {
-      this.job.contact = contact
-    },
     setJobGeneral (data) {
-      console.log('setJobGeneral', data)
+      console.log('Try to set setJobGeneral: ', data)
       this.job.title = data.title
       this.job.location = data.location
       this.job.organization = data.organization
@@ -326,13 +314,17 @@ export default {
       this.text_value = msg
       console.log(msg)
     },
-    setContact (data) {
-      console.log('setJobContact', data)
-      this.job.contact.firstname = data.fistname
-      this.saveJob(this.job)
+    setJobContact (data) {
+      console.log('Try to set setJobContact: ', data)
+      try {
+        this.job.contact = data
+        this.saveJob(this.job)
+      }
+      catch (err) {}
     },
     initJob () {
       this.job = {
+        step: 1,
         headerImage: '/statics/HeaderUpload.jpg',
         organizationLogo: '/statics/PhotoUpload.png',
         title: '',
@@ -360,7 +352,9 @@ export default {
         workload: ['fulltime'],
         jobtype: ['permanent'],
         contact: {
-          fistname: ''
+          fistname: '',
+          lastname: '',
+          options: ['male', 'female']
         }
       }
     },
@@ -400,30 +394,3 @@ body.desktop .q-focus-helper:after
 .hover
   color: #faa427
 </style>
-
-<i18n>
-de-de:
-  'Fulltime': 'Vollzeit'
-  'Parttime': 'Teilzeit'
-  'Workload': 'Pensum'
-  'Permanent': 'Festanstellung'
-  'Create Job': 'Anzeige erstellen'
-  'General Data': 'Grunddaten'
-  'Back': 'Zurück'
-  'Next': 'Weiter'
-  'Submit': 'Absenden'
-  'Categories': 'Kategorien'
-en-us:
-  'Fulltime': 'Fulltime'
-  'Parttime': 'Parttime'
-  'Workload': 'Workload'
-  'Permanent': 'Permanent'
-  'Create Job': 'Create Job'
-  'General Data': 'General Data'
-  'Back': 'Back'
-  'Next': 'Next'
-  'Submit': 'Submit'
-  Categories: Categories
-fr-fr:
-
-</i18n>

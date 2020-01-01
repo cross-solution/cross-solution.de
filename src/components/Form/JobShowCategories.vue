@@ -5,10 +5,10 @@
         <i aria-hidden="true" class="material-icons q-icon">place</i>{{ job.location }}
       </li>
       <li>
-        <i aria-hidden="true" class="material-icons q-icon">work</i>{{ job.jobtype }}
+        <i aria-hidden="true" class="material-icons q-icon">work</i>{{ $t(job.jobtype, { joinArrays: ', '})}}
       </li>
       <li>
-        <i aria-hidden="true" class="material-icons q-icon">schedule</i>{{ job.workload }}
+        <i aria-hidden="true" class="material-icons q-icon">schedule</i>{{ $t(job.workload, { joinArrays: ', ' }) }}
       </li>
       <li>
         <i aria-hidden="true" class="material-icons q-icon">calendar_today</i>Unveröffentlicht
@@ -40,32 +40,12 @@
 </style>
 
 <script lang="javascript">
-/*
-var workload = {
-  'fulltime': 'Fulltime',
-  'parttime': 'Farttime',
-  'minijob': 'Minijob'
-}
-*/
 export default {
   name: 'JobShowCategories',
   props: ['job'],
   data () {
     return {
     }
-  },
-  methods: {
-    /*    __display (field, values) {
-      var r = this.workload
-
-      for (var i = 0, len = values; i < len; i++) {
-        if (field === 'workload') {
-          r = workload[values[i]]
-        }
-      }
-      return r
-    }
-    */
   }
 }
 </script>

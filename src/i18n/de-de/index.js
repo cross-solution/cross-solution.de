@@ -14,5 +14,19 @@ export default {
   'Post a Job': 'Job eingeben',
   'Privacy': 'Datenschutz',
   'Search Jobs': 'Jobs suchen',
-  'Settings': 'Einstellungen'
+  'Settings': 'Einstellungen',
+  'Choose Photo': 'Foto wählen',
+  'fulltime': 'Vollzeit',
+  'parttime': 'Teilzeit',
+  'Workload': 'Pensum',
+  'permanent': 'Festanstellung',
+  'contract': 'Freie Mitarbeit',
+  'internship': 'Praktikum',
+  'apprenticeship': 'Ausbildung',
+  'Create Job': 'Anzeige erstellen',
+  'General Data': 'Grunddaten',
+  'Back': 'Zurück',
+  'Next': 'Weiter',
+  'Submit': 'Absenden',
+  'Categories': 'Kategorien'
 }
