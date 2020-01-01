@@ -163,20 +163,7 @@ import YJobShowCategories from './JobShowCategories.vue'
 
 export default {
   name: 'Job',
-  props: {
-    job: {
-      default: () => ({
-        title: '',
-        description: '',
-        location: '',
-        searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
-        contactTitle: 'Kontakt',
-        contactText: '',
-        headerImage: '/statics/HeaderUpload.jpg',
-        organizationLogo: '/statics/PhotoUpload.jpg'
-      })
-    }
-  },
+  props: ['job'],
   data () {
     return {
       toolbar: [

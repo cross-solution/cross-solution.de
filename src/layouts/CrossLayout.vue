@@ -35,10 +35,7 @@
           </q-btn-dropdown>
         </q-tabs>
         <login-info :host="loginUri" />
-        <q-no-ssr>
-          <language-switch/>
-        </q-no-ssr>
-
+        <language-switch/>
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
     </q-header>

@@ -31,7 +31,7 @@
       >
         <y-job
           :job="job"
-          @changeMsg="setMessage"
+          @JobDescription="setJobDescription"
         ></y-job>
       </q-step>
 
@@ -43,9 +43,8 @@
         style="min-height: 200px;"
       >
         <y-address
-          v-if="job"
           :c="job.contact"
-          @JobContact="setJobContact"
+          @Contact="setJobContact"
         />
       </q-step>
 
@@ -72,7 +71,6 @@
                   top
                 >
                   <q-checkbox
-                    v-if="job"
                     v-model="job.workload"
                     val="fulltime"
                     color="primary"
@@ -91,7 +89,6 @@
                   top
                 >
                   <q-checkbox
-                    v-if="job"
                     v-model="job.workload"
                     val="parttime"
                     color="primary"
@@ -110,14 +107,13 @@
                   top
                 >
                   <q-checkbox
-                    v-if="job"
                     v-model="job.workload"
                     color="primary"
                     val="minijob"
                   />
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label>Minijob</q-item-label>
+                  <q-item-label>{{$t('minijob')}}</q-item-label>
                 </q-item-section>
               </q-item>
             </q-card-section>
@@ -200,7 +196,7 @@
             top
           >
             <q-checkbox
-              v-model="conditions"
+              v-model="job.gtcAccepted"
               val="primary"
               color="primary"
             />
@@ -277,7 +273,6 @@ export default {
     return {
       step: 1,
       gLocation: '',
-      conditions: '',
       start: '',
       date: '',
       job: null
@@ -308,11 +303,25 @@ export default {
       this.job.title = data.title
       this.job.location = data.location
       this.job.organization = data.organization
+      this.job.apply.expanded.email = data.apply.expanded.email
+      this.job.apply.expanded.url = data.apply.expanded.url
+      this.job.apply.url = data.apply.url
+      this.job.apply.email = data.apply.email
+      this.job.apply.disabled = data.apply.disabled
       this.saveJob(this.job)
     },
-    setMessage (msg) {
-      this.text_value = msg
-      console.log(msg)
+    setJobDescription (job) {
+      console.log('Try to set JobDescription: ' + job)
+      this.job.contactText = job.contactText
+      this.job.description = job.description
+      this.job.searching = job.searching
+      this.job.tasksTitle = job.tasksTitle
+      this.job.tasksText = job.tasksText
+      this.job.benefitsTitle = job.benefitsText
+      this.job.benefitsText = job.benefitsTitle
+      this.job.contactText = job.contactText
+      this.job.contactTitle = job.contactTitle
+      this.saveJob(this.job)
     },
     setJobContact (data) {
       console.log('Try to set setJobContact: ', data)
@@ -320,7 +329,9 @@ export default {
         this.job.contact = data
         this.saveJob(this.job)
       }
-      catch (err) {}
+      catch (err) {
+        console.log('Could not set setJobContact: ', data)
+      }
     },
     initJob () {
       this.job = {
@@ -355,7 +366,8 @@ export default {
           fistname: '',
           lastname: '',
           options: ['male', 'female']
-        }
+        },
+        gtcAccepted: false
       }
     },
     saveJob (job) {

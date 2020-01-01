@@ -18,6 +18,7 @@ export default {
   'Settings': 'Settings',
   'fulltime': 'Fulltime',
   'parttime': 'Parttime',
+  'minijob': 'Minijob',
   'Workload': 'Workload',
   'permanent': 'Permanent',
   'Create Job': 'Create Job',

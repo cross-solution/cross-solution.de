@@ -7,7 +7,7 @@
             outlined
             v-model="c.gender"
             color="$blue"
-            :options="c.options"
+            :options="options"
             label="Anrede"
             :rules="[true]"
             @change="emitContact"
@@ -118,6 +118,7 @@ export default {
   },
   methods: {
     emitContact (event) {
+      console.log('emit ' + this.c)
       this.$emit('Contact', this.c)
     }
   }

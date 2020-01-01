@@ -1,7 +1,7 @@
 <template>
   <q-card class="col-md-3 col-sm-6 col-xs-12">
     <q-card-section>
-      <div class="text-h6">Art der Anstellung</div>
+      <div class="text-h6">{{$t('Job Type')}}</div>
     </q-card-section>
     <q-card-section>
       <q-item tag="label" v-ripple>
