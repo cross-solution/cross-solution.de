@@ -1,10 +1,11 @@
 <template>
   <div>
     <q-uploader
-      style="border: 2px dashed #ccc; height: 10rem;"
-      class="text-center uploaderBox bg-light-blue-1"
+      style="border: 2px dashed #ccc; height: 18rem;"
+      class="text-center uploaderBox"
       url="http://localhost:4444/upload"
       flat
+      multiple=""
       color="light-blue-1"
       text-color="grey-9"
       ref="input"
@@ -15,8 +16,8 @@
       <template v-slot:header="scope">
         <q-card flat>
           <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
-          <div class="text-subtitle2 absolute-bottom text-center">
-            <div class="q-uploader__title">{{$t('Drop a Photo')}}</div>
+          <div class="text-subtitle2">
+            <div class="q-uploader__title">{{$t(defaultText)}}</div>
             <div class="q-uploader__subtitle">
               {{ scope.uploadSizeLabel }} /
               {{ scope.uploadProgressLabel }}
@@ -24,7 +25,7 @@
           </div>
           <q-btn v-if="scope.canAddFiles" type="a" icon="add_box" round dense flat>
             <q-uploader-add-trigger />
-            <q-tooltip>{{$t('Choose Photo')}}</q-tooltip>
+            <q-tooltip>{{$t('Your Logo')}}</q-tooltip>
           </q-btn>
           <q-btn v-if="scope.canUpload" icon="cloud_upload" @click="scope.upload" round dense flat>
             <q-tooltip>Upload Files</q-tooltip>
@@ -102,7 +103,7 @@ import VueCropper from 'vue-cropperjs'
 
 export default {
   name: 'PhotoUpload',
-  props: ['color', 'default-image', 'multiple'],
+  props: ['color', 'default-image', 'multiple', 'default-text'],
   mixins: [VueCropper],
   data () {
     return {

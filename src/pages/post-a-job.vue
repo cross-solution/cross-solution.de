@@ -337,7 +337,7 @@ export default {
       this.job = {
         step: 1,
         headerImage: '/statics/HeaderUpload.jpg',
-        organizationLogo: '/statics/PhotoUpload.png',
+        organizationLogo: '/statics/LogoUpload.png',
         title: '',
         organization: '',
         description: 'Also führender Anbieter ...',
