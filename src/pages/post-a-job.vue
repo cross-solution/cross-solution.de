@@ -14,7 +14,7 @@
         :title="$t('General Data')"
         icon="settings"
         :done="step > 1"
-        style="min-height: 300px;"
+        :style="style"
       >
         <y-job-general
           :job="job"
@@ -27,7 +27,7 @@
         :title="$t('Create Job')"
         icon="create_new_folder"
         :done="step > 2"
-        style="min-height: 200px;"
+        :style="style"
       >
         <y-job
           :job="job"
@@ -40,7 +40,7 @@
         :title="$t('Contact')"
         icon="assignment"
         :done="step > 3"
-        style="min-height: 200px;"
+        :style="style"
       >
         <y-address
           :c="job.contact"
@@ -52,7 +52,7 @@
         :name="4"
         :title="$t('Categories')"
         icon="assignment"
-        style="min-height: 200px;"
+        :style="style"
       >
         <div class="row q-gutter-sm">
           <y-box-job-type :job="job"/>
@@ -124,7 +124,7 @@
         :name="5"
         title="Abschicken"
         icon="send"
-        style="min-height: 200px;"
+        :style="style"
       >
         <q-item
           tag="label"
@@ -215,7 +215,8 @@ export default {
       gLocation: '',
       start: '',
       date: '',
-      job: null
+      job: null,
+      style: 'min-height: 500px;'
     }
   },
   created () {
