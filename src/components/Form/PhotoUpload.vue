@@ -16,21 +16,21 @@
       <template v-slot:header="scope">
         <q-card flat>
           <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
-          <div class="text-subtitle2 flex flex-center no-wrap q-gutter-xs">
-
-           <div class="q-uploader__title">{{textSelectFile}}</div>
+          <div class="text-subtitle2 flex no-wrap q-gutter-xl">
+           <div class="q-uploader__title">{{textSelectFile}}
             <div class="q-uploader__subtitle">
               {{ scope.uploadSizeLabel }} /
               {{ scope.uploadProgressLabel }}
             </div>
-          </div>
-          <q-btn v-if="scope.canAddFiles" type="a" icon="add_box" round dense flat>
+            </div>
+            <q-btn v-if="scope.canAddFiles" type="a" icon="add_box" round dense flat>
             <q-uploader-add-trigger />
             <q-tooltip>{{textToolTip}}</q-tooltip>
           </q-btn>
           <q-btn v-if="scope.canUpload" icon="cloud_upload" @click="scope.upload" round dense flat>
             <q-tooltip>Upload Files</q-tooltip>
           </q-btn>
+          </div>
         </q-card>
       </template>
 
@@ -186,5 +186,10 @@ export default {
   width: 100%
 .q-uploader__list.scroll
   padding: 0 !important
+.q-gutter-xs
+  margin-left: 0px !important
+  margin-right: 5px !important
+.q-uploader__title
+    font-size: 13px !important
 
 </style>
