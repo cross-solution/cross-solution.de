@@ -6,6 +6,8 @@
       >
         <div class="col-md-12 ">
           <h1 v-t="'About Us'"></h1>
+                     <div class="q-uploader__title">{{ $t('key', { what: 'i18next', how: 'great' }) }}</div>
+
           <p>
             CROSS ist ein Netzwerk aus IT Spezialisten mit Jahrzehnte langer
             Erfahrung in der Konzeption und Umsetzung komplexer IT Systeme. Wir

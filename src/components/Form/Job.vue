@@ -9,9 +9,10 @@
                 <y-photo-upload
                   class="col-3"
                   color="transparent"
-                  default-text="Drop a Logo"
+                  upload-type="Logo"
                   text-color="white"
-                  default-image="/statics/PhotoUpload.png"
+                  multiple="false"
+                  default-image="/statics/LogoUpload.png"
                   v-model="job.organizationLogo"
                 />
                 <div class="col-9">
@@ -27,7 +28,7 @@
               <y-photo-upload
                 color="transparent"
                 default-image="/statics/HeaderUpload.jpg"
-                default-text="Your Headerimage"
+                upload-type="Header Image"
                 v-model="job.headerImage"
               />
               <q-editor

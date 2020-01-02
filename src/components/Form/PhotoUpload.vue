@@ -1,11 +1,11 @@
 <template>
   <div>
     <q-uploader
-      style="border: 2px dashed #ccc; height: 18rem;"
-      class="text-center uploaderBox"
+      style="height: 18rem;"
+      class="uploaderBox"
       url="http://localhost:4444/upload"
       flat
-      multiple=""
+      :multiple="multiple"
       color="light-blue-1"
       text-color="grey-9"
       ref="input"
@@ -16,8 +16,9 @@
       <template v-slot:header="scope">
         <q-card flat>
           <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
-          <div class="text-subtitle2">
-            <div class="q-uploader__title">{{$t(defaultText)}}</div>
+          <div class="text-subtitle2 flex flex-center no-wrap q-gutter-xs">
+
+           <div class="q-uploader__title">{{textSelectFile}}</div>
             <div class="q-uploader__subtitle">
               {{ scope.uploadSizeLabel }} /
               {{ scope.uploadProgressLabel }}
@@ -25,7 +26,7 @@
           </div>
           <q-btn v-if="scope.canAddFiles" type="a" icon="add_box" round dense flat>
             <q-uploader-add-trigger />
-            <q-tooltip>{{$t('Your Logo')}}</q-tooltip>
+            <q-tooltip>{{textToolTip}}</q-tooltip>
           </q-btn>
           <q-btn v-if="scope.canUpload" icon="cloud_upload" @click="scope.upload" round dense flat>
             <q-tooltip>Upload Files</q-tooltip>
@@ -34,7 +35,7 @@
       </template>
 
       <template v-slot:list="scope">
-        <q-card flat style="padding:0">
+        <q-card flat style="padding:0; border: 2px dashed #ccc;">
           <div v-if="scope.queuedFiles.length == 0">
             <q-img
               style="width: 100%; min-height: 7rem"
@@ -103,13 +104,13 @@ import VueCropper from 'vue-cropperjs'
 
 export default {
   name: 'PhotoUpload',
-  props: ['color', 'default-image', 'multiple', 'default-text'],
+  props: ['color', 'default-image', 'multiple', 'upload-type'],
   mixins: [VueCropper],
   data () {
     return {
       maxTotalSize: 2048000,
       cropperDialog: false,
-      imgSrc: '/statics/PhotoUpload.png',
+      imgSrc: '/statics/LogoUpload.png',
       cropImg: '',
       image: null
     }
@@ -163,6 +164,18 @@ export default {
       else {
         alert('Sorry, FileReader API not supported')
       }
+    }
+  },
+  computed: {
+    textSelectFile () {
+      console.log('compute textSelectFile: ' + this.uploadType)
+      if (!this.uploadType) {
+        return this.$t('select file', { do: this.$t('Select'), what: 'File' })
+      }
+      return this.$t('select file', { do: this.$t('Select'), what: this.$t(this.uploadType) })
+    },
+    textToolTip () {
+      return ''
     }
   }
 }

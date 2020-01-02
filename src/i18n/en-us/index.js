@@ -29,5 +29,6 @@ export default {
   'Categories': 'Categories',
   'contract': 'FContract',
   'internship': 'Internship',
-  'apprenticeship': 'Apprenticeship'
+  'apprenticeship': 'Apprenticeship',
+  'select file': '{do} {what}' // Logo auswählen
 }

@@ -21,7 +21,7 @@
           <div class="col-md-2 col-xs-12">
             <y-photo-upload
               color="transparent"
-              default-text="Drop a Photo"
+              upload-type="Photo"
               default-image="/statics/PhotoUpload.png"
             />
           </div>
