@@ -1,40 +1,39 @@
 <template>
   <q-card class="col-md-3 col-sm-6 col-xs-12">
     <q-card-section>
-      <div class="text-h6">Art der Anstellung</div>
+      <div class="text-h6">{{$t('Job Type')}}</div>
     </q-card-section>
-
     <q-card-section>
       <q-item tag="label" v-ripple>
         <q-item-section avatar top>
-          <q-checkbox v-model="jobtype" val="fulltime" color="primary" />
+          <q-checkbox v-model="job.jobtype" val="permanent" color="primary" />
         </q-item-section>
         <q-item-section>
-          <q-item-label>Festanstellung</q-item-label>
+          <q-item-label>{{$t('permanent')}}</q-item-label>
         </q-item-section>
       </q-item>
       <q-item tag="label" v-ripple>
         <q-item-section avatar top>
-          <q-checkbox v-model="jobtype" val="contract" color="primary" />
+          <q-checkbox v-model="job.jobtype" val="contract" color="primary" />
         </q-item-section>
         <q-item-section>
-          <q-item-label>Freie Mitarbeit</q-item-label>
+          <q-item-label>{{$t('contract')}}</q-item-label>
         </q-item-section>
       </q-item>
       <q-item tag="label" v-ripple>
         <q-item-section avatar top>
-          <q-checkbox v-model="jobtype" val="internship" color="primary" />
+          <q-checkbox v-model="job.jobtype" val="internship" color="primary" />
         </q-item-section>
         <q-item-section>
-          <q-item-label>Praktikum</q-item-label>
+          <q-item-label>{{$t('internship')}}</q-item-label>
         </q-item-section>
       </q-item>
       <q-item tag="label" v-ripple>
         <q-item-section avatar top>
-          <q-checkbox v-model="jobtype" val="apprenticeship" color="primary" />
+          <q-checkbox v-model="job.jobtype" val="apprenticeship" color="primary" />
         </q-item-section>
         <q-item-section>
-          <q-item-label>Ausbildungsplatz</q-item-label>
+          <q-item-label>{{$t('apprenticeship')}}</q-item-label>
         </q-item-section>
       </q-item>
     </q-card-section>
@@ -45,9 +44,8 @@
 
 export default {
   data () {
-    return {
-      jobtype: ['fulltime']
-    }
-  }
+    return {}
+  },
+  props: ['job']
 }
 </script>

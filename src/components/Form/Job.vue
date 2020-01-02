@@ -9,9 +9,8 @@
                 <y-photo-upload
                   class="col-3"
                   color="transparent"
-                  minCanvasWidth="5rem"
                   text-color="white"
-                  uploader-style="background: url(/statics/PhotoUpload.png) center no-repeat; color: #fff !important; padding: 0px; border: 2px dashed #ccc;"
+                  default-image="/statics/PhotoUpload.png"
                   v-model="job.organizationLogo"
                 />
                 <div class="col-9">
@@ -23,9 +22,10 @@
                   </h1>
                 </div>
               </div>
+              <y-job-show-categories :job="job"/>
               <y-photo-upload
                 color="transparent"
-                uploader-style="background: url(/statics/HeaderUpload.jpg) center no-repeat;  padding: 5%; border: 2px dashed #ccc;"
+                default-image="/statics/HeaderUpload.jpg"
                 v-model="job.headerImage"
               />
               <q-editor
@@ -33,13 +33,7 @@
                 v-model="job.description"
                 :dense="$q.screen.gt.md"
                 min-height="4rem"
-                :toolbar="[
-                  ['left', 'center', 'right', 'justify'],
-                  ['bold', 'italic', 'strike', 'underline'],
-                  ['token', 'hr', 'link', 'custom_btn'],
-                  ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-                  ['undo', 'redo']
-                ]"
+                :toolbar="toolbar"
               />
 
               <q-input borderless v-model="job.searching" />
@@ -48,13 +42,7 @@
                 <q-input class="text-h6" borderless v-model="job.tasksTitle" />
                 <q-editor
                   v-model="job.tasksText"
-                  :toolbar="[
-                    ['left', 'center', 'right', 'justify'],
-                    ['bold', 'italic', 'strike', 'underline'],
-                    ['token', 'hr', 'link', 'custom_btn'],
-                    ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-                    ['undo', 'redo']
-                  ]"
+                  :toolbar="toolbar"
                   min-height="5rem"
                 />
               </div>
@@ -62,13 +50,7 @@
                 <q-input class="text-h6" v-model="job.qualificationsTitle" />
                 <q-editor
                   v-model="job.qualificationsText"
-                  :toolbar="[
-                    ['left', 'center', 'right', 'justify'],
-                    ['bold', 'italic', 'strike', 'underline'],
-                    ['token', 'hr', 'link', 'custom_btn'],
-                    ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-                    ['undo', 'redo']
-                  ]"
+                  :toolbar="toolbar"
                   min-height="5rem"
                 />
               </div>
@@ -80,13 +62,7 @@
                 />
                 <q-editor
                   v-model="job.benefitsText"
-                  :toolbar="[
-                    ['left', 'center', 'right', 'justify'],
-                    ['bold', 'italic', 'strike', 'underline'],
-                    ['token', 'hr', 'link', 'custom_btn'],
-                    ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-                    ['undo', 'redo']
-                  ]"
+                  :toolbar="toolbar"
                   min-height="5rem"
                 />
               </div>
@@ -98,13 +74,7 @@
                 />
                 <q-editor
                   v-model="job.contactText"
-                  :toolbar="[
-                    ['left', 'center', 'right', 'justify'],
-                    ['bold', 'italic', 'strike', 'underline'],
-                    ['token', 'hr', 'link', 'custom_btn'],
-                    ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
-                    ['undo', 'redo']
-                  ]"
+                  :toolbar="toolbar"
                   min-height="5rem"
                 />
               </div>
@@ -118,39 +88,19 @@
       <q-card>
         <div class="row q-col-gutter-sm">
           <div class="col-3">
-            <div class="LogoImage">
-              <img :src="job.headerImage" />
+            <div>
+              <q-img :src="job.organizationLogo" />
             </div>
           </div>
           <div class="col-9">
             <h3 class="preview">{{ job.organization }}</h3>
             <h1 class="previewJobTitle">{{ job.title }}</h1>
-            <div class="previewData">
-              <ul>
-                <li>
-                  <i aria-hidden="true" class="material-icons q-icon">place</i
-                  >{{ job.location }} job.location
-                </li>
-                <li>
-                  <i aria-hidden="true" class="material-icons q-icon">work</i
-                  >Feste Anstellung
-                </li>
-                <li>
-                  <i aria-hidden="true" class="material-icons q-icon"
-                    >schedule</i
-                  >Vollzeit
-                </li>
-                <li>
-                  <i aria-hidden="true" class="material-icons q-icon"
-                    >calendar_today</i
-                  >Erschienen: vor 1 Tag
-                </li>
-              </ul>
-            </div>
+
             <br clear="all" />
           </div>
-          <div class="HeaderImage col-12">
-            <img :src="job.headerImage" />
+          <y-job-show-categories :job="job"/>
+          <div class="col-12">
+            <q-img :src="job.headerImage" />
           </div>
 
           <q-card-section>
@@ -202,34 +152,6 @@ h6 {
   margin-top: 30px;
   margin-bottom: 0;
 }
-.previewData {
-  text-align: left;
-  font-size: 16px;
-}
-.previewData ul {
-  padding: 20px 0;
-  margin: 0;
-  list-style: none;
-}
-.previewData ul li {
-  display: inline;
-  padding-left: 0px;
-  padding-right: 15px;
-}
-.previewData .material-icons {
-  font-size: 20px;
-  opacity: 0.7;
-  padding-right: 5px;
-}
-.HeaderImage {
-  background: url(/statics/HeaderUpload.jpg) center no-repeat;
-  padding: 5%;
-}
-.LogoImage {
-  background: url(/statics/PhotoUpload.png) center no-repeat;
-  color: #fff !important;
-  padding: 30px;
-}
 .content {
   padding: 20px;
 }
@@ -237,23 +159,20 @@ h6 {
 
 <script lang="javascript">
 import YPhotoUpload from './PhotoUpload.vue'
+import YJobShowCategories from './JobShowCategories.vue'
 
 export default {
   name: 'Job',
-  props: {
-    job: {
-      default: () => ({
-        title: '',
-        description: '',
-        location: '',
-        searching: 'suchen wir zum nächstmöglichen Zeitpunkt eine/n',
-        contactTitle: 'Kontakt',
-        contactText: ''
-      })
-    }
-  },
+  props: ['job'],
   data () {
     return {
+      toolbar: [
+        ['left', 'justify'],
+        ['bold', 'italic'],
+        ['token', 'hr', 'link'],
+        ['quote', 'unordered', 'ordered'],
+        ['undo', 'redo']
+      ],
       splitterModel: 50 // start at 50%
     }
   },
@@ -264,7 +183,8 @@ export default {
     }
   },
   components: {
-    YPhotoUpload
+    YPhotoUpload,
+    YJobShowCategories
   }
 }
 </script>

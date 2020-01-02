@@ -35,23 +35,7 @@
           </q-btn-dropdown>
         </q-tabs>
         <login-info :host="loginUri" />
-        <q-select
-            color="primary"
-            dense
-            borderless
-            options-dense
-            v-model='localeValue'
-            :options="languages"
-            @input="setLocale">
-        <template v-slot:selected>
-          <q-icon
-            class="flag-icon flag-icon-de"
-          />
-          <div v-if="localeValue">
-            <q-icon :name="localeValue.icon" />
-          </div>
-        </template>
-      </q-select>
+        <language-switch/>
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
     </q-header>
@@ -124,6 +108,16 @@
           icon="mail"
           to="/apply"
         />
+                <q-separator />
+        <q-btn
+          flat
+          color="primary"
+          class="full-width"
+          :label="$t('CV')"
+          align="arround"
+          icon="school"
+          to="/cv"
+        />
         <q-separator />
         <div class="q-gutter-md">
           <p class="text-grey-9 q-pa-md">
@@ -159,45 +153,19 @@
 // outside of a Vue file
 import LoginInfo from '../components/LoginInfo.vue'
 import Logo from '../components/Logo.vue'
+import LanguageSwitch from '../components/LanguageSwitch'
 
 export default {
   data () {
     return {
       right: false,
-      loginUri: process.env.STRAPI_HOST,
-      locale: this.$q.lang.isoName,
-      localeValue: {},
-      languages: [
-        { label: 'De', value: 'de-de', icon: 'img:/statics/icons/de.svg' },
-        { label: 'En', value: 'en-us', icon: 'img:/statics/icons/us.svg' },
-        { label: 'Fr', value: 'fr-fr', icon: 'img:/statics/icons/fr.svg' }
-      ]
+      loginUri: process.env.STRAPI_HOST
     }
   },
   components: {
     Logo,
-    LoginInfo
-  },
-  created () {
-    try {
-      this.$i18n.locale = this.$q.lang.getLocale()
-      this.localeValue.value = this.$q.lang.getLocale()
-      for (var i = 0, len = this.languages.length; i < len; i++) {
-        if (this.languages[i].value === this.$q.lang.getLocale()) {
-          this.localeValue.label = this.languages[i].label
-          this.localeValue.icon = this.languages[i].icon
-        }
-      }
-    }
-    catch (err) {
-      console.log('try to figure out, how to set the default language defined by the browser. Current Browser Locale:  ' + this.$q.lang.getLocale())
-    }
-  },
-  methods: {
-    setLocale (localeValue) {
-      this.$i18n.locale = localeValue.value
-      console.log('Sets locale to ' + JSON.stringify(this.localeValue.value))
-    }
+    LoginInfo,
+    LanguageSwitch
   }
 }
 </script>

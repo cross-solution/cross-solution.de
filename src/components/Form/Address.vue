@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent.stop="onSubmit" @reset.prevent.stop="onReset" @change="emitAddress">
+  <form @change="emitContact">
     <div class="address">
       <div class="row q-col-gutter-x-md">
         <div class="col-md-2 col-sm-6 col-xs-12">
@@ -7,10 +7,10 @@
             outlined
             v-model="c.gender"
             color="$blue"
-            :options="c.options"
+            :options="options"
             label="Anrede"
             :rules="[true]"
-            @change="emitAddress"
+            @change="emitContact"
           />
         </div>
         <div class="col-md-10 col-sm-6 col-xs-6" />
@@ -98,9 +98,6 @@ export default {
     c: {
       default: () => ({
         gender: '',
-        options: [
-          'Herr', 'Frau', 'Diverse'
-        ],
         phone: '',
         email: '',
         postalcode: '',
@@ -112,9 +109,17 @@ export default {
       })
     }
   },
+  data () {
+    return {
+      options: [
+        'Herr', 'Frau'
+      ]
+    }
+  },
   methods: {
-    emitAddress (event) {
-      this.$emit('Address', this.c)
+    emitContact (event) {
+      console.log('emit ' + this.c)
+      this.$emit('Contact', this.c)
     }
   }
 }

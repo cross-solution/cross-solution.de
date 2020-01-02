@@ -6,10 +6,12 @@
       header-nav
       color="primary"
       animated
+      :swipeable="$q.platform.is.mobile"
+      :contracted="$q.platform.is.mobile"
     >
       <q-step
         :name="1"
-        title="Grunddaten"
+        :title="$t('General Data')"
         icon="settings"
         :done="step > 1"
         style="min-height: 300px;"
@@ -22,41 +24,41 @@
 
       <q-step
         :name="2"
-        title="Anzeige erstellen"
+        :title="$t('Create Job')"
         icon="create_new_folder"
         :done="step > 2"
         style="min-height: 200px;"
       >
-        <YJob
+        <y-job
           :job="job"
-          @changeMsg="setMessage"
-        ></YJob>
+          @JobDescription="setJobDescription"
+        ></y-job>
       </q-step>
 
       <q-step
         :name="3"
-        title="Kontakt"
+        :title="$t('Contact')"
         icon="assignment"
         :done="step > 3"
         style="min-height: 200px;"
       >
         <y-address
           :c="job.contact"
-          v-on:Address="setAddress"
+          @Contact="setJobContact"
         />
       </q-step>
 
       <q-step
         :name="4"
-        title="Kategorien"
+        :title="$t('Categories')"
         icon="assignment"
         style="min-height: 200px;"
       >
         <div class="row q-gutter-sm">
-          <y-category-box />
+          <y-category-box  v-if="job" :job="job"/>
           <q-card class="col-md-3 col-sm-6 col-xs-12">
             <q-card-section>
-              <div class="text-h6">Pensum</div>
+              <div class="text-h6">{{$t('Workload')}}</div>
             </q-card-section>
 
             <q-card-section>
@@ -69,13 +71,13 @@
                   top
                 >
                   <q-checkbox
-                    v-model="workload"
-                    val="100"
+                    v-model="job.workload"
+                    val="fulltime"
                     color="primary"
                   />
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label>Vollzeit</q-item-label>
+                  <q-item-label>{{$t('fulltime')}}</q-item-label>
                 </q-item-section>
               </q-item>
               <q-item
@@ -87,13 +89,13 @@
                   top
                 >
                   <q-checkbox
-                    v-model="workload"
-                    val="contract"
+                    v-model="job.workload"
+                    val="parttime"
                     color="primary"
                   />
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label>Teilzeit</q-item-label>
+                  <q-item-label>{{$t('parttime')}}</q-item-label>
                 </q-item-section>
               </q-item>
               <q-item
@@ -105,12 +107,13 @@
                   top
                 >
                   <q-checkbox
-                    v-model="minijob"
+                    v-model="job.workload"
                     color="primary"
+                    val="minijob"
                   />
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label>Minijob</q-item-label>
+                  <q-item-label>{{$t('minijob')}}</q-item-label>
                 </q-item-section>
               </q-item>
             </q-card-section>
@@ -193,7 +196,7 @@
             top
           >
             <q-checkbox
-              v-model="conditions"
+              v-model="job.gtcAccepted"
               val="primary"
               color="primary"
             />
@@ -210,18 +213,19 @@
       <template v-slot:navigation>
         <q-stepper-navigation>
           <q-btn
-            @click="$refs.stepper.next()"
-            color="primary"
-            :label="step === 5 ? 'Absenden' : 'Weiter'"
-          />
-          <q-btn
             v-if="step > 1"
             flat
             color="primary"
             @click="$refs.stepper.previous()"
-            label="Zurück"
+            :label="$t('Back')"
             class="q-ml-sm"
           />
+          <q-btn
+            @click="$refs.stepper.next()"
+            color="primary"
+            :label="step === 5 ? $t('Submit') : $t('Next')"
+          />
+
         </q-stepper-navigation>
       </template>
 
@@ -269,14 +273,71 @@ export default {
     return {
       step: 1,
       gLocation: '',
-      jobtype: ['fulltime'],
-      conditions: '',
-      minijob: '',
       start: '',
       date: '',
-      workload: '',
-      job: {
-        headerImage: '/statics/HeaderUpload.png',
+      job: null
+    }
+  },
+  created () {
+    try {
+      if (!this.job) {
+        this.job = JSON.parse(localStorage.getItem('job'))
+        console.log('got job from localStorage' + this.job)
+        if (!this.job) {
+          this.initJob()
+          this.saveJob(this.job)
+        }
+      }
+      else {
+        console.log('this job already exists ' + this.job)
+      }
+    }
+    catch (err) {
+      console.log('could not load job from localStorage')
+      this.initJob()
+    }
+  },
+  methods: {
+    setJobGeneral (data) {
+      console.log('Try to set setJobGeneral: ', data)
+      this.job.title = data.title
+      this.job.location = data.location
+      this.job.organization = data.organization
+      this.job.apply.expanded.email = data.apply.expanded.email
+      this.job.apply.expanded.url = data.apply.expanded.url
+      this.job.apply.url = data.apply.url
+      this.job.apply.email = data.apply.email
+      this.job.apply.disabled = data.apply.disabled
+      this.saveJob(this.job)
+    },
+    setJobDescription (job) {
+      console.log('Try to set JobDescription: ' + job)
+      this.job.contactText = job.contactText
+      this.job.description = job.description
+      this.job.searching = job.searching
+      this.job.tasksTitle = job.tasksTitle
+      this.job.tasksText = job.tasksText
+      this.job.benefitsTitle = job.benefitsText
+      this.job.benefitsText = job.benefitsTitle
+      this.job.contactText = job.contactText
+      this.job.contactTitle = job.contactTitle
+      this.saveJob(this.job)
+    },
+    setJobContact (data) {
+      console.log('Try to set setJobContact: ', data)
+      try {
+        this.job.contact = data
+        this.saveJob(this.job)
+      }
+      catch (err) {
+        console.log('Could not set setJobContact: ', data)
+      }
+    },
+    initJob () {
+      this.job = {
+        step: 1,
+        headerImage: '/statics/HeaderUpload.jpg',
+        organizationLogo: '/statics/PhotoUpload.png',
         title: '',
         organization: '',
         description: 'Also führender Anbieter ...',
@@ -298,40 +359,19 @@ export default {
             url: false
           },
           disabled: false
-        }
+        },
+        workload: ['fulltime'],
+        jobtype: ['permanent'],
+        contact: {
+          fistname: '',
+          lastname: '',
+          options: ['male', 'female']
+        },
+        gtcAccepted: false
       }
-    }
-  },
-  props: {
-    locationType: {
-      type: String,
-      default: 'geocode'
     },
-    description: String,
-    searching: String,
-    tasks: String,
-    titleTasks: String,
-    qualifications: String,
-    titleQualifications: String,
-    benefits: String,
-    titleBenefits: String,
-    titleContact: String,
-    contact: String
-  },
-  methods: {
-    setAddress (contact) {
-      this.job.contact = contact
-    },
-    setJobGeneral (data) {
-      console.log('setJobGeneral', data)
-      this.job.title = data.title
-      this.job.location = data.location
-      this.job.organization = data.organization
-      localStorage.setItem('job', JSON.stringify(this.job))
-    },
-    setMessage (msg) {
-      this.text_value = msg
-      console.log(msg)
+    saveJob (job) {
+      localStorage.setItem('job', JSON.stringify(job))
     }
   },
   components: {
