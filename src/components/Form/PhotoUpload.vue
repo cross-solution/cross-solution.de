@@ -1,10 +1,11 @@
 <template>
   <div>
     <q-uploader
-      style="border: 2px dashed #ccc; height: 10rem;"
-      class="text-center uploaderBox bg-light-blue-1"
+      style="height: 18rem;"
+      class="uploaderBox"
       url="http://localhost:4444/upload"
       flat
+      :multiple="multiple"
       color="light-blue-1"
       text-color="grey-9"
       ref="input"
@@ -15,25 +16,26 @@
       <template v-slot:header="scope">
         <q-card flat>
           <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
-          <div class="text-subtitle2 absolute-bottom text-center">
-            <div class="q-uploader__title">{{$t('Drop a Photo')}}</div>
+          <div class="text-subtitle2 flex no-wrap q-gutter-xl">
+           <div class="q-uploader__title">{{textSelectFile}}
             <div class="q-uploader__subtitle">
               {{ scope.uploadSizeLabel }} /
               {{ scope.uploadProgressLabel }}
             </div>
-          </div>
-          <q-btn v-if="scope.canAddFiles" type="a" icon="add_box" round dense flat>
+            </div>
+            <q-btn v-if="scope.canAddFiles" type="a" icon="add_box" round dense flat>
             <q-uploader-add-trigger />
-            <q-tooltip>{{$t('Choose Photo')}}</q-tooltip>
+            <q-tooltip>{{textToolTip}}</q-tooltip>
           </q-btn>
           <q-btn v-if="scope.canUpload" icon="cloud_upload" @click="scope.upload" round dense flat>
             <q-tooltip>Upload Files</q-tooltip>
           </q-btn>
+          </div>
         </q-card>
       </template>
 
       <template v-slot:list="scope">
-        <q-card flat style="padding:0">
+        <q-card flat style="padding:0; border: 2px dashed #ccc;">
           <div v-if="scope.queuedFiles.length == 0">
             <q-img
               style="width: 100%; min-height: 7rem"
@@ -102,13 +104,13 @@ import VueCropper from 'vue-cropperjs'
 
 export default {
   name: 'PhotoUpload',
-  props: ['color', 'default-image', 'multiple'],
+  props: ['color', 'default-image', 'multiple', 'upload-type'],
   mixins: [VueCropper],
   data () {
     return {
       maxTotalSize: 2048000,
       cropperDialog: false,
-      imgSrc: '/statics/PhotoUpload.png',
+      imgSrc: '/statics/LogoUpload.png',
       cropImg: '',
       image: null
     }
@@ -163,6 +165,18 @@ export default {
         alert('Sorry, FileReader API not supported')
       }
     }
+  },
+  computed: {
+    textSelectFile () {
+      console.log('compute textSelectFile: ' + this.uploadType)
+      if (!this.uploadType) {
+        return this.$t('select file', { do: this.$t('Select'), what: 'File' })
+      }
+      return this.$t('select file', { do: this.$t('Select'), what: this.$t(this.uploadType) })
+    },
+    textToolTip () {
+      return ''
+    }
   }
 }
 </script>
@@ -172,5 +186,10 @@ export default {
   width: 100%
 .q-uploader__list.scroll
   padding: 0 !important
+.q-gutter-xs
+  margin-left: 0px !important
+  margin-right: 5px !important
+.q-uploader__title
+    font-size: 13px !important
 
 </style>

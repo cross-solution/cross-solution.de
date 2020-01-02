@@ -21,6 +21,7 @@
           <div class="col-md-2 col-xs-12">
             <y-photo-upload
               color="transparent"
+              upload-type="Photo"
               default-image="/statics/PhotoUpload.png"
             />
           </div>

@@ -20,7 +20,12 @@ export default {
   'parttime': 'Teilzeit',
   'minijob': 'Minijob',
   'Job Type': 'Art der Anstellung',
-  'Drop a Photo': 'Photo reinziehen',
+  'Select': 'auswählen',
+  'select file': '{what} {do}', // Logo auswählen
+  'Drag&Drop': 'Drag & Drop',
+  'Photo': 'Foto',
+  'Logo': 'Logo',
+  'Header Image': 'Headerbild',
   'Workload': 'Pensum',
   'permanent': 'Festanstellung',
   'contract': 'Freie Mitarbeit',
