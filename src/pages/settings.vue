@@ -11,6 +11,7 @@ import YAddress from '../components/Form/Address.vue'
 import YPhotoUpload from '../components/Form/PhotoUpload.vue'
 
 export default {
+
   name: 'Settings',
   components: {
     YAddress,
