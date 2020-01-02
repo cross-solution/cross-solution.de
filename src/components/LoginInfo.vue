@@ -1,12 +1,12 @@
 <template>
   <div>
     <div v-if="!loggedIn">
-      <q-btn color="primary" flat label="Login" @click="doLogin = true" />
+      <q-btn color="primary" flat :label="$t('Login')" @click="doLogin = true" />
       <q-dialog ref="loginDialog" v-model="doLogin">
         <q-card class="relative-position">
           <q-tabs v-model="loginStatus.mode" dense active-color="primary">
-            <q-tab name="login" label="Login" />
-            <q-tab name="register" label="Register" />
+            <q-tab name="login" :label="$t('Login')" />
+            <q-tab name="register" :label="$t('Register')" />
           </q-tabs>
 
           <q-card-section>
@@ -24,7 +24,7 @@
                 v-model="credentials.name"
                 dense
                 autofocus
-                placeholder="Name"
+                :placeholder="$t('Username')"
               />
               <q-input
                 v-if="loginStatus.mode == 'register'"
@@ -36,7 +36,7 @@
                 v-model="credentials.pass"
                 dense
                 :type="showPw ? 'text' : 'password'"
-                placeholder="Password"
+                :placeholder="$t('Password')"
                 @keyup.enter="$refs.loginForm.submit()"
               >
                 <template v-slot:append>
@@ -52,18 +52,18 @@
               </q-inner-loading>
             </q-card-section>
             <q-card-actions align="right" class="text-primary">
-              <q-btn type="reset" v-close-popup flat label="Cancel" />
+              <q-btn type="reset" v-close-popup flat :label="$t('Cancel')" />
               <q-btn
                 v-if="loginStatus.mode == 'login'"
                 type="submit"
                 flat
-                label="Login"
+                :label="$t('Login')"
               />
               <q-btn
                 v-if="loginStatus.mode == 'register'"
                 type="submit"
                 flat
-                label="Register"
+                :label="$t('Register')"
               />
             </q-card-actions>
           </q-form>
@@ -80,9 +80,9 @@
       >
         <!-- dropdown content goes here -->
         <q-list class="bg-orange-1" padding style="width: 250px">
-          <q-item to="/settings" clickable>
+          <q-item clickable to="/settings">
             <q-item-section>
-              <q-item-label>Einstellungen</q-item-label>
+              <q-item-label>{{$t('Settings')}}</q-item-label>
             </q-item-section>
             <q-item-section side>
               <q-icon name="settings" color="primary" />
@@ -90,7 +90,7 @@
           </q-item>
           <q-item clickable @click="onLogout" dense>
             <q-item-section>
-              <q-item-label>Logout</q-item-label>
+              <q-item-label>{{$t('Logout')}}</q-item-label>
             </q-item-section>
             <q-item-section side>
               <q-icon name="fas fa-sign-out-alt" color="primary" />
@@ -284,3 +284,27 @@ export default {
   }
 }
 </script>
+
+<i18n lang="yaml">
+de-de:
+  'Cancel': 'Abbrechen'
+  'Login': 'Anmelden'
+  'Logout': 'Abmelden'
+  'Username': 'Benutzername'
+  'Password': 'Kennwort'
+  'Register': 'Registrieren'
+en-us:
+  'Cancel': 'Cancel'
+  'Login': 'Login'
+  'Logout': 'Logout'
+  'Username': 'Username'
+  'Password': 'Password'
+  'Register': 'Register'
+fr-fr:
+  'Cancel': 'Annuler'
+  'Login': 'Connexion'
+  'Logout': 'Déconnexion'
+  'Username': "Nom d'utilisateur"
+  'Password': 'Mot de passe'
+  'Register': "S'inscrire"
+</i18n>

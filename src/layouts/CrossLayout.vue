@@ -8,11 +8,11 @@
         <q-tabs align="left" class="desktop-only">
           <q-route-tab
             to="/digital-change"
-            label="Digitaler Wandel"
+            :label="$t('Digital Change')"
             class="gt-xs"
           />
-          <q-route-tab to="/open-source" label="Open Source" class="gt-xs" />
-          <q-btn-dropdown flat color="primary" label="Über uns">
+          <q-route-tab to="/open-source" label="Open Source" class="gt-xs"/>
+          <q-btn-dropdown flat color="primary" :label="$t('About Us')">
             <q-list>
               <q-item clickable v-close-popup to="/about">
                 <q-item-section>
@@ -34,7 +34,24 @@
             </q-list>
           </q-btn-dropdown>
         </q-tabs>
-        <login-info :host="strapiHost" />
+        <login-info :host="loginUri" />
+        <q-select
+            color="primary"
+            dense
+            borderless
+            options-dense
+            v-model='localeValue'
+            :options="languages"
+            @input="setLocale">
+        <template v-slot:selected>
+          <q-icon
+            class="flag-icon flag-icon-de"
+          />
+          <div v-if="localeValue">
+            <q-icon :name="localeValue.icon" />
+          </div>
+        </template>
+      </q-select>
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
     </q-header>
@@ -44,12 +61,11 @@
           flat
           color="primary"
           class="full-width lt-md"
-          label="Digitaler Wandel"
+          :label="$t('Digital Change')"
           icon="calendar"
           align="arround"
           to="/digital-change"
         />
-
         <q-btn
           flat
           color="primary"
@@ -63,7 +79,7 @@
           flat
           color="primary"
           class="full-width lt-md"
-          label="Über uns"
+          :label="$t('About Us')"
           icon="calendar"
           align="arround"
           to="/about"
@@ -83,7 +99,7 @@
           flat
           color="primary"
           class="full-width"
-          label="Jobs suchen"
+          :label="$t('Search Jobs')"
           align="arround"
           icon="search"
           to="/jobs"
@@ -93,7 +109,7 @@
           flat
           color="primary"
           class="full-width"
-          label="Jobs eingeben"
+          :label="$t('Post a Job')"
           align="arround"
           icon="edit"
           to="/jobpost"
@@ -103,20 +119,10 @@
           flat
           color="primary"
           class="full-width"
-          label="Bewerben"
+          :label="$t('Apply')"
           align="arround"
           icon="mail"
           to="/apply"
-        />
-        <q-separator />
-        <q-btn
-          flat
-          color="primary"
-          class="full-width"
-          label="Cv"
-          align="arround"
-          icon="fas fa-university"
-          to="/cv"
         />
         <q-separator />
         <div class="q-gutter-md">
@@ -138,11 +144,10 @@
 
     <q-footer bordered class="text-white text-center">
       <q-tabs no-caps active-color="secondary" indicator-color="transparent">
-        <q-route-tab name="imprint" to="/imprint" label="Impressum" />
-        <q-route-tab name="privacy" to="/privacy" label="Datenschutz" />
-        <q-route-tab name="contact" to="/contact" label="Kontakt" />
+        <q-route-tab name="imprint" to="/imprint" :label="$t('Imprint')" />
+        <q-route-tab name="privacy" to="/privacy" :label="$t('Privacy')" />
+        <q-route-tab name="contact" to="/contact" :label="$t('Contact')" />
       </q-tabs>
-
       <a href="https://github.com/cross-solution">
         <q-icon name="fab fa-github" size="lg" />
       </a>
@@ -159,12 +164,40 @@ export default {
   data () {
     return {
       right: false,
-      strapiHost: process.env.STRAPI_HOST
+      loginUri: process.env.STRAPI_HOST,
+      locale: this.$q.lang.isoName,
+      localeValue: {},
+      languages: [
+        { label: 'De', value: 'de-de', icon: 'img:/statics/icons/de.svg' },
+        { label: 'En', value: 'en-us', icon: 'img:/statics/icons/us.svg' },
+        { label: 'Fr', value: 'fr-fr', icon: 'img:/statics/icons/fr.svg' }
+      ]
     }
   },
   components: {
     Logo,
     LoginInfo
+  },
+  created () {
+    try {
+      this.$i18n.locale = this.$q.lang.getLocale()
+      this.localeValue.value = this.$q.lang.getLocale()
+      for (var i = 0, len = this.languages.length; i < len; i++) {
+        if (this.languages[i].value === this.$q.lang.getLocale()) {
+          this.localeValue.label = this.languages[i].label
+          this.localeValue.icon = this.languages[i].icon
+        }
+      }
+    }
+    catch (err) {
+      console.log('try to figure out, how to set the default language defined by the browser. Current Browser Locale:  ' + this.$q.lang.getLocale())
+    }
+  },
+  methods: {
+    setLocale (localeValue) {
+      this.$i18n.locale = localeValue.value
+      console.log('Sets locale to ' + JSON.stringify(this.localeValue.value))
+    }
   }
 }
 </script>

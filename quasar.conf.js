@@ -80,6 +80,13 @@ module.exports = function (ctx) {
           options: {
             formatter: require('eslint').CLIEngine.getFormatter('stylish')
           }
+        },
+        {
+          resourceQuery: /blockType=i18n/,
+          use: [
+            { loader: '@kazupon/vue-i18n-loader' },
+            { loader: 'yaml-loader' }
+          ]
         })
       },
       uglifyOptions: {

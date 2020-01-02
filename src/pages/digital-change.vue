@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <h1>Digitaler Wandel</h1>
+    <h1>{{$t('Digital Change')}}</h1>
     <p>
       Die Welt verändert sich. Das ist nichts Neues. Sie hat sich schon immer
       verändert. Sie verändert sich nur schneller.
