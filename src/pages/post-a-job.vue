@@ -55,69 +55,8 @@
         style="min-height: 200px;"
       >
         <div class="row q-gutter-sm">
-          <y-category-box  v-if="job" :job="job"/>
-          <q-card class="col-md-3 col-sm-6 col-xs-12">
-            <q-card-section>
-              <div class="text-h6">{{$t('Workload')}}</div>
-            </q-card-section>
-
-            <q-card-section>
-              <q-item
-                tag="label"
-                v-ripple
-              >
-                <q-item-section
-                  avatar
-                  top
-                >
-                  <q-checkbox
-                    v-model="job.workload"
-                    val="fulltime"
-                    color="primary"
-                  />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>{{$t('fulltime')}}</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item
-                tag="label"
-                v-ripple
-              >
-                <q-item-section
-                  avatar
-                  top
-                >
-                  <q-checkbox
-                    v-model="job.workload"
-                    val="parttime"
-                    color="primary"
-                  />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>{{$t('parttime')}}</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item
-                tag="label"
-                v-ripple
-              >
-                <q-item-section
-                  avatar
-                  top
-                >
-                  <q-checkbox
-                    v-model="job.workload"
-                    color="primary"
-                    val="minijob"
-                  />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>{{$t('minijob')}}</q-item-label>
-                </q-item-section>
-              </q-item>
-            </q-card-section>
-          </q-card>
+          <y-box-job-type :job="job"/>
+          <y-box-workload :job="job"/>
           <q-card class="col-md-3 col-sm-6 col-xs-12">
             <q-card-section>
               <div class="text-h6">Eintrittstermin</div>
@@ -263,7 +202,8 @@
 import YAddress from '../components/Form/Address.vue'
 import YJobGeneral from '../components/Form/JobGeneral.vue'
 import YJob from '../components/Form/Job.vue'
-import YCategoryBox from '../components/Form/CategoryBox.vue'
+import YBoxJobType from '../components/Form/BoxJobType.vue'
+import YBoxWorkload from '../components/Form/BoxWorkload.vue'
 
 export default {
   meta: {
@@ -378,7 +318,8 @@ export default {
     YJobGeneral,
     YAddress,
     YJob,
-    YCategoryBox
+    YBoxJobType,
+    YBoxWorkload
   },
   computed: {
     drawerState: {
