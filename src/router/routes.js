@@ -1,7 +1,7 @@
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/CrossLayout.vue'),
+    component: () => import('layouts/Default.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') },
       { path: 'about', component: () => import('pages/about.vue') },
@@ -19,9 +19,18 @@ const routes = [
       { path: 'timeline', component: () => import('pages/timeline.vue') },
       { path: 'apply', component: () => import('pages/apply.vue') },
       { path: 'values', component: () => import('pages/values.vue') },
-      { path: 'cv', component: () => import('pages/cv.vue') },
       { path: 'settings', component: () => import('pages/settings.vue') },
       { path: 'login', component: () => import('pages/login.vue') }
+    ]
+  }, {
+    path: '/cv',
+    component: () => import('layouts/CV.vue'),
+    children: [
+      { path: '', component: () => import('pages/cv.vue') },
+      { path: 'general-data', component: () => import('pages/cv/general-data.vue') },
+      { path: 'work-experiences', component: () => import('pages/cv/work-experiences.vue') },
+      { path: 'education', component: () => import('pages/cv/education.vue') },
+      { path: 'desired-work', component: () => import('pages/cv/desired-work.vue') }
     ]
   }
 ]

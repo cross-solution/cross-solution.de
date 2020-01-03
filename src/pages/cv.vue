@@ -3,7 +3,7 @@
     <form @submit.prevent="simulateSubmit" class="q-pa-md">
       <div class="row q-col-gutter-x-md">
         <div class="col-md-10 col-xs-12">
-          <h2>Grunddaten</h2>
+          <h2>{{$t('General Data')}}</h2>
           <y-address />
           <div class="col-lg-12 col-sm-6 col-xs-12" style="margin-top: 21px;">
             <q-input outlined type="country" label="Nationalität" lazy-rules />
@@ -66,10 +66,11 @@ export default {
   data () {
     return {
       selection: ['Festeinstellung'],
-      locale: undefined,
       salary: '',
       time: '',
-      fixed: ''
+      fixed: '',
+      left: true,
+      drawer: true
     }
   },
   methods: {
