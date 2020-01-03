@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <form @submit.prevent="simulateSubmit" class="q-pa-md">
+    <form class="q-pa-md">
       <div class="row q-col-gutter-x-md">
         <div class="col-md-10 col-xs-12">
           <h2>Grunddaten</h2>

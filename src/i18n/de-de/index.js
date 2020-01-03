@@ -36,5 +36,12 @@ export default {
   'Back': 'Zurück',
   'Next': 'Weiter',
   'Submit': 'Absenden',
-  'Categories': 'Kategorien'
+  'Categories': 'Kategorien',
+  'Work Experience': 'Berufserfahrung',
+  'Education': 'Ausbildung',
+  'Desired Work': 'Gewünschte Tätigkeit',
+  'Start': 'Beginn',
+  'End': 'Ende',
+  'Ongoing': 'Bis heute',
+  'Company/Organization': 'Firma/Organization'
 }

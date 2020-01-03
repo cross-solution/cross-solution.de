@@ -57,7 +57,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item active clickable to="/cv/desired-work" v-ripple>
+            <q-item clickable to="/cv/desired-work" v-ripple>
               <q-item-section avatar>
                 <q-icon name="star" />
               </q-item-section>
@@ -67,13 +67,13 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple to="/cv/work-experiences">
+            <q-item clickable v-ripple to="/cv/work-experience">
               <q-item-section avatar>
                 <q-icon name="send" />
               </q-item-section>
 
               <q-item-section>
-                {{$t('Work Experiences')}}
+                {{$t('Work Experience')}}
               </q-item-section>
             </q-item>
 
@@ -220,7 +220,8 @@ export default {
   data () {
     return {
       right: false,
-      loginUri: process.env.STRAPI_HOST
+      loginUri: process.env.STRAPI_HOST,
+      drawer: true
     }
   },
   components: {

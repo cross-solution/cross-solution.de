@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <form @submit.prevent="simulateSubmit" class="q-pa-md">
+    <form class="q-pa-md">
       <div class="row q-col-gutter-x-md">
         <div class="col-md-10 col-xs-12">
           <h2>{{$t('General Data')}}</h2>
@@ -49,7 +49,7 @@
 import YAddress from '../components/Form/Address.vue'
 import YPhotoUpload from '../components/Form/PhotoUpload.vue'
 import YDesiredWork from '../components/Form/DesiredWork.vue'
-import YWorkExperience from '../components/Form/WorkExperience.vue'
+import YWorkExperience from '../components/Cv/WorkExperience/List.vue'
 import YEducation from '../components/Form/Education.vue'
 
 export default {

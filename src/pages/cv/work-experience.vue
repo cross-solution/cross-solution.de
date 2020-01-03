@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <form @submit.prevent="simulateSubmit" class="q-pa-md">
+    <form class="q-pa-md">
       <y-work-experience />
       <div class="row q-col-gutter-x-md">
         <div class="row justify-end">
@@ -28,7 +28,7 @@
 </template>
 
 <script lang="javascript">
-import YWorkExperience from '../../components/Form/WorkExperience.vue'
+import YWorkExperience from '../../components/Cv/WorkExperience/List.vue'
 
 export default {
   // name: 'PageName',

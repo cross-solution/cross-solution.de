@@ -6,12 +6,12 @@
     @change="emitDateRange"
   >
       <q-input
-        class="col-6"
+        class="col-4"
         outlined
-        v-model="dateRange.start"
-        mask="date"
-        :rules="['dateRange.start']"
-        label="Beginn"
+        :locale="$q.lang.getLocale()"
+        v-model="start"
+        :rules="['start']"
+        :label="$t('Start')"
       >
         <template v-slot:append>
           <q-icon name="event" class="cursor-pointer">
@@ -21,7 +21,7 @@
               transition-hide="scale"
             >
               <q-date
-                v-model="dateRange.start"
+                v-model="start"
                 @input="() => $refs.qDateStartProxy.hide()"
                 default-view="Years"
               />
@@ -31,14 +31,14 @@
       </q-input>
 
       <q-input
-        class="col-6"
+        class="col-4"
         outlined
-        :disable="dateRange.ongoing"
+        :disable="ongoing"
         clearable
-        v-model="dateRange.end"
+        v-model="end"
         mask="date"
-        :rules="['dateRange.end']"
-        label="Ende"
+        :rules="['end']"
+        :label="$t('End')"
       >
         <template v-slot:append>
           <q-icon name="event" class="cursor-pointer">
@@ -48,7 +48,7 @@
               transition-hide="scale"
             >
               <q-date
-                v-model="dateRange.end"
+                v-model="end"
                 @input="() => $refs.qDateEndProxy.hide()"
                 default-view="Years"
               />
@@ -57,8 +57,9 @@
         </template>
       </q-input>
       <q-checkbox
-      v-model="dateRange.ongoing"
-      label="Bis heute"
+      class="col-2"
+      v-model="ongoing"
+      :label="$t('Ongoing')"
       />
   </form>
 </template>
@@ -78,12 +79,18 @@ export default {
   },
   data () {
     return {
-      locale: undefined
+      start: null,
+      end: null,
+      ongoing: false
     }
   },
   methods: {
     emitDateRange (event) {
-      this.$emit('DateRange', this.dateRange)
+      this.$emit('DateRange', {
+        start: this.start,
+        end: this.end,
+        ongoing: this.ongoing
+      })
     }
   }
 }
