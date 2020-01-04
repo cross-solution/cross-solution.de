@@ -1,17 +1,17 @@
 <template>
-  <form
+  <form name="dateRange"
     class="row date-range q-col-gutter-xs"
-    @submit.prevent.stop="onSubmit"
-    @reset.prevent.stop="onReset"
     @change="emitDateRange"
   >
       <q-input
         class="col-4"
         outlined
-        :locale="$q.lang.getLocale()"
+        :minimal="minimal"
+        :landscape="landscape"
         v-model="start"
         :rules="['start']"
         :label="$t('Start')"
+        @change="emitDateRange"
       >
         <template v-slot:append>
           <q-icon name="event" class="cursor-pointer">
@@ -22,6 +22,9 @@
             >
               <q-date
                 v-model="start"
+                :title="$t('Start')"
+                :minimal="minimal"
+                :landscape="landscape"
                 @input="() => $refs.qDateStartProxy.hide()"
                 default-view="Years"
               />
@@ -34,11 +37,13 @@
         class="col-4"
         outlined
         :disable="ongoing"
+        :minimal="minimal"
+        :landscape="landscape"
         clearable
         v-model="end"
-        mask="date"
         :rules="['end']"
         :label="$t('End')"
+        @change="emitDateRange"
       >
         <template v-slot:append>
           <q-icon name="event" class="cursor-pointer">
@@ -49,17 +54,22 @@
             >
               <q-date
                 v-model="end"
+                :title="$t('End')"
+                :minimal="minimal"
+                :landscape="landscape"
                 @input="() => $refs.qDateEndProxy.hide()"
                 default-view="Years"
+                @change="emitDateRange"
               />
             </q-popup-proxy>
           </q-icon>
         </template>
       </q-input>
       <q-checkbox
-      class="col-2"
-      v-model="ongoing"
-      :label="$t('Ongoing')"
+        class="col-2"
+        v-model="ongoing"
+        :label="$t('Ongoing')"
+        @input="emitDateRange"
       />
   </form>
 </template>
@@ -81,11 +91,14 @@ export default {
     return {
       start: null,
       end: null,
-      ongoing: false
+      ongoing: false,
+      minimal: this.$q.screen.lt.sm,
+      landscape: this.$q.screen.gt.xs
     }
   },
   methods: {
     emitDateRange (event) {
+      console.log('Emit DateRange: ' + event)
       this.$emit('DateRange', {
         start: this.start,
         end: this.end,

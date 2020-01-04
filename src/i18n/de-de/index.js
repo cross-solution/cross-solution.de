@@ -43,5 +43,7 @@ export default {
   'Start': 'Beginn',
   'End': 'Ende',
   'Ongoing': 'Bis heute',
-  'Company/Organization': 'Firma/Organization'
+  'Company/Organization': 'Firma/Organization',
+  'to': 'bis',
+  'All my life': 'Mein ganzes Leben'
 }

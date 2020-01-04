@@ -1,39 +1,47 @@
 <template>
   <div>
+    <h1>{{$t('Work Experience')}}</h1>
   <div
-    v-for="workExperience in workExperiencesDirect"
+    v-for="workExperience in workExperiences"
     v-bind:key="workExperience.id"
     :work-experience="workExperience">
-    <work-experience :item="workExperience"/>
+    <work-experience :item="workExperience" />
   </div>
+  <q-btn icon="create" @click="addWorkExperience"/>
   </div>
 </template>
 
 <script lang="javascript">
 
-import { mapGetters } from 'vuex'
 import WorkExperience from './WorkExperience.vue'
+import WorkExperiences from '../../../store/models/WorkExperiences'
 
 export default {
   name: 'workExperiences',
   data () {
     return {
-      locale: undefined,
-      date: null,
-      location: ''
+      date: null
     }
   },
   components: {
     WorkExperience
   },
+  methods: {
+    addWorkExperience () {
+      WorkExperiences.insert({
+        data: [
+          {
+            position: '',
+            organization: '',
+            description: ''
+          }
+        ]
+      })
+    }
+  },
   computed: {
-    ...mapGetters(['cv.workExperiences']),
-    workExperiencesGet () {
-      console.log(this.$store)
-      return this.$store.getters.cv.workExperiences
-    },
-    workExperiencesDirect () {
-      return this.$store.state.cv.workExperiences
+    workExperiences () {
+      return WorkExperiences.all()
     }
   }
 }

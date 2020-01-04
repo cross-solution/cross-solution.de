@@ -1,10 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VuexORM from '@vuex-orm/core'
+import WorkExperiences from './models/WorkExperiences'
 
 import jobs from './jobs'
-import cv from './cv'
 
 Vue.use(Vuex)
+
+// Create a new instance of Database.
+const database = new VuexORM.Database()
+
+// Register Models to Database.
+database.register(WorkExperiences)
 
 /*
  * If not building with SSR mode, you can
@@ -14,9 +21,11 @@ Vue.use(Vuex)
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
-      jobs,
-      cv
+      jobs
     },
+    plugins: [
+      VuexORM.install(database)
+    ],
 
     // enable strict mode (adds overhead!)
     // for dev mode only
