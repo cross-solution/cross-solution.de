@@ -1,25 +1,24 @@
 <template>
   <q-page padding>
+    <h1>{{$t('Work Experience')}}</h1>
     <form class="q-pa-md">
-      <y-work-experience />
+      <work-experience />
     </form>
   </q-page>
 </template>
 
 <script lang="javascript">
-import YWorkExperience from '../../components/Cv/WorkExperience/List.vue'
+import WorkExperience from '../../components/Cv/WorkExperience/List.vue'
 
 export default {
   // name: 'PageName',
   props: ['loading'],
   components: {
-    YWorkExperience
+    WorkExperience
   },
 
   data () {
     return {
-      selection: ['Festeinstellung'],
-      salary: '',
       time: '',
       fixed: '',
       left: true,

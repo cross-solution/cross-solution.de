@@ -1,6 +1,7 @@
 <template>
   <q-page padding>
     <form class="q-pa-md">
+      <h1>{{$t('Desired Work')}}</h1>
       <y-desired-work />
       <div class="row q-col-gutter-x-md">
         <div class="row justify-end">
@@ -28,7 +29,7 @@
 </template>
 
 <script lang="javascript">
-import YDesiredWork from '../../components/Form/DesiredWork.vue'
+import YDesiredWork from '../../components/Cv/DesiredWork/DesiredWork.vue'
 
 export default {
   // name: 'PageName',
@@ -36,19 +37,9 @@ export default {
   components: {
     YDesiredWork
   },
-
   data () {
     return {
-      selection: ['Festeinstellung'],
-      salary: '',
-      time: '',
-      fixed: '',
-      left: true,
-      drawer: true
     }
-  },
-  methods: {
-    submitting () {}
   }
 }
 </script>

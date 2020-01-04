@@ -1,55 +1,27 @@
 <template>
   <q-page padding>
+    <h1>{{$t('Education')}}</h1>
     <form class="q-pa-md">
-      <y-education />
-      <div class="row q-col-gutter-x-md">
-        <div class="row justify-end">
-          <q-btn
-            type="submit"
-            label="Speichern"
-            flat
-            class="q-mt-md"
-            color="primary"
-          >
-          </q-btn>
-          <q-btn
-            type="submit"
-            label="Löschen"
-            flat
-            class="q-mt-md"
-            color="primary"
-            style="margin-left: 20px;"
-          >
-          </q-btn>
-        </div>
-      </div>
+      <education />
     </form>
   </q-page>
 </template>
 
 <script lang="javascript">
-
-import YEducation from '../../components/Form/Education.vue'
+import Education from '../../components/Cv/Education/List.vue'
 
 export default {
-  name: 'Education',
+  // name: 'PageName',
   props: ['loading'],
   components: {
-    YEducation
+    Education
   },
 
   data () {
     return {
-      selection: ['Festeinstellung'],
-      salary: '',
-      time: '',
-      fixed: '',
       left: true,
       drawer: true
     }
-  },
-  methods: {
-    submitting () {}
   }
 }
 </script>

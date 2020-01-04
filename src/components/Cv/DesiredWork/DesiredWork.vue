@@ -5,7 +5,6 @@
     @reset.prevent.stop="onReset"
     @change="emitDesiredWork"
   >
-    <h2>Ausbildung</h2>
     <div class="row q-col-gutter-md">
       <div c class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <q-input
@@ -69,8 +68,8 @@
 <script lang="javascript">
 
 import { CurrencyDirective } from 'vue-currency-input'
-import YSearchRegion from '../SearchRegion.vue'
-import YSalaryInput from './SalaryInput.vue'
+import YSearchRegion from '../../SearchRegion.vue'
+import YSalaryInput from '../../Form/SalaryInput.vue'
 
 export default {
   name: 'DesiredWork',
