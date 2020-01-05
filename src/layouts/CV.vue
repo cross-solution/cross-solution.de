@@ -47,6 +47,15 @@
       >
         <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
           <q-list padding>
+            <q-item>
+          <q-slider
+            v-model="completeness"
+            markers
+            readonly
+            :min="0"
+            :max="10"
+          />
+            </q-item>
             <q-item clickable v-ripple to="/cv/general-data">
               <q-item-section avatar>
                 <q-icon name="inbox" />
@@ -89,13 +98,15 @@
           </q-list>
         </q-scroll-area>
 
-        <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
-          <div class="absolute-bottom bg-transparent">
-            <q-avatar size="56px" class="q-mb-sm">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+        <q-img
+          class="absolute-top"
+          src="/statics/cv-bg.jpg" style="height: 150px">
+          <div class="absolute-bottom bg-transparent text-center">
+            <q-avatar size="70px" class="q-mb-sm">
+              <img src="/statics/PhotoUpload.png">
             </q-avatar>
-            <div class="text-weight-bold">Razvan Stoenescu</div>
-            <div>@rstoenescu</div>
+            <div class="text-weight-bold">Mark Muster</div>
+            <div>@muster</div>
           </div>
         </q-img>
       </q-drawer>
@@ -221,7 +232,8 @@ export default {
     return {
       right: false,
       loginUri: process.env.STRAPI_HOST,
-      drawer: true
+      drawer: true,
+      completeness: 1
     }
   },
   components: {
