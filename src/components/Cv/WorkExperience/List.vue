@@ -1,13 +1,12 @@
 <template>
   <div>
-    <h1>{{$t('Work Experience')}}</h1>
-  <div
-    v-for="workExperience in workExperiences"
-    v-bind:key="workExperience.id"
-    :work-experience="workExperience">
-    <work-experience :item="workExperience" />
-  </div>
-  <q-btn icon="create" @click="addWorkExperience"/>
+    <div
+      v-for="workExperience in workExperiences"
+      v-bind:key="workExperience.id"
+      :work-experience="workExperience"
+    >
+      <work-experience :item="workExperience" @saved="addWorkExperience" />
+    </div>
   </div>
 </template>
 
@@ -15,6 +14,17 @@
 
 import WorkExperience from './WorkExperience.vue'
 import WorkExperiences from '../../../store/models/WorkExperiences'
+
+const __item = {
+  data: [
+    {
+      position: '',
+      start: '',
+      organization: '',
+      description: ''
+    }
+  ]
+}
 
 export default {
   name: 'workExperiences',
@@ -32,6 +42,9 @@ export default {
         data: [
           {
             position: '',
+            start: '',
+            end: '',
+            ongoing: false,
             organization: '',
             description: ''
           }
@@ -41,7 +54,14 @@ export default {
   },
   computed: {
     workExperiences () {
-      return WorkExperiences.all()
+      const items = WorkExperiences.all()
+      if (items.length === 0) {
+        WorkExperiences.insert(__item)
+      }
+      return items
+    },
+    now: function () {
+      return Date.now()
     }
   }
 }

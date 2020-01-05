@@ -2,16 +2,18 @@
   <div class="row q-col-gutter-x-md">
     <div class="row justify-end">
       <q-btn
-        type="submit"
         label="Speichern"
+        type="submit"
         flat
+        value="OK"
         class="q-mt-md"
         color="primary"
       >
       </q-btn>
       <q-btn
-        type="submit"
         label="Löschen"
+        value="DELETE"
+        type="reset"
         flat
         class="q-mt-md"
         color="primary"

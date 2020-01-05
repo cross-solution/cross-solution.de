@@ -1,31 +1,34 @@
 <template>
   <form
     class="work-experience"
-    @submit.prevent.stop="onSubmit"
-    @reset.prevent.stop="onReset"
+    @submit.prevent="onSubmit"
+    @reset.prevent="onReset"
   >
-    <pre>{{ item }}</pre>
     <q-timeline color="secondary">
       <q-timeline-entry heading>
-        {{ item.position }}
+        <div class="row">
+          <q-input v-if="item.inProgress"
+            class="col-6"
+            outlined
+            v-model="item.position"
+            @input="updatePosition"
+            label="Position"
+          />
+          <q-input
+            v-if="item.inProgress"
+            class="col-6"
+            outlined
+            v-model="item.organization"
+            :label="$t('Company/Organization')"
+            @input="updateOrganization"
+          />
+          {{ item.position }}
+        </div>
       </q-timeline-entry>
-      <q-timeline-entry :subtitle="subtitle">
-        <y-date-range :date-range="item.range" @DateRange="updateDateRange" />
-        <q-input
-          class="col-12"
-          outlined
-          v-model="item.position"
-          @input="updatePosition"
-          label="Position"
-        />
-        <q-input
-          class="col-12"
-          outlined
-          v-model="item.organization"
-          :label="$t('Company/Organization')"
-          @input="updateOrganization"
-        />
+      <q-timeline-entry :icon="edit" :subtitle="subtitle" :title="item.organization">
+        <y-date-range :date-range="item.range" @DateRange="updateDateRange" v-if="item.inProgress" />
         <q-editor
+          v-if="item.inProgress"
           class="col-6"
           :dense="$q.screen.gt.md"
           min-height="4rem"
@@ -36,11 +39,13 @@
             ['quote', 'unordered', 'ordered'],
             ['undo', 'redo']
           ]"
-          @input="updateOrganization"
+          @input="updateDescription"
         />
+        <div v-html="item.description" v-if="!item.inProgress">
+        </div>
       </q-timeline-entry>
     </q-timeline>
-    <buttons />
+    <buttons v-if="item.inProgress"/>
   </form>
 </template>
 
@@ -69,17 +74,15 @@ export default {
       }
       console.log('update Date Range: ' + JSON.stringify(val))
       WorkExperiences.update({
-        where: this.id,
+        where: this.item.id,
         data: val
       })
     },
-    updatePosition (e, item) {
+    updatePosition (e) {
       console.log('Position: ' + JSON.stringify(e))
-      console.log('Position: ' + JSON.stringify(item))
 
-      this.title = e
       WorkExperiences.update({
-        where: this.id,
+        where: this.item.id,
         data: {
           position: e
         }
@@ -87,7 +90,7 @@ export default {
     },
     updateOrganization (e) {
       WorkExperiences.update({
-        where: this.id,
+        where: this.item.id,
         data: {
           organization: e
         }
@@ -95,22 +98,44 @@ export default {
     },
     updateDescription (e) {
       WorkExperiences.update({
-        where: this.uid1,
+        where: this.item.id,
         data: {
           description: e
         }
       })
+    },
+    onSubmit (e) {
+      console.log('Submit: ' + JSON.stringify(e))
+      WorkExperiences.update({
+        where: this.item.id,
+        data: {
+          inProgress: false
+        }
+      })
+      this.$emit('saved')
+    },
+    onReset (e) {
+      console.log('Reset: ' + JSON.stringify(e))
     }
   },
   data () {
     return {
-      subtitle: '',
-      title: ''
+      title: '',
+      subtitle: ''
     }
   },
   components: {
     YDateRange,
     Buttons
+  },
+  computed: {
+    edit: function () {
+      if (this.item.inProgress) {
+        return 'save'
+      }
+      return 'edit'
+    }
   }
+
 }
 </script>

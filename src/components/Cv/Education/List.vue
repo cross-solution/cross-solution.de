@@ -1,13 +1,12 @@
 <template>
   <div>
-    <h1>{{$t('Education')}}</h1>
-  <div
-    v-for="workExperience in workExperiences"
-    v-bind:key="workExperience.id"
-    :work-experience="workExperience">
-    <work-experience :item="workExperience" />
-  </div>
-  <q-btn icon="create" @click="addWorkExperience"/>
+    <div
+      v-for="workExperience in workExperiences"
+      v-bind:key="workExperience.id"
+      :work-experience="workExperience"
+    >
+      <work-experience :item="workExperience" />
+    </div>
   </div>
 </template>
 

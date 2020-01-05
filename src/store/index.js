@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexORM from '@vuex-orm/core'
 import WorkExperiences from './models/WorkExperiences'
+import Educations from './models/Educations'
 
 import jobs from './jobs'
 
@@ -12,6 +13,7 @@ const database = new VuexORM.Database()
 
 // Register Models to Database.
 database.register(WorkExperiences)
+database.register(Educations)
 
 /*
  * If not building with SSR mode, you can

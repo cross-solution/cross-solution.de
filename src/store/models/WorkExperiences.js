@@ -14,7 +14,8 @@ export default class WorkExperiences extends Model {
       ongoing: this.boolean(false),
       position: this.attr(''),
       organization: this.attr(''),
-      description: this.attr('')
+      description: this.attr(''),
+      inProgress: this.boolean(true)
     }
   }
 }

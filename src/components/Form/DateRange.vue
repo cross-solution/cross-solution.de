@@ -9,6 +9,7 @@
         :minimal="minimal"
         :landscape="landscape"
         v-model="start"
+        mask="date"
         :rules="['start']"
         :label="$t('Start')"
         @change="emitDateRange"
@@ -41,9 +42,10 @@
         :landscape="landscape"
         clearable
         v-model="end"
+        mask="date"
         :rules="['end']"
         :label="$t('End')"
-        @change="emitDateRange"
+        @input="emitDateRange"
       >
         <template v-slot:append>
           <q-icon name="event" class="cursor-pointer">
@@ -93,7 +95,8 @@ export default {
       end: null,
       ongoing: false,
       minimal: this.$q.screen.lt.sm,
-      landscape: this.$q.screen.gt.xs
+      landscape: this.$q.screen.gt.xs,
+      emitImmediately: true
     }
   },
   methods: {
