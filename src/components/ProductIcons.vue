@@ -1,15 +1,16 @@
 <template>
   <div class="icons text-center q-gutter-sm">
-    <q-icon
+    <span
       :name="icon.name"
       v-for="icon in icons"
       v-bind:key="icon.name"
       v-bind="icon"
     >
+      <q-icon :name="icon.name"/>
       <q-tooltip transition-show="rotate" transition-hide="scale">
         {{ icon.tooltip }}
       </q-tooltip>
-    </q-icon>
+    </span>
   </div>
 </template>
 
