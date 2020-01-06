@@ -13,7 +13,8 @@ module.exports = function (ctx) {
       'axios',
       { path: 'notifications', server: false },
       'login-info',
-      'cropperjs'
+      'cropperjs',
+      { path: 'hello', server: false }
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css

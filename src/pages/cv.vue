@@ -1,6 +1,32 @@
 <template>
   <q-page padding>
     <form class="q-pa-md">
+      <q-btn
+        color="primary" glossy push
+        icon="fab fa-facebook-f" label="Login with Facebook"
+        size="md" @click="auth('facebook')" >
+      </q-btn>
+      <q-btn
+        color="primary" glossy push
+        icon="fab fa-linkedin" label="Login with Linkedin"
+        size="md" @click="auth('linkedin')" >
+      </q-btn>
+      <q-btn
+        color="primary" glossy push
+        icon="fab fa-github" label="Login with Github"
+        size="md" @click="auth('github')" >
+      </q-btn>
+      <q-btn
+        color="primary" glossy push
+        icon="fab fa-google" label="Login with Gooogle"
+        size="md" @click="auth('google')" >
+      </q-btn>
+      <q-btn
+        color="primary" glossy push
+        icon="fab fa-dropbox" label="Login with Dropbox"
+        size="md" @click="auth('dropbox')" >
+      </q-btn>
+
       <y-desired-work />
       <buttons/>
     </form>
@@ -29,7 +55,12 @@ export default {
     }
   },
   methods: {
-    submitting () {}
+    auth (network) {
+      this.$hello(network).login({ scope: 'friends' })
+        .then((res) => {
+          console.log(res)
+        })
+    }
   }
 }
 </script>
