@@ -6,7 +6,7 @@ export default ({ Vue }) => {
     google: '',
     linkedin: '7806tax4rugtc4',
     github: '',
-    dropbox: ''
+    dropbox: 'vzem154zcd5f7um'
   })
   Vue.prototype.$hello = hello
 }
