@@ -36,6 +36,7 @@ export default {
   'Back': 'Zurück',
   'Next': 'Weiter',
   'Submit': 'Absenden',
+  'Clear': 'Löschen',
   'Categories': 'Kategorien',
   'Work Experience': 'Berufserfahrung',
   'Education': 'Ausbildung',

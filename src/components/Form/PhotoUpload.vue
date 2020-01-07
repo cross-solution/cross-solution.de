@@ -89,8 +89,8 @@
                   <q-separator />
                   <q-card-actions>
                     <q-btn icon="crop" flat color="primary" @click="cropImage"></q-btn>
-                    <q-btn icon="redo" flat color="primary" @click="left"></q-btn>
-                    <q-btn icon="undo" flat color="primary" @click="right"></q-btn>
+                    <q-btn icon="redo" flat color="primary" @click="rotate(-90)"></q-btn>
+                    <q-btn icon="undo" flat color="primary" @click="rotate(90)"></q-btn>
                     <q-btn flat color="primary" v-close-popup>OK</q-btn>
                   </q-card-actions>
                 </q-card>
@@ -121,20 +121,7 @@ export default {
   components: {
     VueCropper
   },
-  created: function () {
-    console.log('Created Photo Upload')
-    this.setImage('test')
-  },
   methods: {
-    ycrop (e) {
-      console.log('crop: ' + e)
-    },
-    left (e) {
-      console.log('left: ' + e)
-    },
-    right (e) {
-      console.log('right: ' + e)
-    },
     getCropBoxData () {
       this.image = JSON.stringify(this.$refs.cropper.getCropBoxData(), null, 4)
     },
@@ -163,10 +150,8 @@ export default {
       this.cropImg = this.$refs.cropper.getCroppedCanvas().toDataURL()
     },
     setImage (files) {
-      console.log('Files: ' + files)
       const file = files[0]
       if (!file.type) {
-        console.log('No Files set: ' + files)
         return false
       }
       if (file.type.indexOf('image/') === -1) {

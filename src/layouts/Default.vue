@@ -41,7 +41,7 @@
     </q-header>
     <drawer-right :right="right"/>
     <q-page-container>
-      <router-view />
+      <router-view />{{right}}
     </q-page-container>
     <layout-footer/>
   </q-layout>
