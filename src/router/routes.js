@@ -26,7 +26,7 @@ const routes = [
     path: '/cv',
     component: () => import('layouts/CV.vue'),
     children: [
-      { path: '', component: () => import('pages/cv.vue') },
+      { path: '', component: () => import('pages/cv/index.vue') },
       { path: 'general-data', component: () => import('pages/cv/general-data.vue') },
       { path: 'work-experience', component: () => import('pages/cv/work-experience.vue') },
       { path: 'education', component: () => import('pages/cv/education.vue') },

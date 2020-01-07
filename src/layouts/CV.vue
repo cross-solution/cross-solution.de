@@ -207,17 +207,7 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-
-    <q-footer bordered class="text-white text-center">
-      <q-tabs no-caps active-color="secondary" indicator-color="transparent">
-        <q-route-tab name="imprint" to="/imprint" :label="$t('Imprint')" />
-        <q-route-tab name="privacy" to="/privacy" :label="$t('Privacy')" />
-        <q-route-tab name="contact" to="/contact" :label="$t('Contact')" />
-      </q-tabs>
-      <a href="https://github.com/cross-solution">
-        <q-icon name="fab fa-github" size="lg" />
-      </a>
-    </q-footer>
+    <layout-footer/>
   </q-layout>
 </template>
 
@@ -226,6 +216,7 @@
 import LoginInfo from '../components/LoginInfo.vue'
 import Logo from '../components/Logo.vue'
 import LanguageSwitch from '../components/LanguageSwitch'
+import LayoutFooter from './parts/footer.vue'
 
 export default {
   data () {
@@ -239,7 +230,8 @@ export default {
   components: {
     Logo,
     LoginInfo,
-    LanguageSwitch
+    LanguageSwitch,
+    LayoutFooter
   }
 }
 </script>
