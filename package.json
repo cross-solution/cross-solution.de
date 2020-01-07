@@ -20,7 +20,7 @@
     "axios": "^0.18.1",
     "hellojs": "^1.18.1",
     "prismjs": "^1.15.0",
-    "quasar": "^1.5.11",
+    "quasar": "^1.6.1",
     "vue-cropperjs": "^4.0.1",
     "vue-currency-input": "^1.14.3",
     "vue-google-autocomplete": "^1.1.0",
