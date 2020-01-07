@@ -49,7 +49,7 @@
             </div>
             <div v-else>
               <div v-for="file in scope.files" :key="file.name">
-                <q-img :src="file.__img.src" style="width: 100%; min-height: 7rem">
+                <q-img :src="cropImg ? cropImg : file.__img.src" style="width: 100%; min-height: 7rem">
                   <q-btn icon="delete" @click="scope.removeQueuedFiles" round dense flat>
                     <q-tooltip>{{$t('Clear')}}</q-tooltip>
                   </q-btn>
@@ -80,7 +80,7 @@
                 <q-card>
                   <q-card-section>
                     <vue-cropper
-                      ref="input"
+                      ref="cropper"
                       :src="imgSrc"
                       alt="Source Image"
                       :cropmove="cropImage"
@@ -88,7 +88,7 @@
                   </q-card-section>
                   <q-separator />
                   <q-card-actions>
-                    <q-btn icon="crop" flat color="primary" @click="ycrop"></q-btn>
+                    <q-btn icon="crop" flat color="primary" @click="cropImage"></q-btn>
                     <q-btn icon="redo" flat color="primary" @click="left"></q-btn>
                     <q-btn icon="undo" flat color="primary" @click="right"></q-btn>
                     <q-btn flat color="primary" v-close-popup>OK</q-btn>
@@ -109,7 +109,6 @@ import VueCropper from 'vue-cropperjs'
 export default {
   name: 'PhotoUpload',
   props: ['color', 'default-image', 'multiple', 'upload-type'],
-  mixins: [VueCropper],
   data () {
     return {
       maxTotalSize: 2048000,
