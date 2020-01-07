@@ -76,14 +76,23 @@
             lazy-rules
             :rules="[val => !!val || 'Pflichtfeld']"
             v-model="c.email"
-          />
+          >
+            <template v-slot:before>
+              <q-icon name="mail" />
+            </template>
+          </q-input>
         </div>
         <div class="col-lg-12 col-sm-6 col-xs-12">
           <q-input
             outlined
+            type="tel"
             label="Telefon"
             v-model="c.phone"
-           />
+           >
+           <template v-slot:before>
+              <q-icon name="phone" />
+            </template>
+          </q-input>
         </div>
       </div>
     </div>

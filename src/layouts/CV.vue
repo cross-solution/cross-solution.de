@@ -102,9 +102,11 @@
           class="absolute-top"
           src="/statics/cv-bg.jpg" style="height: 150px">
           <div class="absolute-bottom bg-transparent text-center">
-            <q-avatar size="70px" class="q-mb-sm">
-              <img src="/statics/PhotoUpload.png">
-            </q-avatar>
+            <q-btn flat round to="/cv" size="2em">
+              <q-avatar size="2.5em">
+                <img src="/statics/PhotoUpload.png">
+              </q-avatar>
+            </q-btn>
             <div class="text-weight-bold">Mark Muster</div>
             <div>@muster</div>
           </div>

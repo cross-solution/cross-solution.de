@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
-    <form class="q-pa-md">
-      <h1>{{$t('Desired Work')}}</h1>
+    <h1>{{$t('Desired Work')}}</h1>
+    <form>
       <y-desired-work />
       <div class="row q-col-gutter-x-md">
         <div class="row justify-end">

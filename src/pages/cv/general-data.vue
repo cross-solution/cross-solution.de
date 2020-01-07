@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
-    <form class="q-pa-md">
-      <h1>{{$t('General Data')}}</h1>
+    <h1>{{$t('General Data')}}</h1>
+    <form>
       <div class="row q-col-gutter-x-md">
         <div class="col-md-10 col-xs-12">
           <y-address />

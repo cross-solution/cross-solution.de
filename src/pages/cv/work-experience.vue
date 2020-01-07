@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
     <h1>{{$t('Work Experience')}}</h1>
-    <form class="q-pa-md">
+    <form>
       <work-experience />
     </form>
   </q-page>

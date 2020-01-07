@@ -41,7 +41,7 @@
     </q-header>
     <drawer-right v-model="right" />
     <q-page-container>
-      <router-view />{{right}}
+      <router-view />
     </q-page-container>
     <layout-footer/>
   </q-layout>

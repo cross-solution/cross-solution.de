@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
     <h1>{{$t('Education')}}</h1>
-    <form class="q-pa-md">
+    <form>
       <education />
     </form>
   </q-page>
