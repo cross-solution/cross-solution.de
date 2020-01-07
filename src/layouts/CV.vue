@@ -111,7 +111,7 @@
         </q-img>
       </q-drawer>
 
-    <drawer-right :right="right"/>
+    <drawer-right v-model="right"/>
 
     <q-page-container>
       <router-view />

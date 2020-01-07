@@ -39,7 +39,7 @@
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
     </q-header>
-    <drawer-right :right="right"/>
+    <drawer-right v-model="right" />
     <q-page-container>
       <router-view />{{right}}
     </q-page-container>

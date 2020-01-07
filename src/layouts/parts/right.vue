@@ -95,6 +95,11 @@
 
 <script lang="javascrip">
 export default {
-  props: ['right']
+  computed: {
+    right () {
+      return this.value
+    }
+  },
+  props: ['value']
 }
 </script>
