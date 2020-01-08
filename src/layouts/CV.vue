@@ -104,10 +104,10 @@
           <div class="absolute-bottom bg-transparent text-center">
             <q-btn flat round to="/cv" size="2em">
               <q-avatar size="2.5em">
-                <img src="/statics/PhotoUpload.png">
+                <img :src="profile ? profile.picture : '/statics/PhotoUpload.png'">
               </q-avatar>
             </q-btn>
-            <div class="text-weight-bold">Mark Muster</div>
+            <div class="text-weight-bold">{{ profile ? profile.name : 'Mark Muster' }}</div>
             <div>@muster</div>
           </div>
         </q-img>
@@ -116,7 +116,7 @@
     <drawer-right v-model="right"/>
 
     <q-page-container>
-      <router-view />
+      <router-view @profile="setProfile"/>
     </q-page-container>
     <layout-footer/>
   </q-layout>
@@ -136,7 +136,8 @@ export default {
       right: false,
       loginUri: process.env.STRAPI_HOST,
       drawer: true,
-      completeness: 1
+      completeness: 1,
+      profile: false
     }
   },
   components: {
@@ -145,6 +146,12 @@ export default {
     LanguageSwitch,
     LayoutFooter,
     DrawerRight
+  },
+  methods: {
+    setProfile (profile) {
+      console.log('set profile')
+      this.profile = profile
+    }
   }
 }
 </script>

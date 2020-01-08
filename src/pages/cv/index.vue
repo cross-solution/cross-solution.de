@@ -2,7 +2,7 @@
   <q-page padding>
     <form>
       <div class="row text-center q-gutter-col-md justify-center q-mb-md">
-        <import-profile/>
+        <import-profile @profile="(payload) => this.$emit('profile', payload)"/>
       <q-card class="col-6">
         <q-card-section>
           <div class="text-h6">Visibility</div>

@@ -40,6 +40,13 @@ export default {
     auth (network) {
       this.$hello(network).login({ scope: 'friends' })
         .then((res) => {
+          this.$hello(network).api('me')
+            .then((profile) => {
+              if (profile.picture) {
+                console.log(profile)
+                this.$emit('profile', profile)
+              }
+            })
           console.log(res)
         })
     }
