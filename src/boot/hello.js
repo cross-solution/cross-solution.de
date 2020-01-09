@@ -7,6 +7,6 @@ export default ({ Vue }) => {
     linkedin: '7806tax4rugtc4',
     github: 'f8f1609e2fa8d63fe6ff',
     dropbox: 'vzem154zcd5f7um'
-  }, { redirect_uri: '/cv' })
+  }, { redirect_uri: '/welcome' })
   Vue.prototype.$hello = hello
 }

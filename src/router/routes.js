@@ -32,6 +32,8 @@ const routes = [
       { path: 'education', component: () => import('pages/cv/education.vue') },
       { path: 'desired-work', component: () => import('pages/cv/desired-work.vue') }
     ]
+  }, {
+    path: '/welcome', component: () => import('pages/welcome.vue')
   }
 ]
 
