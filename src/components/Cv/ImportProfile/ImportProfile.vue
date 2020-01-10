@@ -38,7 +38,7 @@
 export default {
   methods: {
     auth (network) {
-      this.$hello(network).login({ scope: 'friends' })
+      this.$hello(network).login({ scope: 'basic' })
         .then((res) => {
           this.$hello(network).api('me')
             .then((profile) => {
