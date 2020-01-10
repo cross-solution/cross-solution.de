@@ -22,6 +22,12 @@ yarn
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
 
+optional: 
+
+copy .env.example to .env and adjest the values.
+
+if xou don't do it, login/register and social logins are not working.
+
 ```bash
 yarn dev:ssr
 ```
@@ -34,17 +40,16 @@ yarn run lint
 
 ### Build the app for production
 
+copy .env.example to .env.production and adjest the values.
+
 ```bash
 yarn build
 ```
 
 ### start production
 
-it's propably better to use pm2 for production. But we're currently starting the production site by :
-
 ```bash
-cd /srv/cross-solution/current
-node_modules/.bin/quasar dev --port=3001 --hostname=localhost -m ssr
+yarn serve
 ```
 
 ## Contribut
@@ -66,4 +71,3 @@ except:
 * src/statics/frankfurt-im-nebel.jpg
 
 our `.gitignore` contains a `statics/frankfurt-im-nebel-licensed.jpg`. You can set a `HEADER_IMAGE=statics/frankfurt-im-nebel-licensed.jpg` in you .env file to replace the header image. 
-

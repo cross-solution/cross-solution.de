@@ -11,7 +11,8 @@
     "lint": "eslint --ext .js,.vue src",
     "test:jest": "quasar test --unit jest",
     "dev:ssr": "quasar dev -m ssr",
-    "dev": "quasar dev"
+    "build": "./node_modules/.bin/quasar build -m ssr",
+    "serve": "node dist/ssr/index.js"
   },
   "dependencies": {
     "@quasar/cli": "^1.0.5",
