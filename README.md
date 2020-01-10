@@ -55,3 +55,12 @@ https://github.com/cross-solution/cross-solution.de/blob/master/src/pages/about.
 ### Setting up VSCode editor to lint/auto format vue/js/html files
 
 See [this gist](https://gist.github.com/TiSiE/be6c4bce0a939fb4c906d5fb4e729760)
+
+
+# Copyright 
+
+MIT
+
+except:
+* src/statics/frankfurt-im-nebel.jpg
+

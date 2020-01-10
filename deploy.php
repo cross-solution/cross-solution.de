@@ -6,9 +6,10 @@ require 'recipe/zend_framework.php';
 // Project name
 set('application', 'cross-home');
 
-// Shared files/dirs between deploys 
+// Shared files/dirs between deploys
 add('shared_files', [
-    '.env'
+    '.env',
+    'statics/frankfurt-im-nebel.jpg'
 ]);
 
 // Project repository
@@ -20,14 +21,14 @@ set('default_stage', 'prod');
 host('quasar.cross-solution.de')
     ->user('nuxt')
     ->stage('prod')
-    ->multiplexing(false) 
+    ->multiplexing(false)
     ->set('deploy_path', '/srv/cross-solution')
     ->set('writableusesudo', true);
-    
+
 // if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 
-// run npm 
+// run npm
 after('deploy:symlink', 'npm');
 
 // restart nodeserver

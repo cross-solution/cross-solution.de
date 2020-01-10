@@ -13,7 +13,7 @@
     <q-carousel class="full-width" animated v-model="slide" height="50vh">
       <q-carousel-slide
         name="first"
-        img-src="statics/frankfurt-im-nebel.jpg"
+        :img-src="headerImg"
         class="text-white"
       >
         <div class="absolute-center text-center">
@@ -80,6 +80,9 @@ export default {
         textAlign: 'center',
         boxShadow: '1px 1px 2px #e6e6e6'
       }
+    },
+    headerImg () {
+      return process.env.HEADER_IMAGE ? process.env.HEADER_IMAGE : 'statics/frankfurt-im-nebel.jpg'
     }
   },
   methods: {
