@@ -65,3 +65,5 @@ except:
 
 * src/statics/frankfurt-im-nebel.jpg
 
+our `.gitignore` contains a `statics/frankfurt-im-nebel-licensed.jpg`. You can set a `HEADER_IMAGE=statics/frankfurt-im-nebel-licensed.jpg` in you .env file to replace the header image. 
+
