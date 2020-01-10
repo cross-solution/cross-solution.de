@@ -36,7 +36,7 @@ after('cleanup', 'restart');
 
 task('npm', '
     ~/.yarn/bin/yarn;
-    node_modules/.bin/quasar build -m ssr;
+    ~/.yarn/bin/yarn build;
 ');
 
 task('restart', '

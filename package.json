@@ -12,7 +12,7 @@
     "test:jest": "quasar test --unit jest",
     "dev:ssr": "quasar dev -m ssr",
     "build": "./node_modules/.bin/quasar build -m ssr",
-    "serve": "node dist/ssr/index.js"
+    "serve": "PORT=3001 node dist/ssr/index.js"
   },
   "dependencies": {
     "@quasar/cli": "^1.0.5",
