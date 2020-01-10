@@ -62,5 +62,6 @@ See [this gist](https://gist.github.com/TiSiE/be6c4bce0a939fb4c906d5fb4e729760)
 MIT
 
 except:
+
 * src/statics/frankfurt-im-nebel.jpg
 
