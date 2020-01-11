@@ -1,5 +1,6 @@
 {
     "name": "cbleek/cross-home",
+    "description": "this file is only required for the deployment by deployer",
     "authors": [
         {
             "name": "Carsten Bleek",

@@ -34,7 +34,7 @@
             </q-list>
           </q-btn-dropdown>
         </q-tabs>
-        <login-info :host="loginUri" />
+        <login-info/>
         <language-switch/>
         <q-btn dense flat round icon="menu" @click="right = !right" />
       </q-toolbar>
@@ -134,7 +134,6 @@ export default {
   data () {
     return {
       right: false,
-      loginUri: process.env.STRAPI_HOST,
       drawer: true,
       completeness: 1,
       profile: false

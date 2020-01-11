@@ -158,10 +158,6 @@ class LoginState {
 export default {
   name: 'LoginInfo',
   props: {
-    host: {
-      type: String,
-      required: true
-    },
     loginPath: {
       type: String,
       default: '/auth/local'
@@ -198,6 +194,9 @@ export default {
       return typeof this.map === 'object'
         ? this.map
         : { identifier: this.map, password: 'password' }
+    },
+    host () {
+      return process.env.STRAPI_HOST ? process.env.STRAPI_HOST : 'http://localhost:1334'
     }
   },
   mounted () {
