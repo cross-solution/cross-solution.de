@@ -251,7 +251,7 @@ export default {
         .join('&')
 
       this.$axios
-        .get('https://www.stellenmarkt.com/de/jobs?' + queryStr)
+        .get(this.host + '?' + queryStr)
         .then(response => {
           this.data = response.data.jobs
           this.pagination.rowsNumber = response.data.total
@@ -275,6 +275,11 @@ export default {
         l: this.filter.l,
         d: this.filter.d
       }
+    }
+  },
+  computed: {
+    host () {
+      return process.env.YAWIK_INSTANCE ? process.env.YAWIK_INSTANCE : 'https://yawik.org/demo/de/jobboard'
     }
   }
 }
