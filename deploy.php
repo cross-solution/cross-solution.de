@@ -9,6 +9,7 @@ set('application', 'cross-home');
 // Shared files/dirs between deploys
 add('shared_files', [
     '.env',
+    '.env.production',
     'src/statics/frankfurt-im-nebel.jpg'
 ]);
 
