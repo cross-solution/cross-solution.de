@@ -22,8 +22,8 @@
 </template>
 
 <script lang="javascript">
-import YAddress from '../../components/Form/Address.vue'
-import YPhotoUpload from '../../components/Form/PhotoUpload.vue'
+import YAddress from 'components/Form/Address.vue'
+import YPhotoUpload from 'components/Form/PhotoUpload.vue'
 
 export default {
   // name: 'PageName',

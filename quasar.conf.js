@@ -91,6 +91,11 @@ module.exports = function (ctx) {
             { loader: 'yaml-loader' }
           ]
         })
+        cfg.resolve.alias = {
+          ...cfg.resolve.alias,
+          '@components': path.resolve(__dirname, './src/components'),
+          '@store': path.resolve(__dirname, './src/store')
+        }
       },
       uglifyOptions: {
         compress: { drop_console: true }

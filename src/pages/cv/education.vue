@@ -8,7 +8,7 @@
 </template>
 
 <script lang="javascript">
-import Education from '../../components/Cv/Education/List.vue'
+import Education from 'components/Cv/Education/List.vue'
 
 export default {
   // name: 'PageName',

@@ -8,7 +8,7 @@
 </template>
 
 <script lang="javascript">
-import WorkExperience from '../../components/Cv/WorkExperience/List.vue'
+import WorkExperience from 'components/Cv/WorkExperience/List.vue'
 
 export default {
   // name: 'PageName',
@@ -16,7 +16,6 @@ export default {
   components: {
     WorkExperience
   },
-
   data () {
     return {
       time: '',

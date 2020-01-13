@@ -19,9 +19,9 @@
 </template>
 
 <script lang="javascript">
-import YDesiredWork from '../../components/Cv/DesiredWork/DesiredWork.vue'
-import Buttons from '../../components/General/Buttons.vue'
-import ImportProfile from '../../components/Cv/ImportProfile/ImportProfile.vue'
+import YDesiredWork from 'components/Cv/DesiredWork/DesiredWork.vue'
+import Buttons from 'components/General/Buttons.vue'
+import ImportProfile from 'components/Cv/ImportProfile/ImportProfile.vue'
 
 export default {
   // name: 'PageName',

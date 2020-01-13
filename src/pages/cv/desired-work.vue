@@ -29,7 +29,7 @@
 </template>
 
 <script lang="javascript">
-import YDesiredWork from '../../components/Cv/DesiredWork/DesiredWork.vue'
+import YDesiredWork from 'components/Cv/DesiredWork/DesiredWork.vue'
 
 export default {
   // name: 'PageName',
