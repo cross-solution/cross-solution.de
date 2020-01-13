@@ -1,9 +1,8 @@
 <template>
-  <div class="row" style="width:100%">
+  <div class="row full-width">
     <q-form>
-      <q-toggle :label="`Grid ${grid}`" v-model="grid" />
+      <q-toggle :label="grid" v-model="grid" />
     </q-form>
-    <q-separator />
     <div class="col-md-12">
       <q-table
         ref="resultTable"
@@ -18,13 +17,12 @@
         :filter="tableFilter"
         :loading="loading"
         wrap-cells
-        virtual-scroll
         @request="onRequest"
         no-data-label="I didn't find anything for you"
         binary-state-sort
       >
         <template v-slot:top>
-          <div class="row text-cente full-width">
+          <div class="row text-center full-width">
             <q-input
               ref="filterQuery"
               v-model="filter.q"
@@ -129,7 +127,7 @@
 import SearchRegion from '../components/SearchRegion.vue'
 
 export default {
-  props: ['filterLocation', 'text'],
+  props: ['filterLocation'],
   data () {
     return {
       filter: {
@@ -146,9 +144,7 @@ export default {
         rowsPerPage: 10,
         rowsNumber: 10
       },
-      grid: this.$q.platform.is.mobile,
-      wrapCells: true,
-      basicModel: 2,
+      grid: false,
       distance: ['5 km', '10 km', '20 km', '50 km', '100 km'],
       distanceModel: null,
       rowsPerPageOptions: [5, 10, 20, 50],
@@ -188,6 +184,9 @@ export default {
   },
   components: {
     SearchRegion
+  },
+  created () {
+    this.grid = !!this.$q.platform.is.mobile
   },
   mounted () {
     this.onRequest({

@@ -15,11 +15,6 @@ export default {
   meta: {
     'title': 'Stellenangebote'
   },
-  data () {
-    return {
-      grid: false
-    }
-  },
   components: {
     Jobsearch
   }
