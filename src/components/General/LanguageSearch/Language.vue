@@ -6,7 +6,9 @@
         :label="label"
         color="primary"
         clearable
+        use-input
         multiple
+        @filter="filterFn"
         map-options
         emit-value
         options-selected-class="secondary"
@@ -69,6 +71,14 @@ export default {
         return 0
       }),
       codes: codes }
+  },
+  methods: {
+    filterFn (val, update, abort) {
+      update(() => {
+        const needle = val.toLowerCase()
+        this.options = options.filter(v => v.label.toLowerCase().indexOf(needle) > -1)
+      })
+    }
   },
   computed: {
     label: function () {
