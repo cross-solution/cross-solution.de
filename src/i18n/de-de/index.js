@@ -52,5 +52,8 @@ export default {
   'Foreign languages': 'Fremdsprachen',
   'German': 'Deutsch',
   'French': 'Französisch',
-  'English': 'Englisch'
+  'English': 'Englisch',
+  'Salary expectations': 'Gehaltsvorstellung',
+  'Currency': 'Währung',
+  'Period': 'Zeitraum'
 }

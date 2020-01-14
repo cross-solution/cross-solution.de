@@ -5,30 +5,33 @@
     @reset.prevent.stop="onReset"
     @change="emitSalary"
   >
-    <div class="row q-gutter-xs">
+    <div class="row q-col-gutter-xs">
       <q-input
+        class="col-md-6"
         outlined
         type="Salary"
-        label="Gehaltsvorstellung"
+        :label="$t('Salary expectations')"
         lazy-rules
         v-model="salary.value"
         v-currency
       />
       <q-select
+        class="col-3"
         style="min-width:100px"
         v-model="salary.currency"
         outlined
         :value="salary.currenty"
         :options="currencyOptions"
-        label="Währung"
+        :label="$t('Currency')"
       />
       <q-select
+        class="col-3"
         style="min-width:100px"
         v-model="salary.period"
         outlined
         :value="salary.period"
         :options="periodOptions"
-        label="Zeitraum"
+        :label="$t('Period')"
       />
     </div>
   </form>
@@ -44,7 +47,7 @@ export default {
     salary: {
       default: () => ({
         period: 'monatlich',
-        value: 1234.5,
+        value: '',
         currency: 'EUR'
       })
     }
@@ -56,8 +59,7 @@ export default {
       ],
       currencyOptions: [
         'EUR', 'USD', 'CHF'
-      ],
-      locale: undefined
+      ]
     }
   },
   directives: {

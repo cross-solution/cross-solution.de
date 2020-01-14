@@ -2,40 +2,22 @@
   <q-page padding>
     <h1>{{$t('Desired Work')}}</h1>
     <form>
-      <y-desired-work />
-      <div class="row q-col-gutter-x-md">
-        <div class="row justify-end">
-          <q-btn
-            type="submit"
-            label="Speichern"
-            flat
-            class="q-mt-md"
-            color="primary"
-          >
-          </q-btn>
-          <q-btn
-            type="submit"
-            label="Löschen"
-            flat
-            class="q-mt-md"
-            color="primary"
-            style="margin-left: 20px;"
-          >
-          </q-btn>
-        </div>
-      </div>
+      <desired-work />
+      <buttons/>
     </form>
   </q-page>
 </template>
 
 <script lang="javascript">
-import YDesiredWork from 'components/Cv/DesiredWork/DesiredWork.vue'
+import DesiredWork from 'components/Cv/DesiredWork/DesiredWork.vue'
+import Buttons from 'components/General/Buttons.vue'
 
 export default {
   // name: 'PageName',
   props: ['loading'],
   components: {
-    YDesiredWork
+    DesiredWork,
+    Buttons
   },
   data () {
     return {

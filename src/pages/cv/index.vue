@@ -1,18 +1,33 @@
 <template>
   <q-page padding>
     <form>
-      <div class="row text-center q-gutter-col-md justify-center q-mb-md">
-        <import-profile @profile="(payload) => this.$emit('profile', payload)"/>
-      <q-card class="col-6">
-        <q-card-section>
-          <div class="text-h6">Visibility</div>
-          <div class="text-subtitle2">define visibility of your data</div>
-        </q-card-section>
-        <q-card-actions align="around">
-        </q-card-actions>
-      </q-card>
+      <div class="row q-col-gutter-md">
+        <div class="col-md-4">
+          <import-profile @profile="(payload) => this.$emit('profile', payload)"/>
+        </div>
+        <div class="col-md-4">
+          <q-card class="full-height">
+          <q-card-section>
+            <div class="text-h6">Visibility</div>
+            <div class="text-subtitle2">define visibility of your data</div>
+          </q-card-section>
+          <q-card-actions align="around">
+          </q-card-actions>
+          </q-card>
+        </div>
+        <div class="col-md-4">
+          <q-card class="full-height">
+          <q-card-section>
+            <div class="text-h6">Export</div>
+            <div class="text-subtitle2">Export your data</div>
+          </q-card-section>
+          <q-card-actions align="around">
+          </q-card-actions>
+          </q-card>
+        </div>
+        <y-desired-work />
       </div>
-      <y-desired-work />
+
       <buttons/>
     </form>
   </q-page>
