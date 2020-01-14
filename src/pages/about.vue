@@ -135,7 +135,7 @@ export default {
 .my-card
   width: 100%
   max-width: 500px
-.profiles
+.profiles  lang
   width: 100%
   max-width: 350px
 .btn-icon

@@ -46,5 +46,11 @@ export default {
   'Ongoing': 'Bis heute',
   'Company/Organization': 'Firma/Organization',
   'to': 'bis',
-  'All my life': 'Mein ganzes Leben'
+  'All my life': 'Mein ganzes Leben',
+  'Language Skills': 'Sprachkenntnisse',
+  'Native language': 'Muttersprache',
+  'Foreign languages': 'Fremdsprachen',
+  'German': 'Deutsch',
+  'French': 'Französisch',
+  'English': 'Englisch'
 }

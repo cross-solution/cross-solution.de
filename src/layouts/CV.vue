@@ -95,6 +95,16 @@
                 {{$t('Education')}}
               </q-item-section>
             </q-item>
+
+            <q-item clickable v-ripple to="/cv/language-skills">
+              <q-item-section avatar>
+                <q-icon name="school" />
+              </q-item-section>
+
+              <q-item-section>
+                {{$t('Language Skills')}}
+              </q-item-section>
+            </q-item>
           </q-list>
         </q-scroll-area>
 

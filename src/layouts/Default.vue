@@ -49,9 +49,9 @@
 
 <script lang="javascript">
 // outside of a Vue file
-import LoginInfo from '../components/LoginInfo.vue'
-import Logo from '../components/Logo.vue'
-import LanguageSwitch from '../components/LanguageSwitch'
+import LoginInfo from 'components/LoginInfo.vue'
+import Logo from 'components/Logo.vue'
+import LanguageSwitch from 'components/LanguageSwitch'
 import LayoutFooter from './parts/footer.vue'
 import DrawerRight from './parts/right.vue'
 

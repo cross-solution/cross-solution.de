@@ -55,6 +55,7 @@ export default {
       try {
         locale.value = this.$q.lang.getLocale()
         console.log('found: ' + locale)
+
         for (var i = 0, len = this.languages.length; i < len; i++) {
           if (this.languages[i].value === this.$q.lang.getLocale()) {
             locale.label = this.languages[i].label

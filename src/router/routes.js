@@ -30,7 +30,8 @@ const routes = [
       { path: 'general-data', component: () => import('pages/cv/general-data.vue') },
       { path: 'work-experience', component: () => import('pages/cv/work-experience.vue') },
       { path: 'education', component: () => import('pages/cv/education.vue') },
-      { path: 'desired-work', component: () => import('pages/cv/desired-work.vue') }
+      { path: 'desired-work', component: () => import('pages/cv/desired-work.vue') },
+      { path: 'language-skills', component: () => import('pages/cv/language-skills.vue') }
     ]
   }, {
     path: '/welcome', component: () => import('pages/welcome.vue')
