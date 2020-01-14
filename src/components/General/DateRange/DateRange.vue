@@ -101,7 +101,7 @@ export default {
   },
   methods: {
     emitDateRange (event) {
-      console.log('Emit DateRange: ' + event)
+      // console.log('Emit DateRange: ' + event)
       this.$emit('DateRange', {
         start: this.start,
         end: this.end,

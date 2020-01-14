@@ -51,8 +51,8 @@
 
 <script lang="javascript">
 
-import YDateRange from '../../Form/DateRange.vue'
-import Buttons from '../../General/Buttons.vue'
+import YDateRange from 'components/General/DateRange/DateRange.vue'
+import Buttons from 'components/General/Buttons.vue'
 import WorkExperiences from '../../../store/models/WorkExperiences'
 
 export default {

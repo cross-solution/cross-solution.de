@@ -20,6 +20,7 @@
 <script language="javascript">
 
 export default {
+  name: 'Level',
   props: ['type'],
   data () {
     return {

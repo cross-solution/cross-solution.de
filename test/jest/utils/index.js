@@ -24,6 +24,7 @@ export const mountQuasar = (component, options = {}) => {
   localVue.use(Vuex)
   localVue.use(VueRouter)
   localVue.use(Quasar)
+
   const store = new Vuex.Store({})
   const router = new VueRouter()
 
