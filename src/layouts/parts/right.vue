@@ -1,5 +1,5 @@
 <template>
-    <q-drawer v-model="right" side="right" overlay bordered>
+    <q-drawer v-model="isDrawerOpen" side="right" overlay bordered>
       <div class="text-secondary q-pb-md">
         <q-btn
           flat
@@ -96,12 +96,10 @@
 <script lang="javascrip">
 export default {
   computed: {
-    right () {
+    isDrawerOpen () {
       return this.value
     }
   },
   props: ['value']
 }
 </script>
-http://www.xing.com/companies/evangelischebankeg
-http://www.xing.com/companies/evangelischebankeg
