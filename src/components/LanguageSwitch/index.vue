@@ -25,9 +25,9 @@ export default {
       locale: this.$q.lang.isoName,
       localeValue: {},
       languages: [
-        { label: 'De', value: 'de-de', icon: 'img:/statics/icons/de.svg' },
-        { label: 'En', value: 'en-us', icon: 'img:/statics/icons/us.svg' },
-        { label: 'Fr', value: 'fr-fr', icon: 'img:/statics/icons/fr.svg' }
+        { label: 'De', value: 'de-de', icon: 'img:/statics/svg/de.svg' },
+        { label: 'En', value: 'en-us', icon: 'img:/statics/svg/en.svg' },
+        { label: 'Fr', value: 'fr-fr', icon: 'img:/statics/svg/fr.svg' }
       ]
     }
   },

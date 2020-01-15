@@ -4,7 +4,7 @@
  */
 
 import { mount, createLocalVue } from '@vue/test-utils'
-import DateRange from 'src/components/General/LanguageSearch/Level.vue'
+import Level from 'src/components/General/LanguageSearch/Level.vue'
 import * as All from 'quasar'
 
 const { Quasar, date } = All
@@ -17,12 +17,12 @@ const components = Object.keys(All).reduce((object, key) => {
   return object
 }, {})
 
-describe('DateRange', () => {
+describe('Level', () => {
   const localVue = createLocalVue()
   localVue.use(Quasar, { components })
 
   const wrapper = mount(
-    DateRange,
+    Level,
     {localVue})
 
   it('renders a div', () => {
