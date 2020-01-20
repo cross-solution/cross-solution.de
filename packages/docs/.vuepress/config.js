@@ -1,4 +1,4 @@
-const { fs, path } = require('@vuepress/shared-utils') 
+const { fs, path } = require('@vuepress/shared-utils')
 
 module.exports = {
   home: true,
