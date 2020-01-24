@@ -112,7 +112,7 @@ export default {
           buttons: [
             {
               name: 'fab fa-github',
-              link: 'https://github.com/Steinbach2019',
+              link: 'https://github.com/wkorolew',
               text: 'Github'
             },
             {
