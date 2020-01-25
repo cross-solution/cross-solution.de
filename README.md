@@ -28,9 +28,18 @@ copy .env.example to .env and adjest the values.
 
 if xou don't do it, login/register and social logins are not working.
 
+Start in Single Page Appication (spa) development mode
+
 ```bash
-yarn dev:ssr
+yarn dev
 ```
+
+Start in Server Side Render (ssr) development mode
+
+```bash
+yarn dev -m ssr
+```
+
 
 ### Lint the files
 
