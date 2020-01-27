@@ -15,7 +15,7 @@
       <template v-slot:header="scope">
         <q-card flat>
           <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
-          <div class="text-subtitle2 flex no-wrap q-gutter-xl">
+          <div class="text-subtitle2 flex no-wrap">
             <div class="q-uploader__title">
               {{textSelectFile}}
               <div class="q-uploader__subtitle">
@@ -23,6 +23,7 @@
                 {{ scope.uploadProgressLabel }}
               </div>
             </div>
+
             <q-btn v-if="scope.canAddFiles" type="a" icon="add_box" round dense flat>
               <q-uploader-add-trigger />
               <q-tooltip>{{textToolTip}}</q-tooltip>
