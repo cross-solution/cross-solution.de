@@ -7,11 +7,12 @@
   "cordovaId": "org.cordova.quasar.app",
   "capacitorId": "",
   "author": "Carsten Bleek <bleek@cross-solution.de>",
-  "private": true,
+  "private": false,
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
     "test:jest": "quasar test --unit jest",
     "dev": "quasar dev",
+    "dev:ssr": "quasar dev -m ssr",
     "build-linux": "quasar build -m electron linux -t mat -b builder",
     "build-win32": "quasar build -m electron win32 -t mat -b builder",
     "build-mac": "quasar build -m electron mac -t mat -b builder",

@@ -16,7 +16,7 @@
         <q-card flat>
           <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
           <div class="text-subtitle2 flex no-wrap">
-            <div class="q-uploader__title">
+            <div class="upload-header">
               {{textSelectFile}}
               <div class="q-uploader__subtitle">
                 {{ scope.uploadSizeLabel }} /
@@ -202,10 +202,12 @@ export default {
   width: 100%
 .q-uploader__list.scroll
   padding: 0 !important
-.q-gutter-xs
-  margin-left: 0px !important
-  margin-right: 5px !important
 .q-uploader__title
     font-size: 13px !important
+
+.upload-header
+  margin-left: 10px
+  color: secondary
+  width: 100%
 
 </style>
