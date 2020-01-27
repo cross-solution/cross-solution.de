@@ -1,7 +1,7 @@
 <template>
   <div class="row full-width">
     <q-form>
-      <q-toggle :label="grid" v-model="grid" />
+      <q-toggle v-model="grid" />
     </q-form>
     <div class="col-md-12">
       <q-table
