@@ -4,13 +4,21 @@
         dense
         borderless
         options-dense
-        v-model='localeValue'
+        v-model='locale'
         :options="languages"
         @input="setLocale">
-        <template v-slot:selected>
-          <div v-if="localeValue">
-            <q-icon :name="localeValue.icon" />
-          </div>
+        <template v-slot:option="scope">
+          <q-item v-bind="scope.itemProps" v-on="scope.itemEvents">
+            <q-item-section avatar>
+              <q-icon :name="scope.opt.icon" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label v-html="scope.opt.label" />
+            </q-item-section>
+          </q-item>
+        </template>
+        <template v-slot:selected-item="scope">
+          <q-icon :name="scope.opt.icon" />
         </template>
     </q-select>
 </template>
@@ -22,50 +30,33 @@ export default {
     return {
       right: false,
       loginUri: process.env.STRAPI_HOST,
-      locale: this.$q.lang.isoName,
-      localeValue: {},
+      locale: null,
       languages: [
-        { label: 'De', value: 'de-de', icon: 'img:/statics/svg/de.svg' },
-        { label: 'En', value: 'en-us', icon: 'img:/statics/svg/en.svg' },
-        { label: 'Fr', value: 'fr-fr', icon: 'img:/statics/svg/fr.svg' }
+        { label: 'Deutsch (de-de)', value: 'de-de', qpack: 'de', icon: 'img:/statics/svg/de.svg' },
+        { label: 'English (US) (en-us)', value: 'en-us', qpack: 'en-us', icon: 'img:/statics/svg/en.svg' },
+        { label: 'Français (fr-fr)', value: 'fr-fr', qpack: 'fr', icon: 'img:/statics/svg/fr.svg' }
       ]
     }
   },
   created () {
-    try {
-      this.localeValue = JSON.parse(localStorage.getItem('locale'))
-      if (!this.localeValue) {
-        (
-          this.__getClientLocaleSetting()
-        )
+    let userLocale = this.$q.localStorage.getItem('locale') || this.$q.lang.getLocale() || 'de-de'
+
+    for (let i = 0, c = this.languages.length; i < c; i++) {
+      if (this.languages[i].value === userLocale) {
+        userLocale = this.languages[i]
+        break
       }
-      this.setLocale(this.localeValue)
     }
-    catch (err) {
-      console.log('try to figure out, how to set the default language defined by the browser. Current Browser Locale:  ' + this.$q.lang.getLocale())
-    }
+    this.setLocale(userLocale)
   },
   methods: {
     setLocale (localeValue) {
       this.$i18n.locale = localeValue.value
-      localStorage.setItem('locale', JSON.stringify(localeValue))
-    },
-    __getClientLocaleSetting () {
-      var locale = {}
-      try {
-        locale.value = this.$q.lang.getLocale()
-        console.log('found: ' + locale)
-
-        for (var i = 0, len = this.languages.length; i < len; i++) {
-          if (this.languages[i].value === this.$q.lang.getLocale()) {
-            locale.label = this.languages[i].label
-            locale.icon = this.languages[i].icon
-          }
-        }
-        this.setLocale(locale)
-      }
-      catch (err) {
-      }
+      this.$q.localStorage.set('locale', localeValue.value)
+      this.locale = localeValue
+      import('quasar/lang/' + localeValue.qpack).then(({ default: messages }) => {
+        this.$q.lang.set(messages)
+      })
     }
   }
 }
