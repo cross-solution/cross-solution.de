@@ -32,7 +32,7 @@
             <q-card-section>
               <div class="text-h6 q-mb-xs">Building on Windows</div>
             </q-card-section>
-            <q-video :ratio="16/9" src="https://youtu.be/s74prl6yGhE" />
+            <q-video :ratio="16/9" src="https://youtu.be/peoO-RVJM_0" />
           </q-card>
         </div>
       </div>
