@@ -11,6 +11,7 @@ const routes = [
       },
       { path: 'open-source', component: () => import('pages/open-source.vue') },
       { path: 'contact', component: () => import('pages/contact.vue') },
+      { path: 'download', component: () => import('pages/download.vue') },
       { path: 'imprint', component: () => import('pages/imprint.vue') },
       { path: 'privacy', component: () => import('pages/privacy.vue') },
       { path: 'jobs', component: () => import('pages/jobs.vue') },

@@ -68,7 +68,7 @@
           icon="mail"
           to="/apply"
         />
-                <q-separator />
+        <q-separator />
         <q-btn
           flat
           color="primary"
@@ -89,6 +89,17 @@
             >.
           </p>
         </div>
+        <q-separator />
+        <q-btn
+          flat
+          color="primary"
+          class="full-width"
+          :label="$t('Download')"
+          align="arround"
+          icon="cloud_download"
+          to="/download"
+        />
+
       </div>
     </q-drawer>
 </template>
