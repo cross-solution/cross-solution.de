@@ -19,7 +19,7 @@
             <q-card-section>
               <div class="text-h6 q-mb-xs">Building on macOS</div>
             </q-card-section>
-            <q-video :ratio="16/9" src="https://youtu.be/s74prl6yGhE" />
+            <q-video :ratio="16/9" src="https://www.youtube.com/embed/s74prl6yGhE" />
             <q-card-section>
               <q-card-actions>
                 <q-btn flat>Download</q-btn>
