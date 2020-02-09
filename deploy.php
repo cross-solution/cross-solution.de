@@ -13,6 +13,10 @@ add('shared_files', [
     'src/statics/frankfurt-im-nebel.jpg'
 ]);
 
+add('shared_dirs', [
+    'dist/downloads',
+]);
+
 // Project repository
 set('repository', 'https://github.com/cross-solution/cross-solution.de.git');
 
