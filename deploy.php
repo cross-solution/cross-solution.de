@@ -14,7 +14,7 @@ add('shared_files', [
 ]);
 
 add('shared_dirs', [
-    'dist/downloads',
+    'src/assets/downloads',
 ]);
 
 // Project repository
