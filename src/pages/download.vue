@@ -22,7 +22,7 @@
             <q-video :ratio="16/9" src="https://www.youtube.com/embed/s74prl6yGhE" />
             <q-card-section>
               <q-card-actions>
-                <q-btn flat>Download</q-btn>
+                <q-btn type="a" href="https://old.cross-solution.de/downloads/SmartComposer-0.0.1.dmg" flat>Download</q-btn>
               </q-card-actions>
             </q-card-section>
           </q-card>
@@ -32,7 +32,13 @@
             <q-card-section>
               <div class="text-h6 q-mb-xs">Building on Windows</div>
             </q-card-section>
-            <q-video :ratio="16/9" src="https://youtu.be/peoO-RVJM_0" />
+            <q-video :ratio="16/9" src="https://www.youtube.com/embed/M0vcA01WdyY" />
+                       <q-card-section>
+              <q-card-actions>
+                <q-btn type="a" href="https://old.cross-solution.de/downloads/SmartComposer Setup 0.0.1.exe" flat>Download</q-btn>
+              </q-card-actions>
+            </q-card-section>
+
           </q-card>
         </div>
       </div>
