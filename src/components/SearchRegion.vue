@@ -1,6 +1,32 @@
 <template>
-  <div>
-    <q-field
+  <div class="row">
+    <q-select
+      outlined
+      borderless
+      class="col-2"
+      v-model="country"
+      :options="countries"
+      @input="setCountry"
+    >
+      <template v-slot:option="scope">
+        <q-item
+          v-bind="scope.itemProps"
+          v-on="scope.itemEvents"
+        >
+          <q-item-section avatar>
+            <q-icon :name="scope.opt.icon" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label v-html="scope.opt.label" />
+            <q-item-label caption>{{ scope.opt.description }}</q-item-label>
+          </q-item-section>
+        </q-item>
+      </template>
+      <template v-slot:selected-item="scope">
+        <q-icon :name="scope.opt.icon" size="md" />
+      </template>
+    </q-select>
+    <q-field class="col-10"
       :label="label"
       outlined
       v-model="text"
@@ -18,7 +44,7 @@
           placeholder="Ort eingeben"
           v-on:placechanged="filterLocation"
           :types="locationType"
-          country="de"
+          :country="country.value"
           hint="Ort oder Postleitzahl"
         ></vue-google-autocomplete>
       </template>
@@ -46,7 +72,51 @@ export default {
   data () {
     return {
       text: '',
-      gVisible: false
+      gVisible: false,
+      country: {
+        label: 'Deutschland',
+        value: 'de',
+        description: '',
+        icon: 'img:/statics/svg/de.svg'
+      },
+      countries: [
+        {
+          label: 'Deutschland',
+          value: 'de',
+          description: '',
+          icon: 'img:/statics/svg/de.svg'
+        },
+        {
+          label: 'Frankreich',
+          value: 'fr',
+          description: '',
+          icon: 'img:/statics/svg/fr.svg'
+        },
+        {
+          label: 'Italien',
+          value: 'it',
+          description: '',
+          icon: 'img:/statics/svg/it.svg'
+        },
+        {
+          label: 'Schweiz',
+          value: 'ch',
+          description: '',
+          icon: 'img:/statics/svg/ch.svg'
+        },
+        {
+          label: 'Österreich',
+          value: 'at',
+          description: '',
+          icon: 'img:/statics/svg/at.svg'
+        },
+        {
+          label: 'Weltweit',
+          value: 'at',
+          description: '',
+          icon: 'public'
+        }
+      ]
     }
   },
   components: {
@@ -92,6 +162,9 @@ export default {
       window.setTimeout(function () {
         that.gVisible = that.text
       }, 150)
+    },
+    setCountry (val) {
+      this.country = val
     }
   }
 }

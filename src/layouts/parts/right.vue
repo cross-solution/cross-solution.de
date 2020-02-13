@@ -94,7 +94,7 @@
           flat
           color="primary"
           class="full-width"
-          :label="$t('Download')"
+          label="Download"
           align="arround"
           icon="cloud_download"
           to="/download"
