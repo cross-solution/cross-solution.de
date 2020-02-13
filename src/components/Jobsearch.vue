@@ -1,15 +1,15 @@
 <template>
-  <div class="row full-width">
+  <div class="full-width">
     <q-form>
       <q-toggle v-model="grid" />
     </q-form>
-    <div class="col-md-12">
       <q-table
         ref="resultTable"
         :grid="grid"
         :title="`${pagination.rowsNumber} Stellenangebote`"
         :data="data"
         color="secondary"
+        card-container-class="q-gutter-md"
         :columns="columns"
         row-key="id"
         :rows-per-page-options="rowsPerPageOptions"
@@ -88,16 +88,13 @@
         </template>
 
         <template v-slot:item="props">
-          <div
-            class="q-pa-md q-gutter-md col-xs-12 col-sm-6 col-md-4 col-lg-3 grid-style-transition"
-          >
-            <q-card>
+            <q-card class="job col-lg-2 col-md-3 col-sm-6 col-xs-12">
               <q-card-section class="logo">
                 <img :src="props.row.organizationLogo" />
               </q-card-section>
               <q-separator />
               <q-list>
-                <q-item class="jobinfo">
+                <q-item class="jobinfo items-stretch">
                   <q-item-section>
                     <q-item-label caption>
                       <a :href="props.row.link">{{ props.row.title }}</a>
@@ -116,11 +113,9 @@
                 </q-item>
               </q-list>
             </q-card>
-          </div>
         </template>
       </q-table>
     </div>
-  </div>
 </template>
 
 <script lang="javascript">
@@ -285,32 +280,22 @@ export default {
 }
 </script>
 
-<style type="scss">
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
-}
+<style lang="scss" scoped>
 
-.q-card {
+.job {
   box-shadow: 0 0 3px #666;
-  text-align: center;
-  vertical-align: middle;
-}
-.q-card .jobinfo {
-  background-color: #eef4fb;
-  text-align: left;
-  max-height: 120px;
-}
-.q-card .logo {
-  height: 80px;
-}
-.q-card img {
-  max-height: 80px;
+  text-align:center;
+
+  .jobinfo {
+    background-color: #eef4fb;
+    text-align: left;
+  }
+  .logo {
+    height: 80px;
+  }
+  img {
+    max-height: 80px;
+  }
 }
 
-.pac-container {
-  z-index: 9999; /* fixes google autocomplete in lightbox. Works only without scoped css. */
-}
 </style>
