@@ -58,6 +58,7 @@
           align="arround"
           icon="edit"
           to="/jobpost"
+          @click="switchDrawerState(false)"
         />
         <q-separator />
         <q-btn
@@ -68,6 +69,7 @@
           align="arround"
           icon="mail"
           to="/apply"
+          @click="switchDrawerState(false)"
         />
         <q-separator />
         <q-btn
@@ -78,6 +80,7 @@
           align="arround"
           icon="school"
           to="/cv"
+          @click="switchDrawerState(false)"
         />
         <q-separator />
         <div class="q-gutter-md">
@@ -99,6 +102,7 @@
           align="arround"
           icon="cloud_download"
           to="/download"
+          @click="switchDrawerState(false)"
         />
 
       </div>
