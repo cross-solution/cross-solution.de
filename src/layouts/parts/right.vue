@@ -1,5 +1,5 @@
 <template>
-    <q-drawer v-model="isDrawerOpen" side="right" overlay bordered>
+    <q-drawer :value="isDrawerOpen" @input="switchDrawerState" side="right" overlay bordered>
       <div class="text-secondary q-pb-md">
         <q-btn
           flat
@@ -47,6 +47,7 @@
           align="arround"
           icon="search"
           to="/jobs"
+          @click="switchDrawerState(false)"
         />
         <q-separator />
         <q-btn
@@ -106,11 +107,23 @@
 
 <script lang="javascrip">
 export default {
-  computed: {
-    isDrawerOpen () {
-      return this.value
+  data () {
+    return {
+      isDrawerOpen: this.value
     }
   },
-  props: ['value']
+  props: ['value'],
+  watch: {
+    value (value) {
+      this.switchDrawerState(value)
+    }
+  },
+  methods: {
+    switchDrawerState ($event) {
+      console.debug('SWITCH DRAWER STATE', $event)
+      this.isDrawerOpen = $event
+      this.$emit('input', $event)
+    }
+  }
 }
 </script>
