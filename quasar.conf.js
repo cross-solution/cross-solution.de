@@ -14,7 +14,8 @@ module.exports = function (ctx) {
       { path: 'notifications', server: false },
       'login-info',
       'cropperjs',
-      { path: 'hello', server: false }
+      { path: 'hello', server: false },
+      { path: 'jsPDF', server: false }
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
