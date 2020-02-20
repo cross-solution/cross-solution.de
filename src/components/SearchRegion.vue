@@ -14,7 +14,7 @@
           v-on="scope.itemEvents"
         >
           <q-item-section avatar>
-            <q-icon :name="scope.opt.icon" />
+            <q-icon :name="scope.opt.icon" size="sm" style="padding-top: 10px" />
           </q-item-section>
           <q-item-section>
             <q-item-label v-html="scope.opt.label" />
