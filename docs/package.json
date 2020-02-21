@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "docs:dev": "Smart Composer docs",
+    "docs:build": "Smart Composer docs"
+  }
+}
