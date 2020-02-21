@@ -1,11 +1,11 @@
 {
-    "author": "Carsten Bleek <bleek@cross-solution.de>",
-    "private": true,
-    "scripts": {
-        "docs:dev": "./node_modules/.bin/vuepress dev",
-        "docs:build": "./node_modules/.bin/vuepress build"
-    },
-    "devDependencies": {
-        "vuepress": "^1.2.0"
-    }
+  "author": "Carsten Bleek <bleek@cross-solution.de>",
+  "private": false,
+  "scripts": {
+      "docs:dev": "./node_modules/.bin/vuepress dev",
+      "docs:build": "./node_modules/.bin/vuepress build"
+  },
+  "devDependencies": {
+      "vuepress": "^1.2.0"
+  }
 }

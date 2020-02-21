@@ -1,6 +1,0 @@
-# Components
-
-* Dienstsitz
-* Gehalt
-
-r

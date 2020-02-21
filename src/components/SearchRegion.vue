@@ -112,7 +112,7 @@ export default {
         },
         {
           label: 'Weltweit',
-          value: 'at',
+          value: '',
           description: '',
           icon: 'public'
         }
