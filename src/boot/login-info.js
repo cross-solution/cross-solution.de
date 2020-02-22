@@ -15,6 +15,8 @@ class User {
   }
 
   setUser (user, token) {
+    console.log(user, token)
+
     SessionStorage.set('user', { user: user, token: token })
     this.user = user
     this.token = token

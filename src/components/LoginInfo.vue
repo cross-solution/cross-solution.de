@@ -74,7 +74,7 @@
     <div v-if="loggedIn">
       <q-btn-dropdown
         flat
-        :icon="`img:` + host + crossUser.get('photo', { url: null }).url"
+        :icon="crossUser.get('photo', { url: null })?`img:` + host + crossUser.get('photo', { url: null }).url:''"
         auto-close
         color="primary"
       >

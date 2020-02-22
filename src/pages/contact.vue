@@ -11,21 +11,25 @@
     </div>
     <div class="q-pa-md q-gutter-y-sm">
       <form
+        @submit="onSubmit"
         autocorrect="off"
         autocapitalize="off"
         autocomplete="off"
         spellcheck="true"
       >
         <div>
-          <q-input v-model="name" label="Name" />
-          <q-input v-model="email" label="Email" />
+          <q-input v-model="name" label="Name *" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type name']"/>
+          <q-input v-model="email" label="Email *" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type email']"/>
           <q-editor
             v-model="editor"
             min-height="5rem"
             aria-placeholder="Ihre Nachricht"
           />
-          <q-btn color="primary" icon-right="send" label="Absenden" />
+          <q-btn color="primary" type="submit" icon-right="send" label="Absenden" />
         </div>
+        <q-inner-loading :showing="isSending">
+          <q-spinner size="4em" :thickness="2" color="primary" />
+        </q-inner-loading>
       </form>
     </div>
   </q-page>
@@ -41,8 +45,61 @@ export default {
     return {
       editor: '',
       email: '',
-      name: ''
+      name: '',
+      isSending: false
     }
+  },
+  methods: {
+    updateToken (val) {
+      if (!val) {
+        let token = this.$q.cookies.get('token')
+        if (token === 'undefined') {
+          token = '--no-token--'
+        }
+        this.token = token
+        return
+      }
+      this.token = val
+      this.$q.cookies.set('token', val)
+    },
+    onSubmit (e) {
+      e.preventDefault()
+      this.isSending = true
+      const config = {
+        headers: { Authorization: `Bearer ` + this.crossUser.get('token') }
+      }
+      this.$axios
+        .post(process.env.STRAPI_HOST + '/email/', {
+          name: this.name,
+          email: this.email,
+          message: this.editor
+        }, config)
+        .then(response => {
+          // Handle success.
+          this.token = response.data.jwt
+          this.$forceUpdate()
+          console.log('Well done!')
+          console.log('User profile', response.data.user)
+          console.log('User token', response.data.jwt)
+
+          setTimeout(() => {
+            this.onReset()
+          }, 0.5 * 1000)
+        })
+        .catch(error => {
+          // Handle error.
+          console.log('An error occurred:', error)
+        })
+    },
+    onReset () {
+      this.isSending = false
+      this.name = ''
+      this.email = ''
+      this.editor = ''
+    }
+  },
+  mounted () {
+    this.updateToken()
   }
 }
 </script>
