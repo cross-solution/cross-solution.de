@@ -72,7 +72,9 @@ export default {
         .post(process.env.STRAPI_HOST + '/email/', {
           name: this.name,
           email: this.email,
-          message: this.editor
+          message: this.editor,
+          to: process.env.EMAIL_TO,
+          from: process.env.EMAIL_FROM
         }, config)
         .then(response => {
           // Handle success.
