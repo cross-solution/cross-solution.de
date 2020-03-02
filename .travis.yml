@@ -3,7 +3,7 @@ addons:
   ssh_known_hosts:
   - quasar.cross-solution.de
 node_js:
-- '10.15.3'
+- '10.18.1'
 cache:
   directories:
   - node_modules
