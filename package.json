@@ -28,7 +28,7 @@
     "iso-639-1": "^2.1.0",
     "jspdf": "^1.5.3",
     "prismjs": "^1.15.0",
-    "quasar": "^1.9.4",
+    "quasar": "^1.9.7",
     "vue-cropperjs": "^4.0.1",
     "vue-currency-input": "^1.14.3",
     "vue-google-autocomplete": "^1.1.0",
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.4.1",
-    "@quasar/app": "^1.5.8",
+    "@quasar/app": "^1.6.0",
     "@quasar/quasar-app-extension-dotenv": "^1.0.0",
     "@quasar/quasar-app-extension-testing": "^1.0.0",
     "@quasar/quasar-app-extension-testing-e2e-cypress": "^1.0.0-beta.10",
@@ -49,6 +49,7 @@
     "eslint-loader": "^2.1.1",
     "eslint-plugin-quasar": "^1.0.0-alpha.16",
     "eslint-plugin-vue": "^5.0.0",
+    "semantic-release": "^17.0.4",
     "standard": "^14.3.1",
     "yaml-loader": "^0.5.0"
   },
