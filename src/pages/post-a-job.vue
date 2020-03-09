@@ -55,8 +55,8 @@
         :style="style"
       >
         <div class="row q-gutter-sm">
-          <y-box-job-type :job="job"/>
-          <y-box-workload :job="job"/>
+          <y-box-job-type :job="job" />
+          <y-box-workload :job="job" />
           <q-card class="col-md-3 col-sm-6 col-xs-12">
             <q-card-section>
               <div class="text-h6">Eintrittstermin</div>

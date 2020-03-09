@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
     <!-- content -->
-     <timeline />
+    <timeline />
   </q-page>
 </template>
 

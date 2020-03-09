@@ -1,5 +1,8 @@
 <template>
-  <q-card flat class="products col-md-3 col-lg-2 col-sm-4 col-xs-11">
+  <q-card
+    flat
+    class="products col-md-3 col-lg-2 col-sm-4 col-xs-11"
+  >
     <q-card-section>
       <h2>{{ title }}</h2>
       <h3>{{ subtitle }}</h3>
@@ -9,11 +12,17 @@
       <div class="text-left">{{ text }}</div>
     </q-card-section>
     <div class="btn-products">
-    <q-card-actions align="center">
-      <q-btn class="button" outline round color="primary" @click="onGotoButtonClick">
-        <i class="fas fa-chevron-down"></i>
-      </q-btn>
-    </q-card-actions>
+      <q-card-actions align="center">
+        <q-btn
+          class="button"
+          outline
+          round
+          color="primary"
+          @click="onGotoButtonClick"
+        >
+          <i class="fas fa-chevron-down"></i>
+        </q-btn>
+      </q-card-actions>
     </div>
   </q-card>
 </template>

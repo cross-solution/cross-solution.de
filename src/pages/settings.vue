@@ -1,8 +1,8 @@
 <template>
   <q-page padding>
     <h1>{{$t('Settings')}}</h1>
-    <y-address/>
-    <y-photo-upload/>
+    <y-address />
+    <y-photo-upload />
   </q-page>
 </template>
 

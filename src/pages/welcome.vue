@@ -2,7 +2,7 @@
   <div class="text-center">
     <h1>Welcome</h1>
     <h1>@</h1>
-    <logo/>
+    <logo />
   </div>
 </template>
 

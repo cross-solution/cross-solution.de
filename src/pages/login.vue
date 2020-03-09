@@ -21,12 +21,21 @@
         v-model="pass"
         label="Password *"
         lazy-rules
-
       />
 
       <div>
-        <q-btn label="Submit" type="submit" color="primary"/>
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+        <q-btn
+          label="Submit"
+          type="submit"
+          color="primary"
+        />
+        <q-btn
+          label="Reset"
+          type="reset"
+          color="primary"
+          flat
+          class="q-ml-sm"
+        />
       </div>
     </q-form>
   </q-page>
@@ -44,12 +53,6 @@ export default {
       token: ''
     }
   },
-  // computed: {
-  //     token () {
-  //       return this.$q.cookies.get('token') || ''
-  //     }
-  //   }
-  // },
   methods: {
     updateToken (val) {
       if (!val) {

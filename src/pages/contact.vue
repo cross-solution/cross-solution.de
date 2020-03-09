@@ -18,17 +18,36 @@
         spellcheck="true"
       >
         <div>
-          <q-input v-model="name" label="Name *" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type name']"/>
-          <q-input v-model="email" label="Email *" lazy-rules :rules="[ val => val && val.length > 0 || 'Please type email']"/>
+          <q-input
+            v-model="name"
+            label="Name *"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type name']"
+          />
+          <q-input
+            v-model="email"
+            label="Email *"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type email']"
+          />
           <q-editor
             v-model="editor"
             min-height="5rem"
             aria-placeholder="Ihre Nachricht"
           />
-          <q-btn color="primary" type="submit" icon-right="send" label="Absenden" />
+          <q-btn
+            color="primary"
+            type="submit"
+            icon-right="send"
+            label="Absenden"
+          />
         </div>
         <q-inner-loading :showing="isSending">
-          <q-spinner size="4em" :thickness="2" color="primary" />
+          <q-spinner
+            size="4em"
+            :thickness="2"
+            color="primary"
+          />
         </q-inner-loading>
       </form>
     </div>

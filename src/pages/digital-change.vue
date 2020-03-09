@@ -10,14 +10,28 @@
       glauben, dass man einen Vorteil hat, wenn man dies erkennt.
     </p>
     <div class="q-pa-md q-gutter-sm">
-      <q-btn label="YAWIK Demo" color="primary" @click="layout = true" />
+      <q-btn
+        label="YAWIK Demo"
+        color="primary"
+        @click="layout = true"
+      />
 
       <q-dialog v-model="layout">
-        <q-layout view="Lhh lpR fff" container class="bg-white">
+        <q-layout
+          view="Lhh lpR fff"
+          container
+          class="bg-white"
+        >
           <q-header class="bg-primary">
             <q-toolbar>
               <q-toolbar-title>YAWIK Demo</q-toolbar-title>
-              <q-btn flat v-close-popup round dense icon="close" />
+              <q-btn
+                flat
+                v-close-popup
+                round
+                dense
+                icon="close"
+              />
             </q-toolbar>
           </q-header>
 
