@@ -28,7 +28,7 @@
     "iso-639-1": "^2.1.0",
     "jspdf": "^1.5.3",
     "prismjs": "^1.15.0",
-    "quasar": "^1.9.7",
+    "quasar": "^1.9.8",
     "vue-cropperjs": "^4.0.1",
     "vue-currency-input": "^1.14.3",
     "vue-google-autocomplete": "^1.1.0",
