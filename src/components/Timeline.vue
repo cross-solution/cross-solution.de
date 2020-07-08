@@ -6,7 +6,16 @@
         Timeline
       </q-timeline-entry>
 
-      <q-timeline-entry title="Heute" subtitle="2019" side="left">
+     <q-timeline-entry title="Heute" subtitle="2020" side="right">
+        <div>
+          in 2020 steht das Thema Videokonferenzen im Fokus. Das gibt es von großen
+          Anbietern oftmals gratis. Aber wenn Datenschutz wichtig ist, kommt man
+          kaum daran vorbei ein Konferenzsystem selbst zu betreiben. Wir unterstützen sie
+          beim Setup von Jitsi.
+        </div>
+      </q-timeline-entry>
+
+      <q-timeline-entry title="Quasar und Vue" subtitle="2019" side="left">
         <div>
           Der Titel für das Jahr 2019 steht von nicht fest. Wir migrieren
           unseren eigenen Mailstack auf Mailcow. Relaunch Homepage auf Basis von
