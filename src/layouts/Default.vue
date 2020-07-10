@@ -7,8 +7,8 @@
         </q-toolbar-title>
         <q-tabs align="left" class="desktop-only">
           <q-route-tab
-            to="/digital-change"
-            :label="$t('Digital Change')"
+            to="/video-conferencing"
+            :label="$t('Video Conferencing')"
             class="gt-xs"
           />
           <q-route-tab to="/open-source" label="Open Source" class="gt-xs"/>

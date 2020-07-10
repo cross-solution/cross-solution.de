@@ -10,7 +10,7 @@
             Erfahrung in der Konzeption und Umsetzung komplexer IT Systeme. Wir
             entwickeln für unsere Kunden Komplett-Lösungen und setzen dabei,
             wann immer es geht, auf bewährte Open Source Produkte. Warum? Es
-            vereinfacht remote working, führt zu standards und verbessert die
+            vereinfacht remote working, führt zu Standards und verbessert die
             Qualität. Dokumentation und ganz einfach die Zusammenarbeit mit
             unseren Kunden. Unser Leistungsspektrum umfasst die Konzeption und
             Umsetzung von Projekten, das Hosten von Internet Anwendungen und den

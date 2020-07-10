@@ -55,5 +55,6 @@ export default {
   'English': 'Englisch',
   'Salary expectations': 'Gehaltsvorstellung',
   'Currency': 'Währung',
-  'Period': 'Zeitraum'
+  'Period': 'Zeitraum',
+  'Video Conferencing': 'Videokonferenzen'
 }

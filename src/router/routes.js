@@ -6,8 +6,8 @@ const routes = [
       { path: '', component: () => import('pages/Index.vue') },
       { path: 'about', component: () => import('pages/about.vue') },
       {
-        path: 'digital-change',
-        component: () => import('pages/digital-change.vue')
+        path: 'video-conferencing',
+        component: () => import('pages/hosting.vue')
       },
       { path: 'open-source', component: () => import('pages/open-source.vue') },
       { path: 'contact', component: () => import('pages/contact.vue') },

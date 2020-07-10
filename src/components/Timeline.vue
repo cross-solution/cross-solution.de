@@ -17,7 +17,7 @@
 
       <q-timeline-entry title="Quasar und Vue" subtitle="2019" side="left">
         <div>
-          Der Titel für das Jahr 2019 steht von nicht fest. Wir migrieren
+          2019 war unser Einstieg in die nodejs Welt. Wir migrieren
           unseren eigenen Mailstack auf Mailcow. Relaunch Homepage auf Basis von
           <a href="#" @click="dialog = true">Quasar</a>. Stellenmarkte.com.
         </div>
