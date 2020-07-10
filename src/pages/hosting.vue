@@ -1,11 +1,20 @@
 <template>
   <q-page padding>
     <h1>{{$t('Video Conferencing')}}</h1>
-    <p>
-      Alle Betreiber von Videokonferenzen können mithöhren. Das liegt in der
-      Natur der Sache. Wenn man ausschließen möchte, dass Dritte Konferenzen
-      mithören können, muss man sein Konferenzsystem selbst betreiben.
-    </p>
+     <div class="row q-gutter-md">
+      <div class="col-md-12">
+        <p>
+          Alle Betreiber von Videokonferenzen können mithöhren. Das liegt in der
+          Natur der Sache. Wenn man ausschließen möchte, dass Dritte Konferenzen
+          mithören können, muss man sein Konferenzsystem selbst betreiben.
+        </p>
+        <p>
+          Jitsi eignet sich für Videocalls, insbesondere für Bewerbungsgespräche,
+          weil ein Bewerber nur den Link zum Konferenzraum benötigt. Die Einigung auf ein
+          Konferenzsystem entfällt. Man nimmt eifach das eigene.
+        </p>
+      </div>
+    </div>
     <h2>Jitsi</h2>
     <div class="row">
     <div class="col-md-6">
@@ -22,7 +31,7 @@
         </li>
       </ul>
       <div>
-        Für die Nutzung wird eine Kamera und ein Microfon benötigt.
+        Für die Nutzung wird eine Kamera und ein Mikrofon benötigt.
       </div>
 
       <div class="text-center">
@@ -31,7 +40,7 @@
       </div>
 
     </div>
-      <div class="col-md-4">
+      <div class="col-md-6 col-sm-12">
         <q-carousel
         animated
         v-model="slide"
@@ -49,14 +58,16 @@
     <div style="margin-top: 50px;" class="row">
       <div>
         Im Demo können Sie Konferenzen eröffnen und sich mit anderen Teilnehmen
-        treffen. Bitte beachten Sie, dass die Konferenzdaten unseren Jitsi Server
-        durchlaufen. Konferenzen werden selbstverständlich nicht aufgezeichnet.
+        treffen. Die Konferenzdaten durchlaufen unseren Jitsi Server. Konferenzen
+        werden selbstverständlich nicht aufgezeichnet.
 
-        Wir installieren Jitsi auf ihre Hardware. Oder wir betreiben ihr eigenes
-        Jitsi. Gerne können wir Details in einer Konferenz besprechen.
+        Im einfachsten Fall stellen wir Ihnen ein System unter Ihrer Domain zur
+        Verfügung. Natürlich installieren wir die Konferenzlösung auch auf ihrer
+        Hardware. Gerne können wir Details in einer Konferenz besprechen. Aber
+        natürlich auch telefonisch unter 069-71910361.
       </div>
     </div>
-    <div style="margin-top: 50px;" class="row q-gutter-lg">
+    <div style="margin-top: 50px;" class="row q-gutter-lg justify-center">
 
       <q-card class="my-card">
 
@@ -79,9 +90,9 @@
         </div>
 
       </q-card-section>
-      <q-card-actions>
-        <div class="text-grey absolute-bottom text-center">
-          <h4>399€/Jahr</h4>
+      <q-card-actions class="absolute-bottom">
+        <div class="text-grey text-center">
+          <h4>499€</h4>
         </div>
       </q-card-actions>
     </q-card>
@@ -109,9 +120,9 @@
 
       </q-card-section>
 
-      <q-card-actions class="">
-        <div class="text-grey absolute-bottom text-center">
-          <h4>899€/Jahr</h4>
+      <q-card-actions>
+        <div class="text-grey text-center">
+          <h4>999€</h4>
         </div>
       </q-card-actions>
     </q-card>
@@ -140,7 +151,7 @@
 
       <q-card-actions>
         <div class="text-grey text-center">
-          <h4>auf Anfrage</h4>
+          <h4>ab 1999€</h4>
         </div>
       </q-card-actions>
     </q-card>
