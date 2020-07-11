@@ -61,6 +61,28 @@ yarn build
 yarn serve
 ```
 
+## Electron
+
+you can build a standalone electon binary 
+
+### Windows
+
+```bash
+yarn build-win32
+```
+
+### Mac
+
+````bash
+yarn build-mac
+```
+
+### Linux
+
+````bash
+yarn build-linux
+```
+
 ## Contribut
 
 you can add yourself to our [Team](https://cross-solution.de/about) by sending us a PR. Team ist currently locates in
