@@ -77,38 +77,38 @@ export default {
         label: 'Deutschland',
         value: 'de',
         description: '',
-        icon: 'img:/statics/svg/de.svg'
+        icon: 'img:/svg/de.svg'
       },
       countries: [
         {
           label: 'Deutschland',
           value: 'de',
           description: '',
-          icon: 'img:/statics/svg/de.svg'
+          icon: 'img:/svg/de.svg'
         },
         {
           label: 'Frankreich',
           value: 'fr',
           description: '',
-          icon: 'img:/statics/svg/fr.svg'
+          icon: 'img:/svg/fr.svg'
         },
         {
           label: 'Italien',
           value: 'it',
           description: '',
-          icon: 'img:/statics/svg/it.svg'
+          icon: 'img:/svg/it.svg'
         },
         {
           label: 'Schweiz',
           value: 'ch',
           description: '',
-          icon: 'img:/statics/svg/ch.svg'
+          icon: 'img:/svg/ch.svg'
         },
         {
           label: 'Österreich',
           value: 'at',
           description: '',
-          icon: 'img:/statics/svg/at.svg'
+          icon: 'img:/svg/at.svg'
         },
         {
           label: 'Weltweit',

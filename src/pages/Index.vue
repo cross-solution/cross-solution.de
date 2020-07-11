@@ -74,7 +74,7 @@ export default {
       return {
         width: '320px',
         height: '220px',
-        backgroundImage: 'url(../statics/bgimg.jpg)',
+        backgroundImage: 'url(../bgimg.jpg)',
         padding: '10px',
         border: '10px solid #fff',
         textAlign: 'center',
@@ -82,7 +82,7 @@ export default {
       }
     },
     headerImg () {
-      return process.env.HEADER_IMAGE ? process.env.HEADER_IMAGE : 'statics/frankfurt-im-nebel.jpg'
+      return process.env.HEADER_IMAGE ? process.env.HEADER_IMAGE : 'frankfurt-im-nebel.jpg'
     }
   },
   methods: {

@@ -9,7 +9,7 @@
     >
       <q-carousel-slide
         name="first"
-        img-src="statics/license.jpg"
+        img-src="license.jpg"
       >
         <a
           style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
@@ -32,7 +32,7 @@
       </q-carousel-slide>
       <q-carousel-slide
         name="second"
-        img-src="statics/computer-code.jpg"
+        img-src="computer-code.jpg"
       >
         <a
           style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
@@ -57,7 +57,7 @@
 
       <q-carousel-slide
         name="third"
-        img-src="statics/horizon.jpg"
+        img-src="horizon.jpg"
       >
         <a
           style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"

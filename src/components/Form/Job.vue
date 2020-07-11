@@ -12,7 +12,7 @@
                   upload-type="Logo"
                   text-color="white"
                   multiple="false"
-                  default-image="/statics/LogoUpload.png"
+                  default-image="/LogoUpload.png"
                   v-model="job.organizationLogo"
                 />
                 <div class="col-9">
@@ -27,7 +27,7 @@
               <y-job-show-categories :job="job"/>
               <y-photo-upload
                 color="transparent"
-                default-image="/statics/HeaderUpload.jpg"
+                default-image="/HeaderUpload.jpg"
                 upload-type="Header Image"
                 v-model="job.headerImage"
               />

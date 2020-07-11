@@ -48,10 +48,10 @@
         navigation
         infinite
       >
-        <q-carousel-slide :name="1" img-src="statics/jitsi-screenshot.png" />
-        <q-carousel-slide :name="2" img-src="statics/jitsi-desktop-sharing.png" />
-        <q-carousel-slide :name="3" img-src="statics/jitsi-bex.png" />
-        <q-carousel-slide :name="4" img-src="statics/jitsi-chat.png" />
+        <q-carousel-slide :name="1" img-src="jitsi-screenshot.png" />
+        <q-carousel-slide :name="2" img-src="jitsi-desktop-sharing.png" />
+        <q-carousel-slide :name="3" img-src="jitsi-bex.png" />
+        <q-carousel-slide :name="4" img-src="jitsi-chat.png" />
       </q-carousel>
       </div>
     </div>

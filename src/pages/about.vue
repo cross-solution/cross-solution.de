@@ -53,7 +53,7 @@ export default {
         {
           name: 'Carsten Bleek',
           title: 'Inhaber, Dipl. Ing. Informatik',
-          image: 'statics/team/cbleek-460x460.jpeg',
+          image: 'team/cbleek-460x460.jpeg',
           slogan: "Let's work together",
           buttons: [
             {
@@ -76,7 +76,7 @@ export default {
         {
           name: 'Mathias Gelhausen',
           title: 'Software Developer',
-          image: 'statics/team/TiSiE-460x460.jpeg',
+          image: 'team/TiSiE-460x460.jpeg',
           slogan: "Let's code together",
           buttons: [
             {
@@ -89,7 +89,7 @@ export default {
         {
           name: 'Anthonius Munthi',
           title: 'Software Developer',
-          image: 'statics/team/kilip-460x460.jpeg',
+          image: 'team/kilip-460x460.jpeg',
           slogan: 'Working from home',
           buttons: [
             {
@@ -107,7 +107,7 @@ export default {
         {
           name: 'Wladimir Korolew',
           title: 'Designer',
-          image: 'statics/team/korolew-211x211.jpeg',
+          image: 'team/korolew-211x211.jpeg',
           slogan: 'Design muss sein',
           buttons: [
             {

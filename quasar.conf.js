@@ -47,7 +47,7 @@ module.exports = function (ctx) {
       //            (fastest compile time; minimum bundle size; most tedious)
       // * true   - Import everything from Quasar
       //            (not treeshaking Quasar; biggest bundle size; convenient)
-      all: 'auto',
+      importStrategy: 'auto',
 
       components: ['QEditor'],
       directives: [],
@@ -61,9 +61,6 @@ module.exports = function (ctx) {
         }
       }
     },
-
-    // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
-    supportIE: true,
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {

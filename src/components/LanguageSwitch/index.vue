@@ -32,9 +32,9 @@ export default {
       loginUri: process.env.STRAPI_HOST,
       locale: null,
       languages: [
-        { label: 'Deutsch (de-de)', value: 'de-de', qpack: 'de', icon: 'img:/statics/svg/de.svg' },
-        { label: 'English (US) (en-us)', value: 'en-us', qpack: 'en-us', icon: 'img:/statics/svg/en.svg' },
-        { label: 'Français (fr-fr)', value: 'fr-fr', qpack: 'fr', icon: 'img:/statics/svg/fr.svg' }
+        { label: 'Deutsch (de-de)', value: 'de-de', qpack: 'de', icon: 'img:/svg/de.svg' },
+        { label: 'English (US) (en-us)', value: 'en-us', qpack: 'en-us', icon: 'img:/svg/en.svg' },
+        { label: 'Français (fr-fr)', value: 'fr-fr', qpack: 'fr', icon: 'img:/svg/fr.svg' }
       ]
     }
   },

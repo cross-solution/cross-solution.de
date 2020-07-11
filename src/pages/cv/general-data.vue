@@ -13,7 +13,7 @@
           <y-photo-upload
             color="transparent"
             upload-type="Photo"
-            default-image="/statics/PhotoUpload.png"
+            default-image="/PhotoUpload.png"
           />
         </div>
       </div>

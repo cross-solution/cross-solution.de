@@ -110,11 +110,11 @@
 
         <q-img
           class="absolute-top"
-          src="/statics/cv-bg.jpg" style="height: 150px">
+          src="/cv-bg.jpg" style="height: 150px">
           <div class="absolute-bottom bg-transparent text-center">
             <q-btn flat round to="/cv" size="2em">
               <q-avatar size="2.5em">
-                <img :src="profile ? profile.picture : '/statics/PhotoUpload.png'">
+                <img :src="profile ? profile.picture : '/PhotoUpload.png'">
               </q-avatar>
             </q-btn>
             <div class="text-weight-bold">{{ profile ? profile.name : 'Mark Muster' }}</div>

@@ -19,7 +19,7 @@
             v-on="scope.itemEvents"
           >
             <q-item-section avatar>
-              <q-icon :name="`img:statics/svg/${scope.opt.icon}.svg`" />
+              <q-icon :name="`img:svg/${scope.opt.icon}.svg`" />
             </q-item-section>
             <q-item-section>
               <q-item-label v-html="scope.opt.label" />

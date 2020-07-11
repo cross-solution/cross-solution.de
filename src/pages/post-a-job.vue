@@ -277,8 +277,8 @@ export default {
     initJob () {
       this.job = {
         step: 1,
-        headerImage: '/statics/HeaderUpload.jpg',
-        organizationLogo: '/statics/LogoUpload.png',
+        headerImage: '/HeaderUpload.jpg',
+        organizationLogo: '/LogoUpload.png',
         title: '',
         organization: '',
         description: 'Also führender Anbieter ...',
