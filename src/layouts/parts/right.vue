@@ -5,10 +5,10 @@
           flat
           color="primary"
           class="full-width lt-md"
-          :label="$t('Digital Change')"
+          :label="$t('Video Conferencing')"
           icon="calendar"
           align="arround"
-          to="/digital-change"
+          to="/video-conferencing"
         />
         <q-btn
           flat
