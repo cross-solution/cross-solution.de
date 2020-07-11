@@ -10,11 +10,11 @@ set('application', 'cross-home');
 add('shared_files', [
     '.env',
     '.env.production',
-    'src/statics/frankfurt-im-nebel.jpg'
+    'public/frankfurt-im-nebel.jpg'
 ]);
 
 add('shared_dirs', [
-    'src/statics/downloads',
+    'public/downloads',
 ]);
 
 // Project repository
