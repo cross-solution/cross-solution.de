@@ -10,7 +10,7 @@ set('application', 'cross-home');
 add('shared_files', [
     '.env',
     '.env.production',
-    'public/frankfurt-im-nebel.jpg'
+    'public/frankfurt-im-nebel-licensed.jpg'
 ]);
 
 add('shared_dirs', [
