@@ -1,0 +1,58 @@
+[
+  {
+    "id": "small",
+    "title": "einzelnder Server",
+    "subtitle": "Installation Setup eingener Jitsi",
+    "bg": "orange",
+    "text": "<ul><li><b>Datenschutzkonformes</b> Setup</li><li>Anpassung ans eigene CI</li><li>Funktionsumfang wie im <a href='https://confi.cross-solution.de'>Demo</a></li></ul>",
+    "description": "Bei einem eigenen Konferenzserver ist die der Aufbau eines Videocall zu einem Kunden, Klienten oder Bewerber besonders einfach. Der Gesprächspartner muss nicht über einen Speziellen Account eines Konferenzanbieters verfügen. Er benötigt nur einen Link zu ihrerm Konferenzsystem und der Videocall kann beginnen. Testen Sie es.",
+    "icons": [
+      {
+        "name": "img:/icons/jitsi-icon.svg",
+        "tooltip": "eigene Jitsi Instanz"
+      }
+    ],
+    "price": "499,- €"
+  },
+  {
+    "id": "medium",
+    "title": "Plus Recording",
+    "subtitle": "Aufnahme von Konferenzen",
+    "icons": [
+      {
+        "name": "img:/icons/jitsi-icon.svg",
+        "tooltip": "eigene Jitsi Instanz"
+      },
+      {
+        "name": "fas fa-video",
+        "tooltip": "Video Recording"
+      }
+    ],
+    "text": "Alles, wie im kleinen Setup. Plus eine zusätzliche Instanz für Aufnahmen.",
+    "description": "Wenn sie ihre Konferenzen aufzeichnen möchten, brauchen Sie noch einen Videorekorder. Das ist technisch eine weitere Instanz, die an der Konferenz teilimmt und die Videosignale aufzeichnet. Die Mitschnitte können dann lokal oder in der Cloud gespeichert werden.",
+    "price": "999,- €"
+  },
+  {
+    "id": "big",
+    "title": "Plus Telefonie",
+    "subtitle": "Anbindung an Telefonanlage",
+    "bg": "blue",
+    "icons": [
+      {
+        "name": "img:/icons/jitsi-icon.svg",
+        "tooltip": "eigene Jitsi Instanz"
+      },
+      {
+        "name": "fas fa-video",
+        "tooltip": "Video Recording"
+      },
+      {
+        "name": "fas fa-phone",
+        "tooltip": "Anbindung Telefonie"
+      }
+    ],
+    "text": "Wenn sie möchten, dass man sich über eine Telefonnummer in eine Konferenz einwählen kann, benötigt man eine VoIP Telefonanlage. Wir konfigurieren ihr Konferenzsystem für eingehende und ausgehende Anrufe.",
+    "description": ".",
+    "price": "2.999,- €"
+  }
+]

@@ -1,6 +1,6 @@
 {
   "name": "cross-solution.de",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "CROSS Solution is a public first open company",
   "productName": "SmartComposer",
   "license": "MIT",
@@ -68,7 +68,8 @@
     "last 8 ChromeAndroid versions",
     "last 8 FirefoxAndroid versions",
     "last 10 iOS versions",
-    "last 5 Opera versions"
+    "last 5 Opera versions",
+    "ie >= 11"
   ],
   "funding": {
     "url": "https://github.com/sponsors/cbleek"

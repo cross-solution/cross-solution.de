@@ -11,13 +11,15 @@
         {{ icon.tooltip }}
       </q-tooltip>
     </span>
+    <div class="price">{{price}}</div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    icons: Array
+    icons: Array,
+    price: String
   }
 }
 </script>
@@ -32,10 +34,10 @@ export default {
   text-transform: none
   white-space: nowrap
   word-wrap: normal
-  direction: ltr
   text-align: center
-  position: relative
   color: $secondary
   font-size: 31px
   padding-right: 7px
+.price
+  font-size: 40px
 </style>

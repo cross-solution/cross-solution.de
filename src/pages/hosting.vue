@@ -50,8 +50,8 @@
       >
         <q-carousel-slide :name="1" img-src="jitsi-screenshot.png" />
         <q-carousel-slide :name="2" img-src="jitsi-desktop-sharing.png" />
-        <q-carousel-slide :name="3" img-src="jitsi-bex.png" />
-        <q-carousel-slide :name="4" img-src="jitsi-chat.png" />
+        <q-carousel-slide :name="3" img-src="jitsi-chat.png" />
+        <q-carousel-slide :name="4" img-src="jitsi-bex.png" />
       </q-carousel>
       </div>
     </div>
@@ -67,109 +67,56 @@
         natürlich auch telefonisch unter 069-71910361.
       </div>
     </div>
-    <div style="margin-top: 50px;" class="row q-gutter-lg justify-center">
+    <q-page-container
+      class="row text-center q-gutter-md justify-center"
+      id="top"
+    >
+      <products
+        v-for="product in products"
+        v-bind:key="product.title"
+        v-bind="product"
+        @goto="scrollToElement"
+      />
+    </q-page-container>
 
-      <q-card class="my-card">
-
-      <q-card-section>
-
-        <div class="row no-wrap items-center">
-          <div class="col text-h6 ellipsis">
-            Small
-          </div>
-        </div>
-      </q-card-section>
-
-      <q-card-section class="q-pt-none">
-        <div class="text-subtitle1">
-          <ul>
-            <li>Datenschutzkonformes Setup</li>
-            <li>Anpassung an eigenes CI</li>
-            <li>Funktionsumfang wie im Demo</li>
-          </ul>
-        </div>
-
-      </q-card-section>
-      <q-card-actions class="absolute-bottom">
-        <div class="text-grey text-center">
-          <h4>499€</h4>
-        </div>
-      </q-card-actions>
-    </q-card>
-
-      <q-card class="my-card">
-
-      <q-card-section>
-
-        <div class="row no-wrap items-center">
-          <div class="col text-h6 ellipsis">
-            Medium
-          </div>
-        </div>
-      </q-card-section>
-
-      <q-card-section class="q-pt-none">
-        <div class="text-subtitle1">
-          <ul>
-            <li>Datenschutzkonformes Setup</li>
-            <li>Anpassung an eigenes CI</li>
-            <li>Funktionsumfang wie im Demo</li>
-            <li>Recording</li>
-          </ul>
-        </div>
-
-      </q-card-section>
-
-      <q-card-actions>
-        <div class="text-grey text-center">
-          <h4>999€</h4>
-        </div>
-      </q-card-actions>
-    </q-card>
-      <q-card class="my-card">
-
-      <q-card-section>
-        <div class="row no-wrap items-center">
-          <div class="col text-h6 ellipsis">
-            Big
-          </div>
-        </div>
-      </q-card-section>
-
-      <q-card-section class="q-pt-none">
-        <div class="text-subtitle1">
-          <ul>
-            <li>Datenschutzkonformes Setup</li>
-            <li>Anpassung an eigenes CI</li>
-            <li>Funktionsumfang wie im Demo</li>
-            <li>Recording</li>
-            <li>Telefonie eingehend und ausgehend</li>
-          </ul>
-        </div>
-
-      </q-card-section>
-
-      <q-card-actions>
-        <div class="text-grey text-center">
-          <h4>ab 1999€</h4>
-        </div>
-      </q-card-actions>
-    </q-card>
-
-    </div>
-<div class="row">
-  <div class="col12">
-    alle Preise zzgl. gesetzlicher MwSt.</div>
-</div>
+    <q-page-container class="row text-center q-gutter-xs justify-center">
+      <product-description
+        v-for="product in products"
+        v-bind:key="product.title"
+        v-bind="product"
+        @goto="scrollToTop"
+      />
+    </q-page-container>
   </q-page>
 </template>
 
 <script>
+import Products from '../components/Products.vue'
+import ProductDescription from '../components/ProductDescription.vue'
+import Data from '../assets/jitsi.json'
+
 export default {
   name: 'Hosting',
   data () {
     return {
-      slide: 1
+      slide: 1,
+      products: Data
+    }
+  },
+  components: {
+    Products,
+    ProductDescription
+  },
+  methods: {
+    scrollToElement (id) {
+      const el = document.getElementById(id)
+      const target = scroll.getScrollTarget(el)
+      const offset = el.offsetTop
+      const duration = 100
+      scroll.setScrollPosition(target, offset, duration)
+    },
+    scrollToTop () {
+      this.scrollToElement('top')
     }
   }
 }
