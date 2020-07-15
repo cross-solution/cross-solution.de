@@ -1,5 +1,6 @@
 <template>
   <q-page padding>
+
     <h1>Get in touch</h1>
     <div>
       Sie können uns direkt per Email kontaktieren oder nachfolgendes
@@ -10,7 +11,20 @@
       Verbindung setzen.
     </div>
     <div class="q-pa-md q-gutter-y-sm">
+      <q-card
+        v-if="status.isFAIL"
+        class="q-pa-sm text-white bg-negative"
+      >
+        Es ist ein Fehler aufgetreten.
+      </q-card>
+      <q-card
+        v-if="status.isOK"
+        class="q-pa-sm text-white bg-positive"
+      >
+        Vielen Dank für Ihre Anfrage. Wir werden diese so schnell wie möglich bearbeiten.
+      </q-card>
       <form
+        v-if="!status.isOK"
         @submit="onSubmit"
         autocorrect="off"
         autocapitalize="off"
@@ -55,6 +69,37 @@
 </template>
 
 <script lang="javascript">
+class Status {
+  static get FAIL () {
+    return 'FAIL'
+  }
+  static get OK () {
+    return 'OK'
+  }
+  static get NONE () {
+    return 'NONE'
+  }
+
+  constructor () {
+    this.state = Status.NONE
+  }
+
+  get isOK () {
+    return this.state === Status.OK
+  }
+
+  get isFAIL () {
+    return this.state === Status.FAIL
+  }
+
+  ok () {
+    this.state = Status.OK
+  }
+
+  fail () {
+    this.state = Status.FAIL
+  }
+}
 export default {
   meta: {
     'title': 'get in touch'
@@ -65,7 +110,8 @@ export default {
       editor: '',
       email: '',
       name: '',
-      isSending: false
+      isSending: false,
+      status: new Status()
     }
   },
   methods: {
@@ -84,31 +130,26 @@ export default {
     onSubmit (e) {
       e.preventDefault()
       this.isSending = true
-      const config = {
-        headers: { Authorization: `Bearer ` + this.crossUser.get('token') }
-      }
       this.$axios
-        .post(process.env.STRAPI_HOST + '/email/', {
+        .post(process.env.EMAIL_SCRIPT, {
           name: this.name,
           email: this.email,
-          message: this.editor,
-          to: process.env.EMAIL_TO,
-          from: process.env.EMAIL_FROM
-        }, config)
+          message: this.editor
+        })
         .then(response => {
           // Handle success.
-          this.token = response.data.jwt
-          this.$forceUpdate()
-          console.log('Well done!')
-          console.log('User profile', response.data.user)
-          console.log('User token', response.data.jwt)
-
-          setTimeout(() => {
-            this.onReset()
-          }, 0.5 * 1000)
+          this.isSending = false
+          if (response.data.ok) {
+            this.status.ok()
+          }
+          else {
+            this.status.fail()
+          }
         })
         .catch(error => {
           // Handle error.
+          this.isSending = false
+          this.status.fail()
           console.log('An error occurred:', error)
         })
     },
