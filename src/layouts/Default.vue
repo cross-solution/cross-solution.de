@@ -6,11 +6,20 @@
           <logo />
         </q-toolbar-title>
         <q-tabs align="left" class="desktop-only">
-          <q-route-tab
-            to="/video-conferencing"
-            :label="$t('Video Conferencing')"
-            class="gt-xs"
-          />
+          <q-btn-dropdown flat color="primary" :label="$t('Video Conferencing')">
+            <q-list>
+              <q-item clickable v-close-popup to="/video-conferencing">
+                <q-item-section>
+                  <q-item-label>Server-Lösungen</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup to="/job-interviews">
+                <q-item-section>
+                  <q-item-label>Bewerbungsgespräche</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
           <q-route-tab to="/open-source" label="Open Source" class="gt-xs"/>
           <q-btn-dropdown flat color="primary" :label="$t('About Us')">
             <q-list>
