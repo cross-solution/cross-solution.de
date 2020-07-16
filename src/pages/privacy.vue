@@ -62,6 +62,12 @@
 
 <script>
 export default {
+  meta: {
+    'title': 'Datenschutzerklärung',
+    'meta': {
+      'description': { name: 'description', content: 'Wir speichern keine persönlichen Daten. Punkt!. Diese Seite führt zu den Details.' }
+    }
+  },
   name: 'privacy'
 }
 </script>

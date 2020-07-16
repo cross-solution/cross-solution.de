@@ -207,7 +207,10 @@ import YBoxWorkload from '../components/Form/BoxWorkload.vue'
 
 export default {
   meta: {
-    'title': 'Stellenanzeige schalten'
+    'title': 'Demo Stellenanzeige schalten',
+    'meta': {
+      'description': { name: 'description', content: 'Das Demo zeigt ein Eingabeformular für Stellenanzeigen.' }
+    }
   },
   data () {
     return {

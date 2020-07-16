@@ -63,6 +63,11 @@
 
 <script lang="javascript">
 export default {
-  // name: 'PageName',
+  'meta': {
+    'title': 'Download',
+    'meta': {
+      'description': { name: 'description', content: 'Einfache Bewerbungsgespräche ohne Registrierung der Teilnehmer. Eine Hürde weniger für den Bewerber. Einfache Einhaltung des Datenschutzes. Komferenz im Corporate Identity ihres Unternehmens.' }
+    }
+  }
 }
 </script>

@@ -237,7 +237,7 @@ import YPhotoUpload from '../components/Form/PhotoUpload.vue'
 
 export default {
   meta: {
-    title: 'Bewerben'
+    title: 'Demo Bewerbungsformular'
   },
   name: 'Apply',
   data () {

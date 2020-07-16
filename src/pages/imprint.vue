@@ -20,7 +20,10 @@
 <script>
 export default {
   meta: {
-    'title': 'Impressum'
+    'title': 'Impressum',
+    'meta': {
+      'description': { name: 'description', content: 'CROSS Solution, Diemelstrasse 2-4, 60486, Frankfurt. Inhaber: Carsten Bleek' }
+    }
   },
   name: 'Imprint'
 }
