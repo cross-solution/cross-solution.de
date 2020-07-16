@@ -13,7 +13,10 @@
 import Jobsearch from '../components/Jobsearch.vue'
 export default {
   meta: {
-    'title': 'Stellenangebote'
+    'title': 'Stellenangebote',
+    'meta': {
+      'description': { name: 'description', content: 'Demo für die Einbindung von Stellenanzeigen. Die Daten werden zu verfügung gestellt von Stellenmarkt.com' }
+    }
   },
   components: {
     Jobsearch

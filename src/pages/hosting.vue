@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
     <h1>{{$t('Video Conferencing')}}</h1>
-     <div class="row q-gutter-md">
+    <div class="row q-gutter-md">
       <div class="col-md-12">
         <p>
           Alle Betreiber von Videokonferenzen können mithöhren. Das liegt in der
@@ -9,7 +9,7 @@
           mithören können, muss man sein Konferenzsystem selbst betreiben.
         </p>
         <p>
-          Jitsi eignet sich für Videocalls, insbesondere für Bewerbungsgespräche,
+          Jitsi eignet sich für Videocalls, insbesondere für <a href="/job-interviews">Bewerbungsgespräche</a>,
           weil ein Bewerber nur den Link zum Konferenzraum benötigt. Die Einigung auf ein
           Konferenzsystem entfällt. Man nimmt eifach das eigene.
         </p>
@@ -67,6 +67,7 @@
         natürlich auch telefonisch unter 069-71910361.
       </div>
     </div>
+    <h2>Wir installieren Jitsi</h2>
     <q-page-container
       class="row text-center q-gutter-md justify-center"
       id="top"

@@ -55,7 +55,10 @@ import { scroll } from 'quasar'
 
 export default {
   meta: {
-    'title': 'Open Source @ CROSS Solution'
+    'title': 'Open Source @ CROSS Solution',
+    'meta': {
+      'description': { name: 'description', content: 'Open Source richtig nutzen mit CROSS Solution. Ihrem Partner für Software Entwicklung, DevOps, Hosting und Rekruiting.' }
+    }
   },
   name: 'PageIndex',
   data () {

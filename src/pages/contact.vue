@@ -102,7 +102,10 @@ class Status {
 }
 export default {
   meta: {
-    'title': 'get in touch'
+    'title': 'get in touch with CROSS Solution',
+    'meta': {
+      'description': { name: 'description', content: 'Rufen Sie uns an unter +49 (0)69-71910360. Oder vereinbaren Sie einen Videocall.' }
+    }
   },
   name: 'Contact',
   data () {
