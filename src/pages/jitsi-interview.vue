@@ -4,24 +4,72 @@
     <div class="row q-gutter-md">
       <div class="col-md-12">
         <p>
-          Jitsi eignet sich sehr gut für Bewerbungsgespräche per Videocall. Ein
+          Jitsi eignet sich sehr gut für Vorstellungs- oder Kennenlerngespräche per Videocall. Ein
           Kandidat benötigt lediglich einen Link. Eine Registrierung bei einem Drittanbieter entfällt.
-          Und weil Jitsi auch per Smartphone nutzbar ist, steht einem einfachen Videocall praktisch
+          Da Jitsi auch per Smartphone nutzbar ist, steht einem einfachen Videocall praktisch
           nichts im Weg. Überzeugen sie sich in unserem Demo.
         </p>
       </div>
     </div>
-    <h2>Bewerbungsgespräche mit Jitsi</h2>
+    <h2>Unkompliziert und sicher zum Online Vorstellungsgespräch</h2>
     <div class="row">
-    <div class="col-md-6">
-      Der Bewerber erhält eine Mail mit einem Termin und einem Link. Klickt der Bewerber
-      auf den Link, so muss er warten, bis Sie als Operator das Gespräch beginnen.
-      <ul>
-        <li>einfacher Datenschutz, weil keine Drittanbieter benötigt werden</li>
-        <li>einfaches Handling. Keine Registrierung erforderlich</li>
-        <li>einfache Integrierbarkeit. Weil Open Source.</li>
-      </ul>
-    </div>
+      <div class="col-6">
+        <p>Jitsie ist tatsächlich erfrischend unkompliziert zu bedienen.</p>
+        <p>
+          Sie erstellen einfach einen Konferenzraum mit einem eindeutigen Namen und senden den Link
+          an den Kandidaten. Dieser ruft einfach den Link auf und schon kann das Gespräch beginnen.
+        </p>
+
+        <ul>
+          <li>einfacher Datenschutz, weil keine Drittanbieter benötigt werden</li>
+          <li>einfaches Handling. Keine Registrierung erforderlich</li>
+          <li>einfache Integrierbarkeit. Weil Open Source.</li>
+        </ul>
+      </div>
+      <div class="col-6">
+        <q-carousel
+          animated
+          v-model="imgnr"
+          arrows
+          navigation
+          infinite
+          control-color="secondary"
+          transition-prev="slide-right"
+          transition-next="slide-left"
+          padding
+        >
+          <q-carousel-slide :name="1" class="column no-wrap items-center">
+            <ol><li>
+                Eröffnen Sie einen neuen Konferenzraum. Vergeben Sie einen möglichst eindeutigen Namen.
+            </li></ol>
+            <q-img src="interview/interview1.png" contain />
+          </q-carousel-slide>
+          <q-carousel-slide :name="2" class="column no-wrap items-center">
+            <ol start="2"><li>
+              Teilen Sie dem Kanditaten den Link zum Konferenzraum mit.
+            </li></ol>
+            <q-img src="interview/interview1-tile-share.png" contain />
+          </q-carousel-slide>
+          <q-carousel-slide :name="3" class="column no-wrap items-center">
+            <ol start="3"><li>
+              Geben Sie Ihren Bildschirm-Namen an um den Überblick zu verbessern.
+            </li></ol>
+            <q-img src="interview/interview2-nickname.png" contain />
+          </q-carousel-slide>
+          <q-carousel-slide :name="4" class="column no-wrap items-center">
+            <ol start="4"><li>
+              Sie können wahlweise den Kanditaten im Vollbild-Modus sehen...
+            </li></ol>
+            <q-img src="interview/interview2-fullscreen-applicant.png" contain />
+          </q-carousel-slide>
+          <q-carousel-slide :name="5" class="column no-wrap items-center">
+            <ol start="5"><li>
+              oder beide Gesprächspartner in Kacheln.
+            </li></ol>
+            <q-img src="interview/interview2-tiles-recruiter.png" contain />
+          </q-carousel-slide>
+        </q-carousel>
+      </div>
     </div>
   </q-page>
 </template>
@@ -32,6 +80,11 @@ export default {
     'title': 'Bewerbungsgespräche mit Jitsi',
     'meta': {
       'description': { name: 'description', content: 'Einfache Bewerbungsgespräche ohne Registrierung der Teilnehmer. Eine Hürde weniger für den Bewerber. Einfache Einhaltung des Datenschutzes. Komferenz im Corporate Identity ihres Unternehmens.' }
+    }
+  },
+  data () {
+    return {
+      'imgnr': 1
     }
   }
   // name: 'PageName',
