@@ -40,18 +40,41 @@
       </div>
 
     </div>
-      <div class="col-md-6 col-sm-12">
+      <div class="col-6">
         <q-carousel
         animated
         v-model="slide"
         arrows
-        navigation
         infinite
-      >
-        <q-carousel-slide :name="1" img-src="jitsi-screenshot.png" />
-        <q-carousel-slide :name="2" img-src="jitsi-desktop-sharing.png" />
-        <q-carousel-slide :name="3" img-src="jitsi-chat.png" />
-        <q-carousel-slide :name="4" img-src="jitsi-bex.png" />
+        control-color="secondary"
+        transition-prev="slide-right"
+        transition-next="slide-left"
+        height="500px"
+        >
+        <q-carousel-slide :name="1" img-src="jitsi-screenshot.png">
+          <div class="absolute-bottom custom-caption">
+            <div class="text-h2">Konferenzraum</div>
+            <div class="text-subtitle1">mehrere Teilnemer</div>
+          </div>
+        </q-carousel-slide>
+        <q-carousel-slide :name="2" img-src="jitsi-desktop-sharing.png">
+          <div class="absolute-bottom custom-caption">
+            <div class="text-h2">Bildschirmfreigabe</div>
+            <div class="text-subtitle1">Freigabe des Bildschirms oder Fenstern</div>
+          </div>
+        </q-carousel-slide>
+        <q-carousel-slide :name="3" img-src="jitsi-chat.png">
+          <div class="absolute-bottom custom-caption">
+            <div class="text-h2">Chat</div>
+            <div class="text-subtitle1">Textnachrichten können gesendet werden</div>
+          </div>
+        </q-carousel-slide>
+        <q-carousel-slide :name="4" img-src="jitsi-bex.png">
+          <div class="absolute-bottom custom-caption">
+            <div class="text-h2">Erstellung Einladung</div>
+            <div class="text-subtitle1">per Browser Extension</div>
+          </div>
+        </q-carousel-slide>
       </q-carousel>
       </div>
     </div>
@@ -122,3 +145,11 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.custom-caption
+  text-align: left
+  padding: 12px
+  color: white
+  background-color: rgba(0, 0, 0, .3)
+</style>
