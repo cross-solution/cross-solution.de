@@ -113,7 +113,10 @@
 <script>
 export default {
   meta: {
-    'title': 'Open Source'
+    'title': 'Open Source',
+    'meta': {
+      'description': { name: 'description', content: 'Open Source ist nicht mehr nur eine Lizenzfrage. Es wird immer deutlicher, dass der Ansatz eng verbunden ist mit der Arbeitsweise. Und das nicht nur in der Entwicklung' }
+    }
   },
   name: 'OpenSource',
   data () {

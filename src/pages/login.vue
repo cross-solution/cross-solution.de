@@ -44,7 +44,10 @@
 <script>
 export default {
   meta: {
-    'title': 'Login'
+    'title': 'Login',
+    'meta': {
+      'description': { name: 'description', content: 'Login to the Backend of CROSS Solution' }
+    }
   },
   data () {
     return {

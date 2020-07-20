@@ -7,7 +7,7 @@
     </p>
     <h2>Ergebnis</h2>
     <p>
-      An erster stelle steht bei uns das Ergebnis.
+      An erster Stelle steht bei uns das Ergebnis.
     </p>
     <h2>Transparenz</h2>
     <p>

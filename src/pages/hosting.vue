@@ -17,7 +17,7 @@
     </div>
     <h2>Jitsi</h2>
     <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-12">
       <a href="https://jitsi.org">Jitsi</a> ist eine quelloffene
       Videokonferenz Lösung. Sie bietet:
       <ul>
@@ -40,40 +40,51 @@
       </div>
 
     </div>
-      <div class="col-6">
+      <div class="col-md-6 col-xs-12">
         <q-carousel
         animated
+        control-type="outline"
+        draggable=false
         v-model="slide"
         arrows
         infinite
+        padding
         control-color="secondary"
         transition-prev="slide-right"
         transition-next="slide-left"
-        height="500px"
+        :swipeable="$q.platform.is.mobile"
         >
-        <q-carousel-slide :name="1" img-src="jitsi-screenshot.png">
-          <div class="absolute-bottom custom-caption">
-            <div class="text-h2">Konferenzraum</div>
-            <div class="text-subtitle1">mehrere Teilnemer</div>
-          </div>
+        <q-carousel-slide :name="1" class="full-height full-width">
+          <q-img contain class="items-center" src="jitsi-screenshot.png">
+            <div class="absolute-bottom custom-caption">
+              <div class="text-h4">Konferenzraum</div>
+              <div class="text-subtitle1">mehrere Teilnemer</div>
+            </div>
+          </q-img>
         </q-carousel-slide>
-        <q-carousel-slide :name="2" img-src="jitsi-desktop-sharing.png">
-          <div class="absolute-bottom custom-caption">
-            <div class="text-h2">Bildschirmfreigabe</div>
-            <div class="text-subtitle1">Freigabe des Bildschirms oder Fenstern</div>
-          </div>
+        <q-carousel-slide :name="2">
+          <q-img contain class="" src="jitsi-desktop-sharing.png">
+            <div contain class="absolute-bottom custom-caption">
+              <div class="text-h2">Bildschirmfreigabe</div>
+              <div class="text-subtitle1">Freigabe des Bildschirms oder Fenstern</div>
+            </div>
+          </q-img>
         </q-carousel-slide>
-        <q-carousel-slide :name="3" img-src="jitsi-chat.png">
-          <div class="absolute-bottom custom-caption">
-            <div class="text-h2">Chat</div>
-            <div class="text-subtitle1">Textnachrichten können gesendet werden</div>
-          </div>
+        <q-carousel-slide :name="3">
+          <q-img contain class="" src="jitsi-chat.png">
+            <div class="absolute-bottom custom-caption">
+              <div class="text-h2">Chat</div>
+              <div class="text-subtitle1">Textnachrichten zwischen den Teilnehmern</div>
+            </div>
+          </q-img>
         </q-carousel-slide>
-        <q-carousel-slide :name="4" img-src="jitsi-bex.png">
-          <div class="absolute-bottom custom-caption">
-            <div class="text-h2">Erstellung Einladung</div>
-            <div class="text-subtitle1">per Browser Extension</div>
-          </div>
+        <q-carousel-slide :name="4">
+          <q-img contain class="" src="jitsi-bex.png">
+            <div class="absolute-bottom custom-caption">
+              <div class="text-h2">Erstellung Einladung</div>
+              <div class="text-subtitle1">per Browser Extension</div>
+            </div>
+          </q-img>
         </q-carousel-slide>
       </q-carousel>
       </div>
