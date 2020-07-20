@@ -1,7 +1,7 @@
 [
   {
     "id": "small",
-    "title": "einzelnder Server",
+    "title": "einzelner Server",
     "subtitle": "Installation Setup eingener Jitsi",
     "bg": "orange",
     "text": "<ul><li><b>Datenschutzkonformes</b> Setup</li><li>Anpassung ans eigene CI</li><li>Funktionsumfang wie im <a href='https://confi.cross-solution.de'>Demo</a></li></ul>",
