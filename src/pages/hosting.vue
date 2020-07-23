@@ -4,7 +4,7 @@
     <div class="row q-gutter-md">
       <div class="col-md-12">
         <p>
-          Alle Betreiber von Videokonferenzen können mithöhren. Das liegt in der
+          Alle Betreiber von Videokonferenzen können mithören. Das liegt in der
           Natur der Sache. Wenn man ausschließen möchte, dass Dritte Konferenzen
           mithören können, muss man sein Konferenzsystem selbst betreiben.
         </p>
@@ -57,32 +57,32 @@
         <q-carousel-slide :name="1" class="full-height full-width">
           <q-img contain class="items-center" src="jitsi-screenshot.png">
             <div class="absolute-bottom custom-caption">
-              <div class="text-h4">Konferenzraum</div>
-              <div class="text-subtitle1">mehrere Teilnemer</div>
+              <div class="text-h5">Konferenzraum</div>
+              <div class="text-subtitle2">mehrere Teilnemer</div>
             </div>
           </q-img>
         </q-carousel-slide>
         <q-carousel-slide :name="2">
           <q-img contain class="" src="jitsi-desktop-sharing.png">
-            <div contain class="absolute-bottom custom-caption">
-              <div class="text-h2">Bildschirmfreigabe</div>
-              <div class="text-subtitle1">Freigabe des Bildschirms oder Fenstern</div>
+            <div contain class="absolute-bottom custom-caption text-right">
+              <div class="text-h5">Bildschirmfreigabe</div>
+              <div class="text-subtitle2">Freigabe des Bildschirms oder Fenstern</div>
             </div>
           </q-img>
         </q-carousel-slide>
         <q-carousel-slide :name="3">
           <q-img contain class="" src="jitsi-chat.png">
             <div class="absolute-bottom custom-caption">
-              <div class="text-h2">Chat</div>
-              <div class="text-subtitle1">Textnachrichten zwischen den Teilnehmern</div>
+              <div class="text-h5">Chat</div>
+              <div class="text-subtitle2">Textnachrichten zwischen den Teilnehmern</div>
             </div>
           </q-img>
         </q-carousel-slide>
         <q-carousel-slide :name="4">
           <q-img contain class="" src="jitsi-bex.png">
             <div class="absolute-bottom custom-caption">
-              <div class="text-h2">Erstellung Einladung</div>
-              <div class="text-subtitle1">per Browser Extension</div>
+              <div class="text-h5">Erstellung Einladung</div>
+              <div class="text-subtitle2">per Browser Extension</div>
             </div>
           </q-img>
         </q-carousel-slide>
@@ -129,9 +129,16 @@
 import Products from '../components/Products.vue'
 import ProductDescription from '../components/ProductDescription.vue'
 import Data from '../assets/jitsi.json'
+import { scroll } from 'quasar'
 
 export default {
   name: 'Hosting',
+  'meta': {
+    'title': 'Installation und Betrieb von Jitsi',
+    'meta': {
+      'description': { name: 'description', content: 'Wir installieren ihnen Jitsi in ihrer Umgebung. Volle Integration in ihren Arbeitsablauf.' }
+    }
+  },
   data () {
     return {
       slide: 1,
