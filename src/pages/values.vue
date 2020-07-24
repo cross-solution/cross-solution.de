@@ -34,6 +34,12 @@
 
 <script>
 export default {
+  meta: {
+    'title': 'Unsere Werte',
+    'meta': {
+      'description': { name: 'description', content: 'Die 5 Werte von CROSS Solution sind Transparenz, Effizenz, Kontinuität, Ergebnis uns Zusammenarbeit.' }
+    }
+  }
   // name: 'PageName',
 }
 </script>
