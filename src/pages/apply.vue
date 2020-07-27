@@ -237,7 +237,10 @@ import YPhotoUpload from '../components/Form/PhotoUpload.vue'
 
 export default {
   meta: {
-    title: 'Demo Bewerbungsformular'
+    title: 'Demo Bewerbungsformular',
+    'meta': {
+      'description': { name: 'description', content: 'Unser Demo zeigt, wie ein Bewerbungsformular aussehen könnte. Testen Sie es im Browser und auf einem Mobilgerät.' }
+    }
   },
   name: 'Apply',
   data () {

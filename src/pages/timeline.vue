@@ -9,9 +9,9 @@
 import Timeline from '../components/Timeline.vue'
 export default {
   meta: {
-    'title': 'Geschichte von CROSS Solution seit 2003',
+    'title': 'Entwicklung von CROSS Solution seit 2003',
     'meta': {
-      'description': { name: 'description', content: 'Der Open Source Berater CROSS Solution führt seinen Werdegang in einer Timeline' }
+      'description': { name: 'description', content: 'Open Source Beratung von CROSS Solution. Unsere Timeline zeigt ihnen Schwerpunkte unserer Entwicklung.' }
     }
   },
   // name: 'PageName',

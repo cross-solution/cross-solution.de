@@ -34,7 +34,6 @@
         </q-btn>
       </q-card-actions>
     </q-card>
-
   </div>
 </template>
 
@@ -65,11 +64,8 @@ grid-container
   grid-row-gap: 10px
   grid-column-gap: 10px
 
-.q-item .portrait
-  box-shadow: 0 0 5px #666
-  height: 100%
-  padding: 0px
-  background-color: $secondary
+.q-avatar
+  background: $secondary
 
 .q-card
   height: 100%
