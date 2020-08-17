@@ -11,7 +11,7 @@
           in 2020 steht das Thema Videokonferenzen im Fokus. Das gibt es von großen
           Anbietern oftmals gratis. Aber wenn Datenschutz wichtig ist, kommt man
           kaum daran vorbei ein Konferenzsystem selbst zu betreiben. Wir unterstützen sie
-          beim Setup von Jitsi.
+          beim Setup von Jitsi oder BlueBigButton.
         </div>
       </q-timeline-entry>
 

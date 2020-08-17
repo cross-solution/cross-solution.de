@@ -12,6 +12,7 @@ const routes = [
       { path: 'job-interviews', component: () => import('pages/jitsi-interview.vue') },
       { path: 'open-source', component: () => import('pages/open-source.vue') },
       { path: 'contact', component: () => import('pages/contact.vue') },
+      { path: 'gitlab', component: () => import('pages/gitlab-hosting.vue') },
       { path: 'download', component: () => import('pages/download.vue') },
       { path: 'imprint', component: () => import('pages/imprint.vue') },
       { path: 'privacy', component: () => import('pages/privacy.vue') },

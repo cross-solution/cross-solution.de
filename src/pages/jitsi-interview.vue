@@ -14,7 +14,7 @@
     <h2>Unkompliziert und sicher zum Online Vorstellungsgespräch</h2>
     <div class="row">
       <div class="col-6">
-        <p>Jitsie ist tatsächlich erfrischend unkompliziert zu bedienen.</p>
+        <p>Jitsi ist tatsächlich erfrischend unkompliziert zu bedienen.</p>
         <p>
           Sie erstellen einfach einen Konferenzraum mit einem eindeutigen Namen und senden den Link
           an den Kandidaten. Dieser ruft einfach den Link auf und schon kann das Gespräch beginnen.

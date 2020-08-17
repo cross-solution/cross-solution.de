@@ -6,16 +6,21 @@
           <logo />
         </q-toolbar-title>
         <q-tabs align="left" class="desktop-only">
-          <q-btn-dropdown flat color="primary" :label="$t('Video Conferencing')">
+          <q-btn-dropdown flat color="primary" :label="$t('Products')">
             <q-list>
               <q-item clickable v-close-popup to="/video-conferencing">
                 <q-item-section>
-                  <q-item-label>Server-Lösungen</q-item-label>
+                  <q-item-label>{{$t('Video Conferencing')}}</q-item-label>
                 </q-item-section>
               </q-item>
               <q-item clickable v-close-popup to="/job-interviews">
                 <q-item-section>
                   <q-item-label>Bewerbungsgespräche</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup to="/gitlab">
+                <q-item-section>
+                  <q-item-label>Gitlab Hosting</q-item-label>
                 </q-item-section>
               </q-item>
             </q-list>
