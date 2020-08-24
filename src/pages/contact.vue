@@ -65,6 +65,30 @@
         </q-inner-loading>
       </form>
     </div>
+    <h1>CROSS Solution on Air</h1>
+    <div class="row">
+      <div class="col-md-6">
+        Jeweils Freitags von 18:00 bis 18:30 ist CROSS Solution on Air. Wir laden
+        zum Austausch von Ideen per Video Call unter zum unter<br/>
+
+        <q-btn
+          type="a"
+            key="btn_size_rd_xl"
+            rounded
+            color="primary"
+            size="xl"
+            label="Join CROSS On Air"
+            href="https://confi.cross-solution.de/CrossSolutionOnAir"
+            target="_blank"
+          />
+      </div>
+      <div class="col-md-6">
+        <q-video
+          :ratio="16/9"
+          src="https://www.youtube.com/embed/live_stream?channel=UC5VCgGvaOCo39AQ2-jtrVRg"
+        />
+      </div>
+    </div>
   </q-page>
 </template>
 
