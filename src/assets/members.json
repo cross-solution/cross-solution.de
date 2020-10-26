@@ -70,5 +70,18 @@
         "text": "Home"
     }
     ]
-  }
+  },
+  {
+    "name": "Maria Mezhtskaya",
+    "title": "Software Developer",
+    "image": "",
+    "slogan": "I'm turning caffeine into code",
+    "buttons": [
+    {
+        "name": "fab fa-github",
+        "link": "https://github.com/MMezhetskaya",
+        "text": "Github"
+    }
+    ]
+}
 ]
