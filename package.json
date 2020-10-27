@@ -54,6 +54,7 @@
     "eslint-plugin-vue": "^5.0.0",
     "semantic-release": "^17.0.4",
     "standard": "^14.3.1",
+    "vue-calendly": "0.0.4",
     "workbox-webpack-plugin": "^5.0.0",
     "yaml-loader": "^0.5.0"
   },

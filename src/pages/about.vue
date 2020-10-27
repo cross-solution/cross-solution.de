@@ -24,6 +24,9 @@
         />
       </div>
     </div>
+    <q-no-ssr>
+      <vue-calendly url="https://calendly.com/cross-solution" :height="600"></vue-calendly>
+    </q-no-ssr>
   </q-page>
 </template>
 
