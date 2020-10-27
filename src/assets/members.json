@@ -71,10 +71,23 @@
     }
     ]
   },
+{
+    "name": "Thomas Küper",
+    "title": "Vertrieb",
+    "image": "team/Thomas Küper.jpeg",
+    "slogan": "Let's work together",
+    "buttons": [
+    {
+        "name": "fas fa-home",
+        "link": "https://www.camaleo.de/",
+        "text": "Home"
+    }
+    ]
+},
   {
     "name": "Maria Mezhtskaya",
     "title": "Software Developer",
-    "image": "",
+    "image": "team/mezhetskaya.jpeg",
     "slogan": "I'm turning caffeine into code",
     "buttons": [
     {
