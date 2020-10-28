@@ -1,10 +1,7 @@
 import Vue from 'vue'
-import VueCalendly from 'vue-calendly'
 import VueRouter from 'vue-router'
-
 import routes from './routes'
 
-Vue.use(VueCalendly)
 Vue.use(VueRouter)
 
 /*
