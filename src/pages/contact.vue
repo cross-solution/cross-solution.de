@@ -65,6 +65,14 @@
         </q-inner-loading>
       </form>
     </div>
+    <h1 id="zoom">Talk to us</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <q-no-ssr>
+          <vue-calendly url="https://calendly.com/cross-solution" :height="650"></vue-calendly>
+        </q-no-ssr>
+      </div>
+    </div>
     <h1>CROSS Solution on Air</h1>
     <div class="row">
       <div class="col-md-6">
@@ -93,6 +101,11 @@
 </template>
 
 <script lang="javascript">
+import Vue from 'vue'
+import VueCalendly from 'vue-calendly'
+
+Vue.use(VueCalendly)
+
 class Status {
   static get FAIL () {
     return 'FAIL'

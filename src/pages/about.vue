@@ -24,19 +24,12 @@
         />
       </div>
     </div>
-    <q-no-ssr>
-      <vue-calendly url="https://calendly.com/cross-solution" :height="600"></vue-calendly>
-    </q-no-ssr>
   </q-page>
 </template>
 
 <script lang="javascript">
-import Vue from 'vue'
-import VueCalendly from 'vue-calendly'
 import Member from '../components/Member.vue'
 import Data from '../assets/members.json'
-
-Vue.use(VueCalendly)
 
 export default {
   meta: {

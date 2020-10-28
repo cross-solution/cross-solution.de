@@ -24,6 +24,7 @@
         </div>
       </q-carousel-slide>
     </q-carousel>
+
     <q-page-container
       class="row text-center q-gutter-md justify-center"
       id="top"
