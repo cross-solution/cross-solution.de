@@ -96,5 +96,18 @@
         "text": "Github"
     }
     ]
+},
+  {
+    "name": "Rahul K",
+    "title": "Software Developer",
+    "image": "team/rahul.png",
+    "slogan": "I work remote",
+    "buttons": [
+    {
+        "name": "fab fa-github",
+        "link": "https://gitlab.com/rahulgopinathk",
+        "text": "Github"
+    }
+    ]
 }
 ]
