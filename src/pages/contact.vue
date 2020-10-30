@@ -1,27 +1,36 @@
 <template>
   <q-page padding>
-
     <h1>Get in touch</h1>
-    <div>
-      Sie können uns direkt per Email kontaktieren oder nachfolgendes
-      Kontaktformular verwenden. Vertrauliche Informationen können Sie uns
-      verschlüsselt schicken (siehe www.gnupg.org). Unser öffenlicher Schlüssel
-      ist hier verfügbar (Id: 0x8AD12510, Fingerprint: 40FE 2824 60BA BDE2 247E
-      919A DD27 60F5 8AD1 2510). Wir werden uns kurzfristig mit Ihnen in
-      Verbindung setzen.
-    </div>
-    <div class="q-pa-md q-gutter-y-sm">
-      <q-card
-        v-if="status.isFAIL"
-        class="q-pa-sm text-white bg-negative"
-      >
-        Es ist ein Fehler aufgetreten.
-      </q-card>
-      <q-card
-        v-if="status.isOK"
-        class="q-pa-sm text-white bg-positive"
-      >
-        Vielen Dank für Ihre Anfrage. Wir werden diese so schnell wie möglich bearbeiten.
+    <div class="row q-gutter-md justify-center">
+      <q-card class="col-md-5 col-lg-5 col-sm-4 col-xs-12">
+        <q-card-section>
+          <h2>Zoom Call</h2>
+          <div class="text-body1">
+            Wir <b>verschenken</b> täglich 2 x 15 Minuten. Sie können sich einfach ein Zeitfenster aussuchen und wir
+            treffen uns in einem Zoom Call.
+          </div>
+        </q-card-section>
+        <q-card-actions>
+          <q-btn
+            type="a"
+            class="absolute-bottom"
+            key="btn_size_rd_xl"
+            rounded
+            color="primary"
+            size="xl"
+            target="_blank"
+          >
+            <q-no-ssr>
+            <!-- Calendly Link-Widget Beginn -->
+              <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+              <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+              <a class="zoom" href="" onclick="Calendly.initPopupWidget(
+                {url: 'https://calendly.com/cross-solution'}
+                );return false;">Zeitfenster wählen</a>
+              <!-- Calendly Link-Widget Ende -->
+            </q-no-ssr>
+          </q-btn>
+        </q-card-actions>
       </q-card>
       <form
         v-if="!status.isOK"
@@ -31,75 +40,68 @@
         autocomplete="off"
         spellcheck="true"
       >
-        <div>
-          <q-input
-            v-model="name"
-            label="Name *"
-            lazy-rules
-            :rules="[ val => val && val.length > 0 || 'Please type name']"
-          />
-          <q-input
-            v-model="email"
-            label="Email *"
-            lazy-rules
-            :rules="[ val => val && val.length > 0 || 'Please type email']"
-          />
-          <q-editor
-            v-model="editor"
-            min-height="5rem"
-            aria-placeholder="Ihre Nachricht"
-          />
-          <q-btn
-            color="primary"
-            type="submit"
-            icon-right="send"
-            label="Absenden"
-          />
-        </div>
-        <q-inner-loading :showing="isSending">
-          <q-spinner
-            size="4em"
-            :thickness="2"
-            color="primary"
-          />
-        </q-inner-loading>
+
+        <q-card class="col-md-6 col-lg-6 col-sm-4 col-xs-12">
+          <q-card-section>
+            <h2>Text Message</h2>
+            <div class="text-body1">
+              oder hinterlassen Sie uns kurz eine Nachricht. Wir melden uns dann bei Ihnen.
+            </div>
+            <div class="q-pa-md q-gutter-y-sm">
+              <q-card
+                v-if="status.isFAIL"
+                class="q-pa-sm text-white bg-negative"
+              >
+                Es ist ein Fehler aufgetreten.
+              </q-card>
+              <q-card
+                v-if="status.isOK"
+                class="q-pa-sm text-white bg-positive"
+              >
+                Vielen Dank für Ihre Anfrage. Wir werden diese so schnell wie möglich bearbeiten.
+              </q-card>
+                <div>
+                  <q-input
+                    v-model="name"
+                    label="Name *"
+                    lazy-rules
+                    :rules="[ val => val && val.length > 0 || 'Please type name']"
+                  />
+                  <q-input
+                    v-model="email"
+                    label="Email *"
+                    lazy-rules
+                    :rules="[ val => val && val.length > 0 || 'Please type email']"
+                  />
+                  <q-editor
+                    v-model="editor"
+                    min-height="5rem"
+                    aria-placeholder="Ihre Nachricht"
+                  />
+
+                </div>
+                <q-inner-loading :showing="isSending">
+                  <q-spinner
+                    size="4em"
+                    :thickness="2"
+                    color="primary"
+                  />
+                </q-inner-loading>
+            </div>
+          </q-card-section>
+          <q-card-actions>
+            <q-btn
+                class="absolute-bottom"
+                color="primary"
+                type="submit"
+                label="Absenden"
+                rounded
+                size="xl"
+            />
+          </q-card-actions>
+        </q-card>
       </form>
-    </div>
-    <h1 id="zoom">Talk to us</h1>
-    <div class="row">
-      <div class="col-md-12">
-        <!-- Calendly inline widget begin -->
-        <q-no-ssr>
-          <div class="calendly-inline-widget" data-url="https://calendly.com/cross-solution" style="height:630px;"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
-        </q-no-ssr>
-        <!-- Calendly inline widget end -->
-      </div>
-    </div>
 
-    <h1>CROSS Solution on Air</h1>
-    <div class="row">
-      <div class="col-md-6">
-        Jeweils Freitags von 18:00 bis 18:30 ist CROSS Solution on Air. Wir laden
-        zum Austausch von Ideen per Video Call unter zum unter<br/>
-
-        <q-btn
-          type="a"
-            key="btn_size_rd_xl"
-            rounded
-            color="primary"
-            size="xl"
-            label="Join CROSS On Air"
-            href="https://confi.cross-solution.de/CrossSolutionOnAir"
-            target="_blank"
-          />
-      </div>
-      <div class="col-md-6">
-        <q-video
-          :ratio="16/9"
-          src="https://www.youtube.com/embed/live_stream?channel=UC5VCgGvaOCo39AQ2-jtrVRg"
-        />
-      </div>
     </div>
   </q-page>
 </template>
@@ -205,3 +207,11 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+a.zoom
+  color: #fff
+.q-card__actions
+  min-height: 60px
+  text-align: center
+</style>
