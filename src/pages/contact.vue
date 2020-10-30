@@ -68,11 +68,15 @@
     <h1 id="zoom">Talk to us</h1>
     <div class="row">
       <div class="col-md-12">
+        <!-- Calendly inline widget begin -->
         <q-no-ssr>
-          <vue-calendly url="https://calendly.com/cross-solution" :height="650"></vue-calendly>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/cross-solution" style="height:630px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
         </q-no-ssr>
+        <!-- Calendly inline widget end -->
       </div>
     </div>
+
     <h1>CROSS Solution on Air</h1>
     <div class="row">
       <div class="col-md-6">
@@ -101,11 +105,6 @@
 </template>
 
 <script lang="javascript">
-import Vue from 'vue'
-import VueCalendly from 'vue-calendly'
-
-Vue.use(VueCalendly)
-
 class Status {
   static get FAIL () {
     return 'FAIL'
@@ -137,6 +136,7 @@ class Status {
     this.state = Status.FAIL
   }
 }
+
 export default {
   meta: {
     'title': 'get in touch with CROSS Solution',
