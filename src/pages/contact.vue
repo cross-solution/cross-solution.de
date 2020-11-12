@@ -2,35 +2,26 @@
   <q-page padding>
     <h1>Get in touch</h1>
     <div class="row q-gutter-md justify-center">
-      <q-card class="col-md-5 col-lg-5 col-sm-4 col-xs-12">
+      <q-card class="col-md-3 col-lg-3 col-sm-4 col-xs-12">
         <q-card-section>
           <h2>Zoom Call</h2>
           <div class="text-body1">
             Wir <b>verschenken</b> täglich 2 x 15 Minuten. Sie können sich einfach ein Zeitfenster aussuchen und wir
-            treffen uns in einem Zoom Call.
+            treffen uns in einem Zoom Call. Calendly sorgt dafür, dass alle Teilnehmer über den Ort und den Zeitpunkt
+            informiert werden.
           </div>
+          <div>
+                      </div>
         </q-card-section>
-        <q-card-actions>
-          <q-btn
+          <q-card-actions>
+            <q-btn class="absolute-bottom"
             type="a"
-            class="absolute-bottom"
-            key="btn_size_rd_xl"
-            rounded
+            target="_new"
+            href="https://calendly.com/cross-solution/15min"
             color="primary"
-            size="xl"
-            target="_blank"
-          >
-            <q-no-ssr>
-            <!-- Calendly Link-Widget Beginn -->
-              <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-              <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-              <a class="zoom" href="" onclick="Calendly.initPopupWidget(
-                {url: 'https://calendly.com/cross-solution'}
-                );return false;">Zeitfenster wählen</a>
-              <!-- Calendly Link-Widget Ende -->
-            </q-no-ssr>
-          </q-btn>
-        </q-card-actions>
+            label="Zeitpunkt wählen"
+            />
+          </q-card-actions>
       </q-card>
       <form
         v-if="!status.isOK"
@@ -95,8 +86,6 @@
                 color="primary"
                 type="submit"
                 label="Absenden"
-                rounded
-                size="xl"
             />
           </q-card-actions>
         </q-card>
@@ -207,11 +196,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass" scoped>
-a.zoom
-  color: #fff
-.q-card__actions
-  min-height: 60px
-  text-align: center
-</style>
