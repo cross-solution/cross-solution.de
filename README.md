@@ -1,3 +1,6 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/cross-solution/cross-solution.de)
+
+
 # CROSS Solution
 
 this is the quasar based https://cross-solution.de homepage. It depends on nodejs. You can install it by cloning the repo and
