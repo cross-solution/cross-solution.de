@@ -50,7 +50,7 @@ function wip () {
       'Wir überarbeiten nach 15 Jahren unsere Homepage. Obwohl noch nicht ganz fertig, ist sie bereits online. Wir ermöglichen Ihnen dadurch auf Github zu verfolgen, wie die Seite entsteht.',
     position: 'bottom-left',
     avatar: 'team/cbleek-460x460.jpeg',
-    timeout: 10000,
+    timeout: 1000000,
     classes: 'notify_img',
     color: 'secondary',
     textColor: 'black',
