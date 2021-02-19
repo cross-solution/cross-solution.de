@@ -13,7 +13,24 @@
     <h2>Hosting</h2>
     <div class="row">
       <div class="col-md-6 col-sm-12">
-      <a href="https://about.gitlab.org">Gitlab</a> ist ein Frontend für GIT.
+      <a href="https://gitlab.com/explore">Gitlab</a> ist ein Frontend für GIT. Ein
+        bemerkenswertes Produkt von der Firma <a href="https://about.gitlab.com">Gitlab</a>.
+        Es es ein Programm, welches sich mit einer hohen Qualität und einer großen
+        Geschwindigkeit weiterentwickelt.<br>
+        Die <a href="https://about.gitlab.com/features/">Feature Liste</a> ist lang
+        und oft braucht es ein technisches Verständlis, um sie zu verstehen. Deshalb
+        übersetzen wir hier:
+        <ul>
+          <li>Intergration von Externen in Abläufe. Externe können sein: Freelancer,
+            Lieferanten und Kunden
+          </li>
+          <li>Dokumentation mit dem Fokus Single Point of Truth</li>
+          <li>
+            Qualitätssicherung. Überwachung von Abweichungen zwischen Anforderungen
+            und Ergebnissen.
+          </li>
+        </ul>
+
         Wir können Ihnen eine Evaluierung von Gitlab vereinfachen. Eine
         Entscheidung für Gitlab kann nicht falsch sein, denn die an den Tag gelegte
         Geschwindigkeit der Entwicklung des Produktes Gitlab, die Transparenz
@@ -37,9 +54,9 @@
 export default {
   name: 'Gitlab',
   'meta': {
-    'title': 'Wir hosten ihr Gitlab.',
+    'title': 'Einführung Gitlab im Unternehmen',
     'meta': {
-      'description': { name: 'description', content: 'Wir hosten ihr Gitlab und schulen Sie.' }
+      'description': { name: 'description', content: 'Einführung von Gitlab im gesamten Unternehmen. Nicht nur in der IT.' }
     }
   }
 }
