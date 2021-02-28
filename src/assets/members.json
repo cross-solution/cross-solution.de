@@ -109,5 +109,37 @@
         "text": "Github"
     }
     ]
+},
+{
+    "name": "ZK Rana",
+    "title": "Web Developer",
+    "image": "team/zkranapic.jpg",
+    "slogan": "Together We Make Difference ",
+    "buttons": [
+        {
+            "name": "fab fa-linkedin",
+            "link": "https://www.linkedin.com/in/zkranadevs/",
+            "text": "LinkedIn"
+        },
+        {
+            "name": "fab fa-github",
+            "link": "https://github.com/zkrana",
+            "text": "Github"
+        }
+    ]
+},
+{
+    "name": "Silke Wolf",
+    "title": "Web Designer",
+    "image": "team/silkewolf_cross.jpg",
+    "slogan": "Designing websites that work",
+    "buttons": [
+    {
+        "name": "fas fa-home",
+        "link": "https://www.silkewolf.de/",
+        "text": "Home"
+    }
+    ]
 }
+
 ]
