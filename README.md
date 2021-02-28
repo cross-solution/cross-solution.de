@@ -6,6 +6,10 @@
 this is the quasar based https://cross-solution.de homepage. It depends on nodejs. You can install it by cloning the repo and
 run yarn to install dependencies.
 
+It contains a few forms that serve as prototypes for the Kickstarter [Lebenslauf Mamager](https://www.kickstarter.com/projects/yavik/manager-fur-lebenslaufe?lang=de).
+
+
+
 ## Requirements
 
 to contribute, you need:
