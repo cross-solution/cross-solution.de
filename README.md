@@ -80,13 +80,13 @@ yarn build-win32
 
 ### Mac
 
-````bash
+```bash
 yarn build-mac
 ```
 
 ### Linux
 
-````bash
+```bash
 yarn build-linux
 ```
 
