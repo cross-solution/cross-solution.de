@@ -13,6 +13,50 @@
   <body>
     <!-- DO NOT touch the following DIV -->
     <div id="q-app"></div>
+    <script type="application/ld+json">
+      {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "CROSS Solution",
+          "url": "https://cross-solution.de",
+          "logo": "https://old.cross-solution.de/wp-content/themes/cross/images/logo.gif",
+          "foundingDate": "2003",
+          "founders": [
+              {
+                  "@type": "Person",
+                  "name": "Carsten Bleek"
+              }
+          ],
+          "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Diemelstrasse 2-4",
+              "addressLocality": "Bockenheim",
+              "addressRegion": "Frankfurt am Main",
+              "postalCode": "60486",
+              "addressCountry": "Deutschland"
+          },
+          "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "telephone": "+49 69 71910360",
+              "email": "info@cross-solution.de"
+          },
+          "sameAs": [
+              "https://old.cross-solution.de"
+          ]}
+    </script>
+    <script type="application/ld+json">
+      {
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "url": "https://cross-solution.de",
+          "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://cross-solution.de/jobs?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+          }
+      }
+    </script>
     <!-- Matomo -->
     <script type="text/javascript">
       var _paq = window._paq || [];
