@@ -71,6 +71,7 @@ grid-container
   height: 100%
 
 .q-card .slogan
+  font-size: 14px
   background-color: $light-blue-1
 
 .q-card button

@@ -5,13 +5,20 @@
       <q-timeline-entry heading>
         Timeline
       </q-timeline-entry>
+      <q-timeline-entry title="Heute" subtitle="2021" side="left">
+        <div>
+          Individuelle Bewerbungsformulare zum Festpreis. Basierend auf Quasar.
+          Gehostet als Github oder Gitlab Pages. Administration von und
+          Integration von Plavetel Telefonanlagen in die eigene Infrastruktur.
+        </div>
+      </q-timeline-entry>
 
-     <q-timeline-entry title="Heute" subtitle="2020" side="right">
+      <q-timeline-entry title="Video Konferenzen" subtitle="2020" side="right">
         <div>
           in 2020 steht das Thema Videokonferenzen im Fokus. Das gibt es von großen
           Anbietern oftmals gratis. Aber wenn Datenschutz wichtig ist, kommt man
           kaum daran vorbei ein Konferenzsystem selbst zu betreiben. Wir unterstützen sie
-          beim Setup von Jitsi oder BlueBigButton.
+          beim Setup und dem Betrieb von Jitsi oder BlueBigButton.
         </div>
       </q-timeline-entry>
 
@@ -42,7 +49,7 @@
           <a
             href="https://about.gitlab.com/blog/2017/11/09/gitlab-vue-one-year-l"
             >zuammen</a
-          >.
+          >. Und wir machen die ersten Erahrungen mit Vue, Strapi und Quasar.
         </div>
       </q-timeline-entry>
 

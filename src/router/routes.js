@@ -9,6 +9,7 @@ const routes = [
         path: 'video-conferencing',
         component: () => import('pages/hosting.vue')
       },
+      { path: 'application-form', component: () => import('pages/application-form.vue') },
       { path: 'job-interviews', component: () => import('pages/jitsi-interview.vue') },
       { path: 'open-source', component: () => import('pages/open-source.vue') },
       { path: 'contact', component: () => import('pages/contact.vue') },

@@ -57,5 +57,6 @@ export default {
   'Salary expectations': 'Gehaltsvorstellung',
   'Currency': 'Währung',
   'Period': 'Zeitraum',
-  'Video Conferencing': 'Videokonferenzen'
+  'Video Conferencing': 'Videokonferenzen',
+  'Indivitual Application Forms': 'Individuelle Bewerbungsformulare'
 }

@@ -13,6 +13,11 @@
                   <q-item-label>{{$t('Video Conferencing')}}</q-item-label>
                 </q-item-section>
               </q-item>
+              <q-item clickable v-close-popup to="/application-form">
+                <q-item-section>
+                  <q-item-label>Bewerbungsformulare</q-item-label>
+                </q-item-section>
+              </q-item>
               <q-item clickable v-close-popup to="/job-interviews">
                 <q-item-section>
                   <q-item-label>Bewerbungsgespräche</q-item-label>
