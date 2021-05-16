@@ -8,9 +8,17 @@
     </p>
     <ul>
        <li>Sie müssen nicht mehr die E-Mail für Bewerbungen veröffentlichen. Das schützt vor ungewünschten E-Mails.</li>
+       <li>Sie können individuelle Fragen stellen und dadurch Rückfragen vermeiden.</li>
        <li>Sie erhalten Bewerbung in einer einheitlicheren Form.</li>
        <li>Sie können einfach feststellen, über welches Jobportal eine Bewerbung kam?</li>
     </ul>
+    <p>
+      Nennen Sie uns die Felder und Fragen, die im Formular erscheinen sollen. Wir 
+      entnehmen Logos, Schriftarten und Styles Ihrer Homepage. Und bereits in einer 
+      Woche haben Sie ein Bewerbungsformular, welches sie zukünftig für all ihre 
+      Stellenanzeigen bis zu einem Volumen von 1000 Bewerbungen pro Monat Nutzen kostenlos 
+      einsetzen können.
+    </p>
     <p>
       Beispiel Formular <a href="https://form.yawik.org">Bewerbungsformular Yawik Demo</a>
     </p>
