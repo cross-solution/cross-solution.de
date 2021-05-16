@@ -23,29 +23,17 @@ cache:
 stages:
   - build
   - deploy
-  - staging
 
 deploy_master:
   stage: deploy
   environment:
-    name: live/$CI_COMMIT_REF_NAME
-    url: https://cross-solution.de
-  only:
-    - master
-  script:
-    - dep deploy
-  resource_group: production
-
-deploy_staging:
-  stage: staging
-  environment:
     name: staging/$CI_COMMIT_REF_NAME
-    url: https://staging.cross-solution.de
+    url: https://cross-solution.de
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
       - node_modules/
-  except:
+  only:
    - master
   before_script:
     - apt -y update && apt -y upgrade && apt install -y rsync
@@ -57,6 +45,6 @@ deploy_staging:
     - echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts
     - rsync -ra --exclude=node_modules --exclude=frankfurt-im-nebel.jpg --delete dist/ssr/ nuxt@cross-solution.de:/srv/cross-solution/ssr/
     - ssh nuxt@cross-solution.de sudo /bin/systemctl restart nodeserver-quasar.service
-  resource_group: staging
+  resource_group: production
 
 
