@@ -19,12 +19,12 @@ add('shared_dirs', [
 ]);
 
 // Project repository
-set('repository', 'https://github.com/cross-solution/cross-solution.de.git');
+set('repository', 'https://gitlab.com/cross-solution/homepage.git');
 
 set('default_stage', 'prod');
 
 // deploy to Hosts
-host('quasar.cross-solution.de')
+host('cross-solution.de')
     ->user('nuxt')
     ->stage('prod')
     ->multiplexing(false)
