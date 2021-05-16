@@ -13,10 +13,10 @@
        <li>Sie können einfach feststellen, über welches Jobportal eine Bewerbung kam?</li>
     </ul>
     <p>
-      Nennen Sie uns die Felder und Fragen, die im Formular erscheinen sollen. Wir 
-      entnehmen Logos, Schriftarten und Styles Ihrer Homepage. Und bereits in einer 
-      Woche haben Sie ein Bewerbungsformular, welches sie zukünftig für all ihre 
-      Stellenanzeigen bis zu einem Volumen von 1000 Bewerbungen pro Monat Nutzen kostenlos 
+      Nennen Sie uns die Felder und Fragen, die im Formular erscheinen sollen. Wir
+      entnehmen Logos, Schriftarten und Styles Ihrer Homepage. Und bereits in einer
+      Woche haben Sie ein Bewerbungsformular, welches sie zukünftig für all ihre
+      Stellenanzeigen bis zu einem Volumen von 1000 Bewerbungen pro Monat Nutzen kostenlos
       einsetzen können.
     </p>
     <p>
