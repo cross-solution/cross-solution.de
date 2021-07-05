@@ -1,8 +1,4 @@
 <template>
-  <div>My component</div>
-</template>
-
-<template>
   <button @click="downloadAsPdf">Download as PDF</button>
 </template>
 
