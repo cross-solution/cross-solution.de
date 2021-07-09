@@ -11,7 +11,7 @@
         <p>
           Jitsi eignet sich für Videocalls, insbesondere für <a href="/job-interviews">Bewerbungsgespräche</a>,
           weil ein Bewerber nur den Link zum Konferenzraum benötigt. Die Einigung auf ein
-          Konferenzsystem entfällt. Man nimmt eifach das eigene.
+          Konferenzsystem entfällt. Man nimmt einfach das eigene.
         </p>
       </div>
     </div>
