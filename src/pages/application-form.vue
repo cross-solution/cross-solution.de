@@ -1,6 +1,9 @@
 <template>
   <q-page padding>
+
     <h1>{{$t('Indivitual Application Forms')}}</h1>
+    <div class="row q-col-gutter-md">
+       <div class="col-6">
     <p>
       Sie schalten Stellenanzeigen noch mit einer Email Adresse? Ein individuelles
       Bewerbungsfomular im eigenen Design muss nicht teuer sein. Bei uns bekommen
@@ -20,12 +23,61 @@
       einsetzen können.
     </p>
     <p>
-      Beispiel Formular <a href="https://form.yawik.org">Bewerbungsformular Yawik Demo</a>
+      Ein Beispiel Formular <a href="https://form.yawik.org">Bewerbungsformular Yawik Demo</a>
     </p>
+    </div>
+ <div class="col-6">
+    <q-carousel
+      swipeable
+      animated
+      v-model="slide"
+      thumbnails
+      infinite
+    >
+      <q-carousel-slide :name="1" img-src="screens/screen1-contact.png">
+        <div class="absolute-bottom custom-caption">
+          <div class="text-left text-h2">Kontakt</div>
+          <div class="text-left text-subtitle1">Adressedaten</div>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide :name="2" img-src="screens/screen2-coverletter.png">
+        <div class="absolute-bottom custom-caption">
+          <div class="text-left text-h2">Anschreiben</div>
+          <div class="text-left text-subtitle1">Mountains</div>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide :name="3" img-src="screens/screen3-attachments.png">
+        <div class="absolute-bottom custom-caption">
+          <div class="text-left text-h2">Anhänge</div>
+          <div class="text-left text-subtitle1">Zeugnisse und Fotos</div>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide :name="4" img-src="screens/screen4-preview.png">
+        <div class="absolute-bottom custom-caption">
+          <div class="text-left text-h2">Voransicht</div>
+          <div class="text-left text-subtitle1">Mountains</div>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide :name="5" img-src="screens/screen5-privacy.png">
+        <div class="absolute-bottom custom-caption">
+          <div class="text-left text-h2">DSGVO</div>
+          <div class="text-left text-subtitle1">Datenschutz</div>
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide :name="6" img-src="screens/screen6-questions.png">
+        <div class="absolute-bottom custom-caption">
+          <div class="text-left text-h2">Fragen</div>
+          <div class="text-left text-subtitle1">individuelle angepasst</div>
+        </div>
+      </q-carousel-slide>
+    </q-carousel>
+    </div>
+    </div>
   </q-page>
 </template>
 
 <script>
+
 export default {
   name: 'ApplicationForms',
   'meta': {
@@ -33,6 +85,20 @@ export default {
     'meta': {
       'description': { name: 'description', content: 'Bewerbungsformulare im eigenen Design und mit individuellen Fagen zum Festpreis.' }
     }
+  },
+  data () {
+    return {
+      slide: 1
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.custom-caption {
+  text-align: center;
+  padding: 12px;
+  color: white;
+  background-color: rgba(0, 0, 0, .3);
+}
+</style>

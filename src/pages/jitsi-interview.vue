@@ -4,10 +4,11 @@
     <div class="row q-gutter-md">
       <div class="col-md-12">
         <p>
-          Jitsi eignet sich sehr gut für Vorstellungs- oder Kennenlerngespräche per Videocall. Ein
-          Kandidat benötigt lediglich einen Link. Eine Registrierung bei einem Drittanbieter entfällt.
-          Da Jitsi auch per Smartphone nutzbar ist, steht einem einfachen Videocall praktisch
-          nichts im Weg. Überzeugen sie sich in unserem Demo.
+          Jitsi eignet sich sehr gut für Vorstellungs- oder Kennenlerngespräche
+          per Videocall. Ein Kandidat benötigt lediglich einen Link. Eine Registrierung
+          bei einem Drittanbieter entfällt. Da Jitsi auch per Smartphone nutzbar
+          ist, steht einem einfachen Videocall praktisch nichts im Weg. Überzeugen
+          sie sich in unserem Demo.
         </p>
       </div>
     </div>
