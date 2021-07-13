@@ -7,7 +7,7 @@
       <download-as-pdf-button />
     </q-tabs>
     <a href="https://github.com/cross-solution">
-      <q-icon name="fab fa-github" size="lg" />
+      <q-icon name="mdi-github" size="lg" />
     </a>
     <p>running quasar: {{this.$q.version}}</p>
   </q-footer>

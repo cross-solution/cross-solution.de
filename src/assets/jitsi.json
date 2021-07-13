@@ -24,7 +24,7 @@
         "tooltip": "eigene Jitsi Instanz"
       },
       {
-        "name": "fas fa-video",
+        "name": "mdi-video",
         "tooltip": "Video Recording"
       }
     ],
@@ -44,7 +44,7 @@
         "tooltip": "eigene Jitsi Instanz"
       },
       {
-        "name": "fas fa-video",
+        "name": "mdi-video",
         "tooltip": "Video Recording"
       },
       {

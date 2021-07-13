@@ -45,7 +45,7 @@
           class="full-width"
           :label="$t('Search Jobs')"
           align="arround"
-          icon="search"
+          icon="mdi-magnify"
           to="/jobs"
           @click="switchDrawerState(false)"
         />
@@ -56,7 +56,7 @@
           class="full-width"
           :label="$t('Post a Job')"
           align="arround"
-          icon="edit"
+          icon="mdi-lead-pencil"
           to="/jobpost"
           @click="switchDrawerState(false)"
         />

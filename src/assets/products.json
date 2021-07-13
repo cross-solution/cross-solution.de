@@ -12,7 +12,7 @@
         "tooltip": "Yarn"
       },
       {
-        "name": "fab fa-vuejs",
+        "name": "mdi-vuejs",
         "tooltip": "Vue"
       },
       {
@@ -20,7 +20,7 @@
         "tooltip": "symfony"
       },
       {
-        "name": "fab fa-react",
+        "name": "mdi-react",
         "tooltip": "react"
       },
       {
@@ -28,7 +28,7 @@
         "tooltip": "python"
       },
       {
-        "name": "fab fa-node-js",
+        "name": "mdi-nodejs",
         "tooltip": "nodejs"
       },
       {
@@ -73,15 +73,19 @@
         "tooltip": "gitlab"
       },
       {
-        "name": "fab fa-git-alt",
+        "name": "mdi-git",
         "tooltip": "Git"
       },
       {
-        "name": "fab fa-github",
+        "name": "mdi-github",
         "tooltip": "GitHub"
       },
       {
-        "name": "fab fa-docker",
+        "name": "mdi-docker",
+        "tooltip": "Docker"
+      },
+      {
+        "name": "mdi-kubernetes",
         "tooltip": "Docker"
       }
     ],
@@ -95,20 +99,20 @@
     "description": "Design setzt die präzise Auseinandersetzung mit der Sache und dem Problem voraus. Das Ergebnis erreicht uns im Netz hauptsächlich optisch. Wir legen Wert auf eine Messbarkeit von UI/UX. Wer Produkte mit intuitivem UI/UX Design hat ist im Vorteil.",
     "icons": [
       {
-        "name": "fab fa-sass",
+        "name": "mdi-sass",
         "tooltip": "sass"
       },
       {
-        "name": "fab fa-font-awesome-flag",
+        "name": "mdi-font-awesome",
         "tooltip": "Font Awesome"
       },
       {
-        "name": "fab fa-bootstrap",
+        "name": "mdi-bootstrap",
         "tooltip": "Bootstrap"
       },
       {
-        "name": "fab fa-less",
-        "tooltip": "less"
+        "name": "mdi-material-ui",
+        "tooltip": "Material Design"
       },
       {
         "name": "fab fa-css3",
