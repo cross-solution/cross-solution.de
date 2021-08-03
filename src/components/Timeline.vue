@@ -7,9 +7,9 @@
       </q-timeline-entry>
       <q-timeline-entry title="Heute" subtitle="2021" side="left">
         <div>
-          Individuelle Bewerbungsformulare zum Festpreis. Basierend auf Quasar.
-          Gehostet als Github oder Gitlab Pages. Administration von und
-          Integration von Plavetel Telefonanlagen in die eigene Infrastruktur.
+          Individuelle <a href="https://gitlab.com/yawik/applicationform/">Bewerbungsformulare</a>
+          zum Festpreis. Basierend auf Quasar. Gehostet als Github oder Gitlab Pages.
+          Integration von Placetel Telefonanlagen in die eigene Infrastruktur.
         </div>
       </q-timeline-entry>
 
@@ -103,19 +103,10 @@
         side="left"
       >
         <div>
-          <ul>
-            <li>Migration Cyrus auf Dovecot mit 1500 Postfächern.</li>
-            <li>Integration Webapplikationen mit Facebook.</li>
-            <li>
-              Unterstützung Migration auf NFS4 und Kerberos für eine
-              Forschungseinrichtungen in Deutschland.
-            </li>
-            <li>
-              Freeswitch Support für eine Fluggesellschaft. Hier warten wir
-              gespannt auf Gemeinschaft 4.0
-            </li>
-            <li>Yate Installation für 250 Teilnehmern.</li>
-          </ul>
+          Migration Cyrus auf Dovecot mit 1500 Postfächern.
+          Unterstützung Migration auf NFS4 und Kerberos für eine
+          Forschungseinrichtungen in Deutschland.
+          Freeswitch Support für eine Fluggesellschaft.
         </div>
       </q-timeline-entry>
 
@@ -154,7 +145,9 @@
         icon="done_all"
       >
         <div>
-          <div class="">Jobportal einer großen Zeitung</div>
+          <div class="">
+            Unterstützung bei der Einführung und dem Betrieb des
+            Jobportals FAZjob.NET der Frankfurter Allgemeinen Zeitung.</div>
         </div>
       </q-timeline-entry>
 
@@ -180,7 +173,7 @@
         <div>
           Entwicklung des <a href="http://joboter.de">Joboter</a>. Alles noch
           mit SVN. Fax- und Voip Server Installationen. Alles noch in
-          Hardwarbeit. ISDN Karten, Kernel kompilieren. In diversen
+          Handarbeit. ISDN Karten, Kernel kompilieren. In diversen
           Veranstaltungen haben wir unsere Lösungen vorgestellt. Von uns
           unbemerkt erscheint
           <a href="https://de.wikipedia.org/wiki/Git">GIT</a>.
@@ -204,7 +197,7 @@
 
       <q-timeline-entry title="Start" subtitle="2003" side="left">
         <div>
-          2003 startet CROSS Solution. Damals noch in der Großen Seestraße. Ein
+          2003 startet CROSS Solution. Ein
           Großteil unserer Erfahrung in der Architektur von Human Ressource
           Systemen für das Online-Recruitment basiert auf sechs Jahren
           maßgeblicher Entwicklung des Jobpilot Stellenmarktes.
