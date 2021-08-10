@@ -104,7 +104,17 @@
           to="/download"
           @click="switchDrawerState(false)"
         />
-
+        <q-separator />
+        <q-btn
+          flat
+          color="primary"
+          class="full-width"
+          label="camera"
+          icon="camera"
+          align="arround"
+          to="/camera"
+          @click="switchDrawerState(false)"
+        />
       </div>
     </q-drawer>
 </template>

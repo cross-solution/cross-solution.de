@@ -27,6 +27,7 @@
     "hellojs": "^1.18.1",
     "iso-639-1": "^2.1.0",
     "jspdf": "^1.5.3",
+    "md-gum-polyfill": "^1.0.0",
     "prismjs": "^1.15.0",
     "quasar": "^1.15.21",
     "vue-cropperjs": "^4.0.1",

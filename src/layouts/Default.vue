@@ -28,6 +28,11 @@
                   <q-item-label>Gitlab Hosting</q-item-label>
                 </q-item-section>
               </q-item>
+              <q-item clickable v-close-popup to="/camera">
+                <q-item-section>
+                  <q-item-label>Camera</q-item-label>
+                </q-item-section>
+              </q-item>
             </q-list>
           </q-btn-dropdown>
           <q-route-tab to="/open-source" label="Open Source" class="gt-xs"/>
