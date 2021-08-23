@@ -4,7 +4,7 @@
 # CROSS Solution
 
 this is the quasar based https://cross-solution.de homepage. It depends on nodejs. You can install it by cloning the repo and
-run yarn to install dependencies.
+run `yarn` to install dependencies.
 
 It contains a few forms that serve as prototypes for the Kickstarter [Lebenslauf Mamager](https://www.kickstarter.com/projects/yavik/manager-fur-lebenslaufe?lang=de).
 
@@ -31,9 +31,9 @@ yarn
 
 optional: 
 
-copy .env.example to .env and adjest the values.
+copy .env.example to .env and adjust the values.
 
-if xou don't do it, login/register and social logins are not working.
+if you don't do it, login/register and social logins are not working.
 
 Start in Single Page Appication (spa) development mode
 
@@ -56,7 +56,7 @@ yarn run lint
 
 ### Build the app for production
 
-copy .env.example to .env.production and adjest the values.
+copy .env.example to .env.production and adjust the values.
 
 ```bash
 yarn build
@@ -70,7 +70,7 @@ yarn serve
 
 ## Electron
 
-you can build a standalone electon binary 
+you can build a standalone electron binary 
 
 ### Windows
 
@@ -95,7 +95,7 @@ yarn build-linux
 you can add yourself to our [Team](https://cross-solution.de/about) by sending us a PR. Team ist currently locates in
 https://github.com/cross-solution/cross-solution.de/blob/master/src/pages/about.vue#L53. Feel free to make it better.
 
-### Setting up VSCode editor to lint/auto format vue/js/html files
+### Setup VSCode editor to lint/auto format vue/js/html files
 
 See [this gist](https://gist.github.com/TiSiE/be6c4bce0a939fb4c906d5fb4e729760)
 
