@@ -1714,10 +1714,10 @@
     update-notifier "5.1.0"
     validate-npm-package-name "3.0.0"
 
-"@quasar/extras@^1.10.8":
-  version "1.10.10"
-  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.10.10.tgz#515c9e9a69043b9d929034b0b0a0dcc8d898027d"
-  integrity sha512-G1zGj/UVfRSA0zqn1lMtIAghww+7CnVT8vqlUht5v9x9B2Wnxyso51TuDyllrZph91Ryi3AwNqY/KS5eRRd2OA==
+"@quasar/extras@^1.11.2":
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.11.2.tgz#07f959cc2a6801052a07b623abf206a9e9ea10c7"
+  integrity sha512-KK8ss5JvkNPowCYo6sEnaaz4cyNBYinLiItEffAN4SglwkzpvfEoPvTtuW2vZxz9n4YT/MHu6pINrajwb0/RLw==
 
 "@quasar/fastclick@1.1.4":
   version "1.1.4"
@@ -12668,10 +12668,10 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-quasar@^1.15.21:
-  version "1.15.23"
-  resolved "https://registry.yarnpkg.com/quasar/-/quasar-1.15.23.tgz#51e6cd343b82734ee9669987a12e6c5b91bd913d"
-  integrity sha512-dAC39JQh1H441DL5f8cFa5Po4WB+Haz2E30RKMrh5bXmeiZoCGpll+RwtTW567J2tRIUzls2l9WzCDzLwx7s2Q==
+quasar@^1.16.0:
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/quasar/-/quasar-1.16.0.tgz#b3eeba6c03860279fa6d423aeb0b83c884517481"
+  integrity sha512-w+XajlXYi1dRYHHD/oRydTv1G3G2edtZ+tWJjnPk4vYUlllUiVsredqrBwqoOogn8qRhpLVS6Og6pona+zIg5A==
 
 query-string@^4.1.0:
   version "4.3.4"
