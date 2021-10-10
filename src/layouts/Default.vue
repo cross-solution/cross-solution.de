@@ -18,6 +18,11 @@
                   <q-item-label>Bewerbungsformulare</q-item-label>
                 </q-item-section>
               </q-item>
+              <q-item clickable v-close-popup to="/jobpost">
+                <q-item-section>
+                  <q-item-label>Jobs für Google</q-item-label>
+                </q-item-section>
+              </q-item>
               <q-item clickable v-close-popup to="/job-interviews">
                 <q-item-section>
                   <q-item-label>Bewerbungsgespräche</q-item-label>

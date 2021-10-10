@@ -5,7 +5,14 @@
       <q-timeline-entry heading>
         Timeline
       </q-timeline-entry>
-      <q-timeline-entry title="Heute" subtitle="2021" side="left">
+      <q-timeline-entry title="Heute" subtitle="2021" side="right">
+        <div>
+          Eingabeformular für <a href="https://yawik.gitlab.io/jobwizard">Stellenanzeigen</a>.
+          Integreation mit Keycloak.
+        </div>
+      </q-timeline-entry>
+
+      <q-timeline-entry title="Bewerbungsformulare" subtitle="2021" side="left">
         <div>
           Individuelle <a href="https://gitlab.com/yawik/applicationform/">Bewerbungsformulare</a>
           zum Festpreis. Basierend auf Quasar. Gehostet als Github oder Gitlab Pages.

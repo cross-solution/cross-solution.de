@@ -68,7 +68,7 @@
           :label="$t('Apply')"
           align="arround"
           icon="mail"
-          to="/apply"
+          to="/application-form"
           @click="switchDrawerState(false)"
         />
         <q-separator />
