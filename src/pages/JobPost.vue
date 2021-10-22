@@ -22,7 +22,7 @@
         </p>
         <p>Jetzt ausprobieren!</p>
         <p class="text-center">
-          <q-btn type="a" target="__blank" color="secondary" href="https://yawik.gitlab.io/jobwizard/">kostenlos Stellenanzeige eingeben</q-btn>
+          <q-btn type="a" target="__blank" color="secondary" href="https://jobwizard.yawik.org/">kostenlos Stellenanzeige eingeben</q-btn>
         </p>
       </div>
       <div class="col-6">

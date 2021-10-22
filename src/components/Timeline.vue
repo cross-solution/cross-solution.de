@@ -7,8 +7,8 @@
       </q-timeline-entry>
       <q-timeline-entry title="Heute" subtitle="2021" side="right">
         <div>
-          Eingabeformular für <a href="https://yawik.gitlab.io/jobwizard">Stellenanzeigen</a>.
-          Integreation mit Keycloak.
+          Eingabeformular für <a href="https://jobwizard.yawik.org">Stellenanzeigen</a>.
+          Integration mit Keycloak und api-framework.
         </div>
       </q-timeline-entry>
 
