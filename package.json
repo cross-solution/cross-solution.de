@@ -58,9 +58,9 @@
     "yaml-loader": "^0.5.0"
   },
   "engines": {
-    "node": ">= 12.22.1",
+    "node": ">= 10.19.0",
     "npm": ">= 5.6.0",
-    "yarn": ">= 1.22.5"
+    "yarn": ">= 1.16.0"
   },
   "browserslist": [
     "last 2 years, >3%, not dead"
