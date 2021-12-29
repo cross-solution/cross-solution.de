@@ -7,14 +7,15 @@
       <div class="col-6">
         <p>
           Sie möchten Stellenanzeigen auf Google Jobs veröffenlichen? Mit dem
-          Jobwizard generieren die Stellenanzeigen, die sie sofort auf Google Jobs
-          veröffentlichen können.
+          Jobwizard können sie Stellenanzeigen erstellen, verwalten und veröffentlichen.
+          Die Anzeigen erfüllen die Spezifikation für Google Jobs und können dort veröffentlicht 
+          werden.
         </p>
         <ul>
           <li>Stellenanzeigen mit eigenem Logo</li>
           <li>Integriertes Markup für Google Jobs</li>
           <li>Responsive. Optimiert für das Handy und den Desktop</li>
-          <li>kostenmlos</li>
+          <li>kostenlos</li>
         </ul>
         <p>
           Der Jobwizard ermöglicht es Bilder und Farben anzupassen.
@@ -61,7 +62,7 @@
 export default {
   name: 'JobPost',
   'meta': {
-    'title': 'Kostenlose Stellenanzeigen für Google Jobs.',
+    'title': 'Eingabetool für Google Jobs.',
     'meta': {
       'description': {
         name: 'description',
