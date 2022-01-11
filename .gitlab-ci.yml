@@ -4,7 +4,7 @@
 
 
 build site:
-  image: node:latest
+  image: node:lts
   stage: build
   script:
     - env | grep -E "(PORT|APP_ID|EMAIL|YAWIK|STRAPI|GOOGLE|HEADER)" > .env.production
