@@ -3,11 +3,14 @@
     <h1>Werte</h1>
     <p>
       Die 5 Werte von CROSS sind Transparenz, Effizenz, Kontinuität, Ergebnis
-      uns Zusammenarbeit.
+      und Zusammenarbeit.
     </p>
     <h2>Ergebnis</h2>
     <p>
-      An erster Stelle steht bei uns das Ergebnis.
+      An erster Stelle steht das Ergebnis. Es wird ständig mit den ursprünglichen Vorgaben
+      verglichen. So wie beim automatischen Testen. Wenn etwas abweicht, wird kontrolliert
+      und nachjustiert. Das Ergebnis ist steht von Anfang an im Mittelpunkt und wird ständig
+      überwacht.
     </p>
     <h2>Transparenz</h2>
     <p>
