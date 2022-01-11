@@ -8,8 +8,17 @@
         <p>
           Sie möchten Stellenanzeigen auf Google Jobs veröffentlichen? Mit dem
           Jobwizard können sie Stellenanzeigen erstellen, verwalten und veröffentlichen.
-          Die Anzeigen erfüllen die Spezifikation für Google Jobs und können dort veröffentlicht
-          werden.
+          Die Anzeigen erfüllen die Spezifikation für <a href="https://jobs.google.com/about/">Google Jobs</a>
+          und können dort veröffentlicht werden.
+        </p>
+        <p>
+          In die eigene Homepage können die Anzeigen durch das Einfügen eines
+          <a href="https://jobwizard.yawik.org/docs/widget/#widget">Widgets</a> hinzugefügt werden. Um die
+          angezeigten Anzeigen auf die eigenen einschränken zu können, muss man sich
+          <a href="https://sso.cross-solution.de/auth/realms/YAWIK/protocol/openid-connect/registrations?client_id=demo&response_mode=fragment&response_type=code&redirect_uri=https://jobwizard.yawik.org/">registrieren</a>
+        </p>
+        <p>
+          Die Registrierung ist kostenlos und dient ausschließlich der zuordnung von Stellenanzeigen zu Nutzern.
         </p>
         <ul>
           <li>Stellenanzeigen mit eigenem Logo</li>
@@ -23,7 +32,7 @@
         </p>
         <p>Jetzt ausprobieren!</p>
         <p class="text-center">
-          <q-btn type="a" target="__blank" color="secondary" href="https://jobwizard.yawik.org/">kostenlos Stellenanzeige eingeben</q-btn>
+          <q-btn no-caps type="a" target="__blank" color="secondary" href="https://jobwizard.yawik.org/">kostenlos Stellenanzeige eingeben</q-btn>
         </p>
       </div>
       <div class="col-6">
