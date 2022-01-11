@@ -8,7 +8,7 @@
         <p>
           Sie möchten Stellenanzeigen auf Google Jobs veröffenlichen? Mit dem
           Jobwizard können sie Stellenanzeigen erstellen, verwalten und veröffentlichen.
-          Die Anzeigen erfüllen die Spezifikation für Google Jobs und können dort veröffentlicht 
+          Die Anzeigen erfüllen die Spezifikation für Google Jobs und können dort veröffentlicht
           werden.
         </p>
         <ul>
