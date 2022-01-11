@@ -6,7 +6,7 @@
     <div class="row q-col-gutter-md">
       <div class="col-6">
         <p>
-          Sie möchten Stellenanzeigen auf Google Jobs veröffenlichen? Mit dem
+          Sie möchten Stellenanzeigen auf Google Jobs veröffentlichen? Mit dem
           Jobwizard können sie Stellenanzeigen erstellen, verwalten und veröffentlichen.
           Die Anzeigen erfüllen die Spezifikation für Google Jobs und können dort veröffentlicht
           werden.
