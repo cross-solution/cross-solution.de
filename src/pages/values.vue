@@ -26,11 +26,13 @@
     </p>
     <h2>Kontinuität</h2>
     <p>
-      Unser Ziel ist die langfristige Zusammenarbeit.
+      Unser Ziel ist eine langfristige Zusammenarbeit. Wir glauben, dass stetige commits eher
+      dahin führen als Glückwünsche zum Jahreswechsel
     </p>
     <h2>Zusammenarbeit</h2>
     <p>
-      Wir lieben die Zusammenarbeit mit Kunden und Softwareentwicklern.
+      Wir lieben die Zusammenarbeit mit Kunden und Softwareentwicklern. Wir möchten Kunden ermöglichen
+      direkt mit Entwicklern kommunizieren zu können,
     </p>
   </q-page>
 </template>

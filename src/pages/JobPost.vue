@@ -18,7 +18,7 @@
           <a href="https://sso.cross-solution.de/auth/realms/YAWIK/protocol/openid-connect/registrations?client_id=demo&response_mode=fragment&response_type=code&redirect_uri=https://jobwizard.yawik.org/">registrieren</a>
         </p>
         <p>
-          Die Registrierung ist kostenlos und dient ausschließlich der zuordnung von Stellenanzeigen zu Nutzern.
+          Die Registrierung ist kostenlos und dient ausschließlich der Zuordnung von Stellenanzeigen zu Nutzern.
         </p>
         <ul>
           <li>Stellenanzeigen mit eigenem Logo</li>
@@ -27,8 +27,7 @@
           <li>kostenlos</li>
         </ul>
         <p>
-          Der Jobwizard ermöglicht es Bilder und Farben anzupassen.
-          Individuelle Anpassungen machen wir gerne.
+          Der Jobwizard ermöglicht es Bilder und Farben anzupassen. Individuelle Anpassungen machen wir gerne.
         </p>
         <p>Jetzt ausprobieren!</p>
         <p class="text-center">
