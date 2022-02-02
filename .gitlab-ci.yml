@@ -34,7 +34,7 @@ deploy_master:
     paths:
       - node_modules/
   only:
-   - master
+   - main
   before_script:
     - apt -y update && apt -y upgrade && apt install -y rsync
   script:
