@@ -10,6 +10,7 @@
   "private": false,
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
+    "start": "node dist/ssr/index.js",
     "lintfix": "node --preserve-symlinks --preserve-symlinks-main ./node_modules/eslint/bin/eslint --ext .js,.vue src --fix",
     "test:jest": "quasar test --unit jest",
     "dev": "quasar dev",
