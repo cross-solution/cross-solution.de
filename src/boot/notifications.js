@@ -60,7 +60,7 @@ function wip () {
         color: 'white',
         noDismiss: false,
         handler () {
-          openURL('https://jobbord.yawik.org')
+          openURL('https://jobboard.yawik.org')
         }
       },
       {
