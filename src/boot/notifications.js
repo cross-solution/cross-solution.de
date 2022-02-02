@@ -47,7 +47,7 @@ function wip () {
 
   Notify.create({
     message:
-      'Wir überarbeiten nach 15 Jahren unsere Homepage. Obwohl noch nicht ganz fertig, ist sie bereits online. Wir ermöglichen Ihnen dadurch auf Github zu verfolgen, wie die Seite entsteht.',
+      'Der Umstieg auf Quasar hat sich gelohnt. Um ihnen zu zeigen, wie effizient man heute mit Quasar entwickeln kann, haben wir ein Eingabetool für Google Jobs und ein Jobportal entwickelt. Alles Open Source und kostenlos. Schauen sie es sich an und zeigen sie es ihrer IT.',
     position: 'bottom-left',
     avatar: 'team/cbleek-460x460.jpeg',
     timeout: 10000,
@@ -56,19 +56,19 @@ function wip () {
     textColor: 'black',
     actions: [
       {
-        label: 'zur alten Version',
+        label: 'zum Jobportal',
         color: 'white',
         noDismiss: false,
         handler () {
-          openURL('https://old.cross-solution.de')
+          openURL('https://jobbord.yawik.org')
         }
       },
       {
-        label: 'zum GitHub Repo',
+        label: 'zur Anzeigeneingabe',
         color: 'white',
         noDismiss: false,
         handler () {
-          openURL('https://github.com/cross-solution/cross-solution.de')
+          openURL('https://jobwizard.yawik.org')
         }
       },
       {
