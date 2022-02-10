@@ -34,11 +34,8 @@ deploy_master:
     paths:
       - node_modules/
   only:
-   - main
-  before_script:
-    - apt -y update && apt -y upgrade && apt install -y rsync
+    - main
   script:
-    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
     - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - mkdir -p ~/.ssh
