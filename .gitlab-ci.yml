@@ -24,7 +24,7 @@ stages:
 
 deploy_master:
   stage: deploy
-  image: registry.gitlab.com/yawik/docker/yarn-git-ssh-rsync:mains
+  image: registry.gitlab.com/yawik/docker/yarn-git-ssh-rsync:main
   environment:
     name: staging/$CI_COMMIT_REF_NAME
     url: https://cross-solution.de
