@@ -54,7 +54,7 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-quasar": "^1.1.0",
     "eslint-plugin-vue": "^5.0.0",
-    "semantic-release": "^17.0.4",
+    "semantic-release": "^19.0.3",
     "standard": "^14.3.1",
     "workbox-webpack-plugin": "^5.0.0",
     "yaml-loader": "^0.5.0"
